@@ -1,0 +1,11 @@
+name: pyzui
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip=22.2.2
+  - python=3.9.13
+  - pip:
+    - gobject==0.1.0
+    - pycairo==1.21.0
+    - pygobject==3.42.2

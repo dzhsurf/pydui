@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "pydui"
+version = "0.1.0"
+description = "Wrap PyGObject into a DuiLib-style UI library"
+authors = ["dzhsurf <dzhsurf@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+gobjectr = "^0.1.0"
+pycairo = "^1.21.0"
+pygobject = "^3.42.2"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+poetry2setup = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
