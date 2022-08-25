@@ -26,7 +26,7 @@ class PyDuiRenderManager(object):
         pass
 
     def get_widget(self, widget_id: str) -> Optional[PyDuiWidget]:
-        pass
+        return PyDuiWidget()
 
 
 @dataclass(frozen=True)
