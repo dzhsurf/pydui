@@ -1,0 +1,46 @@
+:py:mod:`pydui.core.application`
+================================
+
+.. py:module:: pydui.core.application
+
+.. autoapi-nested-parse::
+
+   PyDuiApplication module
+
+   Example::
+
+       PyDuiApplication.main_run()
+
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.application.PyDuiApplication
+
+
+
+
+.. py:class:: PyDuiApplication
+
+   Application global function
+
+   .. py:method:: main_run()
+      :staticmethod:
+
+      Start main run-loop
+
+
+   .. py:method:: main_quit()
+      :staticmethod:
+
+      Quit main run-loop
+
+
+

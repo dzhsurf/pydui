@@ -1,0 +1,25 @@
+:py:mod:`pydui.core`
+====================
+
+.. py:module:: pydui.core
+
+.. autoapi-nested-parse::
+
+   Core Module
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   application/index.rst
+   builder/index.rst
+   layout/index.rst
+   utils/index.rst
+   widget/index.rst
+   window/index.rst
+
+

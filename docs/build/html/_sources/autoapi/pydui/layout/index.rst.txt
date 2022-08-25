@@ -1,0 +1,21 @@
+:py:mod:`pydui.layout`
+======================
+
+.. py:module:: pydui.layout
+
+.. autoapi-nested-parse::
+
+   Layout Module
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   hlayout/index.rst
+   vlayout/index.rst
+
+

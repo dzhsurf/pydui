@@ -5,5 +5,4 @@ __pycache__/
 poetry.lock
 *.swp
 .envrc
-docs/build/
 docs/source/generated/

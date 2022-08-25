@@ -1,0 +1,111 @@
+:py:mod:`pydui.core.layout`
+===========================
+
+.. py:module:: pydui.core.layout
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.layout.PyDuiLayout
+
+
+
+
+.. py:class:: PyDuiLayout
+
+   Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
+
+   Layout base class, all layouts inherit from PyDuiLayout
+
+   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get child widget by widget_id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: get_child_at(index: int) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get child widget at index
+
+      if the index overbound, it will return None.
+
+      :param index: child index
+      :type index: int
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: add_child(child: pydui.core.widget.PyDuiWidget)
+
+      Add child widget.
+
+      :param child: child widget
+      :type child: PyDuiWidget
+
+
+   .. py:method:: add_child_at(child: pydui.core.widget.PyDuiWidget, index: int)
+
+      Add child widget at index
+
+      if the index overbound, it will add widget to last position.
+
+      :param child: child widget
+      :type child: PyDuiWidget
+      :param index: target index
+      :type index: int
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: remove_child(widget_id: str)
+
+      Remove child widget by widget_id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+   .. py:method:: remove_child_at(index: int)
+
+      Remove child widget at index
+
+      if the index overbound, do nothing.
+
+      :param index: widget index
+      :type index: int
+
+
+   .. py:method:: child_count() -> int
+      :property:
+
+      Return child count
+
+      :returns: return child widget count.
+      :rtype: int
+
+
+   .. py:method:: inset() -> tuple[int, int, int, int]
+      :property:
+
+      Return widget inset
+
+      The value in tuple means [left, top, right, bottom]
+
+      :returns: return inset.
+      :rtype: tuple[int, int, int, int]
+
+
+

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pydui.core.layout &mdash; PyDui-GTK https://pypi.org/project/pydui-gtk/ documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> PyDui-GTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyDui-GTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.core.layout</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/pydui/core/layout/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pydui.core.layout">
+<span id="pydui-core-layout"></span><h1><a class="reference internal" href="#module-pydui.core.layout" title="pydui.core.layout"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.core.layout</span></code></a><a class="headerlink" href="#module-pydui.core.layout" title="Permalink to this heading">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a></p></td>
+<td><p>Layout base class, all layouts inherit from PyDuiLayout</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.layout.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayout</span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pydui.core.widget.PyDuiWidget</span></code></a></p>
+<p>Layout base class, all layouts inherit from PyDuiLayout</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.get_child">
+<span class="sig-name descname"><span class="pre">get_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.widget.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.get_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get child widget by widget_id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>widget_id</strong> (<em>str</em>) – widget id</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>return widget object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget">PyDuiWidget</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.get_child_at">
+<span class="sig-name descname"><span class="pre">get_child_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.widget.Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.get_child_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get child widget at index</p>
+<p>if the index overbound, it will return None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – child index</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>return widget object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget">PyDuiWidget</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add child widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – child widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.add_child_at">
+<span class="sig-name descname"><span class="pre">add_child_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.add_child_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add child widget at index</p>
+<p>if the index overbound, it will add widget to last position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>child</strong> (<a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – child widget</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – target index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>return widget object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../widget/index.html#id0" title="pydui.core.widget.PyDuiWidget">PyDuiWidget</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.remove_child">
+<span class="sig-name descname"><span class="pre">remove_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child widget by widget_id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>widget_id</strong> (<em>str</em>) – widget id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.remove_child_at">
+<span class="sig-name descname"><span class="pre">remove_child_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.remove_child_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child widget at index</p>
+<p>if the index overbound, do nothing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – widget index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.child_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">child_count</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.child_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return child count</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>return child widget count.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.inset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inset</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.inset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return widget inset</p>
+<p>The value in tuple means [left, top, right, bottom]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>return inset.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple[int, int, int, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Hiram Deng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

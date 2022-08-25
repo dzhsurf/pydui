@@ -1,0 +1,136 @@
+:py:mod:`pydui.core.widget`
+===========================
+
+.. py:module:: pydui.core.widget
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.widget.PyDuiWidget
+   pydui.core.widget.PyDuiConstraint
+   pydui.core.widget.PyDuiWidget
+
+
+
+
+.. py:class:: PyDuiWidget
+
+   Bases: :py:obj:`object`
+
+
+.. py:class:: PyDuiConstraint
+
+   Constraint dataclass
+
+   .. py:attribute:: min_width
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_width
+      :annotation: :int
+
+      
+
+   .. py:attribute:: min_height
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_height
+      :annotation: :int
+
+      
+
+
+.. py:class:: PyDuiWidget
+
+   Bases: :py:obj:`object`
+
+   Widget base class
+
+   .. py:method:: connect(signal_name: str, callback: callable)
+
+
+   .. py:method:: set_focus()
+
+
+   .. py:method:: parent() -> Optional[PyDuiWidget]
+      :property:
+
+
+   .. py:method:: size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: width() -> int
+      :property:
+
+
+   .. py:method:: height() -> int
+      :property:
+
+
+   .. py:method:: request_size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: request_width() -> int
+      :property:
+
+
+   .. py:method:: request_height() -> int
+      :property:
+
+
+   .. py:method:: xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: x() -> int
+      :property:
+
+
+   .. py:method:: y() -> int
+      :property:
+
+
+   .. py:method:: is_float() -> bool
+      :property:
+
+
+   .. py:method:: padding() -> tuple[int, int, int, int]
+      :property:
+
+
+   .. py:method:: constraint() -> PyDuiConstraint
+      :property:
+
+
+   .. py:method:: visible() -> bool
+      :property:
+
+
+   .. py:method:: enabled() -> bool
+      :property:
+
+
+   .. py:method:: is_focused() -> bool
+      :property:
+
+
+   .. py:method:: bkcolor() -> str
+      :property:
+
+
+   .. py:method:: bkimage() -> str
+      :property:
+
+
+
