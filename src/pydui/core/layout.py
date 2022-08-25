@@ -5,11 +5,9 @@ from pydui.core.widget import *
 
 
 class PyDuiLayout(PyDuiWidget):
-    """PyDuiLayout
 
-    Layout base class, all layouts inherit from PyDuiLayout
+    """Layout base class, all layouts inherit from PyDuiLayout"""
 
-    """
     def __init__(self):
         pass
 
@@ -30,7 +28,7 @@ class PyDuiLayout(PyDuiWidget):
         if the index overbound, it will return None.
 
         Args:
-            index (index): child index
+            index (int): child index
 
         Returns:
             PyDuiWidget: return widget object.

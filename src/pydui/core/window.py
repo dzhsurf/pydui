@@ -21,6 +21,9 @@ class PyDuiWindowHandler(object):
 
 
 class PyDuiRenderManager(object):
+
+    """Render manager"""
+
     # manager all widget
     def __init__(self):
         pass
@@ -31,12 +34,25 @@ class PyDuiRenderManager(object):
 
 @dataclass(frozen=True)
 class PyDuiWindowConfig:
+
+    """Window config dataclass
+
+    Attributes:
+        title (str): window title
+        size (tuple[int, int]): window size
+        positon (Gtk.WindowPosition): window initial position
+
+    """
+
     title: str
     size: tuple[int, int]
     position: Gtk.WindowPosition = Gtk.WindowPosition.CENTER
 
 
 class PyDuiWindow(object):
+
+    """Window object"""
+
     __gtk_window: Gtk.Window
     __manager: PyDuiRenderManager
     __handler: PyDuiWindowHandler

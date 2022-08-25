@@ -16,6 +16,9 @@ class PyDuiWidget(object):
 
 @dataclass(frozen=True)
 class PyDuiConstraint:
+
+    """Constraint dataclass"""
+
     min_width: int = 0
     max_width: int = sys.maxsize
     min_height: int = 0
@@ -23,6 +26,9 @@ class PyDuiConstraint:
 
 
 class PyDuiWidget(object):
+
+    """Widget base class"""
+
     __widget: Gtk.Widget
 
     def __init__(self):

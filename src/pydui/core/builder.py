@@ -1,13 +1,14 @@
 """ PyDuiBuilder module
 
-This module provider resource builder.
+PyDuiBuilder provider construct Widget from xml resource.
+The resource xml file read from local path by default.
+But you can custom the resource provider to compose the ui resources.
 
-Example:
-    literal blocks::
-        PyDuiBuilder.build_window(path='res/main.xml')
+Example::
 
-Todo:
-    * Implement build_window, build_widget function.
+    PyDuiBuilder.build_window(path='res/main.xml')
+
+
 """
 from dataclasses import dataclass
 from typing import Optional, Type
@@ -23,6 +24,9 @@ from pydui.core.window import *
 
 @dataclass(frozen=True)
 class PyDuiBuilder:
+
+    """Build Widget, Window from xml resource"""
+
     @staticmethod
     def __build_window_from_path__(path: str) -> PyDuiWindowConfig:
 
