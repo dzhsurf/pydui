@@ -1,2 +1,2 @@
-"""PyDuiWidgets Module
+"""Widget Module
 """

@@ -1,2 +1,2 @@
-"""PyDui Core Module
+"""Core Module
 """

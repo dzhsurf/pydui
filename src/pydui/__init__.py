@@ -1,6 +1,20 @@
-"""Basic pydui module.
+"""PyDui-GTK modules.
 
-The :mod:`pydui` module
+core: Core module
+    - PyDuiApplication
+    - PyDuiBuilder
+    - PyDuiWindow, PyDuiWindowHandler
+    - PyDuiWidget, PyDuiLayout
+    - PyDuiUtils
+
+widgets: Widget module
+    - Label, Button, Text, Edit, ...
+
+layout: Layout module
+    - HLayout
+    - VLayout
+    - FixedLayout
+    - FitLayout
 
 """
 from .core.application import *

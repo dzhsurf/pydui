@@ -1,4 +1,3 @@
-
 """ PyDuiBuilder module
 
 This module provider resource builder.

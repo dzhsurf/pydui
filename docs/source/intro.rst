@@ -1,4 +1,6 @@
 Introduction
 ============
 
-The purpose of this project is to build UI application more easier.
+.. include:: ../../intro.md
+   :parser: myst_parser.sphinx_
+

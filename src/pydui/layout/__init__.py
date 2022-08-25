@@ -1,2 +1,2 @@
-"""PyDuiLayout Module
+"""Layout Module
 """

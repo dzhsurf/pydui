@@ -18,6 +18,7 @@ release = 'https://pypi.org/project/pydui-gtk/'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
+#    'sphinx.ext.napoleon',
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
 #    'sphinx.ext.autodoc',
