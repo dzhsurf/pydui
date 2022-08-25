@@ -21,7 +21,7 @@ This is a good question because DuiLib only works on windows. And the author wor
 > Even though it's easy to downgrade the python version, personal reasons, the author DO NOT WANT TO KEEP ALL THE VERSION WORK!
 
 ```shell
-pip install pydui
+pip install pydui-gtk
 ```
 
 

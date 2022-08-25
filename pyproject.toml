@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pydui"
+name = "pydui-gtk"
 version = "0.1.0"
 description = "Wrap PyGObject into a DuiLib-style UI library"
 authors = ["dzhsurf <dzhsurf@gmail.com>"]
