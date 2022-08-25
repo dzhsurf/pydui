@@ -1,8 +1,7 @@
 # layout.py
 from dataclasses import dataclass
 
-from pydui.core import *
-
+from pydui.core.widget import *
 
 class PyDuiLayout(PyDuiWidget):
     def __init__(self):

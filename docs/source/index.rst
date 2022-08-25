@@ -11,8 +11,7 @@ Welcome to pydui's documentation!
    :caption: Contents:
 
    intro
-   README
-   api
+   quickstart
 
 
 Indices and tables

@@ -6,3 +6,4 @@ poetry.lock
 *.swp
 .envrc
 docs/build/
+docs/source/generated/

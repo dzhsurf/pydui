@@ -7,9 +7,9 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sys
 import os
-sys.path.insert(0, os.path.abspath('../../src/'))
+sys.path.insert(0, os.path.abspath('../../'))
 
-project = 'pydui'
+project = 'PyDui-GTK'
 copyright = '2022, Hiram Deng'
 author = 'Hiram Deng'
 release = 'https://pypi.org/project/pydui-gtk/'
@@ -17,16 +17,33 @@ release = 'https://pypi.org/project/pydui-gtk/'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', 'myst_parser']
+extensions = [
+    'sphinx.ext.duration',
+    'sphinx.ext.doctest',
+#    'sphinx.ext.autodoc',
+#    'sphinx.ext.autosummary',
+    'autoapi.extension',
+    'myst_parser',
+]
 
+autoapi_type = 'python'
+autoapi_dirs = ['../../src/pydui/']
+autoapi_options = [
+    "members", 
+    "undoc-members",
+    "show-inheritance",
+    "show-module-summary",
+    "imported-members",
+]
+
+autosummary_generate = True
 templates_path = ['_templates']
-exclude_patterns = []
-
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.txt': 'markdown',
-    '.md': 'markdown',
-}
+exclude_patterns = ['_build', '_template', 'generated']
+#source_suffix = {
+#    '.rst': 'restructuredtext',
+#    '.txt': 'markdown',
+#    '.md': 'markdown',
+#}
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

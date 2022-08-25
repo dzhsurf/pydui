@@ -1,1 +1,2 @@
-# __init__.py
+"""PyDui Core Module
+"""

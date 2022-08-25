@@ -14,3 +14,4 @@ dependencies:
     - sphinx-rtd-theme==1.0.0
     - myst_parser==0.18.0
     - recommonmark==0.7.1
+    - sphinx_autoapi==1.9.0
