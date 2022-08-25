@@ -1,4 +1,8 @@
-# __init__.py
+"""Basic pydui module.
+
+The :mod:`pydui` module
+
+"""
 from .core.application import *
 from .core.builder import *
 from .core.widget import *
