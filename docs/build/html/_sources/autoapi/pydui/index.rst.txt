@@ -46,12 +46,17 @@ Classes
 
    pydui.PyDuiApplication
    pydui.PyDuiBuilder
+   pydui.PyDuiLayout
    pydui.PyDuiWidget
    pydui.PyDuiConstraint
    pydui.PyDuiWindow
    pydui.PyDuiWindowHandler
    pydui.PyDuiRenderManager
    pydui.PyDuiWindowConfig
+   pydui.PyDuiFitLayout
+   pydui.PyDuiFixedLayout
+   pydui.PyDuiHLayout
+   pydui.PyDuiVLayout
    pydui.PyDuiWidget
    pydui.PyDuiConstraint
    pydui.PyDuiWindow
@@ -85,7 +90,7 @@ Classes
 
    Build Widget, Window from xml resource
 
-   .. py:method:: build_widget(path: str) -> pydui.core.window.PyDuiWidget
+   .. py:method:: build_widget(path: str) -> pydui.layout.vlayout.PyDuiWidget
       :staticmethod:
 
       Build widget from path
@@ -110,6 +115,98 @@ Classes
 
 
 
+.. py:class:: PyDuiLayout
+
+   Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
+
+   Layout base class, all layouts inherit from PyDuiLayout
+
+   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get child widget by widget_id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: get_child_at(index: int) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get child widget at index
+
+      if the index overbound, it will return None.
+
+      :param index: child index
+      :type index: int
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: add_child(child: pydui.core.widget.PyDuiWidget)
+
+      Add child widget.
+
+      :param child: child widget
+      :type child: PyDuiWidget
+
+
+   .. py:method:: add_child_at(child: pydui.core.widget.PyDuiWidget, index: int)
+
+      Add child widget at index
+
+      if the index overbound, it will add widget to last position.
+
+      :param child: child widget
+      :type child: PyDuiWidget
+      :param index: target index
+      :type index: int
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: remove_child(widget_id: str)
+
+      Remove child widget by widget_id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+   .. py:method:: remove_child_at(index: int)
+
+      Remove child widget at index
+
+      if the index overbound, do nothing.
+
+      :param index: widget index
+      :type index: int
+
+
+   .. py:method:: child_count() -> int
+      :property:
+
+      Return child count
+
+      :returns: return child widget count.
+      :rtype: int
+
+
+   .. py:method:: inset() -> tuple[int, int, int, int]
+      :property:
+
+      Return widget inset
+
+      The value in tuple means [left, top, right, bottom]
+
+      :returns: return inset.
+      :rtype: tuple[int, int, int, int]
+
+
+
 .. py:class:: PyDuiWidget
 
    Bases: :py:obj:`object`
@@ -220,7 +317,7 @@ Classes
       
 
 
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, handler: Type[PyDuiWindowHandler] = None)
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
 
    Bases: :py:obj:`object`
 
@@ -269,7 +366,19 @@ Classes
 
    .. attribute:: size
 
-      window size
+      window size, default is (400, 300)
+
+      :type: tuple[int, int]
+
+   .. attribute:: min_size
+
+      window min size, default is (0, 0)
+
+      :type: tuple[int, int]
+
+   .. attribute:: max_size
+
+      window max size, default is (0, 0), when set to zero, means no limit.
 
       :type: tuple[int, int]
 
@@ -289,10 +398,48 @@ Classes
 
       
 
+   .. py:attribute:: min_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: max_size
+      :annotation: :tuple[int, int]
+
+      
+
    .. py:attribute:: position
       :annotation: :gi.repository.Gtk.WindowPosition
 
       
+
+
+.. py:class:: PyDuiFitLayout
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   FitLayout implement
+
+
+.. py:class:: PyDuiFixedLayout
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   FixedLayout implement
+
+
+.. py:class:: PyDuiHLayout
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   Horizontal layout
+
+
+.. py:class:: PyDuiVLayout
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   Vertical layout
 
 
 .. py:class:: PyDuiWidget
@@ -405,7 +552,7 @@ Classes
       
 
 
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, handler: Type[PyDuiWindowHandler] = None)
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
 
    Bases: :py:obj:`object`
 
@@ -454,7 +601,19 @@ Classes
 
    .. attribute:: size
 
-      window size
+      window size, default is (400, 300)
+
+      :type: tuple[int, int]
+
+   .. attribute:: min_size
+
+      window min size, default is (0, 0)
+
+      :type: tuple[int, int]
+
+   .. attribute:: max_size
+
+      window max size, default is (0, 0), when set to zero, means no limit.
 
       :type: tuple[int, int]
 
@@ -470,6 +629,16 @@ Classes
       
 
    .. py:attribute:: size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: min_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: max_size
       :annotation: :tuple[int, int]
 
       

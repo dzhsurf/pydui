@@ -3,4 +3,49 @@
 
 .. py:module:: pydui.core.utils
 
+.. autoapi-nested-parse::
+
+   Utils function
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.utils.Str2Size
+   pydui.core.utils.Str2Position
+
+
+
+.. py:function:: Str2Size(text: str) -> tuple[int, int]
+
+   Convert text to tuple[int, int]
+
+   if the text in wrong format, it will return (0, 0)
+
+   :param text: input text
+   :type text: str
+
+   Retruns:
+       tuple[int, int]: return size in tuple
+
+
+.. py:function:: Str2Position(text: str) -> gi.repository.Gtk.WindowPosition
+
+   Convert text to Gtk.WindowPosition flag
+
+   if the input not match, it will return Gtk.WindowPosition.CENTER by default.
+
+   :param text: input text
+   :type text: str
+
+   Retruns:
+       Gtk.WindowPosition: return gtk position flag
+
 

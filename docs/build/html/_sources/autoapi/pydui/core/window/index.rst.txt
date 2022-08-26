@@ -54,7 +54,19 @@ Classes
 
    .. attribute:: size
 
-      window size
+      window size, default is (400, 300)
+
+      :type: tuple[int, int]
+
+   .. attribute:: min_size
+
+      window min size, default is (0, 0)
+
+      :type: tuple[int, int]
+
+   .. attribute:: max_size
+
+      window max size, default is (0, 0), when set to zero, means no limit.
 
       :type: tuple[int, int]
 
@@ -74,13 +86,23 @@ Classes
 
       
 
+   .. py:attribute:: min_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: max_size
+      :annotation: :tuple[int, int]
+
+      
+
    .. py:attribute:: position
       :annotation: :gi.repository.Gtk.WindowPosition
 
       
 
 
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, handler: Type[PyDuiWindowHandler] = None)
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
 
    Bases: :py:obj:`object`
 
