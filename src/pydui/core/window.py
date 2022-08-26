@@ -1,4 +1,5 @@
 # window.py
+from __future__ import annotations
 import logging
 from dataclasses import dataclass
 from typing import Optional, Type
@@ -10,14 +11,6 @@ from pydui.core.window import *
 
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-
-
-class PyDuiWindow(object):
-    pass
-
-
-class PyDuiWindowHandler(object):
-    pass
 
 
 class PyDuiRenderManager(object):
