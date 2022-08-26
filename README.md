@@ -1,15 +1,20 @@
-# Introduction
+PyDui Documentation
+===================
+
+[![Docs](https://img.shields.io/badge/docs-latest-informational)](https://dzhsurf.github.io/pydui/)
+
+
+
+## Introduction
 
 **PyDui base on GTK-3, PyGObject**
 
 Even though there is GTK/Glade can quickly and efficiently build a powerful UI Application. But the Glade is not easy enough to learn. Sometimes, we need another solution for rapidly building a simple app. I think, on the windows platform, DuiLib is an option because it's easy to learn.
 
 
-
 **Why not just wrap the DuiLib API ?** 
 
 This is a good question because DuiLib only works on windows. And the author work on mac. So, this is not for cross-platform purposes, just personal reasons.
-
 
 
 **The simple layout rule**
@@ -18,13 +23,11 @@ PyDui only has one layout rule, it's easy to understand how it works.
 
 
 
+## Install
 
+`PyDui require python >= 3.9`
 
-# Install
-
-> PyDui require python >= 3.9 
->
-> Even though it's easy to downgrade the python version, personal reasons, the author DO NOT WANT TO KEEP ALL THE VERSION WORK!
+Even though it's easy to downgrade the python version, personal reasons, the author DO NOT WANT TO KEEP ALL THE VERSION WORK!
 
 ```shell
 pip install pydui-gtk
@@ -32,9 +35,7 @@ pip install pydui-gtk
 
 
 
-
-
-# Code Example
+## Code Example
 
 ```python
 import pydui
@@ -80,8 +81,7 @@ if __name__ == "__main__":
 
 
 
-
-# Build Environment Setup
+## Build Environment Setup
 
 ```shell
 # first, checkout the code
@@ -94,9 +94,7 @@ pip install -e .
 
 
 
-
-
-# Reference
+## Reference
 
 https://lazka.github.io/pgi-docs/Gtk-3.0/index.html
 

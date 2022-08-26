@@ -42,11 +42,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#code-example">Code Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#build-environment-setup">Build Environment Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pydui-documentation">PyDui Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-example">Code Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-environment-setup">Build Environment Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
@@ -78,8 +81,11 @@
              
   <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading">¶</a></h1>
+<section id="pydui-documentation">
+<h2>PyDui Documentation<a class="headerlink" href="#pydui-documentation" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://dzhsurf.github.io/pydui/"><img alt="Docs" src="https://img.shields.io/badge/docs-latest-informational" /></a></p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h3>
 <p><strong>PyDui base on GTK-3, PyGObject</strong></p>
 <p>Even though there is GTK/Glade can quickly and efficiently build a powerful UI Application. But the Glade is not easy enough to learn. Sometimes, we need another solution for rapidly building a simple app. I think, on the windows platform, DuiLib is an option because it’s easy to learn.</p>
 <p><strong>Why not just wrap the DuiLib API ?</strong></p>
@@ -88,17 +94,15 @@
 <p>PyDui only has one layout rule, it’s easy to understand how it works.</p>
 </section>
 <section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h2>
-<blockquote>
-<div><p>PyDui require python &gt;= 3.9</p>
+<h3>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">PyDui</span> <span class="pre">require</span> <span class="pre">python</span> <span class="pre">&gt;=</span> <span class="pre">3.9</span></code></p>
 <p>Even though it’s easy to downgrade the python version, personal reasons, the author DO NOT WANT TO KEEP ALL THE VERSION WORK!</p>
-</div></blockquote>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install pydui-gtk
 </pre></div>
 </div>
 </section>
 <section id="code-example">
-<h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">¶</a></h2>
+<h3>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pydui</span>
 <span class="kn">from</span> <span class="nn">pydui</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -141,7 +145,7 @@
 </div>
 </section>
 <section id="build-environment-setup">
-<h2>Build Environment Setup<a class="headerlink" href="#build-environment-setup" title="Permalink to this heading">¶</a></h2>
+<h3>Build Environment Setup<a class="headerlink" href="#build-environment-setup" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, checkout the code</span>
 <span class="c1"># second, use conda setup environment</span>
 conda env create -f conda_env.yaml
@@ -152,10 +156,11 @@ pip install -e .
 </div>
 </section>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h2>
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h3>
 <p>https://lazka.github.io/pgi-docs/Gtk-3.0/index.html</p>
 <p>https://valadoc.org/gtk+-3.0/index.htm</p>
 <p>https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html</p>
+</section>
 </section>
 </section>
 
