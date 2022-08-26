@@ -39,13 +39,17 @@ class PyDuiWindowConfig:
 
     Attributes:
         title (str): window title
-        size (tuple[int, int]): window size
+        size (tuple[int, int]): window size, default is (400, 300)
+        min_size (tuple[int, int]): window min size, default is (0, 0)
+        max_size (tuple[int, int]): window max size, default is (0, 0), when set to zero, means no limit.
         positon (Gtk.WindowPosition): window initial position
 
     """
 
     title: str
     size: tuple[int, int]
+    min_size: tuple[int, int]
+    max_size: tuple[int, int]
     position: Gtk.WindowPosition = Gtk.WindowPosition.CENTER
 
 
@@ -60,6 +64,7 @@ class PyDuiWindow(object):
     def __init__(
         self,
         config: PyDuiWindowConfig,
+        rootview: PyDuiWidget,
         handler: Type[PyDuiWindowHandler] = None,
     ):
         # Init Gtk Window
@@ -81,7 +86,7 @@ class PyDuiWindow(object):
     ):
         gtk_window.set_title(config.title)
         gtk_window.set_default_size(*config.size)
-        # gtk_window.set_size()
+        gtk_window.set_size_request(*config.min_size)
         gtk_window.set_position(config.position)
 
     def __initial_events__(self):

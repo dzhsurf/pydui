@@ -20,37 +20,98 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 from pydui.core import utils
+from pydui.core.layout import *
 from pydui.core.widget import *
 from pydui.core.window import *
+from pydui.layout.fit_layout import *
+from pydui.layout.fixed_layout import *
+from pydui.layout.hlayout import *
+from pydui.layout.vlayout import *
 
 
 def __process_root_node__(node: ET.Element) -> PyDuiWindowConfig:
     return PyDuiWindowConfig(
         title=node.attrib.get("title", ""),
-        size=utils.Str2Size(node.attrib.get("size", "")),
-        position=utils.Str2Position(node.attrib.get("position", "")),
+        size=utils.Str2Size(node.attrib.get("size", "400,300")),
+        min_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
+        max_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
+        position=utils.Str2Position(node.attrib.get("position", "CENTER")),
     )
 
 
-def __process_tree_node__(node: ET.Element):
-    # node.tag, node.attrib
+def __process_HLayout__(attrib: dict[str, str]) -> PyDuiHLayout:
+    return PyDuiHLayout()
+
+
+def __process_VLayout__(attrib: dict[str, str]) -> PyDuiVLayout:
+    return PyDuiVLayout()
+
+
+def __process_FixedLayout__(attrib: dict[str, str]) -> PyDuiFixedLayout:
+    return PyDuiFixedLayout()
+
+
+def __process_FitLayout__(attrib: dict[str, str]) -> PyDuiFitLayout:
+    return PyDuiFitLayout()
+
+
+def __process_Label__(attrib: dict[str, str]) -> PyDuiWidget:
     pass
 
 
-def __recursive_tree_node__(node: ET.Element, cb: callable):
-    cb(node)
+def __process_Button__(attrib: dict[str, str]) -> PyDuiWidget:
+    pass
+
+
+def __process_tree_node__(node: ET.Element) -> PyDuiWidget:
+    logging.debug(f"node {node.tag}: {node.attrib}")
+    layout_table = {
+        "HLayout": __process_HLayout__,
+        "VLayout": __process_VLayout__,
+        "FixedLayout": __process_FixedLayout__,
+        "FitLayout": __process_FitLayout__,
+    }
+    tag = node.tag
+    attrib = node.attrib
+    if tag in layout_table:
+        return layout_table[tag](attrib)
+
+    internal_widget_table = {
+        "Label": __process_Label__,
+        "Button": __process_Button__,
+    }
+
+    if tag in internal_widget_table:
+        return internal_widget_table[tag](attrib)
+
+    # TODO: handle custom user define widget
+
+    return PyDuiWidget()
+
+
+def __recursive_tree_node__(node: ET.Element, parent_widget: PyDuiLayout, cb: callable):
+    child_widget = cb(node)
+    if parent_widget is not None:
+        parent_widget.add_child(child_widget)
     for child in node:
-        __recursive_tree_node__(child, cb)
+        __recursive_tree_node__(node=child, parent_widget=child_widget, cb=cb)
 
 
-def __build_window_from_path__(path: str) -> PyDuiWindowConfig:
+def __build_window_from_path__(path: str) -> (PyDuiWindowConfig, PyDuiWidget):
     tree = ET.parse(path)
     root = tree.getroot()
     config = __process_root_node__(root)
+    root_widget = PyDuiVLayout()
     for child in root:
-        __recursive_tree_node__(child, __process_tree_node__)
+        __recursive_tree_node__(
+            node=child,
+            parent_widget=root_widget,
+            cb=__process_tree_node__,
+        )
+        # Notice: Only handle first node from root.
+        break
 
-    return config
+    return (config, root_widget)
 
 
 @dataclass(frozen=True)
@@ -80,5 +141,6 @@ class PyDuiBuilder:
         Returns:
             PyDuiWindow: return window object.
         """
-        config = __build_window_from_path__(path)
-        return PyDuiWindow(config=config)
+        config, root_widget = __build_window_from_path__(path)
+        window = PyDuiWindow(config=config, rootview=root_widget)
+        return window

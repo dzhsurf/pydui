@@ -20,7 +20,7 @@ def Str2Size(text: str) -> tuple[int, int]:
     """
     arr = text.split(",")
     if len(arr) != 2:
-        return (0,0)
+        return (0, 0)
 
     return (int(arr[0]), int(arr[1]))
 
@@ -37,7 +37,7 @@ def Str2Position(text: str) -> Gtk.WindowPosition:
         Gtk.WindowPosition: return gtk position flag
     """
     flags_table = {
-        'CENTER': Gtk.WindowPosition.CENTER,
+        "CENTER": Gtk.WindowPosition.CENTER,
     }
     if text in flags_table:
         return flags_table[text]
