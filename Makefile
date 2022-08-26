@@ -41,3 +41,7 @@ pydoc:
 mypy:
 	poetry mypy $(SRC_DIRS)
 
+.PHONY: demo
+demo:
+	pip install -e .
+	poetry run bash -c 'cd src/example/ && python demo.py'

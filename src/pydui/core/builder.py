@@ -10,6 +10,7 @@ Example::
 
 
 """
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from typing import Optional, Type
 
@@ -18,23 +19,44 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
+from pydui.core import utils
 from pydui.core.widget import *
 from pydui.core.window import *
+
+
+def __process_root_node__(node: ET.Element) -> PyDuiWindowConfig:
+    return PyDuiWindowConfig(
+        title=node.attrib.get("title", ""),
+        size=utils.Str2Size(node.attrib.get("size", "")),
+        position=utils.Str2Position(node.attrib.get("position", "")),
+    )
+
+
+def __process_tree_node__(node: ET.Element):
+    # node.tag, node.attrib
+    pass
+
+
+def __recursive_tree_node__(node: ET.Element, cb: callable):
+    cb(node)
+    for child in node:
+        __recursive_tree_node__(child, cb)
+
+
+def __build_window_from_path__(path: str) -> PyDuiWindowConfig:
+    tree = ET.parse(path)
+    root = tree.getroot()
+    config = __process_root_node__(root)
+    for child in root:
+        __recursive_tree_node__(child, __process_tree_node__)
+
+    return config
 
 
 @dataclass(frozen=True)
 class PyDuiBuilder:
 
     """Build Widget, Window from xml resource"""
-
-    @staticmethod
-    def __build_window_from_path__(path: str) -> PyDuiWindowConfig:
-
-        # TODO: load from xml
-        return PyDuiWindowConfig(
-            title="Hello",
-            size=(800, 600),
-        )
 
     @staticmethod
     def build_widget(path: str) -> PyDuiWidget:
@@ -58,5 +80,5 @@ class PyDuiBuilder:
         Returns:
             PyDuiWindow: return window object.
         """
-        config = PyDuiBuilder.__build_window_from_path__(path)
+        config = __build_window_from_path__(path)
         return PyDuiWindow(config=config)

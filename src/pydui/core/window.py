@@ -79,8 +79,9 @@ class PyDuiWindow(object):
         gtk_window: Gtk.Window,
         config: PyDuiWindowConfig,
     ):
-        gtk_window.title = config.title
-        gtk_window.set_size_request(*config.size)
+        gtk_window.set_title(config.title)
+        gtk_window.set_default_size(*config.size)
+        # gtk_window.set_size()
         gtk_window.set_position(config.position)
 
     def __initial_events__(self):

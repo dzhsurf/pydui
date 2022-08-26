@@ -24,10 +24,8 @@ class DemoWindowHandler(PyDuiWindowHandler):
 def main():
     print(f"start pydui version: {pydui.__version__}")
 
-    window = PyDuiBuilder.build_window(
-        path="res/main.xml",
-        handler=DemoWindowHandler,
-    )
+    window = PyDuiBuilder.build_window(path="res/main.xml")
+    # window.set_handler()
     window.show()
 
     PyDuiApplication.main_run()
