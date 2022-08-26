@@ -1,11 +1,13 @@
 # window.py
 from __future__ import annotations
+
 import logging
 from dataclasses import dataclass
 from typing import Optional, Type
 
 import gi
 
+from pydui.core.layout import *
 from pydui.core.widget import *
 from pydui.core.window import *
 
@@ -17,12 +19,34 @@ class PyDuiRenderManager(object):
 
     """Render manager"""
 
+    __window: PyDuiWindow
+    __rootview: PyDuiLayout
+
     # manager all widget
-    def __init__(self):
-        pass
+    def __init__(self, window: PyDuiWindow):
+        self.__window = window
+        self.__rootview = None
+
+    def set_rootview(self, rootview: PyDuiLayout):
+        """set window root view
+
+        Args:
+            rootview (PyDuiWidget): widnow root view
+        """
+        if self.__rootview is not None:
+            # remove from window
+            pass
+        self.__rootview = rootview
+        # add to window
+        self.__window.get_gtk_window().add(rootview.get_gtk_widget())
 
     def get_widget(self, widget_id: str) -> Optional[PyDuiWidget]:
-        return PyDuiWidget()
+        """Get widget by widget id
+
+        Args:
+            widget_id (str): widget id
+        """
+        return self.__rootview.get_child(widget_id)
 
 
 @dataclass(frozen=True)
@@ -62,12 +86,16 @@ class PyDuiWindow(object):
     ):
         # Init Gtk Window
         self.__gtk_window = Gtk.Window()
+
         # Init render manger
-        self.__manager = PyDuiRenderManager()
+        self.__manager = PyDuiRenderManager(window=self)
+        self.__manager.set_rootview(rootview)
+
         # Init handler
         self.__handler = PyDuiWindowHandler(window=self)
         if handler is not None:
             self.__handler = handler(window=self)
+
         # config window
         self.__config_window__(self.__gtk_window, config)
         self.__initial_events__()
@@ -94,8 +122,11 @@ class PyDuiWindow(object):
         logging.debug(f"__on_window_destroy__: {self}, {gtk_object}")
         self.__handler.on_window_destroy()
 
+    def get_gtk_window(self):
+        return self.__gtk_window
+
     def show(self):
-        self.__gtk_window.show()
+        self.__gtk_window.show_all()
 
     def get_widget(self, widget_id: str) -> Optional[PyDuiWidget]:
         return self.__manager.get_widget(widget_id=widget_id)

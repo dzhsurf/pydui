@@ -8,8 +8,13 @@ class PyDuiLayout(PyDuiWidget):
 
     """Layout base class, all layouts inherit from PyDuiLayout"""
 
+    __children: list[PyDuiWidget]
+    __children_id_dict: dict[str, PyDuiWidget]
+
     def __init__(self):
-        pass
+        super().__init__()
+        self.__children = []
+        self.__children_id_dict = {}
 
     def get_child(self, widget_id: str) -> Optional[PyDuiWidget]:
         """Get child widget by widget_id
@@ -20,7 +25,9 @@ class PyDuiLayout(PyDuiWidget):
         Returns:
             PyDuiWidget: return widget object.
         """
-        pass
+        if widget_id in self.__children_id_dict:
+            return self.__children_id_dict[widget_id]
+        return None
 
     def get_child_at(self, index: int) -> Optional[PyDuiWidget]:
         """Get child widget at index
@@ -33,16 +40,29 @@ class PyDuiLayout(PyDuiWidget):
         Returns:
             PyDuiWidget: return widget object.
         """
-        pass
+        if index < 0 or index >= len(self.__children):
+            return None
+        return self.__children[index]
 
     def add_child(self, child: PyDuiWidget):
         """Add child widget.
+
+        if child has been added, ignore.
 
         Args:
             child (PyDuiWidget): child widget
 
         """
-        pass
+        if (child is None) or (self.get_child(child.get_id()) is not None):
+            return
+
+        self.__children.append(child)
+        widget_id = child.get_id()
+        if len(widget_id) > 0 and (widget_id not in self.__children_id_dict):
+            self.__children_dict[widget_id] = child
+        gtk_widget = self.get_gtk_widget()
+        if gtk_widget is not None and child.get_gtk_widget() is not None:
+            gtk_widget.add(child.get_gtk_widget())
 
     def add_child_at(self, child: PyDuiWidget, index: int):
         """Add child widget at index

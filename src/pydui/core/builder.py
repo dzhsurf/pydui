@@ -56,37 +56,40 @@ def __process_FitLayout__(attrib: dict[str, str]) -> PyDuiFitLayout:
 
 
 def __process_Label__(attrib: dict[str, str]) -> PyDuiWidget:
-    pass
+    return PyDuiWidget()
 
 
 def __process_Button__(attrib: dict[str, str]) -> PyDuiWidget:
-    pass
+    return PyDuiWidget()
 
 
 def __process_tree_node__(node: ET.Element) -> PyDuiWidget:
+
     logging.debug(f"node {node.tag}: {node.attrib}")
-    layout_table = {
-        "HLayout": __process_HLayout__,
-        "VLayout": __process_VLayout__,
-        "FixedLayout": __process_FixedLayout__,
-        "FitLayout": __process_FitLayout__,
-    }
     tag = node.tag
     attrib = node.attrib
-    if tag in layout_table:
-        return layout_table[tag](attrib)
 
-    internal_widget_table = {
-        "Label": __process_Label__,
-        "Button": __process_Button__,
-    }
+    def build_gtk_widget():
+        layout_table = {
+            "HLayout": __process_HLayout__,
+            "VLayout": __process_VLayout__,
+            "FixedLayout": __process_FixedLayout__,
+            "FitLayout": __process_FitLayout__,
+        }
+        if tag in layout_table:
+            return layout_table[tag](attrib)
+        internal_widget_table = {
+            "Label": __process_Label__,
+            "Button": __process_Button__,
+        }
+        if tag in internal_widget_table:
+            return internal_widget_table[tag](attrib)
+        # TODO: handle custom user define widget
+        return PyDuiWidget()
 
-    if tag in internal_widget_table:
-        return internal_widget_table[tag](attrib)
-
-    # TODO: handle custom user define widget
-
-    return PyDuiWidget()
+    result = build_gtk_widget()
+    result.parse_attrib(attrib)
+    return result
 
 
 def __recursive_tree_node__(node: ET.Element, parent_widget: PyDuiLayout, cb: callable):

@@ -1,6 +1,7 @@
 # widget.py
 # all ui element is PyDuiWidget
 from __future__ import annotations
+
 import sys
 from dataclasses import dataclass
 from typing import Optional
@@ -8,7 +9,9 @@ from typing import Optional
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import Gdk, Gtk
+
+from pydui.core import utils
 
 
 @dataclass(frozen=True)
@@ -27,9 +30,25 @@ class PyDuiWidget(object):
     """Widget base class"""
 
     __widget: Gtk.Widget
+    __id: str
 
     def __init__(self):
-        pass
+        self.__widget = None
+        self.__id = ""
+
+    def get_id(self) -> str:
+        return self.__id
+
+    def set_gtk_widget(self, gtk_widget: Gtk.Widget):
+        self.__widget = gtk_widget
+
+    def get_gtk_widget(self) -> Gtk.Widget:
+        return self.__widget
+
+    def parse_attrib(self, attrib: dict[str, str]):
+        if "bkcolor" in attrib:
+            color = utils.Str2Color(attrib["bkcolor"])
+            self.__widget.override_background_color(Gtk.StateType.NORMAL, color)
 
     # method
     def connect(self, signal_name: str, callback: callable):

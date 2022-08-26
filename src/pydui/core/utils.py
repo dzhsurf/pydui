@@ -4,7 +4,7 @@
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import Gdk, Gtk
 
 
 def Str2Size(text: str) -> tuple[int, int]:
@@ -43,3 +43,15 @@ def Str2Position(text: str) -> Gtk.WindowPosition:
         return flags_table[text]
 
     return Gtk.WindowPosition.CENTER
+
+
+def Str2Color(text: str) -> Gdk.RGBA:
+    text = text.lstrip("#")
+    text = text.upper()
+    text = text.rjust(8, "F")
+    color = [255, 255, 255, 255]
+    for i in range(4):
+        color[i] = int(text[0:2], 16)
+        text = text[2:]
+
+    return Gdk.RGBA(color[1] / 255, color[2] / 255, color[3] / 255, color[0] / 255)
