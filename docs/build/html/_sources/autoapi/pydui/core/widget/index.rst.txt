@@ -12,16 +12,10 @@ Classes
 
 .. autoapisummary::
 
-   pydui.core.widget.PyDuiWidget
    pydui.core.widget.PyDuiConstraint
    pydui.core.widget.PyDuiWidget
 
 
-
-
-.. py:class:: PyDuiWidget
-
-   Bases: :py:obj:`object`
 
 
 .. py:class:: PyDuiConstraint

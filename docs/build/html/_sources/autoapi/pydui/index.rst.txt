@@ -47,24 +47,24 @@ Classes
    pydui.PyDuiApplication
    pydui.PyDuiBuilder
    pydui.PyDuiLayout
-   pydui.PyDuiWidget
    pydui.PyDuiConstraint
-   pydui.PyDuiWindow
-   pydui.PyDuiWindowHandler
+   pydui.PyDuiWidget
    pydui.PyDuiRenderManager
    pydui.PyDuiWindowConfig
+   pydui.PyDuiWindow
+   pydui.PyDuiWindowHandler
    pydui.PyDuiFitLayout
    pydui.PyDuiFixedLayout
    pydui.PyDuiHLayout
    pydui.PyDuiVLayout
-   pydui.PyDuiWidget
    pydui.PyDuiConstraint
-   pydui.PyDuiWindow
-   pydui.PyDuiWindowHandler
+   pydui.PyDuiWidget
    pydui.PyDuiRenderManager
    pydui.PyDuiWindowConfig
-   pydui.PyDuiWidget
+   pydui.PyDuiWindow
+   pydui.PyDuiWindowHandler
    pydui.PyDuiConstraint
+   pydui.PyDuiWidget
 
 
 
@@ -207,6 +207,31 @@ Classes
 
 
 
+.. py:class:: PyDuiConstraint
+
+   Constraint dataclass
+
+   .. py:attribute:: min_width
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_width
+      :annotation: :int
+
+      
+
+   .. py:attribute:: min_height
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_height
+      :annotation: :int
+
+      
+
+
 .. py:class:: PyDuiWidget
 
    Bases: :py:obj:`object`
@@ -292,58 +317,6 @@ Classes
 
 
 
-.. py:class:: PyDuiConstraint
-
-   Constraint dataclass
-
-   .. py:attribute:: min_width
-      :annotation: :int = 0
-
-      
-
-   .. py:attribute:: max_width
-      :annotation: :int
-
-      
-
-   .. py:attribute:: min_height
-      :annotation: :int = 0
-
-      
-
-   .. py:attribute:: max_height
-      :annotation: :int
-
-      
-
-
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
-
-   Bases: :py:obj:`object`
-
-   Window object
-
-   .. py:method:: show()
-
-
-   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
-
-
-
-.. py:class:: PyDuiWindowHandler(window: PyDuiWindow)
-
-   Bases: :py:obj:`object`
-
-   .. py:method:: window() -> PyDuiWindow
-
-
-   .. py:method:: on_window_show()
-
-
-   .. py:method:: on_window_destroy()
-
-
-
 .. py:class:: PyDuiRenderManager
 
    Bases: :py:obj:`object`
@@ -412,6 +385,33 @@ Classes
       :annotation: :gi.repository.Gtk.WindowPosition
 
       
+
+
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
+
+   Bases: :py:obj:`object`
+
+   Window object
+
+   .. py:method:: show()
+
+
+   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
+
+
+
+.. py:class:: PyDuiWindowHandler(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: window() -> PyDuiWindow
+
+
+   .. py:method:: on_window_show()
+
+
+   .. py:method:: on_window_destroy()
+
 
 
 .. py:class:: PyDuiFitLayout
@@ -442,6 +442,31 @@ Classes
    Vertical layout
 
 
+.. py:class:: PyDuiConstraint
+
+   Constraint dataclass
+
+   .. py:attribute:: min_width
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_width
+      :annotation: :int
+
+      
+
+   .. py:attribute:: min_height
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_height
+      :annotation: :int
+
+      
+
+
 .. py:class:: PyDuiWidget
 
    Bases: :py:obj:`object`
@@ -524,58 +549,6 @@ Classes
 
    .. py:method:: bkimage() -> str
       :property:
-
-
-
-.. py:class:: PyDuiConstraint
-
-   Constraint dataclass
-
-   .. py:attribute:: min_width
-      :annotation: :int = 0
-
-      
-
-   .. py:attribute:: max_width
-      :annotation: :int
-
-      
-
-   .. py:attribute:: min_height
-      :annotation: :int = 0
-
-      
-
-   .. py:attribute:: max_height
-      :annotation: :int
-
-      
-
-
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
-
-   Bases: :py:obj:`object`
-
-   Window object
-
-   .. py:method:: show()
-
-
-   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
-
-
-
-.. py:class:: PyDuiWindowHandler(window: PyDuiWindow)
-
-   Bases: :py:obj:`object`
-
-   .. py:method:: window() -> PyDuiWindow
-
-
-   .. py:method:: on_window_show()
-
-
-   .. py:method:: on_window_destroy()
 
 
 
@@ -649,6 +622,58 @@ Classes
       
 
 
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
+
+   Bases: :py:obj:`object`
+
+   Window object
+
+   .. py:method:: show()
+
+
+   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
+
+
+
+.. py:class:: PyDuiWindowHandler(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: window() -> PyDuiWindow
+
+
+   .. py:method:: on_window_show()
+
+
+   .. py:method:: on_window_destroy()
+
+
+
+.. py:class:: PyDuiConstraint
+
+   Constraint dataclass
+
+   .. py:attribute:: min_width
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_width
+      :annotation: :int
+
+      
+
+   .. py:attribute:: min_height
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_height
+      :annotation: :int
+
+      
+
+
 .. py:class:: PyDuiWidget
 
    Bases: :py:obj:`object`
@@ -732,30 +757,5 @@ Classes
    .. py:method:: bkimage() -> str
       :property:
 
-
-
-.. py:class:: PyDuiConstraint
-
-   Constraint dataclass
-
-   .. py:attribute:: min_width
-      :annotation: :int = 0
-
-      
-
-   .. py:attribute:: max_width
-      :annotation: :int
-
-      
-
-   .. py:attribute:: min_height
-      :annotation: :int = 0
-
-      
-
-   .. py:attribute:: max_height
-      :annotation: :int
-
-      
 
 
