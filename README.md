@@ -1,9 +1,3 @@
-# PyDui 
-
-
-
-
-
 # Introduction
 
 **PyDui base on GTK-3, PyGObject**
@@ -15,6 +9,12 @@ Even though there is GTK/Glade can quickly and efficiently build a powerful UI A
 **Why not just wrap the DuiLib API ?** 
 
 This is a good question because DuiLib only works on windows. And the author work on mac. So, this is not for cross-platform purposes, just personal reasons.
+
+
+
+**The simple layout rule**
+
+PyDui only has one layout rule, it's easy to understand how it works.
 
 
 
@@ -96,7 +96,7 @@ pip install -e .
 
 
 
-# Refference
+# Reference
 
 https://lazka.github.io/pgi-docs/Gtk-3.0/index.html
 
