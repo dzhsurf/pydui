@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Window size="800,600" title='Quickstart Demo' min_size="400,300">
-    <HLayout bkcolor="#FFFFFFFF">
-        <VLayout height="80" bkcolor="#FFA8A8A8">
+    <HLayout bkcolor="#FFFF00FF">
+        <VLayout width="200" bkcolor="#FFA8A8A8">
         </VLayout>
-        <VLayout>
-            <Label id="info" text="hello" />
-            <Button id="button" text="Click Me!" />
+        <VLayout bkcolor="##E8E8E8">
+            <Label id="info" text="hello" bkcolor="#FFFF5050" />
+            <Button id="button" text="Click Me!" bkcolor="#FF50FF00" />
         </VLayout>
     </HLayout>
 </Window>

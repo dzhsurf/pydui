@@ -21,11 +21,16 @@ class PyDuiRenderManager(object):
 
     __window: PyDuiWindow
     __rootview: PyDuiLayout
+    __x: int
+    __y: int
+    __width: int
+    __height: int
 
     # manager all widget
     def __init__(self, window: PyDuiWindow):
         self.__window = window
         self.__rootview = None
+        self.__x, self.__y, self.__width, self.__height = 0, 0, 0, 0
 
     def set_rootview(self, rootview: PyDuiLayout):
         """set window root view
@@ -47,6 +52,24 @@ class PyDuiRenderManager(object):
             widget_id (str): widget id
         """
         return self.__rootview.get_child(widget_id)
+
+    def on_window_size_or_position_change(self, x: int, y: int, width: int, height: int):
+        if x != self.__x or y != self.__y:
+            self.__on_window_position_change__(x=x, y=y)
+        self.__x, self.__y = x, y
+
+        if width != self.__width or height != self.__height:
+            self.__on_window_size_change__(width=width, height=height)
+        self.__width, self.__height = width, height
+
+    def __on_window_position_change__(self, x: int, y: int):
+        pass
+
+    def __on_window_size_change__(self, width: int, height: int):
+        if self.__rootview is None:
+            return
+        print(f"on size: {width} {height}")
+        self.__rootview.layout(width, height)
 
 
 @dataclass(frozen=True)
@@ -111,8 +134,10 @@ class PyDuiWindow(object):
         gtk_window.set_position(config.position)
 
     def __initial_events__(self):
-        self.__gtk_window.connect("show", self.__on_window_show__)
+        self.__gtk_window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
+        self.__gtk_window.connect("configure-event", self.__on_window_size_or_position_change__)
         self.__gtk_window.connect("destroy", self.__on_window_destroy__)
+        # self.__gtk_window.connect("show", self.__on_window_show__)
 
     def __on_window_show__(self, gtk_object: Gtk.Widget):
         logging.debug(f"__on_window_show__: {self}, {gtk_object}")
@@ -121,6 +146,10 @@ class PyDuiWindow(object):
     def __on_window_destroy__(self, gtk_object: Gtk.Widget):
         logging.debug(f"__on_window_destroy__: {self}, {gtk_object}")
         self.__handler.on_window_destroy()
+
+    def __on_window_size_or_position_change__(self, gtk_object: Gtk.Widget, gtk_event: Gdk.EventConfigure):
+        x, y, width, height = gtk_event.x, gtk_event.y, gtk_event.width, gtk_event.height
+        self.__manager.on_window_size_or_position_change(x=x, y=y, width=width, height=height)
 
     def get_gtk_window(self):
         return self.__gtk_window

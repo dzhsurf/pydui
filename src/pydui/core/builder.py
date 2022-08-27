@@ -27,6 +27,8 @@ from pydui.layout.fit_layout import *
 from pydui.layout.fixed_layout import *
 from pydui.layout.hlayout import *
 from pydui.layout.vlayout import *
+from pydui.widgets.button import *
+from pydui.widgets.label import *
 
 
 def __process_root_node__(node: ET.Element) -> PyDuiWindowConfig:
@@ -63,39 +65,35 @@ def __process_Button__(attrib: dict[str, str]) -> PyDuiWidget:
     return PyDuiWidget()
 
 
-def __process_tree_node__(node: ET.Element) -> PyDuiWidget:
+def __process_tree_node__(node: ET.Element, parent_widget: PyDuiLayout) -> PyDuiWidget:
 
     logging.debug(f"node {node.tag}: {node.attrib}")
     tag = node.tag
     attrib = node.attrib
 
     def build_gtk_widget():
-        layout_table = {
-            "HLayout": __process_HLayout__,
-            "VLayout": __process_VLayout__,
-            "FixedLayout": __process_FixedLayout__,
-            "FitLayout": __process_FitLayout__,
+        INTERNAL_WIDGET_TABLE = {
+            "HLayout": PyDuiHLayout,
+            "VLayout": PyDuiVLayout,
+            "FixedLayout": PyDuiFixedLayout,
+            "FitLayout": PyDuiFitLayout,
+            "Label": PyDuiLabel,
+            "Button": PyDuiButton,
         }
-        if tag in layout_table:
-            return layout_table[tag](attrib)
-        internal_widget_table = {
-            "Label": __process_Label__,
-            "Button": __process_Button__,
-        }
-        if tag in internal_widget_table:
-            return internal_widget_table[tag](attrib)
+        if tag in INTERNAL_WIDGET_TABLE:
+            return INTERNAL_WIDGET_TABLE[tag](parent_widget)
         # TODO: handle custom user define widget
-        return PyDuiWidget()
+        return PyDuiWidget(parent_widget)
 
     result = build_gtk_widget()
+    if parent_widget is not None:
+        parent_widget.add_child(result)
     result.parse_attrib(attrib)
     return result
 
 
 def __recursive_tree_node__(node: ET.Element, parent_widget: PyDuiLayout, cb: callable):
-    child_widget = cb(node)
-    if parent_widget is not None:
-        parent_widget.add_child(child_widget)
+    child_widget = cb(node=node, parent_widget=parent_widget)
     for child in node:
         __recursive_tree_node__(node=child, parent_widget=child_widget, cb=cb)
 
@@ -104,7 +102,7 @@ def __build_window_from_path__(path: str) -> (PyDuiWindowConfig, PyDuiWidget):
     tree = ET.parse(path)
     root = tree.getroot()
     config = __process_root_node__(root)
-    root_widget = PyDuiVLayout()
+    root_widget = PyDuiVLayout(None)
     for child in root:
         __recursive_tree_node__(
             node=child,
