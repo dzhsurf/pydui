@@ -9,3 +9,13 @@
 
 
 
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   button/index.rst
+   label/index.rst
+
+

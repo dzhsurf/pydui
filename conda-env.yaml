@@ -15,3 +15,4 @@ dependencies:
     - myst_parser==0.18.0
     - recommonmark==0.7.1
     - sphinx_autoapi==1.9.0
+    - sphinx-intl==2.0.1

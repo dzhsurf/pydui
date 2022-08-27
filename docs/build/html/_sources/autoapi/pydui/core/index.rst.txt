@@ -16,6 +16,7 @@ Submodules
    :maxdepth: 1
 
    application/index.rst
+   base/index.rst
    builder/index.rst
    layout/index.rst
    utils/index.rst

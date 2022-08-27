@@ -1,0 +1,68 @@
+:py:mod:`pydui.core.base`
+=========================
+
+.. py:module:: pydui.core.base
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.base.PyDuiLayoutEnum
+
+
+
+
+.. py:class:: PyDuiLayoutEnum
+
+   Bases: :py:obj:`enum.Enum`
+
+   Layout type enum
+
+   .. attribute:: Undefine
+
+      default
+
+   .. attribute:: HLayout
+
+      horizontal layout
+
+   .. attribute:: VLayout
+
+      vertical layout
+
+   .. py:attribute:: NotLayout
+      :annotation: = 0
+
+      
+
+   .. py:attribute:: HLayout
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: VLayout
+      :annotation: = 2
+
+      
+
+   .. py:attribute:: FitLayout
+      :annotation: = 3
+
+      
+
+   .. py:attribute:: FixedLayout
+      :annotation: = 4
+
+      
+
+   .. py:attribute:: CustomLayout
+      :annotation: = 10
+
+      
+
+

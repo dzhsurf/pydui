@@ -1,0 +1,26 @@
+:py:mod:`pydui.widgets.button`
+==============================
+
+.. py:module:: pydui.widgets.button
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.widgets.button.PyDuiButton
+
+
+
+
+.. py:class:: PyDuiButton(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
+
+   Label widget
+
+

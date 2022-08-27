@@ -20,6 +20,7 @@ Functions
 
    pydui.core.utils.Str2Size
    pydui.core.utils.Str2Position
+   pydui.core.utils.Str2Color
 
 
 
@@ -47,5 +48,8 @@ Functions
 
    Retruns:
        Gtk.WindowPosition: return gtk position flag
+
+
+.. py:function:: Str2Color(text: str) -> gi.repository.Gdk.RGBA
 
 

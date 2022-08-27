@@ -22,7 +22,7 @@ Classes
 
 
 
-.. py:class:: PyDuiFitLayout
+.. py:class:: PyDuiFitLayout(parent: pydui.core.widget.PyDuiWidget)
 
    Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
 

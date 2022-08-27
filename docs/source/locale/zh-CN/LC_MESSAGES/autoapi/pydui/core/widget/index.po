@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Hiram Deng
+# This file is distributed under the same license as the PyDui-GTK package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PyDui-GTK \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-27 09:41-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:2
+msgid ":py:mod:`pydui.core.widget`"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:8
+msgid "Module Contents"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:11
+msgid "Classes"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:20:<autosummary>:1
+msgid ":py:obj:`PyDuiConstraint <pydui.core.widget.PyDuiConstraint>`\\"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:23
+#: ../../source/autoapi/pydui/core/widget/index.rst:20:<autosummary>:1
+msgid "Constraint dataclass"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:20:<autosummary>:1
+msgid ":py:obj:`PyDuiWidget <pydui.core.widget.PyDuiWidget>`\\"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:50
+#: ../../source/autoapi/pydui/core/widget/index.rst:20:<autosummary>:1
+msgid "Widget base class"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:48
+msgid "Bases: :py:obj:`object`"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:54
+msgid "Return widget id"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst
+msgid "Returns"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:56
+#: ../../source/autoapi/pydui/core/widget/index.rst:64
+msgid "widget id"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst
+msgid "Return type"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:62
+msgid "Set widget id"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst
+msgid "Parameters"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:70
+msgid "Set gtk widget"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:72
+#: ../../source/autoapi/pydui/core/widget/index.rst:80
+msgid "Gtk widget object"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:78
+msgid "Return gtk widget object"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:86
+msgid "Return gtk widget layout object"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:88
+msgid "Gtk widget layout object"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:100
+msgid "Parse attrib"
+msgstr ""
+
+#: ../../source/autoapi/pydui/core/widget/index.rst:102
+msgid "attributes dict key=value ..."
+msgstr ""
+

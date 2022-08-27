@@ -27,6 +27,7 @@ extensions = [
     'myst_parser',
 ]
 
+# napolean settings
 napoleon_google_docstring = True
 napoleon_numpy_docstring = True
 napoleon_include_init_with_doc = False
@@ -42,6 +43,7 @@ napoleon_preprocess_types = False
 napoleon_type_aliases = None
 napoleon_attr_annotations = True
 
+# autoapi settings
 autoapi_type = 'python'
 autoapi_dirs = ['../../src/pydui/']
 autoapi_options = [
@@ -52,9 +54,13 @@ autoapi_options = [
     "imported-members",
 ]
 
-autosummary_generate = True
+# sphinx-intl settings
+locale_dirs = ['locale/']
+gettext_compact = False
+
 templates_path = ['_templates']
 exclude_patterns = ['_build', '_template', 'generated']
+#autosummary_generate = True
 #source_suffix = {
 #    '.rst': 'restructuredtext',
 #    '.txt': 'markdown',

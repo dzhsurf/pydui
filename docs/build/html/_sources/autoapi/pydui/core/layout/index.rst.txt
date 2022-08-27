@@ -17,11 +17,14 @@ Classes
 
 
 
-.. py:class:: PyDuiLayout
+.. py:class:: PyDuiLayout(parent: pydui.core.widget.PyDuiWidget, layout_class: pydui.core.widget.PyDuiLayoutEnum, custom_gtk_widget: gi.repository.Gtk.Widget = None)
 
    Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
 
    Layout base class, all layouts inherit from PyDuiLayout
+
+   .. py:method:: layout(width: int, height: int)
+
 
    .. py:method:: get_child(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
 
@@ -50,6 +53,8 @@ Classes
    .. py:method:: add_child(child: pydui.core.widget.PyDuiWidget)
 
       Add child widget.
+
+      if child has been added, ignore.
 
       :param child: child widget
       :type child: PyDuiWidget

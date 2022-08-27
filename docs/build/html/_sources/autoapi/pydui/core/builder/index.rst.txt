@@ -35,7 +35,7 @@ Classes
 
    Build Widget, Window from xml resource
 
-   .. py:method:: build_widget(path: str) -> pydui.layout.vlayout.PyDuiWidget
+   .. py:method:: build_widget(path: str) -> pydui.widgets.label.PyDuiWidget
       :staticmethod:
 
       Build widget from path
