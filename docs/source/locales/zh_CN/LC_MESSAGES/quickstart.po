@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PyDui-GTK main\n"
+"Project-Id-Version: PyDui-GTK latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-27 18:00-0700\n"
+"POT-Creation-Date: 2022-08-27 20:38-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,33 +17,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: ../../source/quickstart.rst:2
+#: ../../../source/quickstart.rst:2
 msgid "Quickstart"
 msgstr ""
 
-#: ../../../README.md:1
+#: ../../../../README.md:1
 msgid "PyDui Documentation"
 msgstr ""
 
-#: ../../../README.md:4
+#: ../../../../README.md:4
 msgid ""
 "[![Docs](https://img.shields.io/badge/docs-latest-"
 "informational)](https://dzhsurf.github.io/pydui/)"
 msgstr ""
 
-#: ../../../README.md:4
+#: ../../../../README.md:4
 msgid "Docs"
 msgstr ""
 
-#: ../../../README.md:8
+#: ../../../../README.md:8
 msgid "Introduction"
 msgstr ""
 
-#: ../../../README.md:10
+#: ../../../../README.md:10
 msgid "**PyDui base on GTK-3, PyGObject**"
 msgstr ""
 
-#: ../../../README.md:12
+#: ../../../../README.md:12
 msgid ""
 "Even though there is GTK/Glade can quickly and efficiently build a "
 "powerful UI Application. But the Glade is not easy enough to learn. "
@@ -52,60 +52,60 @@ msgid ""
 "learn."
 msgstr ""
 
-#: ../../../README.md:15
+#: ../../../../README.md:15
 msgid "**Why not just wrap the DuiLib API ?**"
 msgstr ""
 
-#: ../../../README.md:17
+#: ../../../../README.md:17
 msgid ""
 "This is a good question because DuiLib only works on windows. And the "
 "author work on mac. So, this is not for cross-platform purposes, just "
 "personal reasons."
 msgstr ""
 
-#: ../../../README.md:20
+#: ../../../../README.md:20
 msgid "**The simple layout rule**"
 msgstr ""
 
-#: ../../../README.md:22
+#: ../../../../README.md:22
 msgid "PyDui only has one layout rule, it's easy to understand how it works."
 msgstr ""
 
-#: ../../../README.md:26
+#: ../../../../README.md:26
 msgid "Install"
 msgstr ""
 
-#: ../../../README.md:28
+#: ../../../../README.md:28
 msgid "`PyDui require python >= 3.9`"
 msgstr ""
 
-#: ../../../README.md:30
+#: ../../../../README.md:30
 msgid ""
 "Even though it's easy to downgrade the python version, personal reasons, "
 "the author DO NOT WANT TO KEEP ALL THE VERSION WORK!"
 msgstr ""
 
-#: ../../../README.md:38
+#: ../../../../README.md:38
 msgid "Code Example"
 msgstr ""
 
-#: ../../../README.md:84
+#: ../../../../README.md:84
 msgid "Build Environment Setup"
 msgstr ""
 
-#: ../../../README.md:97
+#: ../../../../README.md:97
 msgid "Reference"
 msgstr ""
 
-#: ../../../README.md:99
+#: ../../../../README.md:99
 msgid "https://lazka.github.io/pgi-docs/Gtk-3.0/index.html"
 msgstr ""
 
-#: ../../../README.md:101
+#: ../../../../README.md:101
 msgid "https://valadoc.org/gtk+-3.0/index.htm"
 msgstr ""
 
-#: ../../../README.md:103
+#: ../../../../README.md:103
 msgid "https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html"
 msgstr ""
 

@@ -21,7 +21,7 @@ help:
 
 .PHONY: 
 intl:
-	sphinx-intl update -p build/gettext -l zh_CN -l zh_TW
+	sphinx-intl update -p en/latest/gettext -l zh_CN 
 
 intl-build:
 	make html

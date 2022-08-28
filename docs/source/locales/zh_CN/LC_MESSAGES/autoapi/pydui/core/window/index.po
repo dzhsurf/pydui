@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Hiram Deng
+# This file is distributed under the same license as the PyDui-GTK package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PyDui-GTK latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-27 20:38-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:2
+msgid ":py:mod:`pydui.core.window`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:8
+msgid "Module Contents"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:11
+msgid "Classes"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:22:<autosummary>:1
+msgid ":py:obj:`PyDuiRenderManager <pydui.core.window.PyDuiRenderManager>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:27
+#: ../../../source/autoapi/pydui/core/window/index.rst:22:<autosummary>:1
+msgid "Render manager"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:22:<autosummary>:1
+msgid ":py:obj:`PyDuiWindowConfig <pydui.core.window.PyDuiWindowConfig>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:51
+#: ../../../source/autoapi/pydui/core/window/index.rst:22:<autosummary>:1
+msgid "Window config dataclass"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:22:<autosummary>:1
+msgid ":py:obj:`PyDuiWindow <pydui.core.window.PyDuiWindow>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:113
+#: ../../../source/autoapi/pydui/core/window/index.rst:22:<autosummary>:1
+msgid "Window object"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:22:<autosummary>:1
+msgid ":py:obj:`PyDuiWindowHandler <pydui.core.window.PyDuiWindowHandler>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:25
+#: ../../../source/autoapi/pydui/core/window/index.rst:111
+#: ../../../source/autoapi/pydui/core/window/index.rst:127
+msgid "Bases: :py:obj:`object`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:31
+msgid "set window root view"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst
+msgid "Parameters"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:33
+msgid "widnow root view"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:39
+msgid "Get widget by widget id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:41
+msgid "widget id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:55
+msgid "window title"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst
+msgid "type"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:57
+msgid "str"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:61
+msgid "window size, default is (400, 300)"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:63
+#: ../../../source/autoapi/pydui/core/window/index.rst:69
+#: ../../../source/autoapi/pydui/core/window/index.rst:75
+msgid "tuple[int, int]"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:67
+msgid "window min size, default is (0, 0)"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:73
+msgid "window max size, default is (0, 0), when set to zero, means no limit."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:79
+msgid "window initial position"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/window/index.rst:81
+msgid "Gtk.WindowPosition"
+msgstr ""
+

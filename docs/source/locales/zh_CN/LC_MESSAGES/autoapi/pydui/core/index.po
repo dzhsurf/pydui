@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PyDui-GTK main\n"
+"Project-Id-Version: PyDui-GTK latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-27 18:00-0700\n"
+"POT-Creation-Date: 2022-08-27 20:38-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: ../../source/index.rst:9
-msgid "Contents:"
+#: ../../../source/autoapi/pydui/core/index.rst:2
+msgid ":py:mod:`pydui.core`"
 msgstr ""
 
-#: ../../source/index.rst:7
-msgid "Welcome to pydui's documentation!"
+#: ../../../source/autoapi/pydui/core/index.rst:8
+msgid "Core Module"
 msgstr ""
 
-#: ../../source/index.rst:18
-msgid "Indices and tables"
-msgstr ""
-
-#: ../../source/index.rst:20
-msgid ":ref:`genindex`"
-msgstr ""
-
-#: ../../source/index.rst:21
-msgid ":ref:`modindex`"
-msgstr ""
-
-#: ../../source/index.rst:22
-msgid ":ref:`search`"
+#: ../../../source/autoapi/pydui/core/index.rst:13
+msgid "Submodules"
 msgstr ""
 

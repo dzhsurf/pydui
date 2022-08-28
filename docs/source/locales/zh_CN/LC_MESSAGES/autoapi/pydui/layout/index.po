@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Hiram Deng
+# This file is distributed under the same license as the PyDui-GTK package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PyDui-GTK latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-27 20:38-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../../source/autoapi/pydui/layout/index.rst:2
+msgid ":py:mod:`pydui.layout`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:8
+msgid "Layout Module"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:13
+msgid "Submodules"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:25
+msgid "Package Contents"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:28
+msgid "Classes"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid ":py:obj:`PyDuiFitLayout <pydui.layout.PyDuiFitLayout>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:60
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid "FitLayout implement"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid ":py:obj:`PyDuiLayout <pydui.layout.PyDuiLayout>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:67
+#: ../../../source/autoapi/pydui/layout/index.rst:449
+#: ../../../source/autoapi/pydui/layout/index.rst:736
+#: ../../../source/autoapi/pydui/layout/index.rst:1072
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid "Layout base class, all layouts inherit from PyDuiLayout"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid ":py:obj:`PyDuiLayoutEnum <pydui.layout.PyDuiLayoutEnum>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:164
+#: ../../../source/autoapi/pydui/layout/index.rst:400
+#: ../../../source/autoapi/pydui/layout/index.rst:833
+#: ../../../source/autoapi/pydui/layout/index.rst:1169
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid "Layout type enum"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid ":py:obj:`PyDuiConstraint <pydui.layout.PyDuiConstraint>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:211
+#: ../../../source/autoapi/pydui/layout/index.rst:544
+#: ../../../source/autoapi/pydui/layout/index.rst:880
+#: ../../../source/autoapi/pydui/layout/index.rst:1216
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid "Constraint dataclass"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid ":py:obj:`PyDuiWidget <pydui.layout.PyDuiWidget>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:238
+#: ../../../source/autoapi/pydui/layout/index.rst:571
+#: ../../../source/autoapi/pydui/layout/index.rst:907
+#: ../../../source/autoapi/pydui/layout/index.rst:1243
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid "Widget base class"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid ":py:obj:`PyDuiFixedLayout <pydui.layout.PyDuiFixedLayout>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:393
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid "FixedLayout implement"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid ":py:obj:`PyDuiHLayout <pydui.layout.PyDuiHLayout>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:726
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid "Horizontal layout"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid ":py:obj:`PyDuiVLayout <pydui.layout.PyDuiVLayout>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:1062
+#: ../../../source/autoapi/pydui/layout/index.rst:55:<autosummary>:1
+msgid "Vertical layout"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:58
+#: ../../../source/autoapi/pydui/layout/index.rst:391
+#: ../../../source/autoapi/pydui/layout/index.rst:724
+#: ../../../source/autoapi/pydui/layout/index.rst:1060
+msgid "Bases: :py:obj:`pydui.core.layout.PyDuiLayout`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:65
+#: ../../../source/autoapi/pydui/layout/index.rst:447
+#: ../../../source/autoapi/pydui/layout/index.rst:734
+#: ../../../source/autoapi/pydui/layout/index.rst:1070
+msgid "Bases: :py:obj:`pydui.core.widget.PyDuiWidget`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:74
+#: ../../../source/autoapi/pydui/layout/index.rst:456
+#: ../../../source/autoapi/pydui/layout/index.rst:743
+#: ../../../source/autoapi/pydui/layout/index.rst:1079
+msgid "Get child widget by widget_id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst
+msgid "Parameters"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:76
+#: ../../../source/autoapi/pydui/layout/index.rst:125
+#: ../../../source/autoapi/pydui/layout/index.rst:244
+#: ../../../source/autoapi/pydui/layout/index.rst:252
+#: ../../../source/autoapi/pydui/layout/index.rst:458
+#: ../../../source/autoapi/pydui/layout/index.rst:507
+#: ../../../source/autoapi/pydui/layout/index.rst:577
+#: ../../../source/autoapi/pydui/layout/index.rst:585
+#: ../../../source/autoapi/pydui/layout/index.rst:745
+#: ../../../source/autoapi/pydui/layout/index.rst:794
+#: ../../../source/autoapi/pydui/layout/index.rst:913
+#: ../../../source/autoapi/pydui/layout/index.rst:921
+#: ../../../source/autoapi/pydui/layout/index.rst:1081
+#: ../../../source/autoapi/pydui/layout/index.rst:1130
+#: ../../../source/autoapi/pydui/layout/index.rst:1249
+#: ../../../source/autoapi/pydui/layout/index.rst:1257
+msgid "widget id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst
+msgid "Returns"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:79
+#: ../../../source/autoapi/pydui/layout/index.rst:92
+#: ../../../source/autoapi/pydui/layout/index.rst:117
+#: ../../../source/autoapi/pydui/layout/index.rst:461
+#: ../../../source/autoapi/pydui/layout/index.rst:474
+#: ../../../source/autoapi/pydui/layout/index.rst:499
+#: ../../../source/autoapi/pydui/layout/index.rst:748
+#: ../../../source/autoapi/pydui/layout/index.rst:761
+#: ../../../source/autoapi/pydui/layout/index.rst:786
+#: ../../../source/autoapi/pydui/layout/index.rst:1084
+#: ../../../source/autoapi/pydui/layout/index.rst:1097
+#: ../../../source/autoapi/pydui/layout/index.rst:1122
+msgid "return widget object."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst
+msgid "Return type"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:85
+#: ../../../source/autoapi/pydui/layout/index.rst:467
+#: ../../../source/autoapi/pydui/layout/index.rst:754
+#: ../../../source/autoapi/pydui/layout/index.rst:1090
+msgid "Get child widget at index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:87
+#: ../../../source/autoapi/pydui/layout/index.rst:469
+#: ../../../source/autoapi/pydui/layout/index.rst:756
+#: ../../../source/autoapi/pydui/layout/index.rst:1092
+msgid "if the index overbound, it will return None."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:89
+#: ../../../source/autoapi/pydui/layout/index.rst:471
+#: ../../../source/autoapi/pydui/layout/index.rst:758
+#: ../../../source/autoapi/pydui/layout/index.rst:1094
+msgid "child index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:98
+#: ../../../source/autoapi/pydui/layout/index.rst:480
+#: ../../../source/autoapi/pydui/layout/index.rst:767
+#: ../../../source/autoapi/pydui/layout/index.rst:1103
+msgid "Add child widget."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:100
+#: ../../../source/autoapi/pydui/layout/index.rst:482
+#: ../../../source/autoapi/pydui/layout/index.rst:769
+#: ../../../source/autoapi/pydui/layout/index.rst:1105
+msgid "if child has been added, ignore."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:102
+#: ../../../source/autoapi/pydui/layout/index.rst:112
+#: ../../../source/autoapi/pydui/layout/index.rst:484
+#: ../../../source/autoapi/pydui/layout/index.rst:494
+#: ../../../source/autoapi/pydui/layout/index.rst:771
+#: ../../../source/autoapi/pydui/layout/index.rst:781
+#: ../../../source/autoapi/pydui/layout/index.rst:1107
+#: ../../../source/autoapi/pydui/layout/index.rst:1117
+msgid "child widget"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:108
+#: ../../../source/autoapi/pydui/layout/index.rst:490
+#: ../../../source/autoapi/pydui/layout/index.rst:777
+#: ../../../source/autoapi/pydui/layout/index.rst:1113
+msgid "Add child widget at index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:110
+#: ../../../source/autoapi/pydui/layout/index.rst:492
+#: ../../../source/autoapi/pydui/layout/index.rst:779
+#: ../../../source/autoapi/pydui/layout/index.rst:1115
+msgid "if the index overbound, it will add widget to last position."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:114
+#: ../../../source/autoapi/pydui/layout/index.rst:496
+#: ../../../source/autoapi/pydui/layout/index.rst:783
+#: ../../../source/autoapi/pydui/layout/index.rst:1119
+msgid "target index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:123
+#: ../../../source/autoapi/pydui/layout/index.rst:505
+#: ../../../source/autoapi/pydui/layout/index.rst:792
+#: ../../../source/autoapi/pydui/layout/index.rst:1128
+msgid "Remove child widget by widget_id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:131
+#: ../../../source/autoapi/pydui/layout/index.rst:513
+#: ../../../source/autoapi/pydui/layout/index.rst:800
+#: ../../../source/autoapi/pydui/layout/index.rst:1136
+msgid "Remove child widget at index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:133
+#: ../../../source/autoapi/pydui/layout/index.rst:515
+#: ../../../source/autoapi/pydui/layout/index.rst:802
+#: ../../../source/autoapi/pydui/layout/index.rst:1138
+msgid "if the index overbound, do nothing."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:135
+#: ../../../source/autoapi/pydui/layout/index.rst:517
+#: ../../../source/autoapi/pydui/layout/index.rst:804
+#: ../../../source/autoapi/pydui/layout/index.rst:1140
+msgid "widget index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:142
+#: ../../../source/autoapi/pydui/layout/index.rst:524
+#: ../../../source/autoapi/pydui/layout/index.rst:811
+#: ../../../source/autoapi/pydui/layout/index.rst:1147
+msgid "Return child count"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:144
+#: ../../../source/autoapi/pydui/layout/index.rst:526
+#: ../../../source/autoapi/pydui/layout/index.rst:813
+#: ../../../source/autoapi/pydui/layout/index.rst:1149
+msgid "return child widget count."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:151
+#: ../../../source/autoapi/pydui/layout/index.rst:533
+#: ../../../source/autoapi/pydui/layout/index.rst:820
+#: ../../../source/autoapi/pydui/layout/index.rst:1156
+msgid "Return widget inset"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:153
+#: ../../../source/autoapi/pydui/layout/index.rst:535
+#: ../../../source/autoapi/pydui/layout/index.rst:822
+#: ../../../source/autoapi/pydui/layout/index.rst:1158
+msgid "The value in tuple means [left, top, right, bottom]"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:155
+#: ../../../source/autoapi/pydui/layout/index.rst:537
+#: ../../../source/autoapi/pydui/layout/index.rst:824
+#: ../../../source/autoapi/pydui/layout/index.rst:1160
+msgid "return inset."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:162
+#: ../../../source/autoapi/pydui/layout/index.rst:398
+#: ../../../source/autoapi/pydui/layout/index.rst:831
+#: ../../../source/autoapi/pydui/layout/index.rst:1167
+msgid "Bases: :py:obj:`enum.Enum`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:168
+#: ../../../source/autoapi/pydui/layout/index.rst:404
+#: ../../../source/autoapi/pydui/layout/index.rst:837
+#: ../../../source/autoapi/pydui/layout/index.rst:1173
+msgid "default"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:172
+#: ../../../source/autoapi/pydui/layout/index.rst:408
+#: ../../../source/autoapi/pydui/layout/index.rst:841
+#: ../../../source/autoapi/pydui/layout/index.rst:1177
+msgid "horizontal layout"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:176
+#: ../../../source/autoapi/pydui/layout/index.rst:412
+#: ../../../source/autoapi/pydui/layout/index.rst:845
+#: ../../../source/autoapi/pydui/layout/index.rst:1181
+msgid "vertical layout"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:236
+#: ../../../source/autoapi/pydui/layout/index.rst:569
+#: ../../../source/autoapi/pydui/layout/index.rst:905
+#: ../../../source/autoapi/pydui/layout/index.rst:1241
+msgid "Bases: :py:obj:`object`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:242
+#: ../../../source/autoapi/pydui/layout/index.rst:575
+#: ../../../source/autoapi/pydui/layout/index.rst:911
+#: ../../../source/autoapi/pydui/layout/index.rst:1247
+msgid "Return widget id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:250
+#: ../../../source/autoapi/pydui/layout/index.rst:583
+#: ../../../source/autoapi/pydui/layout/index.rst:919
+#: ../../../source/autoapi/pydui/layout/index.rst:1255
+msgid "Set widget id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:258
+#: ../../../source/autoapi/pydui/layout/index.rst:591
+#: ../../../source/autoapi/pydui/layout/index.rst:927
+#: ../../../source/autoapi/pydui/layout/index.rst:1263
+msgid "Set gtk widget"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:260
+#: ../../../source/autoapi/pydui/layout/index.rst:268
+#: ../../../source/autoapi/pydui/layout/index.rst:593
+#: ../../../source/autoapi/pydui/layout/index.rst:601
+#: ../../../source/autoapi/pydui/layout/index.rst:929
+#: ../../../source/autoapi/pydui/layout/index.rst:937
+#: ../../../source/autoapi/pydui/layout/index.rst:1265
+#: ../../../source/autoapi/pydui/layout/index.rst:1273
+msgid "Gtk widget object"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:266
+#: ../../../source/autoapi/pydui/layout/index.rst:599
+#: ../../../source/autoapi/pydui/layout/index.rst:935
+#: ../../../source/autoapi/pydui/layout/index.rst:1271
+msgid "Return gtk widget object"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:274
+#: ../../../source/autoapi/pydui/layout/index.rst:607
+#: ../../../source/autoapi/pydui/layout/index.rst:943
+#: ../../../source/autoapi/pydui/layout/index.rst:1279
+msgid "Return gtk widget layout object"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:276
+#: ../../../source/autoapi/pydui/layout/index.rst:609
+#: ../../../source/autoapi/pydui/layout/index.rst:945
+#: ../../../source/autoapi/pydui/layout/index.rst:1281
+msgid "Gtk widget layout object"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:288
+#: ../../../source/autoapi/pydui/layout/index.rst:621
+#: ../../../source/autoapi/pydui/layout/index.rst:957
+#: ../../../source/autoapi/pydui/layout/index.rst:1293
+msgid "Parse attrib"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/layout/index.rst:290
+#: ../../../source/autoapi/pydui/layout/index.rst:623
+#: ../../../source/autoapi/pydui/layout/index.rst:959
+#: ../../../source/autoapi/pydui/layout/index.rst:1295
+msgid "attributes dict key=value ..."
+msgstr ""
+

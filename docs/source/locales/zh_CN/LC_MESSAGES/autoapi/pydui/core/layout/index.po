@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Hiram Deng
+# This file is distributed under the same license as the PyDui-GTK package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PyDui-GTK latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-27 20:38-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:2
+msgid ":py:mod:`pydui.core.layout`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:8
+msgid "Module Contents"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:11
+msgid "Classes"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:19:<autosummary>:1
+msgid ":py:obj:`PyDuiLayout <pydui.core.layout.PyDuiLayout>`\\"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:24
+#: ../../../source/autoapi/pydui/core/layout/index.rst:19:<autosummary>:1
+msgid "Layout base class, all layouts inherit from PyDuiLayout"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:22
+msgid "Bases: :py:obj:`pydui.core.widget.PyDuiWidget`"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:31
+msgid "Get child widget by widget_id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst
+msgid "Parameters"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:33
+#: ../../../source/autoapi/pydui/core/layout/index.rst:82
+msgid "widget id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst
+msgid "Returns"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:36
+#: ../../../source/autoapi/pydui/core/layout/index.rst:49
+#: ../../../source/autoapi/pydui/core/layout/index.rst:74
+msgid "return widget object."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst
+msgid "Return type"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:42
+msgid "Get child widget at index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:44
+msgid "if the index overbound, it will return None."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:46
+msgid "child index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:55
+msgid "Add child widget."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:57
+msgid "if child has been added, ignore."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:59
+#: ../../../source/autoapi/pydui/core/layout/index.rst:69
+msgid "child widget"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:65
+msgid "Add child widget at index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:67
+msgid "if the index overbound, it will add widget to last position."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:71
+msgid "target index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:80
+msgid "Remove child widget by widget_id"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:88
+msgid "Remove child widget at index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:90
+msgid "if the index overbound, do nothing."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:92
+msgid "widget index"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:99
+msgid "Return child count"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:101
+msgid "return child widget count."
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:108
+msgid "Return widget inset"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:110
+msgid "The value in tuple means [left, top, right, bottom]"
+msgstr ""
+
+#: ../../../source/autoapi/pydui/core/layout/index.rst:112
+msgid "return inset."
+msgstr ""
+

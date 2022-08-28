@@ -8,3 +8,4 @@ poetry.lock
 docs/source/generated/
 docs/en/**/doctrees/
 docs/zh_CN/**/doctrees/
+docs/en/**/gettext/
