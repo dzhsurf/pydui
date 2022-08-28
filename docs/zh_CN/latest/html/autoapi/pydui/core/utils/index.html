@@ -2,7 +2,7 @@
 <html  lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
       <title>pydui.core.utils</title>
     
@@ -32,7 +32,7 @@
     <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../../../../index.html" class="home-link">
     
-      <span class="site-name">PyDui-GTK</span>
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
     
   </router-link>
 
@@ -56,7 +56,18 @@
 
 
             
-          </navlinks><div class="sidebar-links" role="navigation" aria-label="main navigation">
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">快速搜索</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="搜索" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
   
     <div class="sidebar-group">
       <p class="caption">
@@ -162,10 +173,6 @@
 <section id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="此标题的永久链接">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.utils.Str2Size" title="pydui.core.utils.Str2Size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Str2Size</span></code></a>(→ tuple[int, int])</p></td>
 <td><p>Convert text to tuple[int, int]</p></td>
@@ -184,7 +191,7 @@
 <dd><p>Convert text to tuple[int, int]</p>
 <p>if the text in wrong format, it will return (0, 0)</p>
 <dl class="field-list simple">
-<dt class="field-odd">参数</dt>
+<dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – input text</p>
 </dd>
 </dl>
@@ -200,7 +207,7 @@
 <dd><p>Convert text to Gtk.WindowPosition flag</p>
 <p>if the input not match, it will return Gtk.WindowPosition.CENTER by default.</p>
 <dl class="field-list simple">
-<dt class="field-odd">参数</dt>
+<dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – input text</p>
 </dd>
 </dl>

@@ -81,9 +81,30 @@ html_context.update(html_context_dict)
 #    '**': ['versions.html'],
 #}
 html_sidebars = {
-    '**': ['press_sidetoc.html'],
+    '**': ['searchbox.html','press_sidetoc.html'],
 }
 
+html_logo = "_static/logo.png"
+html_theme_options = {
+    "logo_link": "",
+    "favicons": [
+    {
+        "rel": "icon",
+        "sizes": "16x16",
+        "href": "_static/favicons-16x16.png",
+    },
+    {
+        "rel": "icon",
+        "sizes": "32x32",
+        "href": "_static/favicons-32x32.png",
+    },
+    {
+        "rel": "apple-touch-icon",
+        "sizes": "180x180",
+        "href": "_static/apple-touch-icon-180x180.png",
+    },
+    ],
+}
 #
 #html_theme_options = {
 #    'display_version': True,

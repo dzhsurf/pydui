@@ -2,7 +2,7 @@
 <html  lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
       <title>pydui.core.builder</title>
     
@@ -32,7 +32,7 @@
     <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../../../../index.html" class="home-link">
     
-      <span class="site-name">PyDui-GTK</span>
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
     
   </router-link>
 
@@ -56,7 +56,18 @@
 
 
             
-          </navlinks><div class="sidebar-links" role="navigation" aria-label="main navigation">
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">快速搜索</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="搜索" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
   
     <div class="sidebar-group">
       <p class="caption">
@@ -169,10 +180,6 @@ But you can custom the resource provider to compose the ui resources.</p>
 <section id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="此标题的永久链接">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.builder.PyDuiBuilder" title="pydui.core.builder.PyDuiBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiBuilder</span></code></a></p></td>
 <td><p>Build Widget, Window from xml resource</p></td>
@@ -188,13 +195,13 @@ But you can custom the resource provider to compose the ui resources.</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.widgets.label.PyDuiWidget</span></span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.build_widget" title="永久链接至目标">¶</a></dt>
 <dd><p>Build widget from path</p>
 <dl class="field-list simple">
-<dt class="field-odd">参数</dt>
+<dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – xml resource path</p>
 </dd>
-<dt class="field-even">返回</dt>
+<dt class="field-even">返回<span class="colon">:</span></dt>
 <dd class="field-even"><p>return the widget</p>
 </dd>
-<dt class="field-odd">返回类型</dt>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget">PyDuiWidget</a></p>
 </dd>
 </dl>
@@ -205,13 +212,13 @@ But you can custom the resource provider to compose the ui resources.</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../window/index.html#pydui.core.window.PyDuiWindow" title="pydui.core.window.PyDuiWindow"><span class="pre">pydui.core.window.PyDuiWindow</span></a></span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.build_window" title="永久链接至目标">¶</a></dt>
 <dd><p>Build window from path and handler</p>
 <dl class="field-list simple">
-<dt class="field-odd">参数</dt>
+<dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – xml resource path</p>
 </dd>
-<dt class="field-even">返回</dt>
+<dt class="field-even">返回<span class="colon">:</span></dt>
 <dd class="field-even"><p>return window object.</p>
 </dd>
-<dt class="field-odd">返回类型</dt>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="../window/index.html#pydui.core.window.PyDuiWindow" title="pydui.core.window.PyDuiWindow">PyDuiWindow</a></p>
 </dd>
 </dl>

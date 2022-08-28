@@ -2,7 +2,7 @@
 <html  lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
       <title>pydui.core.window</title>
     
@@ -32,7 +32,7 @@
     <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../../../../index.html" class="home-link">
     
-      <span class="site-name">PyDui-GTK</span>
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
     
   </router-link>
 
@@ -56,7 +56,18 @@
 
 
             
-          </navlinks><div class="sidebar-links" role="navigation" aria-label="main navigation">
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">快速搜索</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="搜索" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
   
     <div class="sidebar-group">
       <p class="caption">
@@ -161,10 +172,6 @@
 <section id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="此标题的永久链接">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.window.PyDuiRenderManager" title="pydui.core.window.PyDuiRenderManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiRenderManager</span></code></a></p></td>
 <td><p>Render manager</p></td>
@@ -190,7 +197,7 @@
 <span class="sig-name descname"><span class="pre">set_rootview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rootview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../layout/index.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><span class="pre">PyDuiLayout</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window.PyDuiRenderManager.set_rootview" title="永久链接至目标">¶</a></dt>
 <dd><p>set window root view</p>
 <dl class="field-list simple">
-<dt class="field-odd">参数</dt>
+<dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>rootview</strong> (<a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – widnow root view</p>
 </dd>
 </dl>
@@ -201,7 +208,7 @@
 <span class="sig-name descname"><span class="pre">get_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.core.window.PyDuiRenderManager.get_widget" title="永久链接至目标">¶</a></dt>
 <dd><p>Get widget by widget id</p>
 <dl class="field-list simple">
-<dt class="field-odd">参数</dt>
+<dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>widget_id</strong> (<em>str</em>) – widget id</p>
 </dd>
 </dl>
@@ -223,7 +230,7 @@
 <span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.title" title="永久链接至目标">¶</a></dt>
 <dd><p>window title</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -234,7 +241,7 @@
 <span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.size" title="永久链接至目标">¶</a></dt>
 <dd><p>window size, default is (400, 300)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple[int, int]</p>
 </dd>
 </dl>
@@ -245,7 +252,7 @@
 <span class="sig-name descname"><span class="pre">min_size</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.min_size" title="永久链接至目标">¶</a></dt>
 <dd><p>window min size, default is (0, 0)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple[int, int]</p>
 </dd>
 </dl>
@@ -256,7 +263,7 @@
 <span class="sig-name descname"><span class="pre">max_size</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.max_size" title="永久链接至目标">¶</a></dt>
 <dd><p>window max size, default is (0, 0), when set to zero, means no limit.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple[int, int]</p>
 </dd>
 </dl>
@@ -267,7 +274,7 @@
 <span class="sig-name descname"><span class="pre">positon</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.positon" title="永久链接至目标">¶</a></dt>
 <dd><p>window initial position</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Gtk.WindowPosition</p>
 </dd>
 </dl>
