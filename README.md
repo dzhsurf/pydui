@@ -5,6 +5,10 @@ PyDui Documentation
 
 
 
+<img src="https://github.com/dzhsurf/pydui/raw/main/docs/source/_static/logo.png" alt="PyDui-Gtk" style="zoom:25%;" />
+
+
+
 ## Introduction
 
 **PyDui base on GTK-3, PyGObject**
