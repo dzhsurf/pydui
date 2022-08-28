@@ -3,10 +3,10 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?= -D language='zh-CN'
+SPHINXOPTS    ?=  
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
-BUILDDIR      = build
+BUILDDIR      = build/en
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -21,5 +21,8 @@ help:
 
 .PHONY: 
 intl:
-	sphinx-intl update -p build/gettext -l zh-CN
+	sphinx-intl update -p build/gettext -l zh_CN -l zh_TW
 
+intl-build:
+	make html
+	make -e SPHINXOPTS="-Dlanguage='zh_CN'" -e BUILDDIR="build/zh_CN" html 

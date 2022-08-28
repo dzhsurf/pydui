@@ -1,0 +1,138 @@
+:py:mod:`pydui.core.window`
+===========================
+
+.. py:module:: pydui.core.window
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.window.PyDuiRenderManager
+   pydui.core.window.PyDuiWindowConfig
+   pydui.core.window.PyDuiWindow
+   pydui.core.window.PyDuiWindowHandler
+
+
+
+
+.. py:class:: PyDuiRenderManager(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   Render manager
+
+   .. py:method:: set_rootview(rootview: PyDuiLayout)
+
+      set window root view
+
+      :param rootview: widnow root view
+      :type rootview: PyDuiWidget
+
+
+   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
+
+      Get widget by widget id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+   .. py:method:: on_window_size_or_position_change(x: int, y: int, width: int, height: int)
+
+
+
+.. py:class:: PyDuiWindowConfig
+
+   Window config dataclass
+
+   .. attribute:: title
+
+      window title
+
+      :type: str
+
+   .. attribute:: size
+
+      window size, default is (400, 300)
+
+      :type: tuple[int, int]
+
+   .. attribute:: min_size
+
+      window min size, default is (0, 0)
+
+      :type: tuple[int, int]
+
+   .. attribute:: max_size
+
+      window max size, default is (0, 0), when set to zero, means no limit.
+
+      :type: tuple[int, int]
+
+   .. attribute:: positon
+
+      window initial position
+
+      :type: Gtk.WindowPosition
+
+   .. py:attribute:: title
+      :annotation: :str
+
+      
+
+   .. py:attribute:: size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: min_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: max_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: position
+      :annotation: :gi.repository.Gtk.WindowPosition
+
+      
+
+
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
+
+   Bases: :py:obj:`object`
+
+   Window object
+
+   .. py:method:: get_gtk_window()
+
+
+   .. py:method:: show()
+
+
+   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
+
+
+
+.. py:class:: PyDuiWindowHandler(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: window() -> PyDuiWindow
+
+
+   .. py:method:: on_window_show()
+
+
+   .. py:method:: on_window_destroy()
+
+
+

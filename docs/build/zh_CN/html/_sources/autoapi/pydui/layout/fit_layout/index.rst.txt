@@ -1,0 +1,31 @@
+:py:mod:`pydui.layout.fit_layout`
+=================================
+
+.. py:module:: pydui.layout.fit_layout
+
+.. autoapi-nested-parse::
+
+   FitLayout unit
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.layout.fit_layout.PyDuiFitLayout
+
+
+
+
+.. py:class:: PyDuiFitLayout(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   FitLayout implement
+
+

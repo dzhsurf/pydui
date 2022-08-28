@@ -1,0 +1,62 @@
+:py:mod:`pydui.core.builder`
+============================
+
+.. py:module:: pydui.core.builder
+
+.. autoapi-nested-parse::
+
+   PyDuiBuilder module
+
+   PyDuiBuilder provider construct Widget from xml resource.
+   The resource xml file read from local path by default.
+   But you can custom the resource provider to compose the ui resources.
+
+   Example::
+
+       PyDuiBuilder.build_window(path='res/main.xml')
+
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.builder.PyDuiBuilder
+
+
+
+
+.. py:class:: PyDuiBuilder
+
+   Build Widget, Window from xml resource
+
+   .. py:method:: build_widget(path: str) -> pydui.widgets.label.PyDuiWidget
+      :staticmethod:
+
+      Build widget from path
+
+      :param path: xml resource path
+      :type path: str
+
+      :returns: return the widget
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: build_window(path: str) -> pydui.core.window.PyDuiWindow
+      :staticmethod:
+
+      Build window from path and handler
+
+      :param path: xml resource path
+      :type path: str
+
+      :returns: return window object.
+      :rtype: PyDuiWindow
+
+
+

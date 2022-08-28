@@ -1,0 +1,200 @@
+:py:mod:`pydui.core.widget`
+===========================
+
+.. py:module:: pydui.core.widget
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.widget.PyDuiConstraint
+   pydui.core.widget.PyDuiWidget
+
+
+
+
+.. py:class:: PyDuiConstraint
+
+   Constraint dataclass
+
+   .. py:attribute:: min_width
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_width
+      :annotation: :int
+
+      
+
+   .. py:attribute:: min_height
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_height
+      :annotation: :int
+
+      
+
+
+.. py:class:: PyDuiWidget(parent: PyDuiWidget, layout_class: pydui.core.base.PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout)
+
+   Bases: :py:obj:`object`
+
+   Widget base class
+
+   .. py:method:: get_id() -> str
+
+      Return widget id
+
+      :returns: widget id
+      :rtype: str
+
+
+   .. py:method:: set_id(id: str)
+
+      Set widget id
+
+      :param id: widget id
+      :type id: str
+
+
+   .. py:method:: set_gtk_widget(gtk_widget: gi.repository.Gtk.Widget)
+
+      Set gtk widget
+
+      :param gtk_widget: Gtk widget object
+      :type gtk_widget: Gtk.Widget
+
+
+   .. py:method:: get_gtk_widget() -> gi.repository.Gtk.Widget
+
+      Return gtk widget object
+
+      :returns: Gtk widget object
+      :rtype: Gtk.Widget
+
+
+   .. py:method:: get_gtk_widget_layout() -> gi.repository.Gtk.Layout
+
+      Return gtk widget layout object
+
+      :returns: Gtk widget layout object
+      :rtype: Gtk.Layout
+
+
+   .. py:method:: layout(width: int, height: int)
+
+
+   .. py:method:: estimate_size(parent_width: int, parent_height: int) -> tuple[int, int]
+
+
+   .. py:method:: parse_attrib(attrib: dict[str, str])
+
+      Parse attrib
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: connect(signal_name: str, callback: callable)
+
+
+   .. py:method:: set_focus()
+
+
+   .. py:method:: layout_class() -> pydui.core.base.PyDuiLayoutEnum
+      :property:
+
+
+   .. py:method:: parent() -> PyDuiWidget
+      :property:
+
+
+   .. py:method:: size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: width() -> int
+      :property:
+
+
+   .. py:method:: height() -> int
+      :property:
+
+
+   .. py:method:: fixed_size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: fixed_width() -> int
+      :property:
+
+
+   .. py:method:: fixed_height() -> int
+      :property:
+
+
+   .. py:method:: xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: x() -> int
+      :property:
+
+
+   .. py:method:: y() -> int
+      :property:
+
+
+   .. py:method:: is_float() -> bool
+      :property:
+
+
+   .. py:method:: fixed_x() -> int
+      :property:
+
+
+   .. py:method:: fixed_y() -> int
+      :property:
+
+
+   .. py:method:: fixed_xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: padding() -> tuple[int, int, int, int]
+      :property:
+
+
+   .. py:method:: constraint() -> PyDuiConstraint
+      :property:
+
+
+   .. py:method:: visible() -> bool
+      :property:
+
+
+   .. py:method:: enabled() -> bool
+      :property:
+
+
+   .. py:method:: is_focused() -> bool
+      :property:
+
+
+   .. py:method:: bkcolor() -> str
+      :property:
+
+
+   .. py:method:: bkimage() -> str
+      :property:
+
+
+

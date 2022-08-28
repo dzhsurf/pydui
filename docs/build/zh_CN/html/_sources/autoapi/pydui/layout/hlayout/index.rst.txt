@@ -1,0 +1,29 @@
+:py:mod:`pydui.layout.hlayout`
+==============================
+
+.. py:module:: pydui.layout.hlayout
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.layout.hlayout.PyDuiHLayout
+
+
+
+
+.. py:class:: PyDuiHLayout(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   Horizontal layout
+
+   .. py:method:: layout(width: int, height: int)
+
+
+

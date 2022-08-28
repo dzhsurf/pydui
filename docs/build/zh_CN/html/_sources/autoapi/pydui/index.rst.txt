@@ -1,0 +1,1284 @@
+:py:mod:`pydui`
+===============
+
+.. py:module:: pydui
+
+.. autoapi-nested-parse::
+
+   PyDui-GTK modules.
+
+   core: Core module
+       - PyDuiApplication
+       - PyDuiBuilder
+       - PyDuiWindow, PyDuiWindowHandler
+       - PyDuiWidget, PyDuiLayout
+       - PyDuiUtils
+
+   widgets: Widget module
+       - Label, Button, Text, Edit, ...
+
+   layout: Layout module
+       - HLayout
+       - VLayout
+       - FixedLayout
+       - FitLayout
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   core/index.rst
+   layout/index.rst
+   widgets/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.PyDuiApplication
+   pydui.PyDuiBuilder
+   pydui.PyDuiLayout
+   pydui.PyDuiLayoutEnum
+   pydui.PyDuiConstraint
+   pydui.PyDuiWidget
+   pydui.PyDuiRenderManager
+   pydui.PyDuiWindowConfig
+   pydui.PyDuiWindow
+   pydui.PyDuiWindowHandler
+   pydui.PyDuiFitLayout
+   pydui.PyDuiFixedLayout
+   pydui.PyDuiHLayout
+   pydui.PyDuiVLayout
+   pydui.PyDuiButton
+   pydui.PyDuiLabel
+   pydui.PyDuiConstraint
+   pydui.PyDuiWidget
+   pydui.PyDuiLayoutEnum
+   pydui.PyDuiRenderManager
+   pydui.PyDuiWindowConfig
+   pydui.PyDuiWindow
+   pydui.PyDuiWindowHandler
+   pydui.PyDuiLayout
+   pydui.PyDuiLayoutEnum
+   pydui.PyDuiConstraint
+   pydui.PyDuiWidget
+
+
+
+
+.. py:class:: PyDuiApplication
+
+   Application global function
+
+   .. py:method:: main_run()
+      :staticmethod:
+
+      Start main run-loop
+
+
+   .. py:method:: main_quit()
+      :staticmethod:
+
+      Quit main run-loop
+
+
+
+.. py:class:: PyDuiBuilder
+
+   Build Widget, Window from xml resource
+
+   .. py:method:: build_widget(path: str) -> pydui.widgets.label.PyDuiWidget
+      :staticmethod:
+
+      Build widget from path
+
+      :param path: xml resource path
+      :type path: str
+
+      :returns: return the widget
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: build_window(path: str) -> pydui.core.window.PyDuiWindow
+      :staticmethod:
+
+      Build window from path and handler
+
+      :param path: xml resource path
+      :type path: str
+
+      :returns: return window object.
+      :rtype: PyDuiWindow
+
+
+
+.. py:class:: PyDuiLayout(parent: pydui.core.widget.PyDuiWidget, layout_class: pydui.core.widget.PyDuiLayoutEnum, custom_gtk_widget: gi.repository.Gtk.Widget = None)
+
+   Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
+
+   Layout base class, all layouts inherit from PyDuiLayout
+
+   .. py:method:: layout(width: int, height: int)
+
+
+   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get child widget by widget_id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: get_child_at(index: int) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get child widget at index
+
+      if the index overbound, it will return None.
+
+      :param index: child index
+      :type index: int
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: add_child(child: pydui.core.widget.PyDuiWidget)
+
+      Add child widget.
+
+      if child has been added, ignore.
+
+      :param child: child widget
+      :type child: PyDuiWidget
+
+
+   .. py:method:: add_child_at(child: pydui.core.widget.PyDuiWidget, index: int)
+
+      Add child widget at index
+
+      if the index overbound, it will add widget to last position.
+
+      :param child: child widget
+      :type child: PyDuiWidget
+      :param index: target index
+      :type index: int
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: remove_child(widget_id: str)
+
+      Remove child widget by widget_id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+   .. py:method:: remove_child_at(index: int)
+
+      Remove child widget at index
+
+      if the index overbound, do nothing.
+
+      :param index: widget index
+      :type index: int
+
+
+   .. py:method:: child_count() -> int
+      :property:
+
+      Return child count
+
+      :returns: return child widget count.
+      :rtype: int
+
+
+   .. py:method:: inset() -> tuple[int, int, int, int]
+      :property:
+
+      Return widget inset
+
+      The value in tuple means [left, top, right, bottom]
+
+      :returns: return inset.
+      :rtype: tuple[int, int, int, int]
+
+
+
+.. py:class:: PyDuiLayoutEnum
+
+   Bases: :py:obj:`enum.Enum`
+
+   Layout type enum
+
+   .. attribute:: Undefine
+
+      default
+
+   .. attribute:: HLayout
+
+      horizontal layout
+
+   .. attribute:: VLayout
+
+      vertical layout
+
+   .. py:attribute:: NotLayout
+      :annotation: = 0
+
+      
+
+   .. py:attribute:: HLayout
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: VLayout
+      :annotation: = 2
+
+      
+
+   .. py:attribute:: FitLayout
+      :annotation: = 3
+
+      
+
+   .. py:attribute:: FixedLayout
+      :annotation: = 4
+
+      
+
+   .. py:attribute:: CustomLayout
+      :annotation: = 10
+
+      
+
+
+.. py:class:: PyDuiConstraint
+
+   Constraint dataclass
+
+   .. py:attribute:: min_width
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_width
+      :annotation: :int
+
+      
+
+   .. py:attribute:: min_height
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_height
+      :annotation: :int
+
+      
+
+
+.. py:class:: PyDuiWidget(parent: PyDuiWidget, layout_class: pydui.core.base.PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout)
+
+   Bases: :py:obj:`object`
+
+   Widget base class
+
+   .. py:method:: get_id() -> str
+
+      Return widget id
+
+      :returns: widget id
+      :rtype: str
+
+
+   .. py:method:: set_id(id: str)
+
+      Set widget id
+
+      :param id: widget id
+      :type id: str
+
+
+   .. py:method:: set_gtk_widget(gtk_widget: gi.repository.Gtk.Widget)
+
+      Set gtk widget
+
+      :param gtk_widget: Gtk widget object
+      :type gtk_widget: Gtk.Widget
+
+
+   .. py:method:: get_gtk_widget() -> gi.repository.Gtk.Widget
+
+      Return gtk widget object
+
+      :returns: Gtk widget object
+      :rtype: Gtk.Widget
+
+
+   .. py:method:: get_gtk_widget_layout() -> gi.repository.Gtk.Layout
+
+      Return gtk widget layout object
+
+      :returns: Gtk widget layout object
+      :rtype: Gtk.Layout
+
+
+   .. py:method:: layout(width: int, height: int)
+
+
+   .. py:method:: estimate_size(parent_width: int, parent_height: int) -> tuple[int, int]
+
+
+   .. py:method:: parse_attrib(attrib: dict[str, str])
+
+      Parse attrib
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: connect(signal_name: str, callback: callable)
+
+
+   .. py:method:: set_focus()
+
+
+   .. py:method:: layout_class() -> pydui.core.base.PyDuiLayoutEnum
+      :property:
+
+
+   .. py:method:: parent() -> PyDuiWidget
+      :property:
+
+
+   .. py:method:: size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: width() -> int
+      :property:
+
+
+   .. py:method:: height() -> int
+      :property:
+
+
+   .. py:method:: fixed_size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: fixed_width() -> int
+      :property:
+
+
+   .. py:method:: fixed_height() -> int
+      :property:
+
+
+   .. py:method:: xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: x() -> int
+      :property:
+
+
+   .. py:method:: y() -> int
+      :property:
+
+
+   .. py:method:: is_float() -> bool
+      :property:
+
+
+   .. py:method:: fixed_x() -> int
+      :property:
+
+
+   .. py:method:: fixed_y() -> int
+      :property:
+
+
+   .. py:method:: fixed_xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: padding() -> tuple[int, int, int, int]
+      :property:
+
+
+   .. py:method:: constraint() -> PyDuiConstraint
+      :property:
+
+
+   .. py:method:: visible() -> bool
+      :property:
+
+
+   .. py:method:: enabled() -> bool
+      :property:
+
+
+   .. py:method:: is_focused() -> bool
+      :property:
+
+
+   .. py:method:: bkcolor() -> str
+      :property:
+
+
+   .. py:method:: bkimage() -> str
+      :property:
+
+
+
+.. py:class:: PyDuiRenderManager(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   Render manager
+
+   .. py:method:: set_rootview(rootview: PyDuiLayout)
+
+      set window root view
+
+      :param rootview: widnow root view
+      :type rootview: PyDuiWidget
+
+
+   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
+
+      Get widget by widget id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+   .. py:method:: on_window_size_or_position_change(x: int, y: int, width: int, height: int)
+
+
+
+.. py:class:: PyDuiWindowConfig
+
+   Window config dataclass
+
+   .. attribute:: title
+
+      window title
+
+      :type: str
+
+   .. attribute:: size
+
+      window size, default is (400, 300)
+
+      :type: tuple[int, int]
+
+   .. attribute:: min_size
+
+      window min size, default is (0, 0)
+
+      :type: tuple[int, int]
+
+   .. attribute:: max_size
+
+      window max size, default is (0, 0), when set to zero, means no limit.
+
+      :type: tuple[int, int]
+
+   .. attribute:: positon
+
+      window initial position
+
+      :type: Gtk.WindowPosition
+
+   .. py:attribute:: title
+      :annotation: :str
+
+      
+
+   .. py:attribute:: size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: min_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: max_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: position
+      :annotation: :gi.repository.Gtk.WindowPosition
+
+      
+
+
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
+
+   Bases: :py:obj:`object`
+
+   Window object
+
+   .. py:method:: get_gtk_window()
+
+
+   .. py:method:: show()
+
+
+   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
+
+
+
+.. py:class:: PyDuiWindowHandler(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: window() -> PyDuiWindow
+
+
+   .. py:method:: on_window_show()
+
+
+   .. py:method:: on_window_destroy()
+
+
+
+.. py:class:: PyDuiFitLayout(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   FitLayout implement
+
+
+.. py:class:: PyDuiFixedLayout(parent: pydui.core.layout.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   FixedLayout implement
+
+
+.. py:class:: PyDuiHLayout(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   Horizontal layout
+
+   .. py:method:: layout(width: int, height: int)
+
+
+
+.. py:class:: PyDuiVLayout(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.layout.PyDuiLayout`
+
+   Vertical layout
+
+   .. py:method:: layout(width: int, height: int)
+
+
+
+.. py:class:: PyDuiButton(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
+
+   Label widget
+
+
+.. py:class:: PyDuiLabel(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
+
+   Label widget
+
+
+.. py:class:: PyDuiConstraint
+
+   Constraint dataclass
+
+   .. py:attribute:: min_width
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_width
+      :annotation: :int
+
+      
+
+   .. py:attribute:: min_height
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_height
+      :annotation: :int
+
+      
+
+
+.. py:class:: PyDuiWidget(parent: PyDuiWidget, layout_class: pydui.core.base.PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout)
+
+   Bases: :py:obj:`object`
+
+   Widget base class
+
+   .. py:method:: get_id() -> str
+
+      Return widget id
+
+      :returns: widget id
+      :rtype: str
+
+
+   .. py:method:: set_id(id: str)
+
+      Set widget id
+
+      :param id: widget id
+      :type id: str
+
+
+   .. py:method:: set_gtk_widget(gtk_widget: gi.repository.Gtk.Widget)
+
+      Set gtk widget
+
+      :param gtk_widget: Gtk widget object
+      :type gtk_widget: Gtk.Widget
+
+
+   .. py:method:: get_gtk_widget() -> gi.repository.Gtk.Widget
+
+      Return gtk widget object
+
+      :returns: Gtk widget object
+      :rtype: Gtk.Widget
+
+
+   .. py:method:: get_gtk_widget_layout() -> gi.repository.Gtk.Layout
+
+      Return gtk widget layout object
+
+      :returns: Gtk widget layout object
+      :rtype: Gtk.Layout
+
+
+   .. py:method:: layout(width: int, height: int)
+
+
+   .. py:method:: estimate_size(parent_width: int, parent_height: int) -> tuple[int, int]
+
+
+   .. py:method:: parse_attrib(attrib: dict[str, str])
+
+      Parse attrib
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: connect(signal_name: str, callback: callable)
+
+
+   .. py:method:: set_focus()
+
+
+   .. py:method:: layout_class() -> pydui.core.base.PyDuiLayoutEnum
+      :property:
+
+
+   .. py:method:: parent() -> PyDuiWidget
+      :property:
+
+
+   .. py:method:: size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: width() -> int
+      :property:
+
+
+   .. py:method:: height() -> int
+      :property:
+
+
+   .. py:method:: fixed_size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: fixed_width() -> int
+      :property:
+
+
+   .. py:method:: fixed_height() -> int
+      :property:
+
+
+   .. py:method:: xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: x() -> int
+      :property:
+
+
+   .. py:method:: y() -> int
+      :property:
+
+
+   .. py:method:: is_float() -> bool
+      :property:
+
+
+   .. py:method:: fixed_x() -> int
+      :property:
+
+
+   .. py:method:: fixed_y() -> int
+      :property:
+
+
+   .. py:method:: fixed_xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: padding() -> tuple[int, int, int, int]
+      :property:
+
+
+   .. py:method:: constraint() -> PyDuiConstraint
+      :property:
+
+
+   .. py:method:: visible() -> bool
+      :property:
+
+
+   .. py:method:: enabled() -> bool
+      :property:
+
+
+   .. py:method:: is_focused() -> bool
+      :property:
+
+
+   .. py:method:: bkcolor() -> str
+      :property:
+
+
+   .. py:method:: bkimage() -> str
+      :property:
+
+
+
+.. py:class:: PyDuiLayoutEnum
+
+   Bases: :py:obj:`enum.Enum`
+
+   Layout type enum
+
+   .. attribute:: Undefine
+
+      default
+
+   .. attribute:: HLayout
+
+      horizontal layout
+
+   .. attribute:: VLayout
+
+      vertical layout
+
+   .. py:attribute:: NotLayout
+      :annotation: = 0
+
+      
+
+   .. py:attribute:: HLayout
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: VLayout
+      :annotation: = 2
+
+      
+
+   .. py:attribute:: FitLayout
+      :annotation: = 3
+
+      
+
+   .. py:attribute:: FixedLayout
+      :annotation: = 4
+
+      
+
+   .. py:attribute:: CustomLayout
+      :annotation: = 10
+
+      
+
+
+.. py:class:: PyDuiRenderManager(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   Render manager
+
+   .. py:method:: set_rootview(rootview: PyDuiLayout)
+
+      set window root view
+
+      :param rootview: widnow root view
+      :type rootview: PyDuiWidget
+
+
+   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
+
+      Get widget by widget id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+   .. py:method:: on_window_size_or_position_change(x: int, y: int, width: int, height: int)
+
+
+
+.. py:class:: PyDuiWindowConfig
+
+   Window config dataclass
+
+   .. attribute:: title
+
+      window title
+
+      :type: str
+
+   .. attribute:: size
+
+      window size, default is (400, 300)
+
+      :type: tuple[int, int]
+
+   .. attribute:: min_size
+
+      window min size, default is (0, 0)
+
+      :type: tuple[int, int]
+
+   .. attribute:: max_size
+
+      window max size, default is (0, 0), when set to zero, means no limit.
+
+      :type: tuple[int, int]
+
+   .. attribute:: positon
+
+      window initial position
+
+      :type: Gtk.WindowPosition
+
+   .. py:attribute:: title
+      :annotation: :str
+
+      
+
+   .. py:attribute:: size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: min_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: max_size
+      :annotation: :tuple[int, int]
+
+      
+
+   .. py:attribute:: position
+      :annotation: :gi.repository.Gtk.WindowPosition
+
+      
+
+
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
+
+   Bases: :py:obj:`object`
+
+   Window object
+
+   .. py:method:: get_gtk_window()
+
+
+   .. py:method:: show()
+
+
+   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
+
+
+
+.. py:class:: PyDuiWindowHandler(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: window() -> PyDuiWindow
+
+
+   .. py:method:: on_window_show()
+
+
+   .. py:method:: on_window_destroy()
+
+
+
+.. py:class:: PyDuiLayout(parent: pydui.core.widget.PyDuiWidget, layout_class: pydui.core.widget.PyDuiLayoutEnum, custom_gtk_widget: gi.repository.Gtk.Widget = None)
+
+   Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
+
+   Layout base class, all layouts inherit from PyDuiLayout
+
+   .. py:method:: layout(width: int, height: int)
+
+
+   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get child widget by widget_id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: get_child_at(index: int) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get child widget at index
+
+      if the index overbound, it will return None.
+
+      :param index: child index
+      :type index: int
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: add_child(child: pydui.core.widget.PyDuiWidget)
+
+      Add child widget.
+
+      if child has been added, ignore.
+
+      :param child: child widget
+      :type child: PyDuiWidget
+
+
+   .. py:method:: add_child_at(child: pydui.core.widget.PyDuiWidget, index: int)
+
+      Add child widget at index
+
+      if the index overbound, it will add widget to last position.
+
+      :param child: child widget
+      :type child: PyDuiWidget
+      :param index: target index
+      :type index: int
+
+      :returns: return widget object.
+      :rtype: PyDuiWidget
+
+
+   .. py:method:: remove_child(widget_id: str)
+
+      Remove child widget by widget_id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+   .. py:method:: remove_child_at(index: int)
+
+      Remove child widget at index
+
+      if the index overbound, do nothing.
+
+      :param index: widget index
+      :type index: int
+
+
+   .. py:method:: child_count() -> int
+      :property:
+
+      Return child count
+
+      :returns: return child widget count.
+      :rtype: int
+
+
+   .. py:method:: inset() -> tuple[int, int, int, int]
+      :property:
+
+      Return widget inset
+
+      The value in tuple means [left, top, right, bottom]
+
+      :returns: return inset.
+      :rtype: tuple[int, int, int, int]
+
+
+
+.. py:class:: PyDuiLayoutEnum
+
+   Bases: :py:obj:`enum.Enum`
+
+   Layout type enum
+
+   .. attribute:: Undefine
+
+      default
+
+   .. attribute:: HLayout
+
+      horizontal layout
+
+   .. attribute:: VLayout
+
+      vertical layout
+
+   .. py:attribute:: NotLayout
+      :annotation: = 0
+
+      
+
+   .. py:attribute:: HLayout
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: VLayout
+      :annotation: = 2
+
+      
+
+   .. py:attribute:: FitLayout
+      :annotation: = 3
+
+      
+
+   .. py:attribute:: FixedLayout
+      :annotation: = 4
+
+      
+
+   .. py:attribute:: CustomLayout
+      :annotation: = 10
+
+      
+
+
+.. py:class:: PyDuiConstraint
+
+   Constraint dataclass
+
+   .. py:attribute:: min_width
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_width
+      :annotation: :int
+
+      
+
+   .. py:attribute:: min_height
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: max_height
+      :annotation: :int
+
+      
+
+
+.. py:class:: PyDuiWidget(parent: PyDuiWidget, layout_class: pydui.core.base.PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout)
+
+   Bases: :py:obj:`object`
+
+   Widget base class
+
+   .. py:method:: get_id() -> str
+
+      Return widget id
+
+      :returns: widget id
+      :rtype: str
+
+
+   .. py:method:: set_id(id: str)
+
+      Set widget id
+
+      :param id: widget id
+      :type id: str
+
+
+   .. py:method:: set_gtk_widget(gtk_widget: gi.repository.Gtk.Widget)
+
+      Set gtk widget
+
+      :param gtk_widget: Gtk widget object
+      :type gtk_widget: Gtk.Widget
+
+
+   .. py:method:: get_gtk_widget() -> gi.repository.Gtk.Widget
+
+      Return gtk widget object
+
+      :returns: Gtk widget object
+      :rtype: Gtk.Widget
+
+
+   .. py:method:: get_gtk_widget_layout() -> gi.repository.Gtk.Layout
+
+      Return gtk widget layout object
+
+      :returns: Gtk widget layout object
+      :rtype: Gtk.Layout
+
+
+   .. py:method:: layout(width: int, height: int)
+
+
+   .. py:method:: estimate_size(parent_width: int, parent_height: int) -> tuple[int, int]
+
+
+   .. py:method:: parse_attrib(attrib: dict[str, str])
+
+      Parse attrib
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: connect(signal_name: str, callback: callable)
+
+
+   .. py:method:: set_focus()
+
+
+   .. py:method:: layout_class() -> pydui.core.base.PyDuiLayoutEnum
+      :property:
+
+
+   .. py:method:: parent() -> PyDuiWidget
+      :property:
+
+
+   .. py:method:: size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: width() -> int
+      :property:
+
+
+   .. py:method:: height() -> int
+      :property:
+
+
+   .. py:method:: fixed_size() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: fixed_width() -> int
+      :property:
+
+
+   .. py:method:: fixed_height() -> int
+      :property:
+
+
+   .. py:method:: xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: x() -> int
+      :property:
+
+
+   .. py:method:: y() -> int
+      :property:
+
+
+   .. py:method:: is_float() -> bool
+      :property:
+
+
+   .. py:method:: fixed_x() -> int
+      :property:
+
+
+   .. py:method:: fixed_y() -> int
+      :property:
+
+
+   .. py:method:: fixed_xy() -> tuple[int, int]
+      :property:
+
+
+   .. py:method:: padding() -> tuple[int, int, int, int]
+      :property:
+
+
+   .. py:method:: constraint() -> PyDuiConstraint
+      :property:
+
+
+   .. py:method:: visible() -> bool
+      :property:
+
+
+   .. py:method:: enabled() -> bool
+      :property:
+
+
+   .. py:method:: is_focused() -> bool
+      :property:
+
+
+   .. py:method:: bkcolor() -> str
+      :property:
+
+
+   .. py:method:: bkimage() -> str
+      :property:
+
+
+
