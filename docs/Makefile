@@ -25,4 +25,4 @@ intl:
 
 intl-build:
 	make html
-	make -e SPHINXOPTS="-Dlanguage='zh_CN'" -e BUILDDIR="zh_CN/latest" html 
+	current_language=zh_CN make -e SPHINXOPTS="-Dlanguage='zh_CN'" -e BUILDDIR="zh_CN/latest" html 

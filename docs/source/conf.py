@@ -25,7 +25,7 @@ extensions = [
 #    'sphinx.ext.autosummary',
     'autoapi.extension',
     'myst_parser',
-    'sphinx_rtd_theme',
+#    'sphinx_rtd_theme',
 ]
 
 # napolean settings
@@ -77,13 +77,18 @@ html_context_dict = {
 }
 html_context.update(html_context_dict)
 
+#html_sidebars = {
+#    '**': ['versions.html'],
+#}
 html_sidebars = {
-    '**': ['versions.html'],
+    '**': ['press_sidetoc.html'],
 }
-html_theme_options = {
-    'display_version': True,
-    'vcs_pageview_mode': 'blob',
-}
+
+#
+#html_theme_options = {
+#    'display_version': True,
+#    'vcs_pageview_mode': 'blob',
+#}
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

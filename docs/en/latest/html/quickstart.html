@@ -56,47 +56,91 @@
 
 
             
-          </navlinks>
+          </navlinks><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#welcome-to-pydui-s-documentation">Contents:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="intro.html" class="reference internal ">Introduction</a>
+            
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      <span class="fa fa-book"> Read the Docs</span>
-      v: latest
-      <span class="fa fa-caret-down"></span>
-    </span>
-    <div class="rst-other-versions">
-      
-      <dl>
-        <dt>Languages</dt>
+            
+          </li>
+
         
-           <strong> 
-          <dd><a href="https://dzhsurf.github.io/pydui/en/latest/html/">en</a></dd>
-           </strong> 
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Quickstart</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#pydui-documentation" class="reference internal">PyDui Documentation</a></li>
+                
+              </ul>
+            
+          </li>
+
         
-          
-          <dd><a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/">zh_CN</a></dd>
-          
+          <li class="toctree-l1 ">
+            
+              <a href="autoapi/index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
         
-      </dl>
-      
-      
-      <dl>
-        <dt>Versions</dt>
-        
-           <strong> 
-          <dd><a href="https://dzhsurf.github.io/pydui/en/latest/html/">latest</a></dd>
-           </strong> 
-        
-      </dl>
-      
-      
-      
-      <hr/>
-      Free document hosting provided by <a href="https://pages.github.com">Github Pages</a>.
- 
+      </ul>
     </div>
+  
+
+
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Languages</a></span>
+    </p>
+    <ul>
+      
+          <li class="toctree-l1 current">
+            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal current">en</a>
+          </li>
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/" class="reference internal ">zh_CN</a>
+          </li>
+      
+    </ul>
   </div>
 
+    
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Versions</a></span>
+    </p>
+    <ul class="current">
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal ">latest</a>
+          </li>
+      
+    </ul>
+  </div>
+
+
+  <!--
+  Free document hosting provided by <a href="https://pages.github.com">Github Pages</a>.
+  -->
+
+</div>
         </sidebar>
 
       <page>
@@ -121,12 +165,12 @@
           <div class="content" role="main" v-pre>
             
   <section id="quickstart">
-<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h1>
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading">¶</a></h1>
 <section id="pydui-documentation">
-<h2>PyDui Documentation<a class="headerlink" href="#pydui-documentation" title="Permalink to this heading"></a></h2>
+<h2>PyDui Documentation<a class="headerlink" href="#pydui-documentation" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://dzhsurf.github.io/pydui/"><img alt="Docs" src="https://img.shields.io/badge/docs-latest-informational" /></a></p>
 <section id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h3>
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h3>
 <p><strong>PyDui base on GTK-3, PyGObject</strong></p>
 <p>Even though there is GTK/Glade can quickly and efficiently build a powerful UI Application. But the Glade is not easy enough to learn. Sometimes, we need another solution for rapidly building a simple app. I think, on the windows platform, DuiLib is an option because it’s easy to learn.</p>
 <p><strong>Why not just wrap the DuiLib API ?</strong></p>
@@ -135,7 +179,7 @@
 <p>PyDui only has one layout rule, it’s easy to understand how it works.</p>
 </section>
 <section id="install">
-<h3>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h3>
+<h3>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">PyDui</span> <span class="pre">require</span> <span class="pre">python</span> <span class="pre">&gt;=</span> <span class="pre">3.9</span></code></p>
 <p>Even though it’s easy to downgrade the python version, personal reasons, the author DO NOT WANT TO KEEP ALL THE VERSION WORK!</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install pydui-gtk
@@ -143,7 +187,7 @@
 </div>
 </section>
 <section id="code-example">
-<h3>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading"></a></h3>
+<h3>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pydui</span>
 <span class="kn">from</span> <span class="nn">pydui</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -186,7 +230,7 @@
 </div>
 </section>
 <section id="build-environment-setup">
-<h3>Build Environment Setup<a class="headerlink" href="#build-environment-setup" title="Permalink to this heading"></a></h3>
+<h3>Build Environment Setup<a class="headerlink" href="#build-environment-setup" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, checkout the code</span>
 <span class="c1"># second, use conda setup environment</span>
 conda env create -f conda_env.yaml
@@ -197,7 +241,7 @@ pip install -e .
 </div>
 </section>
 <section id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h3>
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h3>
 <p>https://lazka.github.io/pgi-docs/Gtk-3.0/index.html</p>
 <p>https://valadoc.org/gtk+-3.0/index.htm</p>
 <p>https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html</p>
