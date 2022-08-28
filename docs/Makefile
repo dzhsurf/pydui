@@ -6,7 +6,7 @@
 SPHINXOPTS    ?=  
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
-BUILDDIR      = build/en
+BUILDDIR      = en/latest
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -25,4 +25,4 @@ intl:
 
 intl-build:
 	make html
-	make -e SPHINXOPTS="-Dlanguage='zh_CN'" -e BUILDDIR="build/zh_CN" html 
+	make -e SPHINXOPTS="-Dlanguage='zh_CN'" -e BUILDDIR="zh_CN/latest" html 

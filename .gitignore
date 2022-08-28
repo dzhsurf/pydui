@@ -6,5 +6,5 @@ poetry.lock
 *.swp
 .envrc
 docs/source/generated/
-docs/build/en/doctree/
-docs/build/zh_CN/doctree/
+docs/en/**/doctrees/
+docs/zh_CN/**/doctrees/

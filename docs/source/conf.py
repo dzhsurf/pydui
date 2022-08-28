@@ -98,11 +98,6 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
 
 html_static_path = ['_static']
 
-if 'REPO_NAME' in os.environ:
-   REPO_NAME = os.environ['REPO_NAME']
-else:
-   REPO_NAME = ''
-
 # SET CURRENT_LANGUAGE
 if 'current_language' in os.environ:
    # get the current_language env var set by buildDocs.sh
@@ -119,24 +114,31 @@ from git import Repo
 repo = Repo( search_parent_directories=True )
 
 if 'current_version' in os.environ:
-   # get the current_version env var set by buildDocs.sh
-   current_version = os.environ['current_version']
+    # get the current_version env var set by buildDocs.sh
+    current_version = os.environ['current_version']
 else:
-   # the user is probably doing `make html`
-   # set this build's current version by looking at the branch
-   current_version = repo.active_branch.name
-
+    # the user is probably doing `make html`
+    # set this build's current version by looking at the branch
+    current_version = repo.active_branch.name
+    if current_version == 'main':
+        current_version = 'latest'
 
 # tell the theme which version we're currently on ('current_version' affects
 # the lower-left rtd menu and 'version' affects the logo-area version)
 html_context['current_version'] = current_version
 html_context['version'] = current_version
 
+if 'REPO_NAME' in os.environ:
+   REPO_NAME = os.environ['REPO_NAME']
+else:
+   REPO_NAME = 'pydui'
+DOCS_HOST = "dzhsurf.github.io"
+
 # POPULATE LINKS TO OTHER LANGUAGES
-html_context['languages'] = [ ('en', '/' +REPO_NAME+ '/en/' +current_version+ '/') ]
+html_context['languages'] = [ ('en', f"https://{DOCS_HOST}/{REPO_NAME}/en/{current_version}/html/") ]
 languages = [lang.name for lang in os.scandir('locales') if lang.is_dir()]
 for lang in languages:
-   html_context['languages'].append( (lang, '/' +REPO_NAME+ '/' +lang+ '/' +current_version+ '/') )
+   html_context['languages'].append( (lang, f"https://{DOCS_HOST}/{REPO_NAME}/{lang}/{current_version}/html/") )
 
 # POPULATE LINKS TO OTHER VERSIONS
 html_context['versions'] = list()
