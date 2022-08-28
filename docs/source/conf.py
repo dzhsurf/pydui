@@ -142,8 +142,8 @@ for lang in languages:
 
 # POPULATE LINKS TO OTHER VERSIONS
 html_context['versions'] = list()
-
 versions = [branch.name for branch in repo.branches]
 for version in versions:
-   html_context['versions'].append( (version, '/' +REPO_NAME+ '/'  +current_language+ '/' +version+ '/') )
+    if version == 'main': version = 'latest'
+    html_context['versions'].append((version, f"https://{DOCS_HOST}/{REPO_NAME}/{current_language}/{version}/html/"))
 
