@@ -6,6 +6,7 @@ import sys
 from dataclasses import dataclass
 from typing import Optional
 
+import cairo
 import gi
 
 gi.require_version("Gtk", "3.0")
@@ -30,7 +31,6 @@ class PyDuiWidget(object):
 
     """Widget base class"""
 
-    __widget: Gtk.Widget
     __id: str
     __parent: PyDuiWidget
     __x: int
@@ -42,10 +42,9 @@ class PyDuiWidget(object):
     __fixed_width: int
     __fixed_height: int
     __layout_class: PyDuiLayoutEnum
+    __bkcolor: Gdk.RGBA
 
     def __init__(self, parent: PyDuiWidget, layout_class: PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout):
-        self.__widget = None
-        self.__widget_layout = None
         self.__id = ""
         self.__parent = parent
         self.__x, self.__y = 0, 0
@@ -53,6 +52,7 @@ class PyDuiWidget(object):
         self.__fixed_x, self.__fixed_y = 0, 0
         self.__fixed_width, self.__fixed_height = 0, 0
         self.__layout_class = layout_class
+        self.bkcolor = None  # Gdk.RGBA(0.0,1.0,1.0,1.0)
 
     def get_id(self) -> str:
         """Return widget id
@@ -78,18 +78,18 @@ class PyDuiWidget(object):
         """
         if gtk_widget is None:
             return
-        self.__widget = gtk_widget
-        if self.__layout_class == PyDuiLayoutEnum.NotLayout:
-            self.__widget_layout = Gtk.Layout.new(None, None)
-            self.__widget_layout.put(self.__widget, 0, 0)
+        # self.__widget = gtk_widget
+        # if self.__layout_class == PyDuiLayoutEnum.NotLayout:
+        #     self.__widget_layout = Gtk.Layout.new(None, None)
+        #     self.__widget_layout.put(self.__widget, 0, 0)
 
-    def get_gtk_widget(self) -> Gtk.Widget:
-        """Return gtk widget object
+    # def get_gtk_widget(self) -> Gtk.Widget:
+    #     """Return gtk widget object
 
-        Returns:
-            Gtk.Widget: Gtk widget object
-        """
-        return self.__widget
+    #     Returns:
+    #         Gtk.Widget: Gtk widget object
+    #     """
+    #     return self.__widget
 
     def get_gtk_widget_layout(self) -> Gtk.Layout:
         """Return gtk widget layout object
@@ -99,15 +99,13 @@ class PyDuiWidget(object):
         """
         return self.__widget_layout
 
-    def layout(self, width: int, height: int):
-        if self.__widget is None:
-            return
+    def draw(self, ctx: cairo.Context, x: int, y: int, width: int, height: int, canvas_width: int, canvas_height: int):
+        self.__draw_bkcolor__(ctx, x, y, width, height, canvas_width, canvas_height)
+
+    def layout(self, x: int, y: int, width: int, height: int):
+        self.__x, self.__y = x, y
         self.__width, self.__height = width, height
-        # if self.__widget_layout is not None:
-        #     self.__widget_layout.set_size_request(width, height)
-        # else:
-        #     self.__widget.set_size_request(width, height)
-        print(f"{self.get_id()} layouted: {self.width} {self.height}")
+        print(f"{self} layouted => ({x},{y},{width},{height})")
 
     def estimate_size(self, parent_width: int, parent_height: int) -> tuple[int, int]:
         return (self.__fixed_width, self.__fixed_height)
@@ -123,7 +121,7 @@ class PyDuiWidget(object):
             if k == "id":
                 self.set_id(v)
             elif k == "bkcolor":
-                self.__widget.override_background_color(Gtk.StateType.NORMAL, utils.Str2Color(v))
+                self.bkcolor = utils.Str2Color(v)
             elif k == "width":
                 self.__apply_layout_size__(int(v), -1)
             elif k == "height":
@@ -277,12 +275,12 @@ class PyDuiWidget(object):
 
     # appearance
     @property
-    def bkcolor(self) -> str:
-        pass
+    def bkcolor(self) -> Gdk.RGBA:
+        return self.__bkcolor
 
     @bkcolor.setter
-    def bkcolor(self, color: str):
-        pass
+    def bkcolor(self, color: Gdk.RGBA):
+        self.__bkcolor = color
 
     @property
     def bkimage(self) -> str:
@@ -294,9 +292,17 @@ class PyDuiWidget(object):
 
     # private function
 
+    def __draw_bkcolor__(
+        self, ctx: cairo.Context, x: int, y: int, width: int, height: int, canvas_width: int, canvas_height: int
+    ):
+        if self.bkcolor is None:
+            return
+        print(f"draw {self.bkcolor} -> {x} {y} {width} {height}")
+        ctx.rectangle(x / canvas_width, y / canvas_height, width / canvas_width, height / canvas_height)
+        ctx.set_source_rgba(self.bkcolor.red, self.bkcolor.green, self.bkcolor.blue, self.bkcolor.alpha)
+        ctx.fill()
+
     def __apply_layout_size__(self, width: int, height: int):
-        # self.__widget.width_request = width
-        # self.__widget.height_request = height
         parent = self.parent
         if parent is None or parent.__layout_class is None:
             print(f"No parent, ignore layout. {self}")
@@ -305,10 +311,8 @@ class PyDuiWidget(object):
         if parent.layout_class == PyDuiLayoutEnum.VLayout:
             print(f"is VLayout: {width} {height}")
             self.fixed_height = height
-            # self.__widget.set_size_request(width, height)
         elif parent.layout_class == PyDuiLayoutEnum.HLayout:
             print(f"is HLayout {width} {height}")
             self.fixed_width = width
-            # self.__widget.set_size_request(width, height)
         else:
             print("Unknow layout type")

@@ -16,8 +16,8 @@ class PyDuiVLayout(PyDuiLayout):
         # self.set_gtk_widget(Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0))
         # self.set_gtk_widget(Gtk.VBox(False, 0))
 
-    def layout(self, width: int, height: int):
-        super().layout(width, height)
+    def layout(self, x: int, y: int, width: int, height: int):
+        super().layout(x, y, width, height)
 
         layout_info_list = []
         auto_expand_count = 0
@@ -44,10 +44,13 @@ class PyDuiVLayout(PyDuiLayout):
             auto_expand_h = valiable_height // auto_expand_count
 
         # layout children
+        x, y = self.x, self.y
         for i in range(len(layout_info_list)):
             child = self.get_child_at(i)
             h = layout_info_list[i]
             if h != 0:
-                child.layout(width, h)
+                child.layout(x, y, width, h)
+                y = y + h
             else:
-                child.layout(width, auto_expand_h)
+                child.layout(x, y, width, auto_expand_h)
+                y = y + auto_expand_h

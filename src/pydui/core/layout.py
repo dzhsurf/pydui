@@ -2,6 +2,7 @@
 from dataclasses import dataclass
 from enum import Enum
 
+import cairo
 import gi
 
 from pydui.core.base import *
@@ -22,12 +23,15 @@ class PyDuiLayout(PyDuiWidget):
         super().__init__(parent, layout_class)
         self.__children = []
         self.__children_id_dict = {}
-        if custom_gtk_widget is None:
-            custom_gtk_widget = Gtk.Layout.new(None, None)
-        self.set_gtk_widget(custom_gtk_widget)
 
-    def layout(self, width: int, height: int):
-        super().layout(width, height)
+    def draw(self, ctx: cairo.Context, x: int, y: int, width: int, height: int, canvas_width: int, canvas_height: int):
+        super().draw(ctx, x, y, width, height, canvas_width, canvas_height)
+        for i in range(self.child_count):
+            child = self.get_child_at(i)
+            child.draw(ctx, child.x, child.y, child.width, child.height, canvas_width, canvas_height)
+
+    def layout(self, x: int, y: int, width: int, height: int):
+        super().layout(x, y, width, height)
 
     def get_child(self, widget_id: str) -> Optional[PyDuiWidget]:
         """Get child widget by widget_id
@@ -74,18 +78,18 @@ class PyDuiLayout(PyDuiWidget):
         if len(widget_id) > 0 and (widget_id not in self.__children_id_dict):
             self.__children_id_dict[widget_id] = child
 
-        gtk_widget = self.get_gtk_widget()
-        if gtk_widget is None:
-            return
+        # gtk_widget = self.get_gtk_widget()
+        # if gtk_widget is None:
+        #     return
 
         # Add child gtk widget layout
-        child_gtk_widget = None
-        if child.layout_class == PyDuiLayoutEnum.NotLayout:
-            child_gtk_widget = child.get_gtk_widget_layout()
-        else:
-            child_gtk_widget = child.get_gtk_widget()
-        if child_gtk_widget is not None:
-            gtk_widget.put(child_gtk_widget, 0, 0)
+        # child_gtk_widget = None
+        # if child.layout_class == PyDuiLayoutEnum.NotLayout:
+        #     child_gtk_widget = child.get_gtk_widget_layout()
+        # else:
+        #     child_gtk_widget = child.get_gtk_widget()
+        # if child_gtk_widget is not None:
+        #     gtk_widget.put(child_gtk_widget, 0, 0)
 
     def add_child_at(self, child: PyDuiWidget, index: int):
         """Add child widget at index
