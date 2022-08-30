@@ -16,8 +16,8 @@ class PyDuiRenderCanvas(Gtk.Frame):
     """Render canvas"""
 
     __area: Gtk.DrawingArea
-    __width: int
-    __height: int
+    __width: float
+    __height: float
     __ondraw: callable
 
     def __init__(self, ondraw: callable, css=None, border_width=0):

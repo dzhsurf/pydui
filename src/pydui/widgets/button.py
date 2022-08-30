@@ -17,4 +17,3 @@ class PyDuiButton(PyDuiWidget):
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
-        self.set_gtk_widget(Gtk.Label())

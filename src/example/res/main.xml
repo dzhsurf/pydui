@@ -3,9 +3,17 @@
     <HLayout bkcolor="#FFE8E8E8">
         <VLayout width="200" bkcolor="#FFA8A8A8">
         </VLayout>
-        <VLayout bkcolor="#FFF0F0F0">
-            <Label id="info" text="hello" bkcolor="#FFFF5050" />
-            <Button id="button" text="Click Me!" />
+        <VLayout bkcolor="#FFF0F0F0" margin="8,8,8,8">
+            <Label id="info" text="hello" bkcolor="#FFD8D8D8" />
+            <HLayout width="30" bkcolor="#FF888888">
+                <VLayout bkcolor="#FF686868">
+                    <Button bkcolor="#FF383838" />
+                    <Button />
+                    <Button id="button" text="Click Me!" bkcolor="#FF080808" />
+                    <Button height="40" bkcolor="#FFCFCFCF" />
+                </VLayout>
+                <Button />
+            </HLayout>
         </VLayout>
     </HLayout>
 </Window>

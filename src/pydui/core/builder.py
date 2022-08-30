@@ -41,30 +41,6 @@ def __process_root_node__(node: ET.Element) -> PyDuiWindowConfig:
     )
 
 
-def __process_HLayout__(attrib: dict[str, str]) -> PyDuiHLayout:
-    return PyDuiHLayout()
-
-
-def __process_VLayout__(attrib: dict[str, str]) -> PyDuiVLayout:
-    return PyDuiVLayout()
-
-
-def __process_FixedLayout__(attrib: dict[str, str]) -> PyDuiFixedLayout:
-    return PyDuiFixedLayout()
-
-
-def __process_FitLayout__(attrib: dict[str, str]) -> PyDuiFitLayout:
-    return PyDuiFitLayout()
-
-
-def __process_Label__(attrib: dict[str, str]) -> PyDuiWidget:
-    return PyDuiWidget()
-
-
-def __process_Button__(attrib: dict[str, str]) -> PyDuiWidget:
-    return PyDuiWidget()
-
-
 def __process_tree_node__(node: ET.Element, parent_widget: PyDuiLayout) -> PyDuiWidget:
 
     logging.debug(f"node {node.tag}: {node.attrib}")

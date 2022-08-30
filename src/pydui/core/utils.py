@@ -7,8 +7,8 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gdk, Gtk
 
 
-def Str2Size(text: str) -> tuple[int, int]:
-    """Convert text to tuple[int, int]
+def Str2Size(text: str) -> tuple[float, float]:
+    """Convert text to tuple[float, float]
 
     if the text in wrong format, it will return (0, 0)
 
@@ -16,13 +16,13 @@ def Str2Size(text: str) -> tuple[int, int]:
         text (str): input text
 
     Retruns:
-        tuple[int, int]: return size in tuple
+        tuple[float, float]: return size in tuple
     """
     arr = text.split(",")
     if len(arr) != 2:
         return (0, 0)
 
-    return (int(arr[0]), int(arr[1]))
+    return (float(arr[0]), float(arr[1]))
 
 
 def Str2Position(text: str) -> Gtk.WindowPosition:
@@ -55,3 +55,19 @@ def Str2Color(text: str) -> Gdk.RGBA:
         text = text[2:]
 
     return Gdk.RGBA(color[1] / 255, color[2] / 255, color[3] / 255, color[0] / 255)
+
+
+def Str2Rect(text: str) -> tuple[float, float, float, float]:
+    arr = text.split(",")
+    if len(arr) != 4:
+        return (0, 0, 0, 0)
+
+    return tuple(float(n) for n in arr)
+
+
+def RectH(rect: tuple[float, float, float, float]) -> float:
+    return rect[1] + rect[3]
+
+
+def RectW(rect: tuple[float, float, float, float]) -> float:
+    return rect[0] + rect[2]

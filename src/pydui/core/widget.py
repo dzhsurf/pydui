@@ -21,10 +21,10 @@ class PyDuiConstraint:
 
     """Constraint dataclass"""
 
-    min_width: int = 0
-    max_width: int = sys.maxsize
-    min_height: int = 0
-    max_height: int = sys.maxsize
+    min_width: float = 0
+    max_width: float = sys.maxsize
+    min_height: float = 0
+    max_height: float = sys.maxsize
 
 
 class PyDuiWidget(object):
@@ -33,16 +33,18 @@ class PyDuiWidget(object):
 
     __id: str
     __parent: PyDuiWidget
-    __x: int
-    __y: int
-    __width: int
-    __height: int
-    __fixed_x: int
-    __fixed_y: int
-    __fixed_width: int
-    __fixed_height: int
+    __x: float
+    __y: float
+    __width: float
+    __height: float
+    __fixed_x: float
+    __fixed_y: float
+    __fixed_width: float
+    __fixed_height: float
     __layout_class: PyDuiLayoutEnum
-    __bkcolor: Gdk.RGBA
+    # attrib
+    __bkcolor: Gdk.RGBA = None
+    __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
 
     def __init__(self, parent: PyDuiWidget, layout_class: PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout):
         self.__id = ""
@@ -52,7 +54,6 @@ class PyDuiWidget(object):
         self.__fixed_x, self.__fixed_y = 0, 0
         self.__fixed_width, self.__fixed_height = 0, 0
         self.__layout_class = layout_class
-        self.bkcolor = None  # Gdk.RGBA(0.0,1.0,1.0,1.0)
 
     def get_id(self) -> str:
         """Return widget id
@@ -62,52 +63,24 @@ class PyDuiWidget(object):
         """
         return self.__id
 
-    def set_id(self, id: str):
-        """Set widget id
-
-        Args:
-            id (str): widget id
-        """
-        self.__id = id
-
-    def set_gtk_widget(self, gtk_widget: Gtk.Widget):
-        """Set gtk widget
-
-        Args:
-            gtk_widget (Gtk.Widget): Gtk widget object
-        """
-        if gtk_widget is None:
-            return
-        # self.__widget = gtk_widget
-        # if self.__layout_class == PyDuiLayoutEnum.NotLayout:
-        #     self.__widget_layout = Gtk.Layout.new(None, None)
-        #     self.__widget_layout.put(self.__widget, 0, 0)
-
-    # def get_gtk_widget(self) -> Gtk.Widget:
-    #     """Return gtk widget object
-
-    #     Returns:
-    #         Gtk.Widget: Gtk widget object
-    #     """
-    #     return self.__widget
-
-    def get_gtk_widget_layout(self) -> Gtk.Layout:
-        """Return gtk widget layout object
-
-        Returns:
-            Gtk.Layout: Gtk widget layout object
-        """
-        return self.__widget_layout
-
-    def draw(self, ctx: cairo.Context, x: int, y: int, width: int, height: int, canvas_width: int, canvas_height: int):
+    def draw(
+        self,
+        ctx: cairo.Context,
+        x: float,
+        y: float,
+        width: float,
+        height: float,
+        canvas_width: float,
+        canvas_height: float,
+    ):
         self.__draw_bkcolor__(ctx, x, y, width, height, canvas_width, canvas_height)
 
-    def layout(self, x: int, y: int, width: int, height: int):
+    def layout(self, x: float, y: float, width: float, height: float):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
-        print(f"{self} layouted => ({x},{y},{width},{height})")
+        print(f"{self} => ({x}, {y}, {width}, {height})")
 
-    def estimate_size(self, parent_width: int, parent_height: int) -> tuple[int, int]:
+    def estimate_size(self, parent_width: float, parent_height: float) -> tuple[float, float]:
         return (self.__fixed_width, self.__fixed_height)
 
     def parse_attrib(self, attrib: dict[str, str]):
@@ -119,22 +92,24 @@ class PyDuiWidget(object):
         for k, v in attrib.items():
             print(f"parser {k} = {v}")
             if k == "id":
-                self.set_id(v)
+                self.__id = v
             elif k == "bkcolor":
                 self.bkcolor = utils.Str2Color(v)
             elif k == "width":
-                self.__apply_layout_size__(int(v), -1)
+                self.fixed_width = float(v)
             elif k == "height":
-                self.__apply_layout_size__(-1, int(v))
+                self.fixed_height = float(v)
             elif k == "size":
                 size_arr = v.split(",")
-                self.__apply_layout_size__(int(size_arr[0]), int(size_arr[1]))
+                self.__apply_layout_size__(float(size_arr[0]), float(size_arr[1]))
             elif k == "x":
-                pass
+                self.fixed_x = float(v)
             elif k == "y":
-                pass
+                self.fixed_y = float(v)
             elif k == "xy":
-                pass
+                self.fixed_xy = tuple(float(a) for a in v.split(","))
+            elif k == "margin":
+                self.margin = utils.Str2Rect(v)
 
     # method
     def connect(self, signal_name: str, callback: callable):
@@ -154,52 +129,69 @@ class PyDuiWidget(object):
         return self.__parent
 
     @property
-    def size(self) -> tuple[int, int]:
+    def size(self) -> tuple[float, float]:
         return (self.width, self.height)
 
     @property
-    def width(self) -> int:
+    def width(self) -> float:
         return self.__width
 
     @property
-    def height(self) -> int:
+    def height(self) -> float:
         return self.__height
 
     @property
-    def fixed_size(self) -> tuple[int, int]:
+    def layout_rect(self) -> tuple[float, float, float, float]:
+        return (
+            self.x,
+            self.y,
+            self.x + self.width + utils.RectW(self.margin),
+            self.y + self.height + utils.RectH(self.margin),
+        )
+
+    @property
+    def fixed_size(self) -> tuple[float, float]:
         return (self.fixed_width, self.fixed_height)
 
     @fixed_size.setter
-    def fixed_size(self, size: tuple[int, int]):
+    def fixed_size(self, size: tuple[float, float]):
         self.fixed_width = size[0]
         self.fixed_height = size[1]
 
     @property
-    def fixed_width(self) -> int:
+    def fixed_width(self) -> float:
         return self.__fixed_width
 
     @fixed_width.setter
-    def fixed_width(self, w: int):
+    def fixed_width(self, w: float):
+        if self.parent is None or self.parent.__layout_class is None:
+            return
+        if self.parent.layout_class != PyDuiLayoutEnum.HLayout:
+            return
         self.__fixed_width = w
 
     @property
-    def fixed_height(self) -> int:
+    def fixed_height(self) -> float:
         return self.__fixed_height
 
     @fixed_height.setter
-    def fixed_height(self, h: int):
+    def fixed_height(self, h: float):
+        if self.parent is None or self.parent.__layout_class is None:
+            return
+        if self.parent.layout_class != PyDuiLayoutEnum.VLayout:
+            return
         self.__fixed_height = h
 
     @property
-    def xy(self) -> tuple[int, int]:
+    def xy(self) -> tuple[float, float]:
         return (self.x, self.y)
 
     @property
-    def x(self) -> int:
+    def x(self) -> float:
         return self.__x
 
     @property
-    def y(self) -> int:
+    def y(self) -> float:
         return self.__y
 
     @property
@@ -207,27 +199,27 @@ class PyDuiWidget(object):
         pass
 
     @property
-    def fixed_x(self) -> int:
+    def fixed_x(self) -> float:
         return self.__fixed_x
 
     @fixed_x.setter
-    def fixed_x(self, x: int):
+    def fixed_x(self, x: float):
         self.__fixed_x = x
 
     @property
-    def fixed_y(self) -> int:
+    def fixed_y(self) -> float:
         return self.__fixed_y
 
     @fixed_y.setter
-    def fixed_y(self, y: int):
+    def fixed_y(self, y: float):
         self.__fixed_y = y
 
     @property
-    def fixed_xy(self) -> tuple[int, int]:
+    def fixed_xy(self) -> tuple[float, float]:
         return (self.__fixed_x, self.__fixed_y)
 
     @fixed_xy.setter
-    def fixed_xy(self, xy: tuple[int, int]):
+    def fixed_xy(self, xy: tuple[float, float]):
         self.fixed_x = xy[0]
         self.fixed_y = xy[1]
 
@@ -236,12 +228,25 @@ class PyDuiWidget(object):
         pass
 
     @property
-    def padding(self) -> tuple[int, int, int, int]:
-        pass
+    def margin(self) -> tuple[float, float, float, float]:
+        """Return widget margin
 
-    @padding.setter
-    def padding(self, padding: tuple[int, int, int, int]):
-        pass
+        The value in tuple means [left, top, right, bottom]
+
+        Returns:
+            tuple[float, float, float, float]: return margin.
+        """
+        return self.__margin
+
+    @margin.setter
+    def margin(self, margin: tuple[float, float, float, float]):
+        """Set the widget margin
+
+        Args:
+            margin (tuple[float, float, float, float]): widget margin
+
+        """
+        self.__margin = margin
 
     # constraint
     @property
@@ -293,26 +298,17 @@ class PyDuiWidget(object):
     # private function
 
     def __draw_bkcolor__(
-        self, ctx: cairo.Context, x: int, y: int, width: int, height: int, canvas_width: int, canvas_height: int
+        self,
+        ctx: cairo.Context,
+        x: float,
+        y: float,
+        width: float,
+        height: float,
+        canvas_width: float,
+        canvas_height: float,
     ):
         if self.bkcolor is None:
             return
-        print(f"draw {self.bkcolor} -> {x} {y} {width} {height}")
         ctx.rectangle(x / canvas_width, y / canvas_height, width / canvas_width, height / canvas_height)
         ctx.set_source_rgba(self.bkcolor.red, self.bkcolor.green, self.bkcolor.blue, self.bkcolor.alpha)
         ctx.fill()
-
-    def __apply_layout_size__(self, width: int, height: int):
-        parent = self.parent
-        if parent is None or parent.__layout_class is None:
-            print(f"No parent, ignore layout. {self}")
-            return
-        print(f"Parent layout type: {parent.layout_class}")
-        if parent.layout_class == PyDuiLayoutEnum.VLayout:
-            print(f"is VLayout: {width} {height}")
-            self.fixed_height = height
-        elif parent.layout_class == PyDuiLayoutEnum.HLayout:
-            print(f"is HLayout {width} {height}")
-            self.fixed_width = width
-        else:
-            print("Unknow layout type")

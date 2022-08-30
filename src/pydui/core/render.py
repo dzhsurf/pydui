@@ -53,7 +53,7 @@ class PyDuiRenderManager(object):
         """
         return self.__rootview.get_child(widget_id)
 
-    def __on_draw__(self, ctx: cairo.Context, width: int, height: int):
+    def __on_draw__(self, ctx: cairo.Context, width: float, height: float):
         if self.__rootview is None:
             return
         self.__rootview.layout(0, 0, width, height)
