@@ -12,37 +12,9 @@ Classes
 
 .. autoapisummary::
 
-   pydui.core.window.PyDuiRenderManager
    pydui.core.window.PyDuiWindowConfig
    pydui.core.window.PyDuiWindow
-   pydui.core.window.PyDuiWindowHandler
 
-
-
-
-.. py:class:: PyDuiRenderManager(window: PyDuiWindow)
-
-   Bases: :py:obj:`object`
-
-   Render manager
-
-   .. py:method:: set_rootview(rootview: PyDuiLayout)
-
-      set window root view
-
-      :param rootview: widnow root view
-      :type rootview: PyDuiWidget
-
-
-   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
-
-      Get widget by widget id
-
-      :param widget_id: widget id
-      :type widget_id: str
-
-
-   .. py:method:: on_window_size_or_position_change(x: int, y: int, width: int, height: int)
 
 
 
@@ -106,7 +78,7 @@ Classes
       
 
 
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: PyDuiWidget, handler: Type[PyDuiWindowHandler] = None)
+.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: pydui.core.render.Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
 
    Bases: :py:obj:`object`
 
@@ -118,21 +90,7 @@ Classes
    .. py:method:: show()
 
 
-   .. py:method:: get_widget(widget_id: str) -> Optional[PyDuiWidget]
-
-
-
-.. py:class:: PyDuiWindowHandler(window: PyDuiWindow)
-
-   Bases: :py:obj:`object`
-
-   .. py:method:: window() -> PyDuiWindow
-
-
-   .. py:method:: on_window_show()
-
-
-   .. py:method:: on_window_destroy()
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
 
 
 

@@ -172,19 +172,58 @@
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.layout.PyDuiLayoutEstimateResult" title="pydui.core.layout.PyDuiLayoutEstimateResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiLayoutEstimateResult</span></code></a></p></td>
+<td><p>Estimate layout result</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a></p></td>
 <td><p>Layout base class, all layouts inherit from PyDuiLayout</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayoutEstimateResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.layout.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayoutEstimateResult</span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayoutEstimateResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate layout result</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayoutEstimateResult.auto_layout_count">
+<span class="sig-name descname"><span class="pre">auto_layout_count</span></span><em class="property"><span class="w"> </span><span class="pre">:int</span> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pydui.core.layout.PyDuiLayoutEstimateResult.auto_layout_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayoutEstimateResult.auto_layout_value">
+<span class="sig-name descname"><span class="pre">auto_layout_value</span></span><em class="property"><span class="w"> </span><span class="pre">:int</span> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pydui.core.layout.PyDuiLayoutEstimateResult.auto_layout_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayoutEstimateResult.estimate_items">
+<span class="sig-name descname"><span class="pre">estimate_items</span></span><em class="property"><span class="w"> </span><span class="pre">:list[int]</span></em><a class="headerlink" href="#pydui.core.layout.PyDuiLayoutEstimateResult.estimate_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.layout.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.widget.PyDuiLayoutEnum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_gtk_widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gi.repository.Gtk.Widget</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pydui.core.widget.PyDuiWidget</span></code></a></p>
 <p>Layout base class, all layouts inherit from PyDuiLayout</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.widget.cairo.Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.layout">
-<span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.layout" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.layout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.get_children_range_fixed_width">
+<span class="sig-name descname"><span class="pre">get_children_range_fixed_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.get_children_range_fixed_width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.get_children_range_fixed_height">
+<span class="sig-name descname"><span class="pre">get_children_range_fixed_height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.get_children_range_fixed_height" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -293,16 +332,16 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.inset">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inset</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.inset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return widget inset</p>
+<dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.padding">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">padding</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return widget padding</p>
 <p>The value in tuple means [left, top, right, bottom]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>return inset.</p>
+<dd class="field-odd"><p>return padding.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple[int, int, int, int]</p>
+<dd class="field-even"><p>tuple[float, float, float, float]</p>
 </dd>
 </dl>
 </dd></dl>

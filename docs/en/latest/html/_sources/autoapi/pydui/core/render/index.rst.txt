@@ -1,0 +1,42 @@
+:py:mod:`pydui.core.render`
+===========================
+
+.. py:module:: pydui.core.render
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.render.PyDuiRenderManager
+
+
+
+
+.. py:class:: PyDuiRenderManager(window: PyDuiWindow)
+
+   Bases: :py:obj:`object`
+
+   Render manager
+
+   .. py:method:: set_rootview(rootview: pydui.core.layout.PyDuiLayout)
+
+      set window root view
+
+      :param rootview: widnow root view
+      :type rootview: PyDuiWidget
+
+
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+
+      Get widget by widget id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+

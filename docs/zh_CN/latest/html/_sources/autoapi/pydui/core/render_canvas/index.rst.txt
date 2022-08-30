@@ -1,0 +1,29 @@
+:py:mod:`pydui.core.render_canvas`
+==================================
+
+.. py:module:: pydui.core.render_canvas
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.render_canvas.PyDuiRenderCanvas
+
+
+
+
+.. py:class:: PyDuiRenderCanvas(ondraw: callable, css=None, border_width=0)
+
+   Bases: :py:obj:`gi.repository.Gtk.Frame`
+
+   Render canvas
+
+   .. py:method:: redraw()
+
+
+

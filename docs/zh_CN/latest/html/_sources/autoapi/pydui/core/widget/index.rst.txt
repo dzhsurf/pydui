@@ -23,22 +23,22 @@ Classes
    Constraint dataclass
 
    .. py:attribute:: min_width
-      :annotation: :int = 0
+      :annotation: :float = 0
 
       
 
    .. py:attribute:: max_width
-      :annotation: :int
+      :annotation: :float
 
       
 
    .. py:attribute:: min_height
-      :annotation: :int = 0
+      :annotation: :float = 0
 
       
 
    .. py:attribute:: max_height
-      :annotation: :int
+      :annotation: :float
 
       
 
@@ -57,42 +57,13 @@ Classes
       :rtype: str
 
 
-   .. py:method:: set_id(id: str)
-
-      Set widget id
-
-      :param id: widget id
-      :type id: str
+   .. py:method:: draw(ctx: cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
 
 
-   .. py:method:: set_gtk_widget(gtk_widget: gi.repository.Gtk.Widget)
-
-      Set gtk widget
-
-      :param gtk_widget: Gtk widget object
-      :type gtk_widget: Gtk.Widget
+   .. py:method:: layout(x: float, y: float, width: float, height: float)
 
 
-   .. py:method:: get_gtk_widget() -> gi.repository.Gtk.Widget
-
-      Return gtk widget object
-
-      :returns: Gtk widget object
-      :rtype: Gtk.Widget
-
-
-   .. py:method:: get_gtk_widget_layout() -> gi.repository.Gtk.Layout
-
-      Return gtk widget layout object
-
-      :returns: Gtk widget layout object
-      :rtype: Gtk.Layout
-
-
-   .. py:method:: layout(width: int, height: int)
-
-
-   .. py:method:: estimate_size(parent_width: int, parent_height: int) -> tuple[int, int]
+   .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
    .. py:method:: parse_attrib(attrib: dict[str, str])
@@ -117,39 +88,43 @@ Classes
       :property:
 
 
-   .. py:method:: size() -> tuple[int, int]
+   .. py:method:: size() -> tuple[float, float]
       :property:
 
 
-   .. py:method:: width() -> int
+   .. py:method:: width() -> float
       :property:
 
 
-   .. py:method:: height() -> int
+   .. py:method:: height() -> float
       :property:
 
 
-   .. py:method:: fixed_size() -> tuple[int, int]
+   .. py:method:: layout_rect() -> tuple[float, float, float, float]
       :property:
 
 
-   .. py:method:: fixed_width() -> int
+   .. py:method:: fixed_size() -> tuple[float, float]
       :property:
 
 
-   .. py:method:: fixed_height() -> int
+   .. py:method:: fixed_width() -> float
       :property:
 
 
-   .. py:method:: xy() -> tuple[int, int]
+   .. py:method:: fixed_height() -> float
       :property:
 
 
-   .. py:method:: x() -> int
+   .. py:method:: xy() -> tuple[float, float]
       :property:
 
 
-   .. py:method:: y() -> int
+   .. py:method:: x() -> float
+      :property:
+
+
+   .. py:method:: y() -> float
       :property:
 
 
@@ -157,20 +132,27 @@ Classes
       :property:
 
 
-   .. py:method:: fixed_x() -> int
+   .. py:method:: fixed_x() -> float
       :property:
 
 
-   .. py:method:: fixed_y() -> int
+   .. py:method:: fixed_y() -> float
       :property:
 
 
-   .. py:method:: fixed_xy() -> tuple[int, int]
+   .. py:method:: fixed_xy() -> tuple[float, float]
       :property:
 
 
-   .. py:method:: padding() -> tuple[int, int, int, int]
+   .. py:method:: margin() -> tuple[float, float, float, float]
       :property:
+
+      Return widget margin
+
+      The value in tuple means [left, top, right, bottom]
+
+      :returns: return margin.
+      :rtype: tuple[float, float, float, float]
 
 
    .. py:method:: constraint() -> PyDuiConstraint
@@ -189,7 +171,7 @@ Classes
       :property:
 
 
-   .. py:method:: bkcolor() -> str
+   .. py:method:: bkcolor() -> gi.repository.Gdk.RGBA
       :property:
 
 

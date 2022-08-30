@@ -23,7 +23,10 @@ Classes
 
    Horizontal layout
 
-   .. py:method:: layout(width: int, height: int)
+   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+
+
+   .. py:method:: layout(x: float, y: float, width: float, height: float)
 
 
 

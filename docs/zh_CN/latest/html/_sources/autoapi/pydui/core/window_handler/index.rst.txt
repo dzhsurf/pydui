@@ -1,0 +1,35 @@
+:py:mod:`pydui.core.window_handler`
+===================================
+
+.. py:module:: pydui.core.window_handler
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.window_handler.PyDuiWindowHandler
+
+
+
+
+.. py:class:: PyDuiWindowHandler
+
+   Bases: :py:obj:`object`
+
+   Window handler
+
+   .. py:method:: on_window_show()
+
+
+   .. py:method:: on_window_destroy()
+
+
+   .. py:method:: on_window_position_changed(x: int, y: int)
+
+
+

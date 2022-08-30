@@ -19,8 +19,11 @@ Submodules
    base/index.rst
    builder/index.rst
    layout/index.rst
+   render/index.rst
+   render_canvas/index.rst
    utils/index.rst
    widget/index.rst
    window/index.rst
+   window_handler/index.rst
 
 
