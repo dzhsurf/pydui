@@ -126,7 +126,6 @@ In the early stage, performance optimization, resource leakage issue, text rende
 
 * Core
   * Builder, Render, Event Dispatch
-
 * Layout
   * HLayout, VLayout, FixedLayout, FitLayout 
 * Widgets
@@ -135,6 +134,7 @@ In the early stage, performance optimization, resource leakage issue, text rende
   * Resource builder
   * Application builder
 * Special Features
+  * Text selection
   * Drag&Drop
   * Model Window
   * Intl
@@ -145,8 +145,28 @@ In the early stage, performance optimization, resource leakage issue, text rende
 
 ## Reference
 
-https://lazka.github.io/pgi-docs/Gtk-3.0/index.html
+Python Gtk-3 Tutorial: https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html
 
-https://valadoc.org/gtk+-3.0/index.htm
+Python Gtk-3: https://lazka.github.io/pgi-docs/Gtk-3.0/index.html
 
-https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html
+Python Gdk-3: https://lazka.github.io/pgi-docs/Gdk-3.0/index.html
+
+Python GdkPixbuf: https://lazka.github.io/pgi-docs/GdkPixbuf-2.0/index.html
+
+Python Pango: https://lazka.github.io/pgi-docs/Pango-1.0/index.html
+
+Pycairo: https://pycairo.readthedocs.io/en/latest/index.html
+
+PyGObject: https://pygobject.readthedocs.io/en/latest/index.html
+
+---
+
+Gtk-3: https://docs.gtk.org/gtk3/index.html
+
+Pango: https://docs.gtk.org/Pango/index.html
+
+GdkPixbuf: https://docs.gtk.org/gdk-pixbuf/index.html
+
+---
+
+Gtk pgi Symbol Mapping: https://lazka.github.io/pgi-docs/Gtk-3.0/mapping.html
