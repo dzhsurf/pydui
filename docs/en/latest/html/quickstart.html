@@ -184,11 +184,14 @@
 <section id="introduction">
 <h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h3>
 <p><strong>PyDui base on GTK-3, PyGObject</strong></p>
-<p>Even though there is GTK/Glade can quickly and efficiently build a powerful UI Application. But the Glade is not easy enough to learn. Sometimes, we need another solution for rapidly building a simple app. I think, on the windows platform, DuiLib is an option because it’s easy to learn.</p>
+<p>PyDui is based on PyGObject/GTK-3, but totally runs on self-drawing canvas. Because GTK-3 widgets are not easy to understand how it works. We are tent to provide an easy API to help developers to build UI applications more quickly and efficiently, putting more focus on the product either than the details of the framework.</p>
+<p>Why choose GTK, not QT or any other framework as the low-level module?
+As GTK is a powerful cross-platform framework, it can run on Windows, MacOSX, and Linux well, and it’s light enough, fewer dependencies mean it can be easy to pack and deploy.</p>
+<p>And why use self-drawing instead of GTK’s widget pattern?
+Even though there is GTK/Glade can quickly build a powerful UI Application. But the Glade is not easy enough to learn. Especially the layout design pattern on GTK is terrible hell for developers and designers.</p>
+<p>Sometimes, we need another solution for rapidly building a simple app. I think, on the windows platform, DuiLib is an option because it’s easy to learn. That is the reason we use self-drawing to reimplement all the virtual widgets.</p>
 <p><strong>Why not just wrap the DuiLib API ?</strong></p>
 <p>This is a good question because DuiLib only works on windows. And the author work on mac. So, this is not for cross-platform purposes, just personal reasons.</p>
-<p><strong>The simple layout rule</strong></p>
-<p>PyDui only has one layout rule, it’s easy to understand how it works.</p>
 </section>
 <section id="install">
 <h3>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h3>
@@ -252,11 +255,65 @@ pip install -e .
 </pre></div>
 </div>
 </section>
+<section id="layout-rule">
+<h3>Layout Rule<a class="headerlink" href="#layout-rule" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>TODO:
+…</p>
+</div></blockquote>
+</section>
+<section id="development">
+<h3>Development<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h3>
+<p>In the early stage, performance optimization, resource leakage issue, text rendering quality, and correctness issue are not the primary tasks. The first task is to complete the essential module function.</p>
+<ul class="simple">
+<li><p>Core</p>
+<ul>
+<li><p>Builder, Render, Event Dispatch</p></li>
+</ul>
+</li>
+<li><p>Layout</p>
+<ul>
+<li><p>HLayout, VLayout, FixedLayout, FitLayout</p></li>
+</ul>
+</li>
+<li><p>Widgets</p>
+<ul>
+<li><p>Label, Button, Image, Edit, InfiniteList, Menu, Toast</p></li>
+</ul>
+</li>
+<li><p>Deployment</p>
+<ul>
+<li><p>Resource builder</p></li>
+<li><p>Application builder</p></li>
+</ul>
+</li>
+<li><p>Special Features</p>
+<ul>
+<li><p>Text selection</p></li>
+<li><p>Drag&amp;Drop</p></li>
+<li><p>Model Window</p></li>
+<li><p>Intl</p></li>
+<li><p>RichText</p></li>
+<li><p>Window Shadow</p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="reference">
 <h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h3>
-<p>https://lazka.github.io/pgi-docs/Gtk-3.0/index.html</p>
-<p>https://valadoc.org/gtk+-3.0/index.htm</p>
-<p>https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html</p>
+<p>Python Gtk-3 Tutorial: https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html</p>
+<p>Python Gtk-3: https://lazka.github.io/pgi-docs/Gtk-3.0/index.html</p>
+<p>Python Gdk-3: https://lazka.github.io/pgi-docs/Gdk-3.0/index.html</p>
+<p>Python GdkPixbuf: https://lazka.github.io/pgi-docs/GdkPixbuf-2.0/index.html</p>
+<p>Python Pango: https://lazka.github.io/pgi-docs/Pango-1.0/index.html</p>
+<p>Pycairo: https://pycairo.readthedocs.io/en/latest/index.html</p>
+<p>PyGObject: https://pygobject.readthedocs.io/en/latest/index.html</p>
+<hr class="docutils" />
+<p>Gtk-3: https://docs.gtk.org/gtk3/index.html</p>
+<p>Pango: https://docs.gtk.org/Pango/index.html</p>
+<p>GdkPixbuf: https://docs.gtk.org/gdk-pixbuf/index.html</p>
+<hr class="docutils" />
+<p>Gtk pgi Symbol Mapping: https://lazka.github.io/pgi-docs/Gtk-3.0/mapping.html</p>
 </section>
 </section>
 </section>

@@ -23,4 +23,15 @@ Classes
 
    Label widget
 
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+
+
 

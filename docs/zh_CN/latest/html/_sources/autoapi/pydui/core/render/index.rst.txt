@@ -12,8 +12,28 @@ Classes
 
 .. autoapisummary::
 
+   pydui.core.render.PyDuiRender
    pydui.core.render.PyDuiRenderManager
 
+
+
+
+.. py:class:: PyDuiRender
+
+   Render static function
+
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+      :staticmethod:
+
+
+   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+      :staticmethod:
+
+      Estimate text size
 
 
 
@@ -22,6 +42,42 @@ Classes
    Bases: :py:obj:`object`
 
    Render manager
+
+   .. py:method:: default_font_color() -> gi.repository.Gdk.RGBA
+      :property:
+
+      return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
+
+      :returns: return default font color
+      :rtype: Gdk.RGBA
+
+
+   .. py:method:: default_font_desc() -> str
+      :property:
+
+      return font desc in format f"{font_family} {font_size}"
+
+      :returns: font desc
+      :rtype: str
+
+
+   .. py:method:: default_font_family() -> str
+      :property:
+
+      return default font family, default is Arial
+
+      :returns: font family
+      :rtype: str
+
+
+   .. py:method:: default_font_size() -> int
+      :property:
+
+      return default font size, default is 16
+
+      :returns: font size
+      :rtype: int
+
 
    .. py:method:: set_rootview(rootview: pydui.core.layout.PyDuiLayout)
 

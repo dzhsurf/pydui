@@ -33,24 +33,28 @@ Classes
    pydui.layout.PyDuiLayoutEstimateResult
    pydui.layout.PyDuiLayout
    pydui.layout.PyDuiLayoutEnum
+   pydui.layout.PyDuiRender
    pydui.layout.PyDuiConstraint
    pydui.layout.PyDuiWidget
    pydui.layout.PyDuiFixedLayout
    pydui.layout.PyDuiLayoutEnum
    pydui.layout.PyDuiLayoutEstimateResult
    pydui.layout.PyDuiLayout
+   pydui.layout.PyDuiRender
    pydui.layout.PyDuiConstraint
    pydui.layout.PyDuiWidget
    pydui.layout.PyDuiHLayout
    pydui.layout.PyDuiLayoutEstimateResult
    pydui.layout.PyDuiLayout
    pydui.layout.PyDuiLayoutEnum
+   pydui.layout.PyDuiRender
    pydui.layout.PyDuiConstraint
    pydui.layout.PyDuiWidget
    pydui.layout.PyDuiVLayout
    pydui.layout.PyDuiLayoutEstimateResult
    pydui.layout.PyDuiLayout
    pydui.layout.PyDuiLayoutEnum
+   pydui.layout.PyDuiRender
    pydui.layout.PyDuiConstraint
    pydui.layout.PyDuiWidget
 
@@ -239,6 +243,25 @@ Classes
       
 
 
+.. py:class:: PyDuiRender
+
+   Render static function
+
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+      :staticmethod:
+
+
+   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+      :staticmethod:
+
+      Estimate text size
+
+
+
 .. py:class:: PyDuiConstraint
 
    Constraint dataclass
@@ -287,9 +310,17 @@ Classes
    .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
-   .. py:method:: parse_attrib(attrib: dict[str, str])
+   .. py:method:: parse_attributes(attrib: dict[str, str])
 
-      Parse attrib
+      Parse all attributes
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]
@@ -583,6 +614,25 @@ Classes
 
 
 
+.. py:class:: PyDuiRender
+
+   Render static function
+
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+      :staticmethod:
+
+
+   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+      :staticmethod:
+
+      Estimate text size
+
+
+
 .. py:class:: PyDuiConstraint
 
    Constraint dataclass
@@ -631,9 +681,17 @@ Classes
    .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
-   .. py:method:: parse_attrib(attrib: dict[str, str])
+   .. py:method:: parse_attributes(attrib: dict[str, str])
 
-      Parse attrib
+      Parse all attributes
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]
@@ -933,6 +991,25 @@ Classes
       
 
 
+.. py:class:: PyDuiRender
+
+   Render static function
+
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+      :staticmethod:
+
+
+   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+      :staticmethod:
+
+      Estimate text size
+
+
+
 .. py:class:: PyDuiConstraint
 
    Constraint dataclass
@@ -981,9 +1058,17 @@ Classes
    .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
-   .. py:method:: parse_attrib(attrib: dict[str, str])
+   .. py:method:: parse_attributes(attrib: dict[str, str])
 
-      Parse attrib
+      Parse all attributes
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]
@@ -1283,6 +1368,25 @@ Classes
       
 
 
+.. py:class:: PyDuiRender
+
+   Render static function
+
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+      :staticmethod:
+
+
+   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+      :staticmethod:
+
+      Estimate text size
+
+
+
 .. py:class:: PyDuiConstraint
 
    Constraint dataclass
@@ -1331,9 +1435,17 @@ Classes
    .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
-   .. py:method:: parse_attrib(attrib: dict[str, str])
+   .. py:method:: parse_attributes(attrib: dict[str, str])
 
-      Parse attrib
+      Parse all attributes
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]

@@ -66,9 +66,17 @@ Classes
    .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
-   .. py:method:: parse_attrib(attrib: dict[str, str])
+   .. py:method:: parse_attributes(attrib: dict[str, str])
 
-      Parse attrib
+      Parse all attributes
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]

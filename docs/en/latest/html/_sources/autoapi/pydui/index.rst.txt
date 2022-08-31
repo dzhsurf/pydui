@@ -49,6 +49,7 @@ Classes
    pydui.PyDuiLayoutEstimateResult
    pydui.PyDuiLayout
    pydui.PyDuiLayoutEnum
+   pydui.PyDuiRender
    pydui.PyDuiConstraint
    pydui.PyDuiWidget
    pydui.PyDuiWindowConfig
@@ -62,6 +63,7 @@ Classes
    pydui.PyDuiVLayout
    pydui.PyDuiButton
    pydui.PyDuiLabel
+   pydui.PyDuiRender
    pydui.PyDuiConstraint
    pydui.PyDuiWidget
    pydui.PyDuiLayoutEnum
@@ -70,6 +72,7 @@ Classes
    pydui.PyDuiLayoutEstimateResult
    pydui.PyDuiLayout
    pydui.PyDuiLayoutEnum
+   pydui.PyDuiRender
    pydui.PyDuiConstraint
    pydui.PyDuiWidget
    pydui.PyDuiRenderManager
@@ -300,6 +303,25 @@ Classes
       
 
 
+.. py:class:: PyDuiRender
+
+   Render static function
+
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+      :staticmethod:
+
+
+   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+      :staticmethod:
+
+      Estimate text size
+
+
+
 .. py:class:: PyDuiConstraint
 
    Constraint dataclass
@@ -348,9 +370,17 @@ Classes
    .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
-   .. py:method:: parse_attrib(attrib: dict[str, str])
+   .. py:method:: parse_attributes(attrib: dict[str, str])
 
-      Parse attrib
+      Parse all attributes
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]
@@ -544,6 +574,42 @@ Classes
 
    Render manager
 
+   .. py:method:: default_font_color() -> gi.repository.Gdk.RGBA
+      :property:
+
+      return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
+
+      :returns: return default font color
+      :rtype: Gdk.RGBA
+
+
+   .. py:method:: default_font_desc() -> str
+      :property:
+
+      return font desc in format f"{font_family} {font_size}"
+
+      :returns: font desc
+      :rtype: str
+
+
+   .. py:method:: default_font_family() -> str
+      :property:
+
+      return default font family, default is Arial
+
+      :returns: font family
+      :rtype: str
+
+
+   .. py:method:: default_font_size() -> int
+      :property:
+
+      return default font size, default is 16
+
+      :returns: font size
+      :rtype: int
+
+
    .. py:method:: set_rootview(rootview: pydui.core.layout.PyDuiLayout)
 
       set window root view
@@ -640,6 +706,36 @@ Classes
 
    Label widget
 
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+
+
+
+.. py:class:: PyDuiRender
+
+   Render static function
+
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+      :staticmethod:
+
+
+   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+      :staticmethod:
+
+      Estimate text size
+
+
 
 .. py:class:: PyDuiConstraint
 
@@ -689,9 +785,17 @@ Classes
    .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
-   .. py:method:: parse_attrib(attrib: dict[str, str])
+   .. py:method:: parse_attributes(attrib: dict[str, str])
 
-      Parse attrib
+      Parse all attributes
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]
@@ -1103,6 +1207,25 @@ Classes
       
 
 
+.. py:class:: PyDuiRender
+
+   Render static function
+
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+      :staticmethod:
+
+
+   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+      :staticmethod:
+
+      Estimate text size
+
+
+
 .. py:class:: PyDuiConstraint
 
    Constraint dataclass
@@ -1151,9 +1274,17 @@ Classes
    .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
 
 
-   .. py:method:: parse_attrib(attrib: dict[str, str])
+   .. py:method:: parse_attributes(attrib: dict[str, str])
 
-      Parse attrib
+      Parse all attributes
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]
@@ -1270,6 +1401,42 @@ Classes
    Bases: :py:obj:`object`
 
    Render manager
+
+   .. py:method:: default_font_color() -> gi.repository.Gdk.RGBA
+      :property:
+
+      return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
+
+      :returns: return default font color
+      :rtype: Gdk.RGBA
+
+
+   .. py:method:: default_font_desc() -> str
+      :property:
+
+      return font desc in format f"{font_family} {font_size}"
+
+      :returns: font desc
+      :rtype: str
+
+
+   .. py:method:: default_font_family() -> str
+      :property:
+
+      return default font family, default is Arial
+
+      :returns: font family
+      :rtype: str
+
+
+   .. py:method:: default_font_size() -> int
+      :property:
+
+      return default font size, default is 16
+
+      :returns: font size
+      :rtype: int
+
 
    .. py:method:: set_rootview(rootview: pydui.core.layout.PyDuiLayout)
 
