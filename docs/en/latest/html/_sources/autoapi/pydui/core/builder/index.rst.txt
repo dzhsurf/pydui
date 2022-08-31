@@ -35,8 +35,13 @@ Classes
 
    Build Widget, Window from xml resource
 
+   .. py:method:: register_resource_loader(loader: pydui.widgets.label.Type[pydui.core.resource_loader.PyDuiResourceLoader])
+
+
+   .. py:method:: get_loader() -> pydui.core.resource_loader.PyDuiResourceLoader
+
+
    .. py:method:: build_widget(path: str) -> pydui.widgets.label.PyDuiWidget
-      :staticmethod:
 
       Build widget from path
 
@@ -47,13 +52,14 @@ Classes
       :rtype: PyDuiWidget
 
 
-   .. py:method:: build_window(path: str) -> pydui.core.window.PyDuiWindow
-      :staticmethod:
+   .. py:method:: build_window(path: str, handler: pydui.widgets.label.Type[pydui.core.window.PyDuiWindowHandler]) -> pydui.core.window.PyDuiWindow
 
       Build window from path and handler
 
       :param path: xml resource path
       :type path: str
+      :param handler: handler class
+      :type handler: Type[PyDuiWindowHandler]
 
       :returns: return window object.
       :rtype: PyDuiWindow

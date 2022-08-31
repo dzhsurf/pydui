@@ -205,20 +205,24 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 <h3>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pydui</span>
 <span class="kn">from</span> <span class="nn">pydui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pydui.core.resource_loader</span> <span class="kn">import</span> <span class="n">create_default_resource_loader</span>
 
+<span class="c1"># config builder here</span>
+<span class="k">def</span> <span class="nf">get_builder</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">PyDuiBuilder</span><span class="p">:</span>
+    <span class="n">builder</span> <span class="o">=</span> <span class="n">PyDuiBuilder</span><span class="p">()</span>
+    <span class="n">builder</span><span class="o">.</span><span class="n">register_resource_loader</span><span class="p">(</span><span class="n">create_default_resource_loader</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">builder</span>
 
-<span class="k">class</span> <span class="nc">DemoWindowHandler</span><span class="p">(</span><span class="n">PyDuiWindowHandler</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="n">PyDuiWindow</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">on_window_show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;on_window_show&quot;</span><span class="p">)</span>
-        <span class="n">window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">()</span>
-        <span class="n">widget</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">get_widget</span><span class="p">(</span><span class="n">widget_id</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="p">)</span>
+<span class="c1"># custom window handler</span>
+<span class="k">class</span> <span class="nc">DemoHandler</span><span class="p">(</span><span class="n">PyDuiWindowHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">on_window_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="n">PyDuiWindow</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;on_window_init&quot;</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">handle_click</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You clicked!&quot;</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
 
+        <span class="c1"># bind widget event here</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">get_widget</span><span class="p">(</span><span class="n">widget_id</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="p">)</span>
         <span class="n">widget</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="n">handle_click</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">on_window_destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -229,18 +233,13 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;start pydui version: </span><span class="si">{</span><span class="n">pydui</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="n">window</span> <span class="o">=</span> <span class="n">PyDuiBuilder</span><span class="o">.</span><span class="n">build_window</span><span class="p">(</span>
-        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;res/main.xml&quot;</span><span class="p">,</span>
-        <span class="n">handler</span><span class="o">=</span><span class="n">DemoWindowHandler</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">get_builder</span><span class="p">()</span><span class="o">.</span><span class="n">build_window</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;res/main.xml&quot;</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">DemoHandler</span><span class="p">)</span>
     <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="n">PyDuiApplication</span><span class="o">.</span><span class="n">main_run</span><span class="p">()</span>
 
-
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-
 </pre></div>
 </div>
 </section>

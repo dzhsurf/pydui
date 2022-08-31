@@ -23,13 +23,41 @@ Classes
 
    Window handler
 
-   .. py:method:: on_window_show()
+   .. py:method:: on_window_init(window: PyDuiWindow)
+
+      On window init event
 
 
    .. py:method:: on_window_destroy()
 
+      On window destroy event
 
-   .. py:method:: on_window_position_changed(x: int, y: int)
+
+   .. py:method:: on_window_position_changed(x: float, y: float)
+
+      On window position changed event
+
+      :param x: x coordinate
+      :type x: float
+      :param y: y coordinate
+      :type y: float
+
+
+   .. py:method:: on_window_size_changed(w: float, h: float)
+
+      On window size changed event
+
+      :param w: window width
+      :type w: float
+      :param h: window height
+      :type h: float
+
+
+   .. py:method:: on_window_visible_changed(show: bool)
+
+      On window visible changed event
+
+      :param show: window is visible
 
 
 

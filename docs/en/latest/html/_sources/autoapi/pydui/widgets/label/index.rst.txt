@@ -85,6 +85,12 @@ Classes
       :type attrib: dict[str, str]
 
 
+   .. py:method:: draw_bkimage(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+
+
+   .. py:method:: draw_text(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+
+
    .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
 
 

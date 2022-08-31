@@ -184,19 +184,55 @@
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Window handler</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.window_handler.PyDuiWindowHandler.on_window_show">
-<span class="sig-name descname"><span class="pre">on_window_show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_show" title="永久链接至目标">¶</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="pydui.core.window_handler.PyDuiWindowHandler.on_window_init">
+<span class="sig-name descname"><span class="pre">on_window_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../window/index.html#pydui.core.window.PyDuiWindow" title="pydui.core.window.PyDuiWindow"><span class="pre">PyDuiWindow</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_init" title="永久链接至目标">¶</a></dt>
+<dd><p>On window init event</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_handler.PyDuiWindowHandler.on_window_destroy">
 <span class="sig-name descname"><span class="pre">on_window_destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_destroy" title="永久链接至目标">¶</a></dt>
-<dd></dd></dl>
+<dd><p>On window destroy event</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_handler.PyDuiWindowHandler.on_window_position_changed">
-<span class="sig-name descname"><span class="pre">on_window_position_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_position_changed" title="永久链接至目标">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">on_window_position_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_position_changed" title="永久链接至目标">¶</a></dt>
+<dd><p>On window position changed event</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – x coordinate</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y coordinate</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_handler.PyDuiWindowHandler.on_window_size_changed">
+<span class="sig-name descname"><span class="pre">on_window_size_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_size_changed" title="永久链接至目标">¶</a></dt>
+<dd><p>On window size changed event</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w</strong> (<em>float</em>) – window width</p></li>
+<li><p><strong>h</strong> (<em>float</em>) – window height</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_handler.PyDuiWindowHandler.on_window_visible_changed">
+<span class="sig-name descname"><span class="pre">on_window_visible_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_visible_changed" title="永久链接至目标">¶</a></dt>
+<dd><p>On window visible changed event</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>show</strong> – window is visible</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

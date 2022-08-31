@@ -45,6 +45,7 @@ Classes
 .. autoapisummary::
 
    pydui.PyDuiApplication
+   pydui.PyDuiResourceLoader
    pydui.PyDuiBuilder
    pydui.PyDuiLayoutEstimateResult
    pydui.PyDuiLayout
@@ -53,11 +54,11 @@ Classes
    pydui.PyDuiRender
    pydui.PyDuiConstraint
    pydui.PyDuiWidget
+   pydui.PyDuiWindowHandler
    pydui.PyDuiWindowConfig
    pydui.PyDuiWindow
    pydui.PyDuiRenderManager
    pydui.PyDuiRenderCanvas
-   pydui.PyDuiWindowHandler
    pydui.PyDuiFitLayout
    pydui.PyDuiFixedLayout
    pydui.PyDuiHLayout
@@ -69,6 +70,7 @@ Classes
    pydui.PyDuiWidget
    pydui.PyDuiLayoutEnum
    pydui.PyDuiTextAlign
+   pydui.PyDuiWindowHandler
    pydui.PyDuiWindowConfig
    pydui.PyDuiWindow
    pydui.PyDuiLayoutEstimateResult
@@ -80,7 +82,6 @@ Classes
    pydui.PyDuiWidget
    pydui.PyDuiRenderManager
    pydui.PyDuiRenderCanvas
-   pydui.PyDuiWindowHandler
 
 
 
@@ -118,12 +119,48 @@ Functions
 
 
 
+.. py:class:: PyDuiResourceLoader
+
+   Bases: :py:obj:`abc.ABC`
+
+   PyDuiResourceLoader
+
+   .. py:method:: scheme() -> str
+      :abstractmethod:
+
+      Return loader scheme
+
+
+   .. py:method:: load_xml(path: str) -> str
+      :abstractmethod:
+
+      Load xml layout file
+
+
+   .. py:method:: load_data(path: str) -> bytes
+      :abstractmethod:
+
+      Load data
+
+
+   .. py:method:: load_string(id: str) -> str
+      :abstractmethod:
+
+      Load intl language text by text id
+
+
+
 .. py:class:: PyDuiBuilder
 
    Build Widget, Window from xml resource
 
+   .. py:method:: register_resource_loader(loader: pydui.widgets.label.Type[pydui.core.resource_loader.PyDuiResourceLoader])
+
+
+   .. py:method:: get_loader() -> pydui.core.resource_loader.PyDuiResourceLoader
+
+
    .. py:method:: build_widget(path: str) -> pydui.widgets.label.PyDuiWidget
-      :staticmethod:
 
       Build widget from path
 
@@ -134,13 +171,14 @@ Functions
       :rtype: PyDuiWidget
 
 
-   .. py:method:: build_window(path: str) -> pydui.core.window.PyDuiWindow
-      :staticmethod:
+   .. py:method:: build_window(path: str, handler: pydui.widgets.label.Type[pydui.core.window.PyDuiWindowHandler]) -> pydui.core.window.PyDuiWindow
 
       Build window from path and handler
 
       :param path: xml resource path
       :type path: str
+      :param handler: handler class
+      :type handler: Type[PyDuiWindowHandler]
 
       :returns: return window object.
       :rtype: PyDuiWindow
@@ -185,7 +223,7 @@ Functions
    .. py:method:: get_children_range_fixed_height(start, stop) -> float
 
 
-   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.PyDuiWidget
 
       Get child widget by widget_id
 
@@ -196,7 +234,7 @@ Functions
       :rtype: PyDuiWidget
 
 
-   .. py:method:: get_child_at(index: int) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_child_at(index: int) -> pydui.core.widget.PyDuiWidget
 
       Get child widget at index
 
@@ -358,6 +396,10 @@ Functions
    Render static function
 
    .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawImage(ctx: pydui.core.widget.cairo.Context, image: str, xy: tuple[float, float], wh: tuple[float, float])
       :staticmethod:
 
 
@@ -558,6 +600,50 @@ Functions
 
 
 
+.. py:class:: PyDuiWindowHandler
+
+   Bases: :py:obj:`object`
+
+   Window handler
+
+   .. py:method:: on_window_init(window: PyDuiWindow)
+
+      On window init event
+
+
+   .. py:method:: on_window_destroy()
+
+      On window destroy event
+
+
+   .. py:method:: on_window_position_changed(x: float, y: float)
+
+      On window position changed event
+
+      :param x: x coordinate
+      :type x: float
+      :param y: y coordinate
+      :type y: float
+
+
+   .. py:method:: on_window_size_changed(w: float, h: float)
+
+      On window size changed event
+
+      :param w: window width
+      :type w: float
+      :param h: window height
+      :type h: float
+
+
+   .. py:method:: on_window_visible_changed(show: bool)
+
+      On window visible changed event
+
+      :param show: window is visible
+
+
+
 .. py:class:: PyDuiWindowConfig
 
    Window config dataclass
@@ -618,7 +704,7 @@ Functions
       
 
 
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: pydui.core.render.Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
+.. py:class:: PyDuiWindow(loader: pydui.core.render.Type[PyDuiResourceLoader], config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: pydui.core.render.Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
 
    Bases: :py:obj:`object`
 
@@ -630,15 +716,22 @@ Functions
    .. py:method:: show()
 
 
-   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
+
+
+   .. py:method:: handler() -> pydui.core.window_handler.PyDuiWindowHandler
+      :property:
 
 
 
-.. py:class:: PyDuiRenderManager(window: PyDuiWindow)
+.. py:class:: PyDuiRenderManager(window: PyDuiWindow, loader: PyDuiResourceLoader)
 
    Bases: :py:obj:`object`
 
    Render manager
+
+   .. py:method:: get_resource_loader()
+
 
    .. py:method:: default_fontcolor() -> gi.repository.Gdk.RGBA
       :property:
@@ -684,7 +777,7 @@ Functions
       :type rootview: PyDuiWidget
 
 
-   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
 
       Get widget by widget id
 
@@ -700,22 +793,6 @@ Functions
    Render canvas
 
    .. py:method:: redraw()
-
-
-
-.. py:class:: PyDuiWindowHandler
-
-   Bases: :py:obj:`object`
-
-   Window handler
-
-   .. py:method:: on_window_show()
-
-
-   .. py:method:: on_window_destroy()
-
-
-   .. py:method:: on_window_position_changed(x: int, y: int)
 
 
 
@@ -842,6 +919,12 @@ Functions
       :type attrib: dict[str, str]
 
 
+   .. py:method:: draw_bkimage(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+
+
+   .. py:method:: draw_text(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+
+
    .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
 
 
@@ -851,6 +934,10 @@ Functions
    Render static function
 
    .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+      :staticmethod:
+
+
+   .. py:method:: DrawImage(ctx: pydui.core.widget.cairo.Context, image: str, xy: tuple[float, float], wh: tuple[float, float])
       :staticmethod:
 
 
@@ -1131,6 +1218,50 @@ Functions
 .. py:function:: Text2EllipsizeMode(text: str) -> gi.repository.Pango.EllipsizeMode
 
 
+.. py:class:: PyDuiWindowHandler
+
+   Bases: :py:obj:`object`
+
+   Window handler
+
+   .. py:method:: on_window_init(window: PyDuiWindow)
+
+      On window init event
+
+
+   .. py:method:: on_window_destroy()
+
+      On window destroy event
+
+
+   .. py:method:: on_window_position_changed(x: float, y: float)
+
+      On window position changed event
+
+      :param x: x coordinate
+      :type x: float
+      :param y: y coordinate
+      :type y: float
+
+
+   .. py:method:: on_window_size_changed(w: float, h: float)
+
+      On window size changed event
+
+      :param w: window width
+      :type w: float
+      :param h: window height
+      :type h: float
+
+
+   .. py:method:: on_window_visible_changed(show: bool)
+
+      On window visible changed event
+
+      :param show: window is visible
+
+
+
 .. py:class:: PyDuiWindowConfig
 
    Window config dataclass
@@ -1191,7 +1322,7 @@ Functions
       
 
 
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: pydui.core.render.Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
+.. py:class:: PyDuiWindow(loader: pydui.core.render.Type[PyDuiResourceLoader], config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: pydui.core.render.Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
 
    Bases: :py:obj:`object`
 
@@ -1203,7 +1334,11 @@ Functions
    .. py:method:: show()
 
 
-   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
+
+
+   .. py:method:: handler() -> pydui.core.window_handler.PyDuiWindowHandler
+      :property:
 
 
 
@@ -1245,7 +1380,7 @@ Functions
    .. py:method:: get_children_range_fixed_height(start, stop) -> float
 
 
-   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.PyDuiWidget
 
       Get child widget by widget_id
 
@@ -1256,7 +1391,7 @@ Functions
       :rtype: PyDuiWidget
 
 
-   .. py:method:: get_child_at(index: int) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_child_at(index: int) -> pydui.core.widget.PyDuiWidget
 
       Get child widget at index
 
@@ -1421,6 +1556,10 @@ Functions
       :staticmethod:
 
 
+   .. py:method:: DrawImage(ctx: pydui.core.widget.cairo.Context, image: str, xy: tuple[float, float], wh: tuple[float, float])
+      :staticmethod:
+
+
    .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiTextAlign, pydui.core.widget.PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER), ellipsis_mode: gi.repository.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: gi.repository.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 0.0)
       :staticmethod:
 
@@ -1618,11 +1757,14 @@ Functions
 
 
 
-.. py:class:: PyDuiRenderManager(window: PyDuiWindow)
+.. py:class:: PyDuiRenderManager(window: PyDuiWindow, loader: PyDuiResourceLoader)
 
    Bases: :py:obj:`object`
 
    Render manager
+
+   .. py:method:: get_resource_loader()
+
 
    .. py:method:: default_fontcolor() -> gi.repository.Gdk.RGBA
       :property:
@@ -1668,7 +1810,7 @@ Functions
       :type rootview: PyDuiWidget
 
 
-   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
 
       Get widget by widget id
 
@@ -1684,22 +1826,6 @@ Functions
    Render canvas
 
    .. py:method:: redraw()
-
-
-
-.. py:class:: PyDuiWindowHandler
-
-   Bases: :py:obj:`object`
-
-   Window handler
-
-   .. py:method:: on_window_show()
-
-
-   .. py:method:: on_window_destroy()
-
-
-   .. py:method:: on_window_position_changed(x: int, y: int)
 
 
 

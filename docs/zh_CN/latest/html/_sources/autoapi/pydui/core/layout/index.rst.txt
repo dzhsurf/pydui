@@ -56,7 +56,7 @@ Classes
    .. py:method:: get_children_range_fixed_height(start, stop) -> float
 
 
-   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_child(widget_id: str) -> pydui.core.widget.PyDuiWidget
 
       Get child widget by widget_id
 
@@ -67,7 +67,7 @@ Classes
       :rtype: PyDuiWidget
 
 
-   .. py:method:: get_child_at(index: int) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_child_at(index: int) -> pydui.core.widget.PyDuiWidget
 
       Get child widget at index
 

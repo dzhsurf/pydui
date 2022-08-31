@@ -26,6 +26,10 @@ Classes
       :staticmethod:
 
 
+   .. py:method:: DrawImage(ctx: pydui.core.widget.cairo.Context, image: str, xy: tuple[float, float], wh: tuple[float, float])
+      :staticmethod:
+
+
    .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiTextAlign, pydui.core.widget.PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER), ellipsis_mode: gi.repository.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: gi.repository.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 0.0)
       :staticmethod:
 
@@ -37,11 +41,14 @@ Classes
 
 
 
-.. py:class:: PyDuiRenderManager(window: PyDuiWindow)
+.. py:class:: PyDuiRenderManager(window: PyDuiWindow, loader: PyDuiResourceLoader)
 
    Bases: :py:obj:`object`
 
    Render manager
+
+   .. py:method:: get_resource_loader()
+
 
    .. py:method:: default_fontcolor() -> gi.repository.Gdk.RGBA
       :property:
@@ -87,7 +94,7 @@ Classes
       :type rootview: PyDuiWidget
 
 
-   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
 
       Get widget by widget id
 

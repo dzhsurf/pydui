@@ -78,7 +78,7 @@ Classes
       
 
 
-.. py:class:: PyDuiWindow(config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: pydui.core.render.Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
+.. py:class:: PyDuiWindow(loader: pydui.core.render.Type[PyDuiResourceLoader], config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: pydui.core.render.Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
 
    Bases: :py:obj:`object`
 
@@ -90,7 +90,11 @@ Classes
    .. py:method:: show()
 
 
-   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.Optional[pydui.core.widget.PyDuiWidget]
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
+
+
+   .. py:method:: handler() -> pydui.core.window_handler.PyDuiWindowHandler
+      :property:
 
 
 

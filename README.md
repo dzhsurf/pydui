@@ -65,16 +65,13 @@ def get_builder() -> PyDuiBuilder:
 
 # custom window handler
 class DemoHandler(PyDuiWindowHandler):
-    def __init__(self, window: PyDuiWindow):
-        super().__init__(window=window)
-
-    def on_window_init(self):
+    def on_window_init(self, window: PyDuiWindow):
         print(f"on_window_init")
-        window = self.window()
         
-        # bind widget event here
         def handle_click(object):
             print("You clicked!", object)
+            
+        # bind widget event here
         widget = window.get_widget(widget_id="button")
         widget.connect("clicked", handle_click)
 

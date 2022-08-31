@@ -22,6 +22,7 @@ Submodules
    render/index.rst
    render_canvas/index.rst
    render_pil/index.rst
+   resource_loader/index.rst
    utils/index.rst
    widget/index.rst
    window/index.rst
