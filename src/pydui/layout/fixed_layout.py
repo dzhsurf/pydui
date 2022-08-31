@@ -15,4 +15,4 @@ class PyDuiFixedLayout(PyDuiLayout):
 
     def __init__(self, parent: PyDuiWidget):
         # custom_gtk_widget = Gtk.Fixed.new()
-        super().__init__(parent, PyDuiLayoutEnum.FixedLayout, custom_gtk_widget)
+        super().__init__(parent, custom_gtk_widget)

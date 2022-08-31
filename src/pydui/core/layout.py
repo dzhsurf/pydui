@@ -29,10 +29,19 @@ class PyDuiLayout(PyDuiWidget):
 
     __children: list[PyDuiWidget] = None
     __padding: tuple[float, float, float, float] = (0, 0, 0, 0)
+    __childHVAlign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.START, PyDuiAlign.START)
 
-    def __init__(self, parent: PyDuiWidget, layout_class: PyDuiLayoutEnum, custom_gtk_widget: Gtk.Widget = None):
-        super().__init__(parent, layout_class)
+    def __init__(self, parent: PyDuiWidget, custom_gtk_widget: Gtk.Widget = None):
+        super().__init__(parent)
         self.__children = list()
+
+    def parse_attrib(self, k: str, v: str):
+        if k == "halign":
+            self.__childHVAlign = (Text2PyDuiAlign(v), self.valign)
+        elif k == "valign":
+            self.__childHVAlign = (self.halign, Text2PyDuiAlign(v))
+        else:
+            super().parse_attrib(k, v)
 
     def draw(
         self,
@@ -176,6 +185,14 @@ class PyDuiLayout(PyDuiWidget):
 
         """
         self.__padding = padding
+
+    @property
+    def halign(self) -> PyDuiAlign:
+        return self.__childHVAlign[0]
+
+    @property
+    def valign(self) -> PyDuiAlign:
+        return self.__childHVAlign[1]
 
     # private function
     def __do_layout__(self):

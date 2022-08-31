@@ -58,7 +58,7 @@ class PyDuiRender:
         color: Gdk.RBGA,
         xy: tuple[float, float],
         wh: tuple[float, float],
-        hvalign: tuple[PyDuiTextAlign, PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER),
+        hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
         ellipsis_mode: Pango.EllipsizeMode = Pango.EllipsizeMode.END,
         wrap_mode: Pango.WrapMode = Pango.WrapMode.WORD,
         line_spacing: float = 0.0,
@@ -108,13 +108,13 @@ class PyDuiRender:
         # calulate text align
         layout_w, layout_h = layout.get_size()
         layout_w, layout_h = layout_w / Pango.SCALE, layout_h / Pango.SCALE
-        if hvalign[0] == PyDuiTextAlign.CENTER:
+        if hvalign[0] == PyDuiAlign.CENTER:
             x = x + round((w - layout_w) / 2)
-        elif hvalign[0] == PyDuiTextAlign.END:
+        elif hvalign[0] == PyDuiAlign.END:
             x = x + round(w - layout_w)
-        if hvalign[1] == PyDuiTextAlign.CENTER:
+        if hvalign[1] == PyDuiAlign.CENTER:
             y = y + round((h - layout_h) / 2)
-        elif hvalign[1] == PyDuiTextAlign.END:
+        elif hvalign[1] == PyDuiAlign.END:
             y = y + round(h - layout_h)
         ctx.move_to(x, y)
         PangoCairo.show_layout(ctx, layout)

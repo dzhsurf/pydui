@@ -14,7 +14,7 @@ class PyDuiHLayout(PyDuiLayout):
     """Horizontal layout"""
 
     def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent, PyDuiLayoutEnum.HLayout)
+        super().__init__(parent)
 
     def draw(
         self,
@@ -64,7 +64,7 @@ class PyDuiHLayout(PyDuiLayout):
             margin = child.margin
             margin_w, margin_h = utils.RectW(margin), utils.RectH(margin)
             child_w = estimate_layout_result.estimate_items[i]
-            child_h = height - margin_h
+            child_h = height - margin_h if child.fixed_height == 0 else child.fixed_height
 
             # is auto layout
             if int(child_w) == 0:
@@ -75,7 +75,15 @@ class PyDuiHLayout(PyDuiLayout):
                         x + width - self.get_children_range_fixed_width(i + 1, self.child_count) - layout_x - margin_w
                     )
 
-            child.layout(layout_x + margin[0], layout_y + margin[1], child_w, child_h)
+            # HLayout only handle valign, because height is defined.
+            child_y = layout_y
+            if child.fixed_height != 0:
+                if self.valign == PyDuiAlign.CENTER:
+                    child_y = layout_y + round((height - margin_h - child.fixed_height) / 2)
+                elif self.valign == PyDuiAlign.END:
+                    child_y = layout_y + round((height - margin_h - child.fixed_height))
+
+            child.layout(layout_x + margin[0], child_y + margin[1], child_w, child_h)
             layout_x = layout_x + child_w + margin_h
 
     def __auto_expand_count__(self):

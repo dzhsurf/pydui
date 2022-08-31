@@ -9,4 +9,4 @@ class PyDuiFitLayout(PyDuiLayout):
     """FitLayout implement"""
 
     def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent, PyDuiLayoutEnum.FitLayout)
+        super().__init__(parent)

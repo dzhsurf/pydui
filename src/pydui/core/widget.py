@@ -41,14 +41,12 @@ class PyDuiWidget(object):
     __fixed_y: float = 0
     __fixed_width: float = 0
     __fixed_height: float = 0
-    __layout_class: PyDuiLayoutEnum
     # attrib
     __bkcolor: Gdk.RGBA = None
     __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
 
-    def __init__(self, parent: PyDuiWidget, layout_class: PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout):
+    def __init__(self, parent: PyDuiWidget):
         self.__parent = parent
-        self.__layout_class = layout_class
 
     def set_render_manager(self, render_manager: PyDuiRenderManager):
         """Set the render mananger
@@ -151,9 +149,6 @@ class PyDuiWidget(object):
 
     # properties
     # position & size
-    @property
-    def layout_class(self) -> PyDuiLayoutEnum:
-        return self.__layout_class
 
     @property
     def parent(self) -> PyDuiWidget:
@@ -195,10 +190,6 @@ class PyDuiWidget(object):
 
     @fixed_width.setter
     def fixed_width(self, w: float):
-        if self.parent is None or self.parent.__layout_class is None:
-            return
-        if self.parent.layout_class != PyDuiLayoutEnum.HLayout:
-            return
         self.__fixed_width = w
 
     @property
@@ -207,10 +198,6 @@ class PyDuiWidget(object):
 
     @fixed_height.setter
     def fixed_height(self, h: float):
-        if self.parent is None or self.parent.__layout_class is None:
-            return
-        if self.parent.layout_class != PyDuiLayoutEnum.VLayout:
-            return
         self.__fixed_height = h
 
     @property

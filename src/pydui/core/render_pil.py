@@ -10,7 +10,7 @@
 #                 start_point=(0, 0),
 #                 line_height_ratio=1.5,
 #                 max_width=int(w),
-#                 align=PyDuiTextAlign.LEFT,
+#                 align=PyDuiAlign.LEFT,
 #             )
 #             arr = numpy.array(im)
 #             height, width, channels = arr.shape
@@ -19,12 +19,6 @@
 #             ctx.paint()
 #             surface.finish()
 #             im.close()
-
-
-# class PyDuiTextAlign(Enum):
-#     LEFT = 1
-#     CENTER = 2
-#     RIGHT = 3
 
 
 # class __ImageFontUtils__:

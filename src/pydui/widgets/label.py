@@ -125,7 +125,7 @@ class PyDuiLabel(PyDuiWidget):
             color=fontcolor,
             xy=(x, y),
             wh=(width, height),
-            hvalign=(Text2TextAlign(self.__halign), Text2TextAlign(self.__valign)),
+            hvalign=(Text2PyDuiAlign(self.__halign), Text2PyDuiAlign(self.__valign)),
             ellipsis_mode=Text2EllipsizeMode(self.__ellipsize_mode),
             wrap_mode=Text2WrapMode(self.__wrap_mode),
             line_spacing=self.__line_spacing,

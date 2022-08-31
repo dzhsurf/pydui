@@ -5,15 +5,21 @@
             <Label text="测试中文字体渲染,自动换行自动换行自动换行自动换行" font="Helvetica" fontsize="13" fontcolor="#FFFF0000"
                 margin="20,20,20,20" />
         </VLayout>
-        <VLayout>
-            <Button id="button" bkcolor="#FFC8C8C8" />
+        <VLayout halign="CENTER">
+            <Button id="button" text="Click Me" bkcolor="#FF0000FF" margin="8,8,8,8"
+                corner="4,4,4,4" width="200" height="48"
+                bkimage="res/images/common_button_normal.png"
+                bkimage_hover="res/images/common_button_hover.png"
+                bkimage_press="res/images/common_button_press.png"
+                bkimage_disable="res/images/common_button_disable.png"
+            />
             <Label text="Test single line text end ellipsis, here is the long text document.Test single line text end ellipsis, here is the long text document."
                 font="Helvetica Light"
                 fontsize="16"
                 fontcolor="#FF1A1A1A"
                 bkcolor="#FFC8C8C8"
                 wrap="NONE"
-                margin="20,20,20,20"
+                margin="20,0,20,0"
             />
             <Label text="Test single line text middle ellipsis, here is the long text document.Test single line text middle ellipsis, here is the long text document."
                 font="Helvetica Light"
