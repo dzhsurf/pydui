@@ -98,6 +98,31 @@ pip install -e .
 
 
 
+
+
+## Development
+
+In the early stage, performance optimization, resource leakage issue, text rendering quality, and correctness issue are not the primary tasks. The first task is to complete the essential module function.
+
+* Core
+  * Builder, Render, Event Dispatch
+
+* Layout
+  * HLayout, VLayout, FixedLayout, FitLayout 
+* Widgets
+  * Label, Button, Image, Edit, InfiniteList, Menu, Toast
+* Deployment
+  * Resource builder
+  * Application builder
+* Special Features
+  * Drag&Drop
+  * Model Window
+  * Intl
+  * RichText
+  * Window Shadow
+
+
+
 ## Reference
 
 https://lazka.github.io/pgi-docs/Gtk-3.0/index.html
