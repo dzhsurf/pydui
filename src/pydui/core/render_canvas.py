@@ -8,7 +8,13 @@ import cairo
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, GdkPixbuf, Gtk
+gi.require_version("Gdk", "3.0")
+gi.require_version("Pango", "1.0")
+gi.require_version("PangoCairo", "1.0")
+
+from gi.repository import Gdk, GdkPixbuf, Gtk, Pango, PangoCairo
+
+from pydui.core import utils
 
 
 class PyDuiRenderCanvas(Gtk.Frame):
@@ -48,7 +54,6 @@ class PyDuiRenderCanvas(Gtk.Frame):
     def redraw(self):
         self.__init_surface__(self.__area)
         context = cairo.Context(self.surface)
-        context.scale(self.surface.get_width(), self.surface.get_height())
         self.__do_drawing__(context)
         self.surface.flush()
 
@@ -70,4 +75,6 @@ class PyDuiRenderCanvas(Gtk.Frame):
 
     def __do_drawing__(self, ctx: cairo.Context):
         if self.__ondraw is not None:
+            ctx.save()
             self.__ondraw(ctx, self.__width, self.__height)
+            ctx.restore()

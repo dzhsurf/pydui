@@ -64,7 +64,7 @@ def __process_tree_node__(node: ET.Element, parent_widget: PyDuiLayout) -> PyDui
     result = build_gtk_widget()
     if parent_widget is not None:
         parent_widget.add_child(result)
-    result.parse_attrib(attrib)
+    result.parse_attributes(attrib)
     return result
 
 

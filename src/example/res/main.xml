@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Window size="800,600" title='Quickstart Demo' min_size="400,300">
     <HLayout bkcolor="#FFE8E8E8">
-        <VLayout width="200" bkcolor="#FFA8A8A8">
+        <VLayout bkcolor="#FFA8A8A8" width="200">
+            <Label text="This is text one" />
         </VLayout>
-        <VLayout bkcolor="#FFF0F0F0" margin="8,8,8,8">
-            <Label id="info" text="hello" bkcolor="#FFD8D8D8" />
-            <HLayout width="30" bkcolor="#FF888888">
-                <VLayout bkcolor="#FF686868">
-                    <Button bkcolor="#FF383838" />
-                    <Button />
-                    <Button id="button" text="Click Me!" bkcolor="#FF080808" />
-                    <Button height="40" bkcolor="#FFCFCFCF" />
-                </VLayout>
-                <Button />
-            </HLayout>
+        <VLayout>
+            <Label text="Text2" bkcolor="#FF0000FF"/>
+            <HLayout bkcolor="#FF00FF00" />
+            <Label text="Hello World!!! ctx.set_font_options() is part of the cairo toy font API and ignored by
+pango. You need to set font options on the PangoContext underlying the
+layout. That is, when you have your pango.Layout, do:" bkcolor="#FFE8E8E8"/>
         </VLayout>
     </HLayout>
 </Window>

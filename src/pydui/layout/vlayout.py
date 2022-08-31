@@ -45,7 +45,9 @@ class PyDuiVLayout(PyDuiLayout):
                         draw_h = next_child.y - next_child.margin[1] - child.margin[3] - draw_y
                     else:
                         draw_h = y + height - child.margin[3] - draw_y
+            ctx.save()
             child.draw(ctx, draw_x, draw_y, draw_w, draw_h, canvas_width, canvas_height)
+            ctx.restore()
             last_draw_y = draw_y + draw_h + child.margin[3]
 
     def layout(self, x: float, y: float, width: float, height: float):

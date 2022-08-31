@@ -14,6 +14,7 @@ from gi.repository import Gdk, Gtk
 
 from pydui.core import utils
 from pydui.core.base import *
+from pydui.core.render import PyDuiRender
 
 
 @dataclass(frozen=True)
@@ -73,7 +74,10 @@ class PyDuiWidget(object):
         canvas_width: float,
         canvas_height: float,
     ):
+        ctx.save()
+        ctx.scale(canvas_width, canvas_height)
         self.__draw_bkcolor__(ctx, x, y, width, height, canvas_width, canvas_height)
+        ctx.restore()
 
     def layout(self, x: float, y: float, width: float, height: float):
         self.__x, self.__y = x, y
@@ -83,33 +87,42 @@ class PyDuiWidget(object):
     def estimate_size(self, parent_width: float, parent_height: float) -> tuple[float, float]:
         return (self.__fixed_width, self.__fixed_height)
 
-    def parse_attrib(self, attrib: dict[str, str]):
-        """Parse attrib
+    def parse_attributes(self, attrib: dict[str, str]):
+        """Parse all attributes
 
         Args:
             attrib (dict[str, str]): attributes dict key=value ...
         """
         for k, v in attrib.items():
-            print(f"parser {k} = {v}")
-            if k == "id":
-                self.__id = v
-            elif k == "bkcolor":
-                self.bkcolor = utils.Str2Color(v)
-            elif k == "width":
-                self.fixed_width = float(v)
-            elif k == "height":
-                self.fixed_height = float(v)
-            elif k == "size":
-                size_arr = v.split(",")
-                self.__apply_layout_size__(float(size_arr[0]), float(size_arr[1]))
-            elif k == "x":
-                self.fixed_x = float(v)
-            elif k == "y":
-                self.fixed_y = float(v)
-            elif k == "xy":
-                self.fixed_xy = tuple(float(a) for a in v.split(","))
-            elif k == "margin":
-                self.margin = utils.Str2Rect(v)
+            self.parse_attrib(k, v)
+        pass
+
+    def parse_attrib(self, k: str, v: str):
+        """Parse single attribute
+
+        Args:
+            attrib (dict[str, str]): attributes dict key=value ...
+        """
+        print(f"{self} parser {k} = {v}")
+        if k == "id":
+            self.__id = v
+        elif k == "width":
+            self.fixed_width = float(v)
+        elif k == "height":
+            self.fixed_height = float(v)
+        elif k == "size":
+            size_arr = v.split(",")
+            self.fixed_size(tuple(float(n) for n in size_arr))
+        elif k == "x":
+            self.fixed_x = float(v)
+        elif k == "y":
+            self.fixed_y = float(v)
+        elif k == "xy":
+            self.fixed_xy = tuple(float(a) for a in v.split(","))
+        elif k == "margin":
+            self.margin = utils.Str2Rect(v)
+        elif k == "bkcolor":
+            self.bkcolor = utils.Str2Color(v)
 
     # method
     def connect(self, signal_name: str, callback: callable):
@@ -309,6 +322,5 @@ class PyDuiWidget(object):
     ):
         if self.bkcolor is None:
             return
-        ctx.rectangle(x / canvas_width, y / canvas_height, width / canvas_width, height / canvas_height)
-        ctx.set_source_rgba(self.bkcolor.red, self.bkcolor.green, self.bkcolor.blue, self.bkcolor.alpha)
-        ctx.fill()
+
+        PyDuiRender.Rectangle(ctx, self.bkcolor, x, y, width, height, canvas_width, canvas_height)
