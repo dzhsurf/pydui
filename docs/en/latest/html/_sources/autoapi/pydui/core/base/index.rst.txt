@@ -13,7 +13,18 @@ Classes
 .. autoapisummary::
 
    pydui.core.base.PyDuiLayoutEnum
+   pydui.core.base.PyDuiTextAlign
 
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.base.Text2TextAlign
+   pydui.core.base.Text2WrapMode
+   pydui.core.base.Text2EllipsizeMode
 
 
 
@@ -64,5 +75,36 @@ Classes
       :annotation: = 10
 
       
+
+
+.. py:class:: PyDuiTextAlign
+
+   Bases: :py:obj:`enum.Enum`
+
+   Text align
+
+   .. py:attribute:: CENTER
+      :annotation: = [0]
+
+      
+
+   .. py:attribute:: START
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: END
+      :annotation: = 2
+
+      
+
+
+.. py:function:: Text2TextAlign(text: str) -> PyDuiTextAlign
+
+
+.. py:function:: Text2WrapMode(text: str) -> gi.repository.Pango.WrapMode
+
+
+.. py:function:: Text2EllipsizeMode(text: str) -> gi.repository.Pango.EllipsizeMode
 
 

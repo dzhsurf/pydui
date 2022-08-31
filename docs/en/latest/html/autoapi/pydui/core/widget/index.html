@@ -212,6 +212,22 @@
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Widget base class</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.set_render_manager">
+<span class="sig-name descname"><span class="pre">set_render_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">render_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../render/index.html#pydui.core.render.PyDuiRenderManager" title="pydui.core.render.PyDuiRenderManager"><span class="pre">PyDuiRenderManager</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.set_render_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the render mananger</p>
+<p>Do not call this function yourself if you do not know what it is for!</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.get_render_manager">
+<span class="sig-name descname"><span class="pre">get_render_manager</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.get_render_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the widget render manager</p>
+<p>If widget is a child and not contain render manager, it will find the parent until reach to top.
+It’s not a good design as it will cause problems by incorrect maintain the widget render manager.
+It will reimplment later.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.get_id">
 <span class="sig-name descname"><span class="pre">get_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.get_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return widget id</p>

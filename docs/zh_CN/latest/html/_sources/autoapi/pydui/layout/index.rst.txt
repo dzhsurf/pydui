@@ -33,11 +33,13 @@ Classes
    pydui.layout.PyDuiLayoutEstimateResult
    pydui.layout.PyDuiLayout
    pydui.layout.PyDuiLayoutEnum
+   pydui.layout.PyDuiTextAlign
    pydui.layout.PyDuiRender
    pydui.layout.PyDuiConstraint
    pydui.layout.PyDuiWidget
    pydui.layout.PyDuiFixedLayout
    pydui.layout.PyDuiLayoutEnum
+   pydui.layout.PyDuiTextAlign
    pydui.layout.PyDuiLayoutEstimateResult
    pydui.layout.PyDuiLayout
    pydui.layout.PyDuiRender
@@ -47,6 +49,7 @@ Classes
    pydui.layout.PyDuiLayoutEstimateResult
    pydui.layout.PyDuiLayout
    pydui.layout.PyDuiLayoutEnum
+   pydui.layout.PyDuiTextAlign
    pydui.layout.PyDuiRender
    pydui.layout.PyDuiConstraint
    pydui.layout.PyDuiWidget
@@ -54,10 +57,30 @@ Classes
    pydui.layout.PyDuiLayoutEstimateResult
    pydui.layout.PyDuiLayout
    pydui.layout.PyDuiLayoutEnum
+   pydui.layout.PyDuiTextAlign
    pydui.layout.PyDuiRender
    pydui.layout.PyDuiConstraint
    pydui.layout.PyDuiWidget
 
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pydui.layout.Text2TextAlign
+   pydui.layout.Text2WrapMode
+   pydui.layout.Text2EllipsizeMode
+   pydui.layout.Text2TextAlign
+   pydui.layout.Text2WrapMode
+   pydui.layout.Text2EllipsizeMode
+   pydui.layout.Text2TextAlign
+   pydui.layout.Text2WrapMode
+   pydui.layout.Text2EllipsizeMode
+   pydui.layout.Text2TextAlign
+   pydui.layout.Text2WrapMode
+   pydui.layout.Text2EllipsizeMode
 
 
 
@@ -243,6 +266,37 @@ Classes
       
 
 
+.. py:class:: PyDuiTextAlign
+
+   Bases: :py:obj:`enum.Enum`
+
+   Text align
+
+   .. py:attribute:: CENTER
+      :annotation: = [0]
+
+      
+
+   .. py:attribute:: START
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: END
+      :annotation: = 2
+
+      
+
+
+.. py:function:: Text2TextAlign(text: str) -> PyDuiTextAlign
+
+
+.. py:function:: Text2WrapMode(text: str) -> gi.repository.Pango.WrapMode
+
+
+.. py:function:: Text2EllipsizeMode(text: str) -> gi.repository.Pango.EllipsizeMode
+
+
 .. py:class:: PyDuiRender
 
    Render static function
@@ -251,7 +305,7 @@ Classes
       :staticmethod:
 
 
-   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiTextAlign, pydui.core.widget.PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER), ellipsis_mode: gi.repository.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: gi.repository.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 0.0)
       :staticmethod:
 
 
@@ -292,6 +346,22 @@ Classes
    Bases: :py:obj:`object`
 
    Widget base class
+
+   .. py:method:: set_render_manager(render_manager: PyDuiRenderManager)
+
+      Set the render mananger
+
+      Do not call this function yourself if you do not know what it is for!
+
+
+   .. py:method:: get_render_manager()
+
+      Get the widget render manager
+
+      If widget is a child and not contain render manager, it will find the parent until reach to top.
+      It's not a good design as it will cause problems by incorrect maintain the widget render manager.
+      It will reimplment later.
+
 
    .. py:method:: get_id() -> str
 
@@ -488,6 +558,37 @@ Classes
       
 
 
+.. py:class:: PyDuiTextAlign
+
+   Bases: :py:obj:`enum.Enum`
+
+   Text align
+
+   .. py:attribute:: CENTER
+      :annotation: = [0]
+
+      
+
+   .. py:attribute:: START
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: END
+      :annotation: = 2
+
+      
+
+
+.. py:function:: Text2TextAlign(text: str) -> PyDuiTextAlign
+
+
+.. py:function:: Text2WrapMode(text: str) -> gi.repository.Pango.WrapMode
+
+
+.. py:function:: Text2EllipsizeMode(text: str) -> gi.repository.Pango.EllipsizeMode
+
+
 .. py:class:: PyDuiLayoutEstimateResult
 
    Estimate layout result
@@ -622,7 +723,7 @@ Classes
       :staticmethod:
 
 
-   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiTextAlign, pydui.core.widget.PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER), ellipsis_mode: gi.repository.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: gi.repository.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 0.0)
       :staticmethod:
 
 
@@ -663,6 +764,22 @@ Classes
    Bases: :py:obj:`object`
 
    Widget base class
+
+   .. py:method:: set_render_manager(render_manager: PyDuiRenderManager)
+
+      Set the render mananger
+
+      Do not call this function yourself if you do not know what it is for!
+
+
+   .. py:method:: get_render_manager()
+
+      Get the widget render manager
+
+      If widget is a child and not contain render manager, it will find the parent until reach to top.
+      It's not a good design as it will cause problems by incorrect maintain the widget render manager.
+      It will reimplment later.
+
 
    .. py:method:: get_id() -> str
 
@@ -991,6 +1108,37 @@ Classes
       
 
 
+.. py:class:: PyDuiTextAlign
+
+   Bases: :py:obj:`enum.Enum`
+
+   Text align
+
+   .. py:attribute:: CENTER
+      :annotation: = [0]
+
+      
+
+   .. py:attribute:: START
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: END
+      :annotation: = 2
+
+      
+
+
+.. py:function:: Text2TextAlign(text: str) -> PyDuiTextAlign
+
+
+.. py:function:: Text2WrapMode(text: str) -> gi.repository.Pango.WrapMode
+
+
+.. py:function:: Text2EllipsizeMode(text: str) -> gi.repository.Pango.EllipsizeMode
+
+
 .. py:class:: PyDuiRender
 
    Render static function
@@ -999,7 +1147,7 @@ Classes
       :staticmethod:
 
 
-   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiTextAlign, pydui.core.widget.PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER), ellipsis_mode: gi.repository.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: gi.repository.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 0.0)
       :staticmethod:
 
 
@@ -1040,6 +1188,22 @@ Classes
    Bases: :py:obj:`object`
 
    Widget base class
+
+   .. py:method:: set_render_manager(render_manager: PyDuiRenderManager)
+
+      Set the render mananger
+
+      Do not call this function yourself if you do not know what it is for!
+
+
+   .. py:method:: get_render_manager()
+
+      Get the widget render manager
+
+      If widget is a child and not contain render manager, it will find the parent until reach to top.
+      It's not a good design as it will cause problems by incorrect maintain the widget render manager.
+      It will reimplment later.
+
 
    .. py:method:: get_id() -> str
 
@@ -1368,6 +1532,37 @@ Classes
       
 
 
+.. py:class:: PyDuiTextAlign
+
+   Bases: :py:obj:`enum.Enum`
+
+   Text align
+
+   .. py:attribute:: CENTER
+      :annotation: = [0]
+
+      
+
+   .. py:attribute:: START
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: END
+      :annotation: = 2
+
+      
+
+
+.. py:function:: Text2TextAlign(text: str) -> PyDuiTextAlign
+
+
+.. py:function:: Text2WrapMode(text: str) -> gi.repository.Pango.WrapMode
+
+
+.. py:function:: Text2EllipsizeMode(text: str) -> gi.repository.Pango.EllipsizeMode
+
+
 .. py:class:: PyDuiRender
 
    Render static function
@@ -1376,7 +1571,7 @@ Classes
       :staticmethod:
 
 
-   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiTextAlign, pydui.core.widget.PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER), ellipsis_mode: gi.repository.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: gi.repository.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 0.0)
       :staticmethod:
 
 
@@ -1417,6 +1612,22 @@ Classes
    Bases: :py:obj:`object`
 
    Widget base class
+
+   .. py:method:: set_render_manager(render_manager: PyDuiRenderManager)
+
+      Set the render mananger
+
+      Do not call this function yourself if you do not know what it is for!
+
+
+   .. py:method:: get_render_manager()
+
+      Get the widget render manager
+
+      If widget is a child and not contain render manager, it will find the parent until reach to top.
+      It's not a good design as it will cause problems by incorrect maintain the widget render manager.
+      It will reimplment later.
+
 
    .. py:method:: get_id() -> str
 

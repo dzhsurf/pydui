@@ -49,6 +49,22 @@ Classes
 
    Widget base class
 
+   .. py:method:: set_render_manager(render_manager: PyDuiRenderManager)
+
+      Set the render mananger
+
+      Do not call this function yourself if you do not know what it is for!
+
+
+   .. py:method:: get_render_manager()
+
+      Get the widget render manager
+
+      If widget is a child and not contain render manager, it will find the parent until reach to top.
+      It's not a good design as it will cause problems by incorrect maintain the widget render manager.
+      It will reimplment later.
+
+
    .. py:method:: get_id() -> str
 
       Return widget id

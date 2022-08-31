@@ -17,7 +17,19 @@ from pydui.core.widget import *
 
 class PyDuiLabel(PyDuiWidget):
 
-    """Label widget"""
+    """Label widget
+
+    Attributes:
+        text (str): text content
+        font (str): font family name
+        fontsize (int): fontsize in pt unit
+        fontcolor (Gdk.RGBA): font color
+        ellipsis (str): ellipsis mode, [NONE, START, MIDDLE, END], default is END
+        wrap (str): wrap mode, [NONE, WORD, CHAR, WORD_CHAR], default is WORD
+        halign (str): horizontal TextAlign, [CENTER, STAET, END], default is CENTER
+        valign (str): vertical TextAlign, [CENTER, STAET, END], default is CENTER
+        line_spacing (float): line spacing
+    """
 
     __text: str = ""
     __font: str = ""

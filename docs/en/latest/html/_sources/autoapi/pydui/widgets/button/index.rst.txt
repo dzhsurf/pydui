@@ -17,10 +17,18 @@ Classes
 
 
 
-.. py:class:: PyDuiButton(parent: pydui.core.widget.PyDuiWidget)
+.. py:class:: PyDuiButton(parent: pydui.widgets.label.PyDuiWidget)
 
-   Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
+   Bases: :py:obj:`pydui.widgets.label.PyDuiLabel`
 
-   Label widget
+   Button widget
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
 
 

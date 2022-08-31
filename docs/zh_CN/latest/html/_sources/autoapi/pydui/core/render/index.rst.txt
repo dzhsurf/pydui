@@ -26,7 +26,7 @@ Classes
       :staticmethod:
 
 
-   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float)
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiTextAlign, pydui.core.widget.PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER), ellipsis_mode: gi.repository.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: gi.repository.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 0.0)
       :staticmethod:
 
 
@@ -43,7 +43,7 @@ Classes
 
    Render manager
 
-   .. py:method:: default_font_color() -> gi.repository.Gdk.RGBA
+   .. py:method:: default_fontcolor() -> gi.repository.Gdk.RGBA
       :property:
 
       return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
@@ -61,7 +61,7 @@ Classes
       :rtype: str
 
 
-   .. py:method:: default_font_family() -> str
+   .. py:method:: default_fontfamily() -> str
       :property:
 
       return default font family, default is Arial
@@ -70,7 +70,7 @@ Classes
       :rtype: str
 
 
-   .. py:method:: default_font_size() -> int
+   .. py:method:: default_fontsize() -> int
       :property:
 
       return default font size, default is 16

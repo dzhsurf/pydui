@@ -14,7 +14,14 @@ from pydui.widgets.label import *
 
 class PyDuiButton(PyDuiLabel):
 
-    """Label widget"""
+    """Button widget"""
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
+
+    def parse_attrib(self, k: str, v: str):
+        print(f"{self} parse {k} {v}")
+        if k == "":
+            pass
+        else:
+            super().parse_attrib(k, v)
