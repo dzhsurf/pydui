@@ -55,20 +55,27 @@ pip install pydui-gtk
 ```python
 import pydui
 from pydui import *
+from pydui.core.resource_loader import create_default_resource_loader
 
+# config builder here
+def get_builder() -> PyDuiBuilder:
+    builder = PyDuiBuilder()
+    builder.register_resource_loader(create_default_resource_loader())
+    return builder
 
-class DemoWindowHandler(PyDuiWindowHandler):
+# custom window handler
+class DemoHandler(PyDuiWindowHandler):
     def __init__(self, window: PyDuiWindow):
         super().__init__(window=window)
 
-    def on_window_show(self):
-        print(f"on_window_show")
+    def on_window_init(self):
+        print(f"on_window_init")
         window = self.window()
-        widget = window.get_widget(widget_id="button")
-
+        
+        # bind widget event here
         def handle_click(object):
             print("You clicked!", object)
-
+        widget = window.get_widget(widget_id="button")
         widget.connect("clicked", handle_click)
 
     def on_window_destroy(self):
@@ -79,18 +86,13 @@ class DemoWindowHandler(PyDuiWindowHandler):
 def main():
     print(f"start pydui version: {pydui.__version__}")
 
-    window = PyDuiBuilder.build_window(
-        path="res/main.xml",
-        handler=DemoWindowHandler,
-    )
+    window = get_builder().build_window(path="res/main.xml", handler=DemoHandler)
     window.show()
 
     PyDuiApplication.main_run()
 
-
 if __name__ == "__main__":
     main()
-
 ```
 
 

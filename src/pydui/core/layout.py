@@ -27,14 +27,12 @@ class PyDuiLayout(PyDuiWidget):
 
     """Layout base class, all layouts inherit from PyDuiLayout"""
 
-    __children: list[PyDuiWidget]
-    __children_id_dict: dict[str, PyDuiWidget]
+    __children: list[PyDuiWidget] = None
     __padding: tuple[float, float, float, float] = (0, 0, 0, 0)
 
     def __init__(self, parent: PyDuiWidget, layout_class: PyDuiLayoutEnum, custom_gtk_widget: Gtk.Widget = None):
         super().__init__(parent, layout_class)
-        self.__children = []
-        self.__children_id_dict = {}
+        self.__children = list()
 
     def draw(
         self,
@@ -67,7 +65,7 @@ class PyDuiLayout(PyDuiWidget):
             h = h + child.fixed_height + utils.RectH(margin)
         return h
 
-    def get_child(self, widget_id: str) -> Optional[PyDuiWidget]:
+    def get_child(self, widget_id: str) -> PyDuiWidget:
         """Get child widget by widget_id
 
         Args:
@@ -76,11 +74,18 @@ class PyDuiLayout(PyDuiWidget):
         Returns:
             PyDuiWidget: return widget object.
         """
-        if widget_id in self.__children_id_dict:
-            return self.__children_id_dict[widget_id]
+        for i in range(self.child_count):
+            child = self.get_child_at(i)
+            if child.get_id() == widget_id:
+                return child
+            if issubclass(type(child), PyDuiLayout):
+                target = child.get_child(widget_id)
+                if target is not None:
+                    return target
+
         return None
 
-    def get_child_at(self, index: int) -> Optional[PyDuiWidget]:
+    def get_child_at(self, index: int) -> PyDuiWidget:
         """Get child widget at index
 
         if the index overbound, it will return None.
@@ -104,13 +109,9 @@ class PyDuiLayout(PyDuiWidget):
             child (PyDuiWidget): child widget
 
         """
-        if (child is None) or (self.get_child(child.get_id()) is not None):
+        if child is None:
             return
-
         self.__children.append(child)
-        widget_id = child.get_id()
-        if len(widget_id) > 0 and (widget_id not in self.__children_id_dict):
-            self.__children_id_dict[widget_id] = child
 
     def add_child_at(self, child: PyDuiWidget, index: int):
         """Add child widget at index

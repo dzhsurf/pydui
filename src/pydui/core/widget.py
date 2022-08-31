@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import sys
 from dataclasses import dataclass
-from typing import Optional
 
 import cairo
 import gi
@@ -120,7 +119,7 @@ class PyDuiWidget(object):
         Args:
             attrib (dict[str, str]): attributes dict key=value ...
         """
-        print(f"{self} parser {k} = {v}")
+        print(f"{self} parse {k} = {v}")
         if k == "id":
             self.__id = v
         elif k == "width":
@@ -140,6 +139,8 @@ class PyDuiWidget(object):
             self.margin = utils.Str2Rect(v)
         elif k == "bkcolor":
             self.bkcolor = utils.Str2Color(v)
+        else:
+            pass
 
     # method
     def connect(self, signal_name: str, callback: callable):

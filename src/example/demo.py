@@ -1,19 +1,24 @@
 import pydui
 from pydui import *
+from pydui.core.resource_loader import create_default_resource_loader
 
 
-class DemoWindowHandler(PyDuiWindowHandler):
-    def __init__(self, window: PyDuiWindow):
-        super().__init__(window=window)
+# config builder here
+def get_builder() -> PyDuiBuilder:
+    builder = PyDuiBuilder()
+    builder.register_resource_loader(create_default_resource_loader())
+    return builder
 
-    def on_window_show(self):
-        print(f"on_window_show")
-        window = self.window()
-        widget = window.get_widget(widget_id="button")
+
+# custom window handler
+class DemoHandler(PyDuiWindowHandler):
+    def on_window_init(self, window: PyDuiWindow):
+        print(f"on_window_init")
 
         def handle_click(object):
             print("You clicked!", object)
 
+        widget = window.get_widget(widget_id="button")
         widget.connect("clicked", handle_click)
 
     def on_window_destroy(self):
@@ -24,8 +29,7 @@ class DemoWindowHandler(PyDuiWindowHandler):
 def main():
     print(f"start pydui version: {pydui.__version__}")
 
-    window = PyDuiBuilder.build_window(path="res/main.xml")
-    # window.set_handler()
+    window = get_builder().build_window(path="res/main.xml", handler=DemoHandler)
     window.show()
 
     PyDuiApplication.main_run()

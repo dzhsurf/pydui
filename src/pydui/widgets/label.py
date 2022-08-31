@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional, Type
+from typing import Type
 
 import cairo
 import gi
@@ -42,11 +42,13 @@ class PyDuiLabel(PyDuiWidget):
     __valign: str = "CENTER"
     __line_spacing: float = 1.25
 
+    __bkimage: str = ""
+
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
 
     def parse_attrib(self, k: str, v: str):
-        print(f"{self} parse {k} {v}")
+        handled = True
         if k == "text":
             self.__text = v
         elif k == "fontcolor":
@@ -59,16 +61,21 @@ class PyDuiLabel(PyDuiWidget):
             self.__wrap_mode = v
         elif k == "ellipsis":
             self.__ellipsize_mode = v
-        elif v == "halign":
+        elif k == "halign":
             self.__halign = v
-        elif v == "valign":
+        elif k == "valign":
             self.__valign = v
-        elif v == "line_spacing":
+        elif k == "line_spacing":
             self.__line_spacing = float(v)
+        elif k == "bkimage":
+            self.__bkimage = v
         else:
             super().parse_attrib(k, v)
+            handled = False
+        if handled:
+            print(f"{self} parse {k} {v}")
 
-    def draw(
+    def draw_bkimage(
         self,
         ctx: cairo.Context,
         x: float,
@@ -78,12 +85,23 @@ class PyDuiLabel(PyDuiWidget):
         canvas_width: float,
         canvas_height: float,
     ):
-        super().draw(ctx, x, y, width, height, canvas_width, canvas_height)
+        PyDuiRender.DrawImage(
+            ctx,
+            image=self.__bkimage,
+            xy=(x, y),
+            wh=(width, height),
+        )
 
-        # families = PangoCairo.font_map_get_default().list_families()
-        # for f in families:
-        #     print(f.get_name())
-
+    def draw_text(
+        self,
+        ctx: cairo.Context,
+        x: float,
+        y: float,
+        width: float,
+        height: float,
+        canvas_width: float,
+        canvas_height: float,
+    ):
         render_manager = self.get_render_manager()
 
         fontfamily = self.__font
@@ -112,3 +130,26 @@ class PyDuiLabel(PyDuiWidget):
             wrap_mode=Text2WrapMode(self.__wrap_mode),
             line_spacing=self.__line_spacing,
         )
+
+    def draw(
+        self,
+        ctx: cairo.Context,
+        x: float,
+        y: float,
+        width: float,
+        height: float,
+        canvas_width: float,
+        canvas_height: float,
+    ):
+        # draw bkcolor
+        super().draw(ctx, x, y, width, height, canvas_width, canvas_height)
+
+        # draw bkimage
+        self.draw_bkimage(ctx, x, y, width, height, canvas_width, canvas_height)
+
+        # families = PangoCairo.font_map_get_default().list_families()
+        # for f in families:
+        #     print(f.get_name())
+
+        # draw text
+        self.draw_text(ctx, x, y, width, height, canvas_width, canvas_height)

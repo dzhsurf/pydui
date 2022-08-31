@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
-from typing import Optional, Type
+from typing import Type
 
 import cairo
 import gi
@@ -39,6 +39,15 @@ class PyDuiRender:
         ctx.set_source_rgba(*color)
         ctx.fill()
         ctx.restore()
+
+    @staticmethod
+    def DrawImage(
+        ctx: cairo.Context,
+        image: str,
+        xy: tuple[float, float],
+        wh: tuple[float, float],
+    ):
+        pass
 
     @staticmethod
     def DrawText(
@@ -137,20 +146,24 @@ class PyDuiRenderManager(object):
 
     """Render manager"""
 
-    __canvas: PyDuiRenderCanvas
-    __rootview: PyDuiLayout
+    __loader: PyDuiResourceLoader = None
+    __canvas: PyDuiRenderCanvas = None
+    __rootview: PyDuiLayout = None
     __default_fontfamily: str = "Arial"
     __default_fontsize: int = 16
     __default_fontcolor: Gdk.RGBA = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
 
     # manager all widget
-    def __init__(self, window: PyDuiWindow):
+    def __init__(self, window: PyDuiWindow, loader: PyDuiResourceLoader):
         self.__window = window
         self.__canvas = PyDuiRenderCanvas(self.__on_draw__)
-        self.__rootview = None
+        self.__loader = loader
 
         gtk_window = self.__window.get_gtk_window()
         gtk_window.add(self.__canvas)
+
+    def get_resource_loader(self):
+        return self.__loader
 
     @property
     def default_fontcolor(self) -> Gdk.RGBA:
@@ -224,7 +237,7 @@ class PyDuiRenderManager(object):
         self.__rootview = rootview
         rootview.set_render_manager(self)
 
-    def get_widget(self, widget_id: str) -> Optional[PyDuiWidget]:
+    def get_widget(self, widget_id: str) -> PyDuiWidget:
         """Get widget by widget id
 
         Args:

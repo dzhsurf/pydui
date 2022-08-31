@@ -12,7 +12,7 @@ Example::
 """
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
-from typing import Optional, Type
+from typing import Type
 
 import gi
 
@@ -21,6 +21,7 @@ from gi.repository import Gtk
 
 from pydui.core import utils
 from pydui.core.layout import *
+from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
 from pydui.core.window import *
 from pydui.layout.fit_layout import *
@@ -31,73 +32,57 @@ from pydui.widgets.button import *
 from pydui.widgets.label import *
 
 
-def __process_root_node__(node: ET.Element) -> PyDuiWindowConfig:
-    return PyDuiWindowConfig(
-        title=node.attrib.get("title", ""),
-        size=utils.Str2Size(node.attrib.get("size", "400,300")),
-        min_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
-        max_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
-        position=utils.Str2Position(node.attrib.get("position", "CENTER")),
-    )
+class __PyDuiResourceProvider__(PyDuiResourceLoader):
+
+    __loaders: list[PyDuiResourceLoader] = []
+
+    def scheme(self) -> str:
+        return "__resource_provider__"
+
+    def clear_loaders(self):
+        self.__loaders.clear()
+
+    def register_loader(self, loader: Type[PyDuiResourceLoader]):
+        self.__loaders.append(loader)
+
+    def load_xml(self, path: str) -> str:
+        for loader in self.__loaders:
+            v = loader.load_xml(path)
+            if v is not None:
+                return v
+        return None
+
+    def load_data(self, path: str) -> bytes:
+        for loader in self.__loaders:
+            v = loader.load_string(id)
+            if v is not None:
+                return v
+        return None
+
+    def load_string(self, id: str) -> str:
+        for loader in self.__loaders:
+            v = loader.load_data(path)
+            if v is not None:
+                return v
+        return None
 
 
-def __process_tree_node__(node: ET.Element, parent_widget: PyDuiLayout) -> PyDuiWidget:
-
-    logging.debug(f"node {node.tag}: {node.attrib}")
-    tag = node.tag
-    attrib = node.attrib
-
-    def build_gtk_widget():
-        INTERNAL_WIDGET_TABLE = {
-            "HLayout": PyDuiHLayout,
-            "VLayout": PyDuiVLayout,
-            "FixedLayout": PyDuiFixedLayout,
-            "FitLayout": PyDuiFitLayout,
-            "Label": PyDuiLabel,
-            "Button": PyDuiButton,
-        }
-        if tag in INTERNAL_WIDGET_TABLE:
-            return INTERNAL_WIDGET_TABLE[tag](parent_widget)
-        # TODO: handle custom user define widget
-        return PyDuiWidget(parent_widget)
-
-    result = build_gtk_widget()
-    if parent_widget is not None:
-        parent_widget.add_child(result)
-    result.parse_attributes(attrib)
-    return result
-
-
-def __recursive_tree_node__(node: ET.Element, parent_widget: PyDuiLayout, cb: callable):
-    child_widget = cb(node=node, parent_widget=parent_widget)
-    for child in node:
-        __recursive_tree_node__(node=child, parent_widget=child_widget, cb=cb)
-
-
-def __build_window_from_path__(path: str) -> (PyDuiWindowConfig, PyDuiWidget):
-    tree = ET.parse(path)
-    root = tree.getroot()
-    config = __process_root_node__(root)
-    root_widget = PyDuiVLayout(None)
-    for child in root:
-        __recursive_tree_node__(
-            node=child,
-            parent_widget=root_widget,
-            cb=__process_tree_node__,
-        )
-        # Notice: Only handle first node from root.
-        break
-
-    return (config, root_widget)
-
-
-@dataclass(frozen=True)
 class PyDuiBuilder:
 
     """Build Widget, Window from xml resource"""
 
-    @staticmethod
-    def build_widget(path: str) -> PyDuiWidget:
+    __resource_provider: __PyDuiResourceProvider__ = None
+
+    def __init__(self):
+        self.__resource_provider = __PyDuiResourceProvider__()
+
+    def register_resource_loader(self, loader: Type[PyDuiResourceLoader]):
+        self.__resource_provider.register_loader(loader)
+
+    def get_loader(self) -> PyDuiResourceLoader:
+        return self.__resource_provider
+
+    def build_widget(self, path: str) -> PyDuiWidget:
         """Build widget from path
 
         Args:
@@ -108,16 +93,83 @@ class PyDuiBuilder:
         """
         return PyDuiWidget()
 
-    @staticmethod
-    def build_window(path: str) -> PyDuiWindow:
+    def build_window(self, path: str, handler: Type[PyDuiWindowHandler]) -> PyDuiWindow:
         """Build window from path and handler
 
         Args:
             path (str): xml resource path
+            handler (Type[PyDuiWindowHandler]): handler class
 
         Returns:
             PyDuiWindow: return window object.
         """
-        config, root_widget = __build_window_from_path__(path)
-        window = PyDuiWindow(config=config, rootview=root_widget)
+        config, root_widget = self.__build_window_from_path__(path)
+        # render_manager = PyDuiRenderManager(window, loader)
+        window = PyDuiWindow(
+            loader=self.__resource_provider,
+            config=config,
+            rootview=root_widget,
+            handler=handler,
+        )
         return window
+
+    def __build_window_from_path__(self, path: str) -> (PyDuiWindowConfig, PyDuiWidget):
+        xml_content = self.__resource_provider.load_xml(path)
+        if xml_content is None:
+            logging.error(f"load xml fail. path not exist. path = {path}")
+            return (None, PyDuiWidget())
+
+        # tree = ET.parse(path)
+        # root = tree.getroot()
+        root = ET.fromstring(xml_content)
+        config = self.__process_root_node__(root)
+        root_widget = PyDuiVLayout(None)
+        for child in root:
+            self.__recursive_tree_node__(
+                node=child,
+                parent_widget=root_widget,
+                cb=self.__process_tree_node__,
+            )
+            # Notice: Only handle first node from root.
+            break
+
+        return (config, root_widget)
+
+    def __process_root_node__(self, node: ET.Element) -> PyDuiWindowConfig:
+        return PyDuiWindowConfig(
+            title=node.attrib.get("title", ""),
+            size=utils.Str2Size(node.attrib.get("size", "400,300")),
+            min_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
+            max_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
+            position=utils.Str2Position(node.attrib.get("position", "CENTER")),
+        )
+
+    def __process_tree_node__(self, node: ET.Element, parent_widget: PyDuiLayout) -> PyDuiWidget:
+        logging.debug(f"node {node.tag}: {node.attrib}")
+        tag = node.tag
+        attrib = node.attrib
+
+        def build_gtk_widget():
+            INTERNAL_WIDGET_TABLE = {
+                "HLayout": PyDuiHLayout,
+                "VLayout": PyDuiVLayout,
+                "FixedLayout": PyDuiFixedLayout,
+                "FitLayout": PyDuiFitLayout,
+                "Label": PyDuiLabel,
+                "Button": PyDuiButton,
+            }
+            if tag in INTERNAL_WIDGET_TABLE:
+                return INTERNAL_WIDGET_TABLE[tag](parent_widget)
+            # TODO: handle custom user define widget
+            return PyDuiWidget(parent_widget)
+
+        result = build_gtk_widget()
+        if parent_widget is not None:
+            parent_widget.add_child(result)
+        result.parse_attributes(attrib)
+        return result
+
+    def __recursive_tree_node__(self, node: ET.Element, parent_widget: PyDuiLayout, cb: callable):
+        child_widget = cb(node=node, parent_widget=parent_widget)
+        for child in node:
+            self.__recursive_tree_node__(node=child, parent_widget=child_widget, cb=cb)
