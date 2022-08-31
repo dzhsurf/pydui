@@ -13,17 +13,28 @@ PyDui Documentation
 
 **PyDui base on GTK-3, PyGObject**
 
-Even though there is GTK/Glade can quickly and efficiently build a powerful UI Application. But the Glade is not easy enough to learn. Sometimes, we need another solution for rapidly building a simple app. I think, on the windows platform, DuiLib is an option because it's easy to learn.
+PyDui is based on PyGObject/GTK-3, but totally runs on self-drawing canvas. Because GTK-3 widgets are not easy to understand how it works. We are tent to provide an easy API to help developers to build UI applications more quickly and efficiently, putting more focus on the product either than the details of the framework.
+
+
+
+Why choose GTK, not QT or any other framework as the low-level module?
+As GTK is a powerful cross-platform framework, it can run on Windows, MacOSX, and Linux well, and it's light enough, fewer dependencies mean it can be easy to pack and deploy.
+
+
+
+And why use self-drawing instead of GTK's widget pattern?
+Even though there is GTK/Glade can quickly build a powerful UI Application. But the Glade is not easy enough to learn. Especially the layout design pattern on GTK is terrible hell for developers and designers.
+
+
+
+Sometimes, we need another solution for rapidly building a simple app. I think, on the windows platform, DuiLib is an option because it's easy to learn. That is the reason we use self-drawing to reimplement all the virtual widgets.
+
+
 
 
 **Why not just wrap the DuiLib API ?** 
 
 This is a good question because DuiLib only works on windows. And the author work on mac. So, this is not for cross-platform purposes, just personal reasons.
-
-
-**The simple layout rule**
-
-PyDui only has one layout rule, it's easy to understand how it works.
 
 
 
@@ -95,6 +106,15 @@ conda activate pydui
 # local install 
 pip install -e .
 ```
+
+
+
+
+
+## Layout Rule
+
+>  TODO: 
+> ...
 
 
 
