@@ -4,14 +4,12 @@ from typing import Optional, Type
 import cairo
 import gi
 
-gi.require_version("Gtk", "3.0")
 gi.require_version("Gdk", "3.0")
-gi.require_version("Pango", "1.0")
-gi.require_version("PangoCairo", "1.0")
 
-from gi.repository import Gdk, GdkPixbuf, Gtk, Pango, PangoCairo
+from gi.repository import Gdk
 
 from pydui.core import utils
+from pydui.core.base import *
 from pydui.core.layout import *
 from pydui.core.render import PyDuiRender
 from pydui.core.widget import *
@@ -22,6 +20,15 @@ class PyDuiLabel(PyDuiWidget):
     """Label widget"""
 
     __text: str = ""
+    __font: str = ""
+    __fontsize: int = None
+    __fontcolor: Gdk.RGBA = None
+
+    __ellipsize_mode: str = "END"
+    __wrap_mode: str = "WORD"
+    __halign: str = "CENTER"
+    __valign: str = "CENTER"
+    __line_spacing: float = 1.25
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
@@ -30,6 +37,22 @@ class PyDuiLabel(PyDuiWidget):
         print(f"{self} parse {k} {v}")
         if k == "text":
             self.__text = v
+        elif k == "fontcolor":
+            self.__fontcolor = utils.Str2Color(v)
+        elif k == "fontsize":
+            self.__fontsize = int(v)
+        elif k == "font":
+            self.__font = v
+        elif k == "wrap":
+            self.__wrap_mode = v
+        elif k == "ellipsis":
+            self.__ellipsize_mode = v
+        elif v == "halign":
+            self.__halign = v
+        elif v == "valign":
+            self.__valign = v
+        elif v == "line_spacing":
+            self.__line_spacing = float(v)
         else:
             super().parse_attrib(k, v)
 
@@ -49,14 +72,31 @@ class PyDuiLabel(PyDuiWidget):
         # for f in families:
         #     print(f.get_name())
 
+        render_manager = self.get_render_manager()
+
+        fontfamily = self.__font
+        if fontfamily is None or fontfamily == "":
+            fontfamily = render_manager.default_fontfamily
+
+        fontsize = self.__fontsize
+        if fontsize is None:
+            fontsize = render_manager.default_fontsize
+
+        fontcolor = self.__fontcolor
+        if fontcolor is None:
+            fontcolor = render_manager.default_fontcolor
+
+        # draw text
         PyDuiRender.DrawText(
             ctx,
             text=self.__text,
-            font="Helvetica",
-            font_size=13,
-            color=utils.Str2Color("#FF000000"),
-            x=x,
-            y=y,
-            w=width,
-            h=height,
+            font=fontfamily,
+            font_size=fontsize,
+            color=fontcolor,
+            xy=(x, y),
+            wh=(width, height),
+            hvalign=(Text2TextAlign(self.__halign), Text2TextAlign(self.__valign)),
+            ellipsis_mode=Text2EllipsizeMode(self.__ellipsize_mode),
+            wrap_mode=Text2WrapMode(self.__wrap_mode),
+            line_spacing=self.__line_spacing,
         )

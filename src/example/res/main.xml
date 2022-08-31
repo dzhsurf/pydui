@@ -2,14 +2,40 @@
 <Window size="800,600" title='Quickstart Demo' min_size="400,300">
     <HLayout bkcolor="#FFE8E8E8">
         <VLayout bkcolor="#FFA8A8A8" width="200">
-            <Label text="This is text one" />
+            <Label text="测试中文字体渲染,自动换行自动换行自动换行自动换行" font="Helvetica" fontsize="13" fontcolor="#FFFF0000"
+                margin="20,20,20,20" />
         </VLayout>
         <VLayout>
-            <Label text="Text2" bkcolor="#FF0000FF"/>
-            <HLayout bkcolor="#FF00FF00" />
-            <Label text="Hello World!!! ctx.set_font_options() is part of the cairo toy font API and ignored by
+            <HLayout bkcolor="#FFC8C8C8" />
+            <Label text="Test single line text end ellipsis, here is the long text document.Test single line text end ellipsis, here is the long text document."
+                font="Helvetica Light"
+                fontsize="16"
+                fontcolor="#FF1A1A1A"
+                bkcolor="#FFC8C8C8"
+                wrap="NONE"
+                margin="20,20,20,20"
+            />
+            <Label text="Test single line text middle ellipsis, here is the long text document.Test single line text middle ellipsis, here is the long text document."
+                font="Helvetica Light"
+                fontsize="16"
+                fontcolor="#FF1A1A1A"
+                wrap="NONE"
+                ellipsis="MIDDLE"
+                margin="20,20,20,20"
+            />
+            <Label text="Test Multi line text wrap text. Hello World!!! ctx.set_font_options() is part of the cairo toy font API and ignored by
 pango. You need to set font options on the PangoContext underlying the
-layout. That is, when you have your pango.Layout, do:" bkcolor="#FFE8E8E8"/>
+layout. That is, when you have your pango.Layout, do:PangoContext underlying the
+layout. That is, when you have your pango.Layout, do:PangoContext underlying the
+layout. That is, when you have your pango.Layout, do:PangoContext underlying the
+layout. That is, when you have your pango.Layout, do:PangoContext underlying the
+layout. That is, when you have your pango.Layout, do:PangoContext underlying the
+layout. That is, when you have your pango.Layout, do:"
+                font="Helvetica Light"
+                fontsize="16"
+                fontcolor="#FF1A1A1A"
+                margin="20,20,20,20"
+            />
         </VLayout>
     </HLayout>
 </Window>

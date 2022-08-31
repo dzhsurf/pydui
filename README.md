@@ -159,6 +159,8 @@ Pycairo: https://pycairo.readthedocs.io/en/latest/index.html
 
 PyGObject: https://pygobject.readthedocs.io/en/latest/index.html
 
+Python PangoCairo: https://lazka.github.io/pgi-docs/PangoCairo-1.0/index.html
+
 ---
 
 Gtk-3: https://docs.gtk.org/gtk3/index.html
@@ -166,6 +168,8 @@ Gtk-3: https://docs.gtk.org/gtk3/index.html
 Pango: https://docs.gtk.org/Pango/index.html
 
 GdkPixbuf: https://docs.gtk.org/gdk-pixbuf/index.html
+
+PangoCairo: https://docs.gtk.org/PangoCairo/
 
 ---
 

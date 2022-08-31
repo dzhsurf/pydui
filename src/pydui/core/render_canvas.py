@@ -53,6 +53,8 @@ class PyDuiRenderCanvas(Gtk.Frame):
 
     def redraw(self):
         self.__init_surface__(self.__area)
+
+        # draw to surface
         context = cairo.Context(self.surface)
         self.__do_drawing__(context)
         self.surface.flush()

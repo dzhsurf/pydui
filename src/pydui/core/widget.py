@@ -1,5 +1,3 @@
-# widget.py
-# all ui element is PyDuiWidget
 from __future__ import annotations
 
 import sys
@@ -32,29 +30,48 @@ class PyDuiWidget(object):
 
     """Widget base class"""
 
-    __id: str
+    __render_manager: PyDuiRenderManager = None
+
+    __id: str = ""
     __parent: PyDuiWidget
-    __x: float
-    __y: float
-    __width: float
-    __height: float
-    __fixed_x: float
-    __fixed_y: float
-    __fixed_width: float
-    __fixed_height: float
+    __x: float = 0
+    __y: float = 0
+    __width: float = 0
+    __height: float = 0
+    __fixed_x: float = 0
+    __fixed_y: float = 0
+    __fixed_width: float = 0
+    __fixed_height: float = 0
     __layout_class: PyDuiLayoutEnum
     # attrib
     __bkcolor: Gdk.RGBA = None
     __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
 
     def __init__(self, parent: PyDuiWidget, layout_class: PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout):
-        self.__id = ""
         self.__parent = parent
-        self.__x, self.__y = 0, 0
-        self.__width, self.__height = 0, 0
-        self.__fixed_x, self.__fixed_y = 0, 0
-        self.__fixed_width, self.__fixed_height = 0, 0
         self.__layout_class = layout_class
+
+    def set_render_manager(self, render_manager: PyDuiRenderManager):
+        """Set the render mananger
+
+        Do not call this function yourself if you do not know what it is for!
+        """
+        self.__render_manager = render_manager
+
+    def get_render_manager(self):
+        """Get the widget render manager
+
+        If widget is a child and not contain render manager, it will find the parent until reach to top.
+        It's not a good design as it will cause problems by incorrect maintain the widget render manager.
+        It will reimplment later.
+        """
+        render_manager = self.__render_manager
+        widget = self
+        while render_manager is None and widget is not None:
+            widget = widget.parent
+            render_manager = widget.__render_manager
+
+        return render_manager
 
     def get_id(self) -> str:
         """Return widget id

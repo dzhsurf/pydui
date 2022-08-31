@@ -123,3 +123,32 @@
 #                     # add the line to the lines array
 #                     lines.append(line)
 #         return lines
+
+
+# # draw to sf
+#         sf = cairo.ImageSurface(cairo.FORMAT_ARGB32, self.surface.get_width() * 2, self.surface.get_height() * 2)
+#         sf_ctx = cairo.Context(sf)
+#         self.__do_drawing__(sf_ctx)
+#         sf.flush()
+
+#         # create image from im_surface then get the pixbuf
+#         pixbuf = Gdk.pixbuf_get_from_surface(sf, 0, 0, sf.get_width(), sf.get_height())
+#         scaled_pixbuf = pixbuf.scale_simple(
+#             self.surface.get_width(), self.surface.get_height(), GdkPixbuf.InterpType.BILINEAR
+#         )
+
+#         # draw pixbuf to surface
+#         context = cairo.Context(self.surface)
+#         Gdk.cairo_set_source_pixbuf(context, scaled_pixbuf, 0, 0)
+#         context.get_source().set_filter(cairo.FILTER_BEST)
+#         context.paint()
+#         self.surface.flush()
+
+# fo = cairo.FontOptions()
+# fo.set_antialias(cairo.ANTIALIAS_SUBPIXEL) # ANTIALIAS_SUBPIXEL
+# ctx.set_font_options(fo)
+# ctx.set_source_rgb(0.1, 0.1, 0.1)
+# ctx.select_font_face("Purisa", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+# ctx.set_font_size(13)
+# ctx.move_to(20, 30)
+# ctx.show_text("Most relationships seem so transitory")

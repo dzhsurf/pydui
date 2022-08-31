@@ -9,9 +9,10 @@ from gi.repository import Gtk
 from pydui.core import utils
 from pydui.core.layout import *
 from pydui.core.widget import *
+from pydui.widgets.label import *
 
 
-class PyDuiButton(PyDuiWidget):
+class PyDuiButton(PyDuiLabel):
 
     """Label widget"""
 
