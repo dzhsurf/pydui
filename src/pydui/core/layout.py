@@ -94,6 +94,20 @@ class PyDuiLayout(PyDuiWidget):
 
         return None
 
+    def get_child_by_pos(self, x: float, y: float) -> PyDuiWidget:
+        """Get child by position"""
+        for i in range(self.child_count):
+            child = self.get_child_at(i)
+            if not child.contain_pos(x, y):
+                continue
+
+            if issubclass(type(child), PyDuiLayout):
+                target = child.get_child_by_pos(x, y)
+                return target if target is not None else child
+            else:
+                return child
+        return None
+
     def get_child_at(self, index: int) -> PyDuiWidget:
         """Get child widget at index
 

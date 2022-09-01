@@ -46,7 +46,6 @@ class PyDuiLabel(PyDuiWidget):
         super().__init__(parent)
 
     def parse_attrib(self, k: str, v: str):
-        handled = True
         if k == "text":
             self.__text = v
         elif k == "fontcolor":
@@ -65,11 +64,8 @@ class PyDuiLabel(PyDuiWidget):
             self.__valign = v
         elif k == "line_spacing":
             self.__line_spacing = float(v)
-        else:
-            super().parse_attrib(k, v)
-            handled = False
-        if handled:
-            print(f"{self} parse {k} {v}")
+
+        super().parse_attrib(k, v)
 
     def draw_text(
         self,

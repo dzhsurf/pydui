@@ -6,6 +6,7 @@ from typing import Type
 import gi
 
 from pydui.core.render import PyDuiRenderManager
+from pydui.core.widget import PyDuiWidget
 from pydui.core.window_handler import PyDuiWindowHandler
 
 gi.require_version("Gtk", "3.0")
@@ -17,8 +18,14 @@ class PyDuiEventDispatcher(object):
 
     __manager: PyDuiRenderManager = None
     __handler: PyDuiWindowHandler = None
+    # window position
     __xy: tuple[float, float] = (0, 0)
     __wh: tuple[float, float] = (0, 0)
+
+    # mouse state
+    __mouse_x: int = 0
+    __mouse_y: int = 0
+    __last_hover_widget: PyDuiWidget = None
 
     def __init__(
         self,
@@ -47,6 +54,10 @@ class PyDuiEventDispatcher(object):
         self.__handler.on_window_visible_changed(False)
 
     def on_configure_event(self, object: Gtk.Widget, event: Gdk.EventConfigure):
+        if event.type == Gdk.EventType.NOTHING:
+            self.__manager.notify_redraw()
+            return
+
         x, y = event.x, event.y
         w, h = event.width, event.height
         if x != self.__xy[0] or y != self.__xy[1]:
@@ -60,4 +71,24 @@ class PyDuiEventDispatcher(object):
         pass
 
     def on_motion_notify(self, object: Gtk.Widget, event: Gtk.MotionEvent):
-        x, y, x_root, y_root = event.x, event.y, event.x_root, event.y_root
+        x, y, x_root, y_root = int(event.x), int(event.y), event.x_root, event.y_root
+
+        if x != self.__mouse_x or y != self.__mouse_y:
+            self.__dispatch_mouse_move(x, y)
+
+    def __dispatch_mouse_move(self, x: int, y: int):
+        self.__mouse_x, self.__mouse_y = x, y
+
+        widget = self.__manager.get_widget_by_pos(x, y)
+        hover_change = widget != self.__last_hover_widget
+        old_widget = self.__last_hover_widget
+        self.__last_hover_widget = widget
+
+        if hover_change:
+            if old_widget is not None:
+                old_widget.on_mouse_leave(widget)
+            if widget is not None:
+                widget.on_mouse_enter()
+        else:
+            if widget is not None:
+                widget.on_mouse_move(x, y)

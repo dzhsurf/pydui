@@ -228,6 +228,11 @@ class PyDuiRenderManager(object):
         gtk_window = self.__window.get_gtk_window()
         gtk_window.add(self.__canvas)
 
+    def notify_redraw(self):
+        # TODO: redraw dirty area
+        self.__canvas.redraw()
+        self.__canvas.queue_draw_area(0, 0, self.__canvas.get_width(), self.__canvas.get_height())
+
     def get_resource_loader(self):
         return self.__loader
 
@@ -310,6 +315,12 @@ class PyDuiRenderManager(object):
             widget_id (str): widget id
         """
         return self.__rootview.get_child(widget_id)
+
+    def get_widget_by_pos(self, x: float, y: float) -> PyDuiWidget:
+        if self.__rootview is None:
+            return None
+
+        return self.__rootview.get_child_by_pos(x, y)
 
     def __on_draw__(self, ctx: cairo.Context, width: float, height: float):
         if self.__rootview is None:

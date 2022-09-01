@@ -167,12 +167,27 @@ class PyDuiWidget(object):
         elif k == "corner":
             self.corner = utils.Str2Rect(v)
 
+    # event
+    def on_mouse_enter(self):
+        print(f"on enter {self}")
+
+    def on_mouse_leave(self, next_widget: PyDuiWidget):
+        print(f"on leave {self} -> next {next_widget}")
+
+    def on_mouse_move(self, x: float, y: float):
+        pass
+
     # method
     def connect(self, signal_name: str, callback: callable):
         pass
 
     def set_focus(self):
         pass
+
+    def contain_pos(self, x: float, y: float) -> bool:
+        if x >= self.x and x <= self.x + self.width and y >= self.y and y <= self.y + self.height:
+            return True
+        return False
 
     # properties
     # position & size

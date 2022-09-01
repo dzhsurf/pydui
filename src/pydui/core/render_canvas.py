@@ -22,13 +22,12 @@ class PyDuiRenderCanvas(Gtk.Frame):
     """Render canvas"""
 
     __area: Gtk.DrawingArea
-    __width: float
-    __height: float
+    __width: float = 0
+    __height: float = 0
     __ondraw: callable
 
     def __init__(self, ondraw: callable, css=None, border_width=0):
         super().__init__()
-        self.__width, self.__height = 0, 0
         self.set_shadow_type(Gtk.ShadowType.NONE)
         self.set_border_width(0)
         self.vexpand = True
@@ -80,3 +79,9 @@ class PyDuiRenderCanvas(Gtk.Frame):
             ctx.save()
             self.__ondraw(ctx, self.__width, self.__height)
             ctx.restore()
+
+    def get_width(self) -> float:
+        return self.__width
+
+    def get_height(self) -> float:
+        return self.__height
