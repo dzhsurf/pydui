@@ -7,6 +7,7 @@ from typing import Type
 import cairo
 import gi
 
+from pydui.core.event_dispatcher import PyDuiEventDispatcher
 from pydui.core.layout import *
 from pydui.core.render import *
 from pydui.core.widget import *
@@ -43,10 +44,7 @@ class PyDuiWindow(object):
 
     __gtk_window: Gtk.Window = None
     __manager: PyDuiRenderManager = None
-    __handler: PyDuiWindowHandler = None
-
-    __xy: tuple[float, float] = (0.0, 0.0)
-    __wh: tuple[float, float] = (0.0, 0.0)
+    __event_dispatcher: PyDuiEventDispatcher = None
 
     def __init__(
         self,
@@ -59,14 +57,10 @@ class PyDuiWindow(object):
         self.__gtk_window = Gtk.Window()
         # self.__gtk_window.set_decorated(False)
 
-        # Init render manger
+        # Init manger
         self.__manager = PyDuiRenderManager(window=self, loader=loader)
         self.__manager.set_rootview(rootview)
-
-        # Init handler
-        self.__handler = PyDuiWindowHandler()
-        if handler is not None:
-            self.__handler = handler()
+        self.__event_dispatcher = PyDuiEventDispatcher(manager=self.__manager, handler=handler)
 
         # config window
         self.__config_window__(self.__gtk_window, config)
@@ -86,39 +80,16 @@ class PyDuiWindow(object):
 
     def __initial_events__(self):
         self.__gtk_window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
-        self.__gtk_window.connect("configure-event", self.__on_config_event__)
-        self.__gtk_window.connect("destroy", self.__on_window_destroy__)
-        self.__gtk_window.connect("window-state-event", self.__on_window_state_event__)
-        self.__gtk_window.connect("show", self.__on_window_show__)
-        self.__gtk_window.connect("hide", self.__on_window_hide__)
+        self.__gtk_window.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
+        self.__gtk_window.connect("configure-event", self.__event_dispatcher.on_configure_event)
+        self.__gtk_window.connect("destroy", self.__event_dispatcher.on_window_destroy)
+        self.__gtk_window.connect("window-state-event", self.__event_dispatcher.on_window_state_event)
+        self.__gtk_window.connect("show", self.__event_dispatcher.on_window_show)
+        self.__gtk_window.connect("hide", self.__event_dispatcher.on_window_hide)
+        self.__gtk_window.connect("motion-notify-event", self.__event_dispatcher.on_motion_notify)
 
     def __init_window_finish__(self):
-        self.__handler.on_window_init(self)
-
-    def __on_window_show__(self, gtk_object: Gtk.Widget):
-        logging.debug(f"__on_window_show__: {gtk_object}")
-        self.__handler.on_window_visible_changed(True)
-
-    def __on_window_hide__(self, gtk_object: Gtk.Widget):
-        logging.debug(f"__on_window_hide__: {gtk_object}")
-        self.__handler.on_window_visible_changed(False)
-
-    def __on_window_destroy__(self, gtk_object: Gtk.Widget):
-        logging.debug(f"__on_window_destroy__: {self}, {gtk_object}")
-        self.__handler.on_window_destroy()
-
-    def __on_window_state_event__(self, gtk_object: Gtk.Widget, event_window_state: Gdk.EventWindowState):
-        pass
-
-    def __on_config_event__(self, gtk_object: Gtk.Widget, gtk_event: Gdk.EventConfigure):
-        x, y = gtk_event.x, gtk_event.y
-        w, h = gtk_event.width, gtk_event.height
-        if x != self.__xy[0] or y != self.__xy[1]:
-            self.__xy = (x, y)
-            self.__handler.on_window_position_changed(x, y)
-        if w != self.__wh[0] or y != self.__wh[1]:
-            self.__wh = (w, h)
-            self.__handler.on_window_size_changed(w, h)
+        self.__event_dispatcher.on_window_init(self)
 
     def get_gtk_window(self):
         return self.__gtk_window
@@ -128,7 +99,3 @@ class PyDuiWindow(object):
 
     def get_widget(self, widget_id: str) -> PyDuiWidget:
         return self.__manager.get_widget(widget_id=widget_id)
-
-    @property
-    def handler(self) -> PyDuiWindowHandler:
-        return self.__handler
