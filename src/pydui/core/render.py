@@ -8,9 +8,11 @@ from typing import Type
 import cairo
 import gi
 
+from pydui.core.attribute_string import *
 from pydui.core.base import *
 from pydui.core.layout import *
 from pydui.core.render_canvas import *
+from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
 
 gi.require_version("Gtk", "3.0")
@@ -43,11 +45,75 @@ class PyDuiRender:
     @staticmethod
     def DrawImage(
         ctx: cairo.Context,
-        image: str,
+        loader: PyDuiResourceLoader,
+        path: str,
         xy: tuple[float, float],
         wh: tuple[float, float],
+        corner: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0),
     ):
-        pass
+        buf = loader.load_data(path)
+        if len(buf) == 0:
+            logging.error(f"buf is empty. path = {path} loader = {loader}")
+            return
+
+        ctx.save()
+        pixbuf_loader = GdkPixbuf.PixbufLoader.new_with_type("png")
+        pixbuf_loader.write(buf)
+        pixbuf_loader.close()
+        pixbuf = pixbuf_loader.get_pixbuf()
+        im_w, im_h = pixbuf.get_width(), pixbuf.get_height()
+        x, y = xy[0], xy[1]
+        w, h = wh[0], wh[1]
+
+        has_corner = utils.IsNoneZeroRect(corner)
+        if has_corner:
+            # left top
+            pix = pixbuf.new_subpixbuf(0, 0, corner[0], corner[1])
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x, y)
+            ctx.paint()
+            # right top
+            pix = pixbuf.new_subpixbuf(im_w - corner[2], 0, corner[2], corner[1])
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - corner[2], y)
+            ctx.paint()
+            # middle top
+            pix = pixbuf.new_subpixbuf(corner[0], 0, im_w - corner[0] - corner[2], corner[1])
+            pix = pix.scale_simple(w - corner[0] - corner[2], corner[1], GdkPixbuf.InterpType.NEAREST)
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x + corner[0], y)
+            ctx.paint()
+            # left middle
+            pix = pixbuf.new_subpixbuf(0, corner[1], corner[0], im_h - corner[1] - corner[3])
+            pix = pix.scale_simple(corner[0], h - corner[1] - corner[3], GdkPixbuf.InterpType.NEAREST)
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x, y + corner[1])
+            ctx.paint()
+            # middle middle
+            pix = pixbuf.new_subpixbuf(corner[0], corner[1], im_w - corner[0] - corner[2], im_h - corner[1] - corner[3])
+            pix = pix.scale_simple(w - corner[0] - corner[2], h - corner[1] - corner[3], GdkPixbuf.InterpType.NEAREST)
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x + corner[0], y + corner[1])
+            ctx.paint()
+            # right middle
+            pix = pixbuf.new_subpixbuf(im_w - corner[2], corner[1], corner[2], im_h - corner[1] - corner[3])
+            pix = pix.scale_simple(corner[2], h - corner[1] - corner[3], GdkPixbuf.InterpType.NEAREST)
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - corner[2], y + corner[1])
+            ctx.paint()
+            # left bottom
+            pix = pixbuf.new_subpixbuf(0, im_h - corner[3], corner[0], corner[3])
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x, y + h - corner[3])
+            ctx.paint()
+            # middle bottom
+            pix = pixbuf.new_subpixbuf(corner[0], im_h - corner[3], im_w - corner[0] - corner[2], corner[3])
+            pix = pix.scale_simple(w - corner[0] - corner[2], corner[3], GdkPixbuf.InterpType.NEAREST)
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x + corner[0], y + h - corner[3])
+            ctx.paint()
+            # right bottom
+            pix = pixbuf.new_subpixbuf(im_w - corner[2], im_h - corner[3], corner[2], corner[3])
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - corner[2], y + h - corner[3])
+            ctx.paint()
+        else:
+            pixbuf = pixbuf.scale_simple(w, h, GdkPixbuf.InterpType.BILINEAR)
+            Gdk.cairo_set_source_pixbuf(ctx, pixbuf, x, y)
+            ctx.paint()
+
+        ctx.restore()
 
     @staticmethod
     def DrawText(

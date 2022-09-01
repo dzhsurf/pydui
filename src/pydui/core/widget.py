@@ -44,8 +44,11 @@ class PyDuiWidget(object):
     # attrib
     __bkcolor: Gdk.RGBA = None
     __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
+    __corner: tuple[float, float, float, float] = (0, 0, 0, 0)
+    __bkimage: str = ""
 
     def __init__(self, parent: PyDuiWidget):
+        super().__init__()
         self.__parent = parent
 
     def set_render_manager(self, render_manager: PyDuiRenderManager):
@@ -93,6 +96,28 @@ class PyDuiWidget(object):
         self.__draw_bkcolor__(ctx, x, y, width, height, canvas_width, canvas_height)
         ctx.restore()
 
+    def draw_bkimage(
+        self,
+        ctx: cairo.Context,
+        x: float,
+        y: float,
+        width: float,
+        height: float,
+        canvas_width: float,
+        canvas_height: float,
+    ):
+        if self.bkimage == "":
+            return
+
+        PyDuiRender.DrawImage(
+            ctx,
+            loader=self.get_render_manager().get_resource_loader(),
+            path=self.bkimage,
+            xy=(x, y),
+            wh=(width, height),
+            corner=self.corner,
+        )
+
     def layout(self, x: float, y: float, width: float, height: float):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
@@ -137,8 +162,10 @@ class PyDuiWidget(object):
             self.margin = utils.Str2Rect(v)
         elif k == "bkcolor":
             self.bkcolor = utils.Str2Color(v)
-        else:
-            pass
+        elif k == "bkimage":
+            self.bkimage = v
+        elif k == "corner":
+            self.corner = utils.Str2Rect(v)
 
     # method
     def connect(self, signal_name: str, callback: callable):
@@ -307,11 +334,19 @@ class PyDuiWidget(object):
 
     @property
     def bkimage(self) -> str:
-        pass
+        return self.__bkimage
 
     @bkimage.setter
     def bkimage(self, image: str):
-        pass
+        self.__bkimage = image
+
+    @property
+    def corner(self) -> tuple[float, float, float, float]:
+        return self.__corner
+
+    @corner.setter
+    def corner(self, corner: tuple[float, float, float, float]):
+        self.__corner = corner
 
     # private function
 

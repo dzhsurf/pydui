@@ -29,7 +29,7 @@ class PyDuiResourceLoader(ABC):
 
 class __PyDuiDefaultResourceLoader__(PyDuiResourceLoader):
     def __init__(self):
-        pass
+        super().__init__()
 
     def scheme(self) -> str:
         return "__default__"
@@ -37,14 +37,20 @@ class __PyDuiDefaultResourceLoader__(PyDuiResourceLoader):
     def load_xml(self, path: str) -> str:
         content = ""
         try:
-            f = open(path, "r")
-            content = f.read()
-            f.close()
+            with open(path, "r") as f:
+                content = f.read()
+                return content
         except:
             logging.error(f"open path fail. path = {path}")
         return content
 
     def load_data(self, path: str) -> bytes:
+        try:
+            with open(path, "rb") as f:
+                buf = f.read()
+                return buf
+        except:
+            logging.error(f"open path fail. path = {path}")
         return bytes()
 
     def load_string(self, id: str) -> str:

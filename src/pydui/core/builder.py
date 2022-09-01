@@ -34,7 +34,11 @@ from pydui.widgets.label import *
 
 class __PyDuiResourceProvider__(PyDuiResourceLoader):
 
-    __loaders: list[PyDuiResourceLoader] = []
+    __loaders: list[PyDuiResourceLoader] = None
+
+    def __init__(self):
+        super().__init__()
+        self.__loaders = list()
 
     def scheme(self) -> str:
         return "__resource_provider__"
@@ -42,7 +46,7 @@ class __PyDuiResourceProvider__(PyDuiResourceLoader):
     def clear_loaders(self):
         self.__loaders.clear()
 
-    def register_loader(self, loader: Type[PyDuiResourceLoader]):
+    def register_loader(self, loader: PyDuiResourceLoader):
         self.__loaders.append(loader)
 
     def load_xml(self, path: str) -> str:
@@ -54,14 +58,14 @@ class __PyDuiResourceProvider__(PyDuiResourceLoader):
 
     def load_data(self, path: str) -> bytes:
         for loader in self.__loaders:
-            v = loader.load_string(id)
+            v = loader.load_data(path)
             if v is not None:
                 return v
         return None
 
-    def load_string(self, id: str) -> str:
+    def load_string(self, path: str) -> str:
         for loader in self.__loaders:
-            v = loader.load_data(path)
+            v = loader.load_string(path)
             if v is not None:
                 return v
         return None
@@ -76,7 +80,7 @@ class PyDuiBuilder:
     def __init__(self):
         self.__resource_provider = __PyDuiResourceProvider__()
 
-    def register_resource_loader(self, loader: Type[PyDuiResourceLoader]):
+    def register_resource_loader(self, loader: PyDuiResourceLoader):
         self.__resource_provider.register_loader(loader)
 
     def get_loader(self) -> PyDuiResourceLoader:

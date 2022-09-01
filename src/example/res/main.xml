@@ -6,8 +6,8 @@
                 margin="20,20,20,20" />
         </VLayout>
         <VLayout halign="CENTER">
-            <Button id="button" text="Click Me" bkcolor="#FF0000FF" margin="8,8,8,8"
-                corner="4,4,4,4" width="200" height="48"
+            <Button id="button" text="Click Me" margin="8,8,8,8"
+                corner="16,16,16,16" width="200" height="48"
                 bkimage="res/images/common_button_normal.png"
                 bkimage_hover="res/images/common_button_hover.png"
                 bkimage_press="res/images/common_button_press.png"

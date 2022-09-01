@@ -42,8 +42,6 @@ class PyDuiLabel(PyDuiWidget):
     __valign: str = "CENTER"
     __line_spacing: float = 1.25
 
-    __bkimage: str = ""
-
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
 
@@ -67,30 +65,11 @@ class PyDuiLabel(PyDuiWidget):
             self.__valign = v
         elif k == "line_spacing":
             self.__line_spacing = float(v)
-        elif k == "bkimage":
-            self.__bkimage = v
         else:
             super().parse_attrib(k, v)
             handled = False
         if handled:
             print(f"{self} parse {k} {v}")
-
-    def draw_bkimage(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-        canvas_width: float,
-        canvas_height: float,
-    ):
-        PyDuiRender.DrawImage(
-            ctx,
-            image=self.__bkimage,
-            xy=(x, y),
-            wh=(width, height),
-        )
 
     def draw_text(
         self,

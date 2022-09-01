@@ -20,11 +20,4 @@ class PyDuiButton(PyDuiLabel):
         super().__init__(parent)
 
     def parse_attrib(self, k: str, v: str):
-        handled = True
-        if k == "":
-            pass
-        else:
-            super().parse_attrib(k, v)
-            handled = False
-        if handled:
-            print(f"{self} parse {k} {v}")
+        super().parse_attrib(k, v)

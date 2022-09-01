@@ -65,6 +65,13 @@ def Str2Rect(text: str) -> tuple[float, float, float, float]:
     return tuple(float(n) for n in arr)
 
 
+def IsNoneZeroRect(rect: tuple[float, float, float, float]) -> bool:
+    for r in rect:
+        if int(r) == 0:
+            return False
+    return True
+
+
 def RectH(rect: tuple[float, float, float, float]) -> float:
     return rect[1] + rect[3]
 
