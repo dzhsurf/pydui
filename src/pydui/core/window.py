@@ -9,6 +9,7 @@ from pydui.core.event_dispatcher import PyDuiEventDispatcher
 from pydui.core.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.render_manager import PyDuiRenderManager
+from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
 from pydui.core.window_base import PyDuiWindowBase
 from pydui.core.window_handler import PyDuiWindowHandler
