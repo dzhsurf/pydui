@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import queue
 from typing import Any, Type
 
 from pynoticenter import PyNotiCenter, PyNotiTaskQueue
@@ -28,8 +29,10 @@ class PyDuiEventDispatcher(object):
     __mouse_x: int = 0
     __mouse_y: int = 0
     __last_hover_widget: PyDuiWidget = None
-    __last_mouse_press_time: int = 0
-    __last_mouse_release_time: int = 0
+    __last_press_widget: PyDuiWidget = None
+    __last_press_button: int = 0
+    __last_press_time: queue.Queue = None
+    __last_press_release_time: queue.Queue = None
 
     def __init__(
         self,
@@ -46,6 +49,8 @@ class PyDuiEventDispatcher(object):
         self.__on_init = on_init
         if handler is not None:
             self.__handler = handler()
+        self.__last_press_time = queue.Queue(2)
+        self.__last_press_release_time = queue.Queue(2)
 
     def init_events(self):
         self.__window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
@@ -101,36 +106,33 @@ class PyDuiEventDispatcher(object):
         x, y, x_root, y_root = int(event.x), int(event.y), event.x_root, event.y_root
 
         if x != self.__mouse_x or y != self.__mouse_y:
-            self.__dispatch_mouse_move(x, y)
+            self.__dispatch_mouse_move__(x, y)
 
     def on_button_press(self, object: Gtk.Widget, event: Gdk.EventButton) -> bool:
         x, y = event.x, event.y
-        button = event.button
-        # event.time
-        # event.state : Gdk.ModifierType
         widget = self.__manager.get_widget_by_pos(x, y)
 
         if event.type == Gdk.EventType.BUTTON_PRESS:
-            self.__dispatch_button_press(widget, button, x, y)
+            self.__dispatch_button_press__(widget, event)
         elif event.type == Gdk.EventType._2BUTTON_PRESS:
-            self.__dispatch_2button_press(widget, button, x, y)
+            self.__dispatch_2button_press__(widget, event)
         elif event.type == Gdk.EventType._3BUTTON_PRESS:
-            self.__dispatch_3button_press(widget, button, x, y)
+            self.__dispatch_3button_press__(widget, event)
         return True
 
     def on_button_release(self, object: Gtk.Widget, event: Gdk.EventButton) -> bool:
         if event.type != Gdk.EventType.BUTTON_RELEASE:
             return
         x, y = event.x, event.y
-        button = event.button
         widget = self.__manager.get_widget_by_pos(x, y)
-        self.__dispatch_button_release(widget, button, x, y)
+        self.__dispatch_button_release__(widget, event)
         return True
 
-    def __switch_to_gtk_thread__(self, fn: callable, *args: Any, **kwargs: Any) -> None:
+    def __switch_to_gtk_thread__(self, fn: callable, *args: Any, **kwargs: Any) -> bool:
         GLib.idle_add(fn, *args, **kwargs)
+        return True
 
-    def __dispatch_mouse_move(self, x: int, y: int):
+    def __dispatch_mouse_move__(self, x: int, y: int):
         self.__mouse_x, self.__mouse_y = x, y
 
         widget = self.__manager.get_widget_by_pos(x, y)
@@ -147,15 +149,29 @@ class PyDuiEventDispatcher(object):
             if widget is not None:
                 widget.on_mouse_move(x, y)
 
-    def __dispatch_button_press(self, widget: PyDuiWidget, button: int, x: float, y: float):
+    def __dispatch_button_press__(self, widget: PyDuiWidget, event: Gdk.EventButton):
         if widget is None:
             return
+        if widget.on_lbutton_press(event.x, event.y):
+            return
+        # event.state : Gdk.ModifierType
+        button, time = event.button, event.time
+        self.__task_queue.post_task_with_delay(0.05, self.__dispatch_button_click__, widget, event)
 
-    def __dispatch_2button_press(self, widget: PyDuiWidget, button: int, x: float, y: float):
-        pass
+    def __dispatch_button_click__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        if widget is None:
+            return
+        widget.on_lbutton_click(event.x, event.y)
 
-    def __dispatch_3button_press(self, widget: PyDuiWidget, button: int, x: float, y: float):
-        pass
+    def __dispatch_2button_press__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        if widget is None:
+            return
+        widget.on_l2button_click(event.x, event.y)
 
-    def __dispatch_button_release(self, widget: PyDuiWidget, button: int, x: float, y: float):
+    def __dispatch_3button_press__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        if widget is None:
+            return
+        widget.on_l3button_click(event.x, event.y)
+
+    def __dispatch_button_release__(self, widget: PyDuiWidget, event: Gdk.EventButton):
         pass

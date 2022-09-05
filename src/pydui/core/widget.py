@@ -7,6 +7,7 @@ from pydui import utils
 from pydui.core.base import *
 from pydui.core.import_gtk import *
 from pydui.core.render import PyDuiRender
+from pydui.core.render_base import PyDuiRenderManagerBase
 
 
 @dataclass(frozen=True)
@@ -24,7 +25,7 @@ class PyDuiWidget(object):
 
     """Widget base class"""
 
-    __render_manager: PyDuiRenderManager = None
+    __render_manager: PyDuiRenderManagerBase = None
 
     __id: str = ""
     __parent: PyDuiWidget
@@ -46,7 +47,7 @@ class PyDuiWidget(object):
         super().__init__()
         self.__parent = parent
 
-    def set_render_manager(self, render_manager: PyDuiRenderManager):
+    def set_render_manager(self, render_manager: PyDuiRenderManagerBase):
         """Set the render mananger
 
         Do not call this function yourself if you do not know what it is for!

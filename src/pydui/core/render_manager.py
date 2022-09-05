@@ -1,13 +1,13 @@
-from __future__ import annotations
-
 from pydui.core.import_gtk import *
 from pydui.core.layout import PyDuiLayout
+from pydui.core.render_base import PyDuiRenderManagerBase
 from pydui.core.render_canvas import PyDuiRenderCanvas
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import PyDuiWidget
+from pydui.core.window_base import PyDuiWindowBase
 
 
-class PyDuiRenderManager(object):
+class PyDuiRenderManager(PyDuiRenderManagerBase):
 
     """Render manager"""
 
@@ -19,7 +19,7 @@ class PyDuiRenderManager(object):
     __default_fontcolor: Gdk.RGBA = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
 
     # manager all widget
-    def __init__(self, window: PyDuiWindow, loader: PyDuiResourceLoader):
+    def __init__(self, window: PyDuiWindowBase, loader: PyDuiResourceLoader):
         self.__window = window
         self.__canvas = PyDuiRenderCanvas(self.__on_draw__)
         self.__loader = loader

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import imp
 import logging
 from dataclasses import dataclass
 from typing import Type
@@ -9,6 +10,7 @@ from pydui.core.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.render_manager import PyDuiRenderManager
 from pydui.core.widget import *
+from pydui.core.window_base import PyDuiWindowBase
 from pydui.core.window_handler import PyDuiWindowHandler
 
 
@@ -33,7 +35,7 @@ class PyDuiWindowConfig:
     position: Gtk.WindowPosition = Gtk.WindowPosition.CENTER
 
 
-class PyDuiWindow(object):
+class PyDuiWindow(PyDuiWindowBase):
 
     """Window object"""
 
