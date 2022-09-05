@@ -1,13 +1,9 @@
 import math
 import random
 
-import gi
-
+from pydui.core.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.widget import *
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, Gtk
 
 
 class PyDuiHLayout(PyDuiLayout):

@@ -1,15 +1,8 @@
 from dataclasses import dataclass
 from typing import Type
 
-import cairo
-import gi
-
-gi.require_version("Gdk", "3.0")
-
-from gi.repository import Gdk
-
-from pydui.core import utils
 from pydui.core.base import *
+from pydui.core.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.render import PyDuiRender
 from pydui.core.widget import *

@@ -1,7 +1,6 @@
 from enum import Enum
 
-import gi
-from gi.repository import Pango
+from pydui.core.import_gtk import *
 
 
 class PyDuiAlign(Enum):

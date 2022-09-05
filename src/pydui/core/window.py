@@ -4,17 +4,12 @@ import logging
 from dataclasses import dataclass
 from typing import Type
 
-import cairo
-import gi
-
 from pydui.core.event_dispatcher import PyDuiEventDispatcher
+from pydui.core.import_gtk import *
 from pydui.core.layout import *
-from pydui.core.render import *
+from pydui.core.render_manager import PyDuiRenderManager
 from pydui.core.widget import *
 from pydui.core.window_handler import PyDuiWindowHandler
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, GdkPixbuf, Gtk
 
 
 @dataclass(frozen=True)
@@ -60,13 +55,18 @@ class PyDuiWindow(object):
         # Init manger
         self.__manager = PyDuiRenderManager(window=self, loader=loader)
         self.__manager.set_rootview(rootview)
-        self.__event_dispatcher = PyDuiEventDispatcher(manager=self.__manager, handler=handler)
+        self.__event_dispatcher = PyDuiEventDispatcher(
+            window=self.get_gtk_window(),
+            manager=self.__manager,
+            handler=handler,
+            on_init=self.__on_window_init__,
+        )
 
         # config window
         self.__config_window__(self.__gtk_window, config)
-        self.__initial_events__()
 
-        self.__init_window_finish__()
+        # init events
+        self.__event_dispatcher.init_events()
 
     def __config_window__(
         self,
@@ -78,18 +78,8 @@ class PyDuiWindow(object):
         gtk_window.set_size_request(*config.min_size)
         gtk_window.set_position(config.position)
 
-    def __initial_events__(self):
-        self.__gtk_window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
-        self.__gtk_window.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
-        self.__gtk_window.connect("configure-event", self.__event_dispatcher.on_configure_event)
-        self.__gtk_window.connect("destroy", self.__event_dispatcher.on_window_destroy)
-        self.__gtk_window.connect("window-state-event", self.__event_dispatcher.on_window_state_event)
-        self.__gtk_window.connect("show", self.__event_dispatcher.on_window_show)
-        self.__gtk_window.connect("hide", self.__event_dispatcher.on_window_hide)
-        self.__gtk_window.connect("motion-notify-event", self.__event_dispatcher.on_motion_notify)
-
-    def __init_window_finish__(self):
-        self.__event_dispatcher.on_window_init(self)
+    def __on_window_init__(self):
+        self.__event_dispatcher.handler.on_window_init(self)
 
     def get_gtk_window(self):
         return self.__gtk_window

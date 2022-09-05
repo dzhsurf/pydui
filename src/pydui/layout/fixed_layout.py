@@ -1,13 +1,9 @@
 """FixedLayout unit
 """
 
-import gi
-
 from pydui.core.base import *
+from pydui.core.import_gtk import *
 from pydui.core.layout import *
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, Gtk
 
 
 class PyDuiFixedLayout(PyDuiLayout):

@@ -2,12 +2,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Type
 
-import gi
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
-
-from pydui.core import utils
+from pydui.core.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.widget import *
 from pydui.widgets.label import *
@@ -61,7 +56,6 @@ class PyDuiButton(PyDuiLabel):
         if path == "":
             return
 
-        print(f"draw path = {path}")
         PyDuiRender.DrawImage(
             ctx,
             loader=self.get_render_manager().get_resource_loader(),

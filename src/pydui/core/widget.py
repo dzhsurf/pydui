@@ -3,14 +3,9 @@ from __future__ import annotations
 import sys
 from dataclasses import dataclass
 
-import cairo
-import gi
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, Gtk
-
-from pydui.core import utils
+from pydui import utils
 from pydui.core.base import *
+from pydui.core.import_gtk import *
 from pydui.core.render import PyDuiRender
 
 
@@ -169,12 +164,42 @@ class PyDuiWidget(object):
 
     # event
     def on_mouse_enter(self):
-        print(f"on enter {self}")
+        pass
 
     def on_mouse_leave(self, next_widget: PyDuiWidget):
-        print(f"on leave {self} -> next {next_widget}")
+        pass
 
     def on_mouse_move(self, x: float, y: float):
+        pass
+
+    def on_lbutton_press(self, x: float, y: float):
+        pass
+
+    def on_lbutton_release(self, x: float, y: float):
+        pass
+
+    def on_rbutton_press(self, x: float, y: float):
+        pass
+
+    def on_rbutton_release(self, x: float, y: float):
+        pass
+
+    def on_lbutton_click(self, x: float, y: float):
+        pass
+
+    def on_rbutton_click(self, x: float, y: float):
+        pass
+
+    def on_l2button_click(self, x: float, y: float):
+        pass
+
+    def on_r2button_click(self, x: float, y: float):
+        pass
+
+    def on_l3button_click(self, x: float, y: float):
+        pass
+
+    def on_r3button_click(self, x: float, y: float):
         pass
 
     # method

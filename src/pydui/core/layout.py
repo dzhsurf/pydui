@@ -3,15 +3,9 @@ import math
 from dataclasses import dataclass, field
 from enum import Enum
 
-import cairo
-import gi
-
-from pydui.core import utils
 from pydui.core.base import *
+from pydui.core.import_gtk import *
 from pydui.core.widget import *
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, Gtk
 
 
 @dataclass(frozen=True)

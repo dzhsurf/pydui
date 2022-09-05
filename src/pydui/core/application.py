@@ -6,10 +6,7 @@ Example::
 
 
 """
-import gi
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from pydui.core.import_gtk import *
 
 
 class PyDuiApplication:

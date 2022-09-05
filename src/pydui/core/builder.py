@@ -14,12 +14,8 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from typing import Type
 
-import gi
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
-
-from pydui.core import utils
+from pydui import utils
+from pydui.core.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *

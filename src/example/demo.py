@@ -1,5 +1,10 @@
+import threading
+
+from pynoticenter import PyNotiCenter
+
 import pydui
 from pydui import *
+from pydui.core.import_gtk import *
 from pydui.core.resource_loader import create_default_resource_loader
 
 
@@ -33,6 +38,7 @@ def main():
     window.show()
 
     PyDuiApplication.main_run()
+    PyNotiCenter.default().shutdown(True)
 
 
 if __name__ == "__main__":
