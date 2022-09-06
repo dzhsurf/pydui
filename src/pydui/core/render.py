@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import annotations
-
 import logging
 from dataclasses import dataclass
 from typing import Type
@@ -21,7 +19,7 @@ class PyDuiRender:
     @staticmethod
     def Rectangle(
         ctx: cairo.Context,
-        color: Gdk.RBGA,
+        color: Gdk.RGBA,
         x: float,
         y: float,
         w: float,
@@ -114,7 +112,7 @@ class PyDuiRender:
         text: str,
         font: str,
         font_size: int,
-        color: Gdk.RBGA,
+        color: Gdk.RGBA,
         xy: tuple[float, float],
         wh: tuple[float, float],
         hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
