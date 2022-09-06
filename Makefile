@@ -41,7 +41,16 @@ pydoc:
 mypy:
 	poetry mypy $(SRC_DIRS)
 
+.PHONY: localinstall
+localinstall:
+	pip install -e .
+
 .PHONY: demo
 demo:
-	pip install -e .
 	poetry run bash -c 'cd src/example/ && python demo.py'
+
+.PHONY: builddemo
+builddemo:
+	cd src/example 
+	pyinstaller --onedir -y -w --add-data "res:res" demo.py
+	pyinstaller --onedir -y demo.spec
