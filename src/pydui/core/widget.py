@@ -119,7 +119,7 @@ class PyDuiWidget(object):
     def layout(self, x: float, y: float, width: float, height: float):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
-        print(f"{self} => ({x}, {y}, {width}, {height})")
+        logging.debug(f"{self} => ({x}, {y}, {width}, {height})")
 
     def estimate_size(self, parent_width: float, parent_height: float) -> tuple[float, float]:
         return (self.__fixed_width, self.__fixed_height)

@@ -34,6 +34,10 @@ class PyDuiRenderCanvas(Gtk.Frame):
         self.__area.connect("draw", self.__on_draw__)
         self.__area.connect("configure-event", self.__on_configure__)
 
+    def __get_system_dpi_scale__(self) -> float:
+        # TODO: detect system dpi scale
+        return 2.0
+
     def __init_surface__(self, area: Gtk.DrawingArea):
         # Destroy previous buffer
         if self.surface is not None:
@@ -41,15 +45,13 @@ class PyDuiRenderCanvas(Gtk.Frame):
             self.surface = None
 
         # Create a new buffer
+        scale_factor = self.__get_system_dpi_scale__()
         self.surface = cairo.ImageSurface(
             cairo.FORMAT_ARGB32,
-            area.get_allocated_width() * 2,
-            area.get_allocated_height() * 2,
+            round(area.get_allocated_width() * scale_factor),
+            round(area.get_allocated_height() * scale_factor),
         )
-        self.surface.set_device_scale(2.0, 2.0)
-        # r = Gdk.Screen.get_default().get_resolution()
-        # syslog.syslog(syslog.LOG_ALERT, f"scale: {r}")
-        # print(r)
+        self.surface.set_device_scale(scale_factor, scale_factor)
 
     def redraw(self):
         self.__init_surface__(self.__area)
@@ -64,7 +66,7 @@ class PyDuiRenderCanvas(Gtk.Frame):
             context.set_source_surface(self.surface, 0.0, 0.0)
             context.paint()
         else:
-            print("Invalid surface")
+            logging.error("Invalid surface")
         return False
 
     def __on_configure__(self, gtk_object, gtk_event):

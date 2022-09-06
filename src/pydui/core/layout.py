@@ -208,4 +208,4 @@ class PyDuiLayout(PyDuiWidget):
 
     # private functions
     def __process_resize_or_move__(self, gtk_widget, gtk_event):
-        print(f"resize, {object}")
+        logging.debug(f"resize, {object}")
