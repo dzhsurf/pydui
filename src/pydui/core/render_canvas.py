@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import platform
 import syslog
 from dataclasses import dataclass
 from typing import Type
@@ -36,6 +37,16 @@ class PyDuiRenderCanvas(Gtk.Frame):
 
     def __get_system_dpi_scale__(self) -> float:
         # TODO: detect system dpi scale
+        if platform.system() == "Windows":
+            # if platform.release() == "7":
+            #     ctypes.windll.user32.SetProcessDPIAware()
+            # elif platform.release() == "8" or platform.release() == "10":
+            #     ctypes.windll.shcore.SetProcessDpiAwareness(1)
+            return 1.0
+        elif platform.system() == "Linux":
+            pass
+        elif platform.system() == "Darwin":
+            pass
         return 2.0
 
     def __init_surface__(self, area: Gtk.DrawingArea):
