@@ -5,6 +5,7 @@ __pycache__/
 poetry.lock
 *.swp
 .envrc
+src/example/build/
 docs/source/generated/
 docs/en/**/doctrees/
 docs/zh_CN/**/doctrees/

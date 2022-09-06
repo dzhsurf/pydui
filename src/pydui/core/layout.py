@@ -1,4 +1,4 @@
-# layout.py
+# -*- coding: utf-8 -*-
 import math
 from dataclasses import dataclass, field
 from enum import Enum

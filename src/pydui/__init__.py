@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """PyDui-GTK modules.
 
 core: Core module

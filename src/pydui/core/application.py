@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ PyDuiApplication module
 
 Example::

@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 
 import logging
+import syslog
 from dataclasses import dataclass
 from typing import Type
 
@@ -39,7 +41,15 @@ class PyDuiRenderCanvas(Gtk.Frame):
             self.surface = None
 
         # Create a new buffer
-        self.surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, area.get_allocated_width(), area.get_allocated_height())
+        self.surface = cairo.ImageSurface(
+            cairo.FORMAT_ARGB32,
+            area.get_allocated_width() * 2,
+            area.get_allocated_height() * 2,
+        )
+        self.surface.set_device_scale(2.0, 2.0)
+        # r = Gdk.Screen.get_default().get_resolution()
+        # syslog.syslog(syslog.LOG_ALERT, f"scale: {r}")
+        # print(r)
 
     def redraw(self):
         self.__init_surface__(self.__area)

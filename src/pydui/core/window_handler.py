@@ -1,13 +1,15 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 
 from pydui.core.resource_loader import PyDuiResourceLoader
+from pydui.core.window_base import PyDuiWindowBase
 
 
 class PyDuiWindowHandler(object):
 
     """Window handler"""
 
-    def on_window_init(self, window: PyDuiWindow):
+    def on_window_init(self, window: PyDuiWindowBase):
         """On window init event"""
         pass
 

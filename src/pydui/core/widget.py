@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 from __future__ import annotations
 
+import logging
 import sys
 from dataclasses import dataclass
 
@@ -138,7 +140,7 @@ class PyDuiWidget(object):
         Args:
             attrib (dict[str, str]): attributes dict key=value ...
         """
-        print(f"{self} parse {k} = {v}")
+        logging.debug(f"{self} parse {k} = {v}")
         if k == "id":
             self.__id = v
         elif k == "width":

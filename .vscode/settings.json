@@ -1,5 +1,7 @@
 {
     "files.exclude": {
+        "**/.tmp": true,
+        "**/*.py.*.tmp": true,
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from pydui.core.import_gtk import *
 from pydui.core.layout import PyDuiLayout
 from pydui.core.render_base import PyDuiRenderManagerBase

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import math
 
 from pydui.core.import_gtk import *

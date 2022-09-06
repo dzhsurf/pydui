@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ PyDuiBuilder module
 
 PyDuiBuilder provider construct Widget from xml resource.
@@ -10,9 +11,10 @@ Example::
 
 
 """
+import syslog
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
-from typing import Type
+from typing import Tuple, Type, Union
 
 from pydui import utils
 from pydui.core.import_gtk import *
@@ -113,12 +115,12 @@ class PyDuiBuilder:
         )
         return window
 
-    def __build_window_from_path__(self, path: str) -> (PyDuiWindowConfig, PyDuiWidget):
+    def __build_window_from_path__(self, path: str) -> Tuple[Union[PyDuiWindowConfig, None], PyDuiWidget]:
         xml_content = self.__resource_provider.load_xml(path)
         if xml_content is None:
             logging.error(f"load xml fail. path not exist. path = {path}")
             return (None, PyDuiWidget())
-
+        syslog.syslog(syslog.LOG_ALERT, f"xml len {len(xml_content)}, path = {path}")
         # tree = ET.parse(path)
         # root = tree.getroot()
         root = ET.fromstring(xml_content)
