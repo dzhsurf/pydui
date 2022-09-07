@@ -142,6 +142,50 @@ In the early stage, performance optimization, resource leakage issue, text rende
 
 
 
+## Development progress
+
+Builder:
+
+* Window - finish
+
+* Label - finish
+* Button - finish
+* HLayout - finish
+* VLayout - finish 
+
+ResourceLoader:
+
+* DefaultResourceLoader - finish
+
+Render:
+
+* DrawRetangle - finish
+* DrawImage - finish
+* DrawText - finish
+* Hi-DPI suppose - almost done
+
+Layout:
+
+* HLayout - finish
+* VLayout - finish
+* FixedLayout - 0%
+* FitLayout - 0%
+
+Widget:
+
+* Widget base - finish
+
+* Label - almost done, others attribute will finish later
+* Button - 50%
+  * base attribute - finish
+  * event dispatch - processing
+* Image - 0%, not started
+* Edit - 0%, not started
+* InfiniteList - 0%, not started
+* Menu - 0%, not started
+
+
+
 ## Reference
 
 Python Gtk-3 Tutorial: https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html
