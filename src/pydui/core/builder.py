@@ -14,7 +14,7 @@ Example::
 import syslog
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
-from typing import Tuple, Type, Union
+from typing import Callable, Tuple, Type, Union
 
 from pydui import utils
 from pydui.core.import_gtk import *
@@ -178,7 +178,9 @@ class PyDuiBuilder:
         result.parse_attributes(attrib)
         return result
 
-    def __recursive_tree_node__(self, node: ET.Element, parent_widget: PyDuiLayout, cb: callable):
-        child_widget = cb(node=node, parent_widget=parent_widget)
+    def __recursive_tree_node__(
+        self, node: ET.Element, parent_widget: PyDuiLayout, cb: Callable[[ET.Element, PyDuiLayout], PyDuiWidget]
+    ):
+        child_widget = cb(node, parent_widget)
         for child in node:
-            self.__recursive_tree_node__(node=child, parent_widget=child_widget, cb=cb)
+            self.__recursive_tree_node__(child, child_widget, cb)

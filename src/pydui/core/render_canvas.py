@@ -5,7 +5,7 @@ import logging
 import platform
 import syslog
 from dataclasses import dataclass
-from typing import Type
+from typing import Callable, Type
 
 from pydui import utils
 from pydui.core.import_gtk import *
@@ -18,7 +18,7 @@ class PyDuiRenderCanvas(Gtk.Frame):
     __area: Gtk.DrawingArea
     __width: float = 0
     __height: float = 0
-    __ondraw: callable
+    __ondraw: Callable[[cairo.Context, float, float], None] = None
 
     def __init__(self, ondraw: callable, css=None, border_width=0):
         super().__init__()

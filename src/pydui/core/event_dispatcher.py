@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import logging
 import queue
-from typing import Any, Type
+from typing import Any, Callable, Tuple, Type
 
 from pynoticenter import PyNotiCenter, PyNotiTaskQueue
 
@@ -19,7 +19,7 @@ class PyDuiEventDispatcher(object):
     __window: Gtk.Window = None
     __manager: PyDuiRenderManager = None
     __handler: PyDuiWindowHandler = None
-    __on_init: callable = None
+    __on_init: Callable[[None], None] = None
     __task_queue: PyNotiTaskQueue = None
 
     # window position
@@ -40,7 +40,7 @@ class PyDuiEventDispatcher(object):
         window: Gtk.Window,
         manager: PyDuiRenderManager,
         handler: PyDuiWindowHandler,
-        on_init: callable,
+        on_init: Callable[[None], None],
     ):
         self.__task_queue = PyNotiCenter.default().create_task_queue("pydui_event")
         self.__task_queue.set_preprocessor(self.__switch_to_gtk_thread__)
@@ -134,7 +134,9 @@ class PyDuiEventDispatcher(object):
         self.__dispatch_button_release__(widget, event)
         return True
 
-    def __switch_to_gtk_thread__(self, fn: callable, *args: Any, **kwargs: Any) -> bool:
+    def __switch_to_gtk_thread__(
+        self, fn: Callable[[Tuple[Any], dict[str, Any]], None], *args: Any, **kwargs: Any
+    ) -> bool:
         GLib.idle_add(fn, *args, **kwargs)
         return True
 
