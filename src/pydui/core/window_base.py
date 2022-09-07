@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import imp
 from abc import ABC, abstractmethod
 
 from pydui.core.import_gtk import *
