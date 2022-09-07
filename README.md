@@ -94,6 +94,53 @@ if __name__ == "__main__":
     main()
 ```
 
+XML File
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Window size="800,600" title='Quickstart Demo' min_size="400,300">
+    <HLayout bkcolor="#FFE8E8E8">
+        <VLayout bkcolor="#FFA8A8A8" width="200">
+            <Label text="测试中文字体渲染,自动换行自动换行自动换行自动换行" font="Helvetica" fontsize="13" fontcolor="#FFFF0000"
+                margin="20,20,20,20" />
+        </VLayout>
+        <VLayout halign="CENTER">
+            <Button id="button" text="Click Me" margin="8,8,8,8"
+                corner="12,12,12,12" width="200" height="48"
+                bkimage="res/images/common_button_normal.png"
+                bkimage_hover="res/images/common_button_hover.png"
+                bkimage_press="res/images/common_button_press.png"
+                bkimage_disable="res/images/common_button_disable.png"
+            />
+            <Label text="Test single line text end ellipsis, here is the long text document.Test single line text end ellipsis, here is the long text document."
+                font="Helvetica Light"
+                fontsize="16"
+                fontcolor="#FF1A1A1A"
+                bkcolor="#FFC8C8C8"
+                wrap="NONE"
+                margin="20,0,20,0"
+            />
+            <Label text="Test single line text middle ellipsis, here is the long text document.Test single line text middle ellipsis, here is the long text document."
+                font="Helvetica"
+                fontsize="16"
+                fontcolor="#FF1A1A1A"
+                wrap="NONE"
+                ellipsis="MIDDLE"
+                margin="20,20,20,20"
+            />
+            <Label text="Test Multi line text wrap text. Hello World!!! ctx.set_font_options() is part of the cairo toy font API and ignored by...
+                font="SourceCodePro"
+                fontsize="16"
+                fontcolor="#FF1A1A1A"
+                margin="20,20,20,20"
+            />
+        </VLayout>
+    </HLayout>
+</Window>
+```
+
+
+
 
 
 
