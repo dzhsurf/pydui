@@ -18,7 +18,7 @@ def get_builder() -> PyDuiBuilder:
 
 # custom window handler
 class DemoHandler(PyDuiWindowHandler):
-    def on_window_init(self, window: PyDuiWindow):
+    def on_window_init(self, window: PyDuiWindowBase):
         print(f"on_window_init")
 
         def handle_click(object):
@@ -26,6 +26,7 @@ class DemoHandler(PyDuiWindowHandler):
 
         widget = window.get_widget(widget_id="button")
         widget.connect("clicked", handle_click)
+        print(widget)
 
     def on_window_destroy(self):
         print(f"on_window_destroy")
