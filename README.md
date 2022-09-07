@@ -212,6 +212,7 @@ Render:
 * DrawImage - finish
 * DrawText - finish
 * Hi-DPI suppose - almost done
+* Draw area boundary protection - 0%, processing
 
 Layout:
 
@@ -228,7 +229,7 @@ Widget:
 * Button - 50%
   * base attribute - finish
   * event dispatch - processing
-* Image - 0%, not started
+* Image - 0%, processing
 * Edit - 0%, not started
 * InfiniteList - 0%, not started
 * Menu - 0%, not started
