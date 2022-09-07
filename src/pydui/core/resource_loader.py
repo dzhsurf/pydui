@@ -5,6 +5,7 @@ import os
 import pathlib
 import syslog
 from abc import ABC, abstractmethod
+from typing import Tuple
 
 
 class PyDuiResourceLoader(ABC):
@@ -23,6 +24,11 @@ class PyDuiResourceLoader(ABC):
     @abstractmethod
     def load_data(self, path: str) -> bytes:
         """Load data"""
+        pass
+
+    @abstractmethod
+    def load_image(self, path: str) -> Tuple[bytes, float]:
+        """Load image buffer with hi-dpi suppose"""
         pass
 
     @abstractmethod
@@ -66,6 +72,17 @@ class __PyDuiDefaultResourceLoader__(PyDuiResourceLoader):
             logging.error(f"open path fail. path = {res_path}")
             syslog.syslog(syslog.LOG_ALERT, f"open path fail. path = {res_path}")
         return content
+
+    def load_image(self, path: str) -> Tuple[bytes, float]:
+        image_ext = pathlib.Path(path).suffix
+        image_path = path.removesuffix(image_ext)
+        # try to match the dpi resource
+        for op in [("@2x", 2.0), ("", 1.0)]:
+            filename = f"{image_path}{op[0]}{image_ext}"
+            buf = self.load_data(filename)
+            if len(buf) > 0:
+                return (buf, op[1])
+        return (bytes(), 1.0)
 
     def load_data(self, path: str) -> bytes:
         try:

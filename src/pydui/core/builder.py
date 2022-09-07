@@ -61,6 +61,13 @@ class __PyDuiResourceProvider__(PyDuiResourceLoader):
                 return v
         return None
 
+    def load_image(self, path: str) -> Tuple[bytes, float]:
+        for loader in self.__loaders:
+            v = loader.load_image(path)
+            if v is not None:
+                return v
+        return None
+
     def load_string(self, path: str) -> str:
         for loader in self.__loaders:
             v = loader.load_string(path)
