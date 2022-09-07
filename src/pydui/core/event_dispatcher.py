@@ -111,7 +111,9 @@ class PyDuiEventDispatcher(object):
 
     def on_button_press(self, object: Gtk.Widget, event: Gdk.EventButton) -> bool:
         x, y = event.x, event.y
-        widget = self.__manager.get_widget_by_pos(x, y)
+        widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+        if widget is None:
+            return True
 
         if event.type == Gdk.EventType.BUTTON_PRESS:
             self.__dispatch_button_press__(widget, event)
@@ -125,7 +127,10 @@ class PyDuiEventDispatcher(object):
         if event.type != Gdk.EventType.BUTTON_RELEASE:
             return
         x, y = event.x, event.y
-        widget = self.__manager.get_widget_by_pos(x, y)
+        widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+        if widget is None:
+            return True
+
         self.__dispatch_button_release__(widget, event)
         return True
 
@@ -136,7 +141,8 @@ class PyDuiEventDispatcher(object):
     def __dispatch_mouse_move__(self, x: int, y: int):
         self.__mouse_x, self.__mouse_y = x, y
 
-        widget = self.__manager.get_widget_by_pos(x, y)
+        widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+
         hover_change = widget != self.__last_hover_widget
         old_widget = self.__last_hover_widget
         self.__last_hover_widget = widget

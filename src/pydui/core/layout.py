@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import math
 from dataclasses import dataclass, field
 from enum import Enum
+from typing import Callable
 
 from pydui.core.base import *
 from pydui.core.import_gtk import *
@@ -86,7 +86,9 @@ class PyDuiLayout(PyDuiWidget):
 
         return None
 
-    def get_child_by_pos(self, x: float, y: float) -> PyDuiWidget:
+    def find_widget_by_pos(
+        self, x: float, y: float, *, filter: Callable[[PyDuiWidget], bool] = PyDuiWidget.find_widget_default_filter
+    ) -> PyDuiWidget:
         """Get child by position"""
         for i in range(self.child_count):
             child = self.get_child_at(i)
@@ -94,9 +96,11 @@ class PyDuiLayout(PyDuiWidget):
                 continue
 
             if issubclass(type(child), PyDuiLayout):
-                target = child.get_child_by_pos(x, y)
-                return target if target is not None else child
-            else:
+                target = child.find_widget_by_pos(x, y, filter=filter)
+                if target is not None and filter(target):
+                    return target
+
+            if filter(child):
                 return child
         return None
 

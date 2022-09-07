@@ -44,6 +44,18 @@ class PyDuiWidget(object):
     __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
     __corner: tuple[float, float, float, float] = (0, 0, 0, 0)
     __bkimage: str = ""
+    # event
+    __enable_mouse_event: bool = False
+
+    @staticmethod
+    def find_widget_default_filter(widget: PyDuiWidget) -> bool:
+        return widget is not None
+
+    @staticmethod
+    def find_widget_mouse_event_filter(widget: PyDuiWidget) -> bool:
+        if widget is None:
+            return False
+        return widget.enable_mouse_event
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__()
@@ -173,6 +185,14 @@ class PyDuiWidget(object):
             self.corner = utils.Str2Rect(v)
 
     # event
+    @property
+    def enable_mouse_event(self) -> bool:
+        return self.__enable_mouse_event
+
+    @enable_mouse_event.setter
+    def enable_mouse_event(self, enable: bool):
+        self.__enable_mouse_event = enable
+
     def on_mouse_enter(self):
         pass
 

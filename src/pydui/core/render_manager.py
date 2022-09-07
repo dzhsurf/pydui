@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from typing import Callable
+
 from pydui.core.import_gtk import *
 from pydui.core.layout import PyDuiLayout
 from pydui.core.render_base import PyDuiRenderManagerBase
@@ -116,11 +118,17 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         """
         return self.__rootview.get_child(widget_id)
 
-    def get_widget_by_pos(self, x: float, y: float) -> PyDuiWidget:
+    def get_widget_by_pos(
+        self,
+        x: float,
+        y: float,
+        *,
+        filter: Callable[[PyDuiWidget], bool] = PyDuiWidget.find_widget_default_filter,
+    ) -> PyDuiWidget:
         if self.__rootview is None:
             return None
 
-        return self.__rootview.get_child_by_pos(x, y)
+        return self.__rootview.find_widget_by_pos(x, y, filter=filter)
 
     def __on_draw__(self, ctx: cairo.Context, width: float, height: float):
         if self.__rootview is None:

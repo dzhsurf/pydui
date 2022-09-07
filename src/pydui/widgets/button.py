@@ -29,6 +29,7 @@ class PyDuiButton(PyDuiLabel):
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
+        self.enable_mouse_event = True
 
     def parse_attrib(self, k: str, v: str):
         if k == "bkimage_hover":
