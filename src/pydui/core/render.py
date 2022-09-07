@@ -42,6 +42,8 @@ class PyDuiRender:
         wh: tuple[float, float],
         corner: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0),
     ):
+        # TODO: ResourceLoader, Render, RenderCanvas should have a device-dpi manager
+        # that it can easier to get access the dpi scale factor.
         buf, factor = loader.load_image(path)
         if len(buf) == 0:
             logging.error(f"buf is empty. path = {path} loader = {loader}")
