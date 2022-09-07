@@ -52,6 +52,8 @@ pip install pydui-gtk
 
 ## Code Example
 
+![Demo](https://github.com/dzhsurf/pydui/raw/main/images/demo.png)
+
 ```python
 import pydui
 from pydui import *
