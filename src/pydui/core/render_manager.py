@@ -126,4 +126,4 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         if self.__rootview is None:
             return
         self.__rootview.layout(0, 0, width, height)
-        self.__rootview.draw(ctx, 0, 0, width, height, width, height)
+        self.__rootview.draw(ctx, 0, 0, width, height)

@@ -44,10 +44,8 @@ class PyDuiLayout(PyDuiWidget):
         y: float,
         width: float,
         height: float,
-        canvas_width: float,
-        canvas_height: float,
     ):
-        super().draw(ctx, x, y, width, height, canvas_width, canvas_height)
+        super().draw(ctx, x, y, width, height)
 
     def layout(self, x: float, y: float, width: float, height: float):
         super().layout(x, y, width, height)

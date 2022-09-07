@@ -47,8 +47,6 @@ class PyDuiButton(PyDuiLabel):
         y: float,
         width: float,
         height: float,
-        canvas_width: float,
-        canvas_height: float,
     ):
         path = self.__get_drawimage_by_state()
         if path == "":

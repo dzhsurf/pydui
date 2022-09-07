@@ -24,11 +24,9 @@ class PyDuiRender:
         y: float,
         w: float,
         h: float,
-        canvas_width: float,
-        canvas_height: float,
     ):
         ctx.save()
-        ctx.rectangle(x / canvas_width, y / canvas_height, w / canvas_width, h / canvas_height)
+        ctx.rectangle(x, y, w, h)
         ctx.set_source_rgba(*color)
         ctx.fill()
         ctx.restore()

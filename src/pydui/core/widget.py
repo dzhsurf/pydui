@@ -86,13 +86,22 @@ class PyDuiWidget(object):
         y: float,
         width: float,
         height: float,
-        canvas_width: float,
-        canvas_height: float,
     ):
-        ctx.save()
-        ctx.scale(canvas_width, canvas_height)
-        self.__draw_bkcolor__(ctx, x, y, width, height, canvas_width, canvas_height)
-        ctx.restore()
+        self.draw_bkcolor(ctx, x, y, width, height)
+        self.draw_bkimage(ctx, x, y, width, height)
+
+    def draw_bkcolor(
+        self,
+        ctx: cairo.Context,
+        x: float,
+        y: float,
+        width: float,
+        height: float,
+    ):
+        if self.bkcolor is None:
+            return
+
+        PyDuiRender.Rectangle(ctx, self.bkcolor, x, y, width, height)
 
     def draw_bkimage(
         self,
@@ -101,8 +110,6 @@ class PyDuiWidget(object):
         y: float,
         width: float,
         height: float,
-        canvas_width: float,
-        canvas_height: float,
     ):
         if self.bkimage == "":
             return
@@ -392,18 +399,3 @@ class PyDuiWidget(object):
         self.__corner = corner
 
     # private function
-
-    def __draw_bkcolor__(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-        canvas_width: float,
-        canvas_height: float,
-    ):
-        if self.bkcolor is None:
-            return
-
-        PyDuiRender.Rectangle(ctx, self.bkcolor, x, y, width, height, canvas_width, canvas_height)

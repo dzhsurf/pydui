@@ -20,10 +20,8 @@ class PyDuiVLayout(PyDuiLayout):
         y: float,
         width: float,
         height: float,
-        canvas_width: float,
-        canvas_height: float,
     ):
-        super().draw(ctx, x, y, width, height, canvas_width, canvas_height)
+        super().draw(ctx, x, y, width, height)
         auto_expand_count = self.__auto_expand_count__()
         auto_expand_idx = 0
         last_draw_y = None
@@ -43,7 +41,7 @@ class PyDuiVLayout(PyDuiLayout):
                     else:
                         draw_h = y + height - child.margin[3] - draw_y
             ctx.save()
-            child.draw(ctx, draw_x, draw_y, draw_w, draw_h, canvas_width, canvas_height)
+            child.draw(ctx, draw_x, draw_y, draw_w, draw_h)
             ctx.restore()
             last_draw_y = draw_y + draw_h + child.margin[3]
 

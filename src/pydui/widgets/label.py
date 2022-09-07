@@ -68,8 +68,6 @@ class PyDuiLabel(PyDuiWidget):
         y: float,
         width: float,
         height: float,
-        canvas_width: float,
-        canvas_height: float,
     ):
         render_manager = self.get_render_manager()
 
@@ -107,18 +105,12 @@ class PyDuiLabel(PyDuiWidget):
         y: float,
         width: float,
         height: float,
-        canvas_width: float,
-        canvas_height: float,
     ):
         # draw bkcolor
-        super().draw(ctx, x, y, width, height, canvas_width, canvas_height)
-
-        # draw bkimage
-        self.draw_bkimage(ctx, x, y, width, height, canvas_width, canvas_height)
-
+        super().draw(ctx, x, y, width, height)
         # families = PangoCairo.font_map_get_default().list_families()
         # for f in families:
         #     print(f.get_name())
 
         # draw text
-        self.draw_text(ctx, x, y, width, height, canvas_width, canvas_height)
+        self.draw_text(ctx, x, y, width, height)
