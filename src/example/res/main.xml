@@ -18,7 +18,8 @@
                 bkimage_disable_hover="file='res/images/common_button_disable.png' opacity='100'"
                 bkimage_disable_press="file='res/images/common_button_disable.png' opacity='100'"
             />
-            <Label text="Auto fit text, Hello world. Welcome~" autofit="true"
+            <Label text="Auto fit text, Hello world. Welcome~"
+                autofit="true" autofit_padding="10,10,10,10"
                 fontcolor="#FFFFFFFF" bkcolor="#FF0000FF"
             />
             <Label bkimage="res/images/common_button_normal.png" autofit="true" />
@@ -42,7 +43,7 @@ layout. That is, when you have your pango.Layout, do:PangoContext underlying the
 layout. That is, when you have your pango.Layout, do:PangoContext underlying the
 layout. That is, when you have your pango.Layout, do:PangoContext underlying the
 layout. That is, when you have your pango.Layout, do:"
-                halign="CENTER" valign="CENTER"
+                halign="CENTER" valign="CENTER" text_padding="10,10,10,10"
                 fontcolor="#FFFFFFFF" bkcolor="#FF0000FF"
                 margin="20,20,20,20"
             />

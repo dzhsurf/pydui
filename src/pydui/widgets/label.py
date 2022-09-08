@@ -23,6 +23,9 @@ class PyDuiLabel(PyDuiWidget):
         halign (str): horizontal TextAlign, [CENTER, STAET, END], default is CENTER
         valign (str): vertical TextAlign, [CENTER, STAET, END], default is CENTER
         line_spacing (float): line spacing
+        autofit (bool): text is autofit or not
+        autofit_padding (Rect): when autofit is set, autofit area padding
+        text_padding (Rect): text padding
     """
 
     __text: str = ""
@@ -37,6 +40,7 @@ class PyDuiLabel(PyDuiWidget):
     __line_spacing: float = 1.25
     __autofit: bool = False
     __autofit_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
+    __text_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
@@ -64,6 +68,8 @@ class PyDuiLabel(PyDuiWidget):
             self.__autofit = v == "true"
         elif k == "autofit_padding":
             self.__autofit_padding = utils.Str2Rect(v)
+        elif k == "text_padding":
+            self.__text_padding = utils.Str2Rect(v)
 
         super().parse_attrib(k, v)
 
@@ -71,10 +77,15 @@ class PyDuiLabel(PyDuiWidget):
         # and (self.fixed_height == 0 and self.fixed_height == 0)
         if self.__autofit:
             size = (0, 0)
+            pw = parent_width - utils.RectW(self.__autofit_padding)
+            ph = parent_height - utils.RectH(self.__autofit_padding)
             if len(self.text) > 0:
-                size = self.__estimate_text_size__(parent_width, parent_height)
+                pw = pw - utils.RectW(self.__text_padding)
+                ph = ph - utils.RectH(self.__text_padding)
+                size = self.__estimate_text_size__(pw, ph)
+                size = (size[0] + utils.RectW(self.__text_padding), size[1] + utils.RectH(self.__text_padding))
             elif len(self.bkimage) > 0:
-                size = self.__estimate_image_size__(parent_width, parent_height)
+                size = self.__estimate_image_size__(pw, ph)
             if size[0] > 0 and size[1] > 0:
                 size = (size[0] + utils.RectW(self.__autofit_padding), size[1] + utils.RectH(self.__autofit_padding))
                 self.fixed_width = size[0]
@@ -93,12 +104,14 @@ class PyDuiLabel(PyDuiWidget):
     ):
         fontfamily, fontsize, fontcolor = self.__get_font_info__()
 
-        draw_xy = (x, y)
-        draw_wh = (width, height)
+        draw_xy = (x + self.__text_padding[0], y + self.__text_padding[1])
+        draw_wh = (width - utils.RectW(self.__text_padding), height - utils.RectH(self.__text_padding))
         if self.__autofit:
             draw_xy = (x + self.__autofit_padding[0], y + self.__autofit_padding[1])
             draw_wh = (width - utils.RectW(self.__autofit_padding), height - utils.RectH(self.__autofit_padding))
-
+        draw_wh = (max(0, draw_wh[0]), max(0, draw_wh[1]))
+        if draw_wh[0] == 0 or draw_wh[1] == 0:
+            return
         # draw text
         PyDuiRender.DrawText(
             ctx,
@@ -161,10 +174,7 @@ class PyDuiLabel(PyDuiWidget):
             text=self.text,
             font=fontfamily,
             fontsize=fontsize,
-            limit_wh=(
-                parent_width - utils.RectW(self.__autofit_padding),
-                parent_height - utils.RectH(self.__autofit_padding),
-            ),
+            limit_wh=(parent_width, parent_height),
             hvalign=(Text2PyDuiAlign(self.__halign), Text2PyDuiAlign(self.__valign)),
             ellipsis_mode=Text2EllipsizeMode(self.__ellipsize_mode),
             wrap_mode=Text2WrapMode(self.__wrap_mode),
