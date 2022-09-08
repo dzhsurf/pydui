@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from typing import Callable
+from typing import Any, Callable
+
+from pynoticenter import PyNotiCenter, PyNotiTaskQueue
 
 from pydui.core.import_gtk import *
 from pydui.core.layout import PyDuiLayout
@@ -20,20 +22,35 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
     __default_fontfamily: str = "Arial"
     __default_fontsize: int = 16
     __default_fontcolor: Gdk.RGBA = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
+    __task_queue: PyNotiTaskQueue = None
 
     # manager all widget
     def __init__(self, window: PyDuiWindowBase, loader: PyDuiResourceLoader):
         self.__window = window
         self.__canvas = PyDuiRenderCanvas(self.__on_draw__)
         self.__loader = loader
+        queue_name = f"pydui-task-queue-{self}"
+        self.__task_queue = PyNotiCenter.default().create_task_queue(queue_name)
+        self.__task_queue.set_preprocessor(self.__post_task_to_gtk_thread__)
 
         gtk_window = self.__window.get_gtk_window()
         gtk_window.add(self.__canvas)
+
+    def release(self):
+        self.__task_queue.terminate(False)
 
     def notify_redraw(self):
         # TODO: redraw dirty area
         self.__canvas.redraw()
         self.__canvas.queue_draw_area(0, 0, self.__canvas.get_width(), self.__canvas.get_height())
+
+    def post_task(self, fn: callable, *args: Any, **kwargs: Any):
+        self.post_task_with_delay(0.0, fn, *args, **kwargs)
+
+    def post_task_with_delay(self, delay: float, fn: callable, *args: Any, **kwargs: Any):
+        if fn is None:
+            return
+        self.__task_queue.post_task_with_delay(delay, fn, *args, **kwargs)
 
     def get_resource_loader(self):
         return self.__loader
@@ -135,3 +152,9 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
             return
         self.__rootview.layout(0, 0, width, height)
         self.__rootview.draw(ctx, 0, 0, width, height)
+
+    def __post_task_to_gtk_thread__(self, fn: callable, *args: Any, **kwargs: Any) -> bool:
+        if self.__task_queue.is_terminated:
+            return True
+        GLib.idle_add(fn, *args, **kwargs)
+        return True

@@ -4,6 +4,7 @@ from __future__ import annotations
 import logging
 import sys
 from dataclasses import dataclass
+from typing import Any
 
 from pydui import utils
 from pydui.core.base import *
@@ -45,6 +46,7 @@ class PyDuiWidget(object):
     __corner: tuple[float, float, float, float] = (0, 0, 0, 0)
     __bkimage: str = ""
     # event
+    __signals: dict[str, list[callable]] = None
     __enable_mouse_event: bool = False
 
     @staticmethod
@@ -60,6 +62,7 @@ class PyDuiWidget(object):
     def __init__(self, parent: PyDuiWidget):
         super().__init__()
         self.__parent = parent
+        self.__signals = dict[str, list[callable]]()
 
     def set_render_manager(self, render_manager: PyDuiRenderManagerBase):
         """Set the render mananger
@@ -215,10 +218,10 @@ class PyDuiWidget(object):
         pass
 
     def on_lbutton_click(self, x: float, y: float):
-        pass
+        self.emit("lclicked", self)
 
     def on_rbutton_click(self, x: float, y: float):
-        pass
+        self.emit("rclicked")
 
     def on_l2button_click(self, x: float, y: float):
         pass
@@ -234,7 +237,33 @@ class PyDuiWidget(object):
 
     # method
     def connect(self, signal_name: str, callback: callable):
-        pass
+        if signal_name in self.__signals:
+            self.__signals[signal_name].append(callback)
+        else:
+            self.__signals[signal_name] = list([callback])
+
+    def disconnect(self, signal_name: str, callback: callable):
+        def remove_fn(item: callable):
+            if item == callback:
+                return True
+            return False
+
+        if signal_name in self.__signals:
+            self.__signals[signal_name] = list(filter(remove_fn, self.__signals[signal_name]))
+
+    def disconnect_signal(self, signal_name: str):
+        if signal_name in self.__signals:
+            self.__signals.pop(signal_name)
+
+    def emit(self, signal_name: str, *args: Any, **kwargs: Any):
+        if signal_name in self.__signals:
+            fn_list = self.__signals[signal_name].copy()
+
+            def run_all_fn(*args: Any, **kwargs: Any):
+                for fn in fn_list:
+                    fn(*args, **kwargs)
+
+            self.get_render_manager().post_task(run_all_fn, *args, **kwargs)
 
     def set_focus(self):
         pass

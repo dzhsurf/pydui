@@ -25,7 +25,7 @@ class DemoHandler(PyDuiWindowHandler):
             print("You clicked!", object)
 
         widget = window.get_widget(widget_id="button")
-        widget.connect("clicked", handle_click)
+        widget.connect("lclicked", handle_click)
         print(widget)
 
     def on_window_destroy(self):

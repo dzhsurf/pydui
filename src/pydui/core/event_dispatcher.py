@@ -5,8 +5,6 @@ import logging
 import queue
 from typing import Any, Callable, Tuple, Type
 
-from pynoticenter import PyNotiCenter, PyNotiTaskQueue
-
 from pydui.core.import_gtk import *
 from pydui.core.render_manager import PyDuiRenderManager
 from pydui.core.widget import PyDuiWidget
@@ -20,7 +18,6 @@ class PyDuiEventDispatcher(object):
     __manager: PyDuiRenderManager = None
     __handler: PyDuiWindowHandler = None
     __on_init: Callable[[None], None] = None
-    __task_queue: PyNotiTaskQueue = None
 
     # window position
     __xy: tuple[float, float] = (0, 0)
@@ -42,8 +39,6 @@ class PyDuiEventDispatcher(object):
         handler: PyDuiWindowHandler,
         on_init: Callable[[None], None],
     ):
-        self.__task_queue = PyNotiCenter.default().create_task_queue("pydui_event")
-        self.__task_queue.set_preprocessor(self.__switch_to_gtk_thread__)
         self.__window = window
         self.__manager = manager
         self.__handler = PyDuiWindowHandler()
@@ -77,6 +72,7 @@ class PyDuiEventDispatcher(object):
     def on_window_destroy(self, object: Gtk.Widget):
         logging.debug(f"on_window_destroy: {object}")
         self.__handler.on_window_destroy()
+        self.__manager.release()
 
     def on_window_show(self, object: Gtk.Widget):
         logging.debug(f"on_window_show: {object}")
@@ -165,7 +161,7 @@ class PyDuiEventDispatcher(object):
             return
         # event.state : Gdk.ModifierType
         button, time = event.button, event.time
-        self.__task_queue.post_task_with_delay(0.05, self.__dispatch_button_click__, widget, event)
+        self.__manager.post_task(self.__dispatch_button_click__, widget, event)
 
     def __dispatch_button_click__(self, widget: PyDuiWidget, event: Gdk.EventButton):
         if widget is None:
