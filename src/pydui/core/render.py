@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import logging
+import math
 from dataclasses import dataclass
-from typing import Type
+from typing import Tuple, Type
 
 from pydui import utils
 from pydui.core.attribute_string import PyDuiAttrStrParser
@@ -11,6 +12,52 @@ from pydui.core.layout import *
 from pydui.core.render_canvas import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
+
+
+def __config_text_layout__(
+    layout: Pango.Layout,
+    *,
+    font: str,
+    font_size: int,
+    wh: tuple[float, float],
+    hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
+    ellipsis_mode: Pango.EllipsizeMode = Pango.EllipsizeMode.END,
+    wrap_mode: Pango.WrapMode = Pango.WrapMode.WORD,
+    line_spacing: float = 1.25,
+) -> float:
+    w, h = wh
+    fo = cairo.FontOptions()
+    fo.set_antialias(cairo.ANTIALIAS_GRAY)  # ANTIALIAS_SUBPIXEL ANTIALIAS_GRAY
+    fo.set_hint_style(cairo.HINT_STYLE_FULL)  # HINT_STYLE_SLIGHT HINT_STYLE_FULL
+    fo.set_hint_metrics(cairo.HINT_METRICS_DEFAULT)  # HINT_METRICS_ON
+    # PangoCairo.context_set_resolution(layout.get_context(), 96 * 2)
+    PangoCairo.context_set_font_options(layout.get_context(), fo)
+
+    font_desc = Pango.font_description_from_string(f"{font} {round(font_size / 1.3333343412075)}")
+    layout.set_font_description(font_desc)
+    if line_spacing < 1:
+        line_spacing = 1
+    layout.set_line_spacing(line_spacing)
+
+    layout.set_ellipsize(ellipsis_mode)
+    if ellipsis_mode != Pango.EllipsizeMode.NONE:
+        max_line = math.ceil(h * Pango.SCALE / (font_desc.get_size() * line_spacing))
+        layout.set_height(int(max_line * font_desc.get_size()))
+    else:
+        layout.set_height(-1)
+
+    layout.set_width(int(w * Pango.SCALE))
+    if wrap_mode is None:
+        if ellipsis_mode == Pango.EllipsizeMode.NONE:
+            layout.set_width(-1)
+        else:
+            # set layout height to single line text height
+            layout.set_height(font_desc.get_size())
+    else:
+        layout.set_wrap(wrap_mode)
+        # layout.set_spacing(5 * Pango.SCALE)
+        # layout.set_attributes(attrs)
+    return font_desc.get_size() / Pango.SCALE
 
 
 class PyDuiRender:
@@ -30,6 +77,30 @@ class PyDuiRender:
         ctx.set_source_rgba(*color)
         ctx.fill()
         ctx.restore()
+
+    @staticmethod
+    def EstimateImageSize(
+        loader: PyDuiResourceLoader,
+        path: str,
+        limit_width: float,
+        limit_height: float,
+    ) -> Tuple[float, float]:
+        img_path = path
+        img_attrib = dict[str, Any]()
+        if PyDuiAttrStrParser.is_attrstr(img_path):
+            img_attrib = PyDuiAttrStrParser.parse(img_path)
+            if "file" in img_attrib:
+                img_path = img_attrib["file"]
+        buf, factor = loader.load_image(img_path)
+        if len(buf) == 0:
+            logging.error("load image fail. buf is empty. path = {img_path}")
+            return (0, 0)
+        pixbuf_loader = GdkPixbuf.PixbufLoader.new_with_type("png")
+        pixbuf_loader.write(buf)
+        pixbuf_loader.close()
+        pixbuf = pixbuf_loader.get_pixbuf()
+        im_w, im_h = pixbuf.get_width(), pixbuf.get_height()
+        return (im_w / factor, im_h / factor)
 
     @staticmethod
     def DrawImage(
@@ -136,6 +207,7 @@ class PyDuiRender:
     @staticmethod
     def DrawText(
         ctx: cairo.Context,
+        *,
         text: str,
         font: str,
         font_size: int,
@@ -145,7 +217,7 @@ class PyDuiRender:
         hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
         ellipsis_mode: Pango.EllipsizeMode = Pango.EllipsizeMode.END,
         wrap_mode: Pango.WrapMode = Pango.WrapMode.WORD,
-        line_spacing: float = 0.0,
+        line_spacing: float = 1.25,
     ):
         x, y = xy
         w, h = wh
@@ -158,35 +230,19 @@ class PyDuiRender:
         # status, attrs, plain_text, _ = Pango.parse_markup(text, len(text), '\0')
         layout = PangoCairo.create_layout(ctx)
         layout.set_text(text, -1)
-        fo = cairo.FontOptions()
-        fo.set_antialias(cairo.ANTIALIAS_GRAY)  # ANTIALIAS_SUBPIXEL ANTIALIAS_GRAY
-        fo.set_hint_style(cairo.HINT_STYLE_FULL)  # HINT_STYLE_SLIGHT HINT_STYLE_FULL
-        fo.set_hint_metrics(cairo.HINT_METRICS_DEFAULT)  # HINT_METRICS_ON
-        # PangoCairo.context_set_resolution(layout.get_context(), 96 * 2)
-        PangoCairo.context_set_font_options(layout.get_context(), fo)
 
-        font_desc = Pango.font_description_from_string(f"{font} {round(font_size / 1.3333343412075)}")
-        layout.set_font_description(font_desc)
-        layout.set_line_spacing(line_spacing)
+        # config font layout
+        line_height = __config_text_layout__(
+            layout,
+            font=font,
+            font_size=font_size,
+            wh=wh,
+            hvalign=hvalign,
+            ellipsis_mode=ellipsis_mode,
+            wrap_mode=wrap_mode,
+            line_spacing=line_spacing,
+        )
 
-        layout.set_ellipsize(ellipsis_mode)
-        if ellipsis_mode != Pango.EllipsizeMode.NONE:
-            layout.set_height(int(h * Pango.SCALE))
-        else:
-            layout.set_height(-1)
-
-        layout.set_width(int(w * Pango.SCALE))
-        if wrap_mode is None:
-            if ellipsis_mode == Pango.EllipsizeMode.NONE:
-                layout.set_width(-1)
-            else:
-                # set layout height to single line text height
-                layout.set_height(font_desc.get_size())
-        else:
-            layout.set_wrap(wrap_mode)
-
-        # layout.set_spacing(5 * Pango.SCALE)
-        # layout.set_attributes(attrs)
         PangoCairo.update_layout(ctx, layout)
 
         # calulate text align
@@ -199,7 +255,9 @@ class PyDuiRender:
         if hvalign[1] == PyDuiAlign.CENTER:
             y = y + round((h - layout_h) / 2)
         elif hvalign[1] == PyDuiAlign.END:
-            y = y + round(h - layout_h)
+            y = y + round(h - layout_h) - round(line_height * (line_spacing - 1.0))
+        else:
+            y = y + round(line_height * (line_spacing - 1.0))
         ctx.move_to(x, y)
         PangoCairo.show_layout(ctx, layout)
 
@@ -207,20 +265,38 @@ class PyDuiRender:
         ctx.restore()
 
     @staticmethod
-    def EstimateText(
-        ctx: cairo.Context,
+    def EstimateTextSize(
+        *,
         text: str,
-        font_desc: str,
-        limit_width: float = None,
-        limit_height: float = None,
+        font: str,
+        fontsize: int,
+        limit_wh: Tuple[float, float] = None,
+        hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
+        ellipsis_mode: Pango.EllipsizeMode = Pango.EllipsizeMode.END,
+        wrap_mode: Pango.WrapMode = Pango.WrapMode.WORD,
+        line_spacing: float = 1.25,
     ) -> tuple[float, float]:
         """Estimate text size"""
-        ctx.save()
+        limit_w, limit_h = limit_wh
+
+        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, 1, 1)
+        ctx = cairo.Context(surface)
         layout = PangoCairo.create_layout(ctx)
-        font_desc = Pango.font_description_from_string(font_desc)
-        layout.set_font_description(font_desc)
         layout.set_text(text, -1)
+
+        # config font layout
+        __config_text_layout__(
+            layout,
+            font=font,
+            font_size=fontsize,
+            wh=limit_wh,
+            hvalign=hvalign,
+            ellipsis_mode=ellipsis_mode,
+            wrap_mode=wrap_mode,
+            line_spacing=line_spacing,
+        )
+
         PangoCairo.update_layout(ctx, layout)
         w, h = layout.get_size()
-        ctx.restore()
-        return (w.Pango.SCALE, h / Pango.SCALE)
+        surface.finish()
+        return (w / Pango.SCALE, h / Pango.SCALE * line_spacing)

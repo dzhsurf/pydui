@@ -15,6 +15,11 @@
                 bkimage_disable_hover="file='res/images/common_button_disable.png' opacity='100'"
                 bkimage_disable_press="file='res/images/common_button_disable.png' opacity='100'"
             />
+            <Label text="Auto fit text, Hello world. Welcome~"
+                font="Helvetica" fontsize="16" autofit="true"
+                fontcolor="#FFFFFFFF" bkcolor="#FF0000FF"
+            />
+            <Label bkimage="res/images/common_button_normal.png" autofit="true" />
             <Label text="Test single line text end ellipsis, here is the long text document.Test single line text end ellipsis, here is the long text document."
                 font="Helvetica Light"
                 fontsize="16"
@@ -39,9 +44,10 @@ layout. That is, when you have your pango.Layout, do:PangoContext underlying the
 layout. That is, when you have your pango.Layout, do:PangoContext underlying the
 layout. That is, when you have your pango.Layout, do:PangoContext underlying the
 layout. That is, when you have your pango.Layout, do:"
+                halign="CENTER" valign="CENTER"
                 font="SourceCodePro"
                 fontsize="16"
-                fontcolor="#FF1A1A1A"
+                fontcolor="#FFFFFFFF" bkcolor="#FF0000FF"
                 margin="20,20,20,20"
             />
         </VLayout>

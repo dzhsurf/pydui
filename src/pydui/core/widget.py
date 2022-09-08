@@ -145,7 +145,7 @@ class PyDuiWidget(object):
         logging.debug(f"{self} => ({x}, {y}, {width}, {height})")
 
     def estimate_size(self, parent_width: float, parent_height: float) -> tuple[float, float]:
-        return (self.__fixed_width, self.__fixed_height)
+        return (self.fixed_width, self.fixed_height)
 
     def parse_attributes(self, attrib: dict[str, str]):
         """Parse all attributes

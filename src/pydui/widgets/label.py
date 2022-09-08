@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from dataclasses import dataclass
-from typing import Type
+from typing import Tuple, Type
 
 from pydui.core.base import *
 from pydui.core.import_gtk import *
@@ -35,6 +35,7 @@ class PyDuiLabel(PyDuiWidget):
     __halign: str = "CENTER"
     __valign: str = "CENTER"
     __line_spacing: float = 1.25
+    __autofit: bool = False
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
@@ -58,8 +59,25 @@ class PyDuiLabel(PyDuiWidget):
             self.__valign = v
         elif k == "line_spacing":
             self.__line_spacing = float(v)
+        elif k == "autofit":
+            self.__autofit = v == "true"
 
         super().parse_attrib(k, v)
+
+    def estimate_size(self, parent_width: float, parent_height: float) -> tuple[float, float]:
+        # and (self.fixed_height == 0 and self.fixed_height == 0)
+        if self.__autofit:
+            size = (0, 0)
+            if len(self.text) > 0:
+                size = self.__estimate_text_size__(parent_width, parent_height)
+            elif len(self.bkimage) > 0:
+                size = self.__estimate_image_size__(parent_width, parent_height)
+            if size[0] > 0 and size[1] > 0:
+                self.fixed_width = size[0]
+                self.fixed_height = size[1]
+                return size
+            return super().estimate_size(parent_width, parent_height)
+        return super().estimate_size(parent_width, parent_height)
 
     def draw_text(
         self,
@@ -69,24 +87,12 @@ class PyDuiLabel(PyDuiWidget):
         width: float,
         height: float,
     ):
-        render_manager = self.get_render_manager()
-
-        fontfamily = self.__font
-        if fontfamily is None or fontfamily == "":
-            fontfamily = render_manager.default_fontfamily
-
-        fontsize = self.__fontsize
-        if fontsize is None:
-            fontsize = render_manager.default_fontsize
-
-        fontcolor = self.__fontcolor
-        if fontcolor is None:
-            fontcolor = render_manager.default_fontcolor
+        fontfamily, fontsize, fontcolor = self.__get_font_info__()
 
         # draw text
         PyDuiRender.DrawText(
             ctx,
-            text=self.__text,
+            text=self.text,
             font=fontfamily,
             font_size=fontsize,
             color=fontcolor,
@@ -114,3 +120,45 @@ class PyDuiLabel(PyDuiWidget):
 
         # draw text
         self.draw_text(ctx, x, y, width, height)
+
+    @property
+    def text(self) -> str:
+        return self.__text
+
+    @text.setter
+    def text(self, text: str):
+        self.__text = text
+
+    def __get_font_info__(self) -> Tuple[str, int, str]:
+        render_manager = self.get_render_manager()
+        fontfamily = self.__font
+        if fontfamily is None or fontfamily == "":
+            fontfamily = render_manager.default_fontfamily
+
+        fontsize = self.__fontsize
+        if fontsize is None:
+            fontsize = render_manager.default_fontsize
+
+        fontcolor = self.__fontcolor
+        if fontcolor is None:
+            fontcolor = render_manager.default_fontcolor
+        return (fontfamily, fontsize, fontcolor)
+
+    def __estimate_text_size__(self, parent_width: float, parent_height: float) -> tuple[float, float]:
+        fontfamily, fontsize, fontcolor = self.__get_font_info__()
+
+        return PyDuiRender.EstimateTextSize(
+            text=self.text,
+            font=fontfamily,
+            fontsize=fontsize,
+            limit_wh=(parent_width, parent_height),
+            hvalign=(Text2PyDuiAlign(self.__halign), Text2PyDuiAlign(self.__valign)),
+            ellipsis_mode=Text2EllipsizeMode(self.__ellipsize_mode),
+            wrap_mode=Text2WrapMode(self.__wrap_mode),
+            line_spacing=self.__line_spacing,
+        )
+
+    def __estimate_image_size__(self, parent_width: float, parent_height: float) -> tuple[float, float]:
+        loader = self.get_render_manager().get_resource_loader()
+
+        return PyDuiRender.EstimateImageSize(loader, self.bkimage, parent_width, parent_height)
