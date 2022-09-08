@@ -206,34 +206,34 @@ class PyDuiWidget(object):
         pass
 
     def on_lbutton_press(self, x: float, y: float):
-        pass
+        return False
 
     def on_lbutton_release(self, x: float, y: float):
         pass
 
     def on_rbutton_press(self, x: float, y: float):
-        pass
+        return False
 
     def on_rbutton_release(self, x: float, y: float):
         pass
 
     def on_lbutton_click(self, x: float, y: float):
-        self.emit("lclicked", self)
+        self.emit("lclick", self, x, y)
 
     def on_rbutton_click(self, x: float, y: float):
-        self.emit("rclicked")
+        self.emit("rclick", self, x, y)
 
     def on_l2button_click(self, x: float, y: float):
-        pass
+        self.emit("l2click", self, x, y)
 
     def on_r2button_click(self, x: float, y: float):
-        pass
+        self.emit("r2click", self, x, y)
 
     def on_l3button_click(self, x: float, y: float):
-        pass
+        self.emit("l3click", self, x, y)
 
     def on_r3button_click(self, x: float, y: float):
-        pass
+        self.emit("r3click", self, x, y)
 
     # method
     def connect(self, signal_name: str, callback: callable):
@@ -261,7 +261,8 @@ class PyDuiWidget(object):
 
             def run_all_fn(*args: Any, **kwargs: Any):
                 for fn in fn_list:
-                    fn(*args, **kwargs)
+                    if fn(*args, **kwargs):
+                        break
 
             self.get_render_manager().post_task(run_all_fn, *args, **kwargs)
 

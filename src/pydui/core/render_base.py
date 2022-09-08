@@ -15,6 +15,10 @@ class PyDuiRenderManagerBase(ABC):
         pass
 
     @abstractmethod
+    def cancel_task(self, task_id: str):
+        pass
+
+    @abstractmethod
     def post_task(self, fn: callable, *args: Any, **kwargs: Any):
         pass
 

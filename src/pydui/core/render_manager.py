@@ -44,13 +44,18 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         self.__canvas.redraw()
         self.__canvas.queue_draw_area(0, 0, self.__canvas.get_width(), self.__canvas.get_height())
 
-    def post_task(self, fn: callable, *args: Any, **kwargs: Any):
-        self.post_task_with_delay(0.0, fn, *args, **kwargs)
+    def cancel_task(self, task_id: str):
+        self.__task_queue.cancel_task(task_id)
 
-    def post_task_with_delay(self, delay: float, fn: callable, *args: Any, **kwargs: Any):
+    def post_task(self, fn: callable, *args: Any, **kwargs: Any) -> str:
+        return self.post_task_with_delay(0.0, fn, *args, **kwargs)
+
+    def post_task_with_delay(self, delay: float, fn: callable, *args: Any, **kwargs: Any) -> str:
+        if self.__task_queue.is_terminated:
+            return ""
         if fn is None:
-            return
-        self.__task_queue.post_task_with_delay(delay, fn, *args, **kwargs)
+            return ""
+        return self.__task_queue.post_task_with_delay(delay, fn, *args, **kwargs)
 
     def get_resource_loader(self):
         return self.__loader

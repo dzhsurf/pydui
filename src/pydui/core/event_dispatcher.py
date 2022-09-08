@@ -5,6 +5,7 @@ import logging
 import queue
 from typing import Any, Callable, Tuple, Type
 
+from pydui.core.base import PyDuiClickType
 from pydui.core.import_gtk import *
 from pydui.core.render_manager import PyDuiRenderManager
 from pydui.core.widget import PyDuiWidget
@@ -27,10 +28,11 @@ class PyDuiEventDispatcher(object):
     __mouse_x: int = 0
     __mouse_y: int = 0
     __last_hover_widget: PyDuiWidget = None
+    __last_click_task: str = ""
     __last_press_widget: PyDuiWidget = None
     __last_press_button: int = 0
-    __last_press_time: queue.Queue = None
-    __last_press_release_time: queue.Queue = None
+    __last_press_time: int = 0
+    __last_click_type: PyDuiClickType = PyDuiClickType.NONE
 
     def __init__(
         self,
@@ -45,8 +47,6 @@ class PyDuiEventDispatcher(object):
         self.__on_init = on_init
         if handler is not None:
             self.__handler = handler()
-        self.__last_press_time = queue.Queue(2)
-        self.__last_press_release_time = queue.Queue(2)
 
     def init_events(self):
         self.__window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
@@ -161,22 +161,84 @@ class PyDuiEventDispatcher(object):
             return
         # event.state : Gdk.ModifierType
         button, time = event.button, event.time
-        self.__manager.post_task(self.__dispatch_button_click__, widget, event)
-
-    def __dispatch_button_click__(self, widget: PyDuiWidget, event: Gdk.EventButton):
-        if widget is None:
-            return
-        widget.on_lbutton_click(event.x, event.y)
-
-    def __dispatch_2button_press__(self, widget: PyDuiWidget, event: Gdk.EventButton):
-        if widget is None:
-            return
-        widget.on_l2button_click(event.x, event.y)
-
-    def __dispatch_3button_press__(self, widget: PyDuiWidget, event: Gdk.EventButton):
-        if widget is None:
-            return
-        widget.on_l3button_click(event.x, event.y)
+        self.__last_press_widget = widget
+        self.__last_press_button = button
+        self.__last_press_time = time
 
     def __dispatch_button_release__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        click = True
+        if widget != self.__last_press_widget or event.button != self.__last_press_button:
+            click = False
+        if not widget.contain_pos(event.x, event.y):
+            click = False
+
+        if click:
+            if self.__last_click_type == PyDuiClickType.CLICK:
+                self.__last_click_type = PyDuiClickType.DBCLICK
+                self.__manager.cancel_task(self.__last_click_task)
+                self.__last_click_task = self.__manager.post_task(self.__dispatch_button_dbclick__, widget, event)
+            else:
+                interval = 0.2  # TODO, get dbclick interval from setting
+                self.__last_click_type = PyDuiClickType.CLICK
+                self.__last_click_task = self.__manager.post_task_with_delay(
+                    interval, self.__dispatch_button_click__, widget, event
+                )
+        else:
+            if self.__last_click_task != "":
+                self.__manager.cancel_task(self.__last_click_task)
+            self.__reset_button_click_state__()
+
+    def __reset_button_click_state__(self):
+        self.__last_click_type = PyDuiClickType.NONE
+        self.__last_click_task = ""
+        self.__last_press_widget = None
+        self.__last_press_button = 0
+        self.__last_press_time = 0
+
+    def __dispatch_button_click__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        last_press_widget = self.__last_press_widget
+        last_press_button = self.__last_press_button
+        last_press_time = self.__last_press_time
+        last_click_type = self.__last_click_type
+        self.__reset_button_click_state__()
+        if (
+            widget is None
+            or last_press_widget != widget
+            or last_press_button != event.button
+            or last_click_type != PyDuiClickType.CLICK
+        ):
+            return
+        if last_press_time == 0:
+            return
+        if event.button == 3:
+            widget.on_rbutton_click(event.x, event.y)
+        else:
+            widget.on_lbutton_click(event.x, event.y)
+
+    def __dispatch_button_dbclick__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        last_press_widget = self.__last_press_widget
+        last_press_button = self.__last_press_button
+        last_press_time = self.__last_press_time
+        last_click_type = self.__last_click_type
+        self.__reset_button_click_state__()
+        if (
+            widget is None
+            or last_press_widget != widget
+            or last_press_button != event.button
+            or last_click_type != PyDuiClickType.DBCLICK
+        ):
+            return
+        if last_press_time == 0:
+            return
+        if event.button == 3:
+            widget.on_r2button_click(event.x, event.y)
+        else:
+            widget.on_l2button_click(event.x, event.y)
+
+    def __dispatch_2button_press__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        # This event is difficult to manage and should be avoided. Use press to simulate.
+        pass
+
+    def __dispatch_3button_press__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        # This event is difficult to manage and should be avoided. Use press to simulate.
         pass
