@@ -225,7 +225,7 @@ Widget:
 
 * Widget base - finish
 
-* Label - almost done, others attribute will finish later
+* Label - finish
 * Button - finish
 * Image - 0%, processing
 * Edit - 0%, not started
