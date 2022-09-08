@@ -27,7 +27,9 @@ class PyDuiWindowConfig:
         min_size (tuple[int, int]): window min size, default is (0, 0)
         max_size (tuple[int, int]): window max size, default is (0, 0), when set to zero, means no limit.
         positon (Gtk.WindowPosition): window initial position
-
+        default_font (str): window default font
+        default_fontsize (int): window default font size
+        default_fontbold (bool): window default font is bold or not
     """
 
     title: str
@@ -35,7 +37,9 @@ class PyDuiWindowConfig:
     min_size: tuple[int, int]
     max_size: tuple[int, int]
     position: Gtk.WindowPosition = Gtk.WindowPosition.CENTER
-
+    default_font: str = "Arial"
+    default_fontsize: int = 16
+    default_fontbold: bool = False
 
 class PyDuiWindow(PyDuiWindowBase):
 
@@ -81,6 +85,11 @@ class PyDuiWindow(PyDuiWindowBase):
         gtk_window.set_default_size(*config.size)
         gtk_window.set_size_request(*config.min_size)
         gtk_window.set_position(config.position)
+
+        self.__manager.default_fontfamily = config.default_font
+        if config.default_fontbold:
+            self.__manager.default_fontfamily = self.__manager.default_fontfamily + " bold"
+        self.__manager.default_fontsize = config.default_fontsize
 
     def __on_window_init__(self):
         self.__event_dispatcher.handler.on_window_init(self)

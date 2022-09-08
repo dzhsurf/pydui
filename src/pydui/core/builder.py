@@ -151,6 +151,9 @@ class PyDuiBuilder:
             min_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
             max_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
             position=utils.Str2Position(node.attrib.get("position", "CENTER")),
+            default_font=node.attrib.get("default_font", "Arial"),
+            default_fontsize=int(node.attrib.get("default_fontsize", "16")),
+            default_fontbold=node.attrib.get("default_fontbold", "false") == "true",
         )
 
     def __process_tree_node__(self, node: ET.Element, parent_widget: PyDuiLayout) -> PyDuiWidget:
