@@ -22,12 +22,14 @@ from pydui.core.layout import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
 from pydui.core.window import *
-from pydui.layout.fit_layout import *
-from pydui.layout.fixed_layout import *
-from pydui.layout.hlayout import *
-from pydui.layout.vlayout import *
-from pydui.widgets.button import *
-from pydui.widgets.label import *
+from pydui.layout.fit_layout import PyDuiFitLayout
+from pydui.layout.fixed_layout import PyDuiFixedLayout
+from pydui.layout.hlayout import PyDuiHLayout
+from pydui.layout.vlayout import PyDuiVLayout
+from pydui.widgets.button import PyDuiButton
+from pydui.widgets.icon import PyDuiIcon
+from pydui.widgets.label import PyDuiLabel
+from pydui.widgets.picture import PyDuiPicture
 
 
 class __PyDuiResourceProvider__(PyDuiResourceLoader):
@@ -169,6 +171,8 @@ class PyDuiBuilder:
                 "FitLayout": PyDuiFitLayout,
                 "Label": PyDuiLabel,
                 "Button": PyDuiButton,
+                "Icon": PyDuiIcon,
+                "Picture": PyDuiPicture,
             }
             if tag in INTERNAL_WIDGET_TABLE:
                 return INTERNAL_WIDGET_TABLE[tag](parent_widget)
