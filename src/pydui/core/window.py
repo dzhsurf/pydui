@@ -41,6 +41,7 @@ class PyDuiWindowConfig:
     default_fontsize: int = 16
     default_fontbold: bool = False
 
+
 class PyDuiWindow(PyDuiWindowBase):
 
     """Window object"""
