@@ -24,7 +24,8 @@ class PyDuiButton(PyDuiLabel):
     __bkimage_hover: str = ""
     __bkimage_press: str = ""
     __bkimage_disable: str = ""
-    __is_disable: bool = False
+    __bkimage_disable_hover: str = ""
+    __bkimage_disable_press: str = ""
     __button_state: PyDuiButtonState = PyDuiButtonState.NORMAL
 
     def __init__(self, parent: PyDuiWidget):
@@ -38,6 +39,10 @@ class PyDuiButton(PyDuiLabel):
             self.__bkimage_press = v
         elif k == "bkimage_disable":
             self.__bkimage_disable = v
+        elif k == "bkimage_disable_hover":
+            self.__bkimage_disable_hover = v
+        elif k == "bkimage_disable_press":
+            self.__bkimage_disable_press = v
 
         super().parse_attrib(k, v)
 
@@ -76,8 +81,15 @@ class PyDuiButton(PyDuiLabel):
         self.get_render_manager().notify_redraw()
 
     def __get_drawimage_by_state(self):
-        if self.__is_disable:
-            return self.__bkimage_disable
+        if not self.enabled:
+            img = {
+                PyDuiButtonState.NORMAL: self.__bkimage_disable,
+                PyDuiButtonState.HOVER: self.__bkimage_disable_hover,
+                PyDuiButtonState.PRESS: self.__bkimage_disable_press,
+            }[self.__button_state]
+            if img == "":
+                img = self.__bkimage_disable
+            return img
         return {
             PyDuiButtonState.NORMAL: self.bkimage,
             PyDuiButtonState.HOVER: self.__bkimage_hover,

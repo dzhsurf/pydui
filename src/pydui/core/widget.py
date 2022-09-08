@@ -40,6 +40,7 @@ class PyDuiWidget(object):
     __fixed_y: float = 0
     __fixed_width: float = 0
     __fixed_height: float = 0
+    __enabled: bool = True
     # attrib
     __bkcolor: Gdk.RGBA = None
     __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
@@ -186,6 +187,8 @@ class PyDuiWidget(object):
             self.bkimage = v
         elif k == "corner":
             self.corner = utils.Str2Rect(v)
+        elif k == "enable":
+            self.enabled = v == "true"
 
     # event
     @property
@@ -413,11 +416,11 @@ class PyDuiWidget(object):
 
     @property
     def enabled(self) -> bool:
-        pass
+        return self.__enabled
 
     @enabled.setter
     def enabled(self, enabled: bool):
-        pass
+        self.__enabled = enabled
 
     @property
     def is_focused(self) -> bool:

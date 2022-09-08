@@ -110,6 +110,8 @@ class PyDuiEventDispatcher(object):
         widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
             return True
+        if not widget.enabled:
+            return True
 
         if event.type == Gdk.EventType.BUTTON_PRESS:
             self.__dispatch_button_press__(widget, event)
@@ -166,6 +168,11 @@ class PyDuiEventDispatcher(object):
         self.__last_press_time = time
 
     def __dispatch_button_release__(self, widget: PyDuiWidget, event: Gdk.EventButton):
+        if widget is None:
+            return True
+        if not widget.enabled:
+            return True
+
         click = True
         if widget != self.__last_press_widget or event.button != self.__last_press_button:
             click = False

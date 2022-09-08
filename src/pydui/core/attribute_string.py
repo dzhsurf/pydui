@@ -1,11 +1,33 @@
 # -*- coding: utf-8 -*-
-from dataclasses import dataclass
+import shlex
+from typing import Any
 
 
-@dataclass(frozen=True)
-class PyDuiAttributeString:
-    pass
+class PyDuiAttrStrParser:
+    @staticmethod
+    def is_attrstr(path: str) -> bool:
+        if path.startswith("file='"):
+            return True
+        return False
 
-
-def parse_attribute_string(desc: str) -> PyDuiAttributeString:
-    pass
+    @staticmethod
+    def parse(path: str) -> dict[str, Any]:
+        args = list(shlex.shlex(path))
+        result = dict[str, Any]()
+        last_key = ""
+        last_is_equal = False
+        for v in args:
+            if v == "=":
+                last_is_equal = True
+                continue
+            if last_key != "":
+                if v.startswith('"') and v.endswith('"'):
+                    v = v[1:-1]
+                elif v.startswith("'") and v.endswith("'"):
+                    v = v[1:-1]
+                result[last_key] = v if last_is_equal else True
+                last_key = ""
+                last_is_equal = False
+            else:
+                last_key = v
+        return result

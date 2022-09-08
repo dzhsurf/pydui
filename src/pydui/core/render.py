@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Type
 
 from pydui import utils
-from pydui.core.attribute_string import *
+from pydui.core.attribute_string import PyDuiAttrStrParser
 from pydui.core.base import *
 from pydui.core.import_gtk import *
 from pydui.core.layout import *
@@ -40,11 +40,20 @@ class PyDuiRender:
         wh: tuple[float, float],
         corner: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0),
     ):
+        img_path = path
+        img_attrib = dict[str, Any]()
+        opacity = 100
+        if PyDuiAttrStrParser.is_attrstr(img_path):
+            img_attrib = PyDuiAttrStrParser.parse(img_path)
+            if "file" in img_attrib:
+                img_path = img_attrib["file"]
+            if "opacity" in img_attrib:
+                opacity = int(img_attrib["opacity"])
         # TODO: ResourceLoader, Render, RenderCanvas should have a device-dpi manager
         # that it can easier to get access the dpi scale factor.
-        buf, factor = loader.load_image(path)
+        buf, factor = loader.load_image(img_path)
         if len(buf) == 0:
-            logging.error(f"buf is empty. path = {path} loader = {loader}")
+            logging.error(f"buf is empty. path = {img_path} loader = {loader}")
             return
 
         ctx.save()

@@ -226,9 +226,7 @@ Widget:
 * Widget base - finish
 
 * Label - almost done, others attribute will finish later
-* Button - 50%
-  * base attribute - finish
-  * event dispatch - processing
+* Button - finish
 * Image - 0%, processing
 * Edit - 0%, not started
 * InfiniteList - 0%, not started
