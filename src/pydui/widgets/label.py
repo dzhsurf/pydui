@@ -38,7 +38,6 @@ class PyDuiLabel(PyDuiWidget):
     __halign: str = "CENTER"
     __valign: str = "CENTER"
     __line_spacing: float = 1.25
-    __autofit: bool = False
     __autofit_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
     __text_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
 
@@ -68,8 +67,6 @@ class PyDuiLabel(PyDuiWidget):
             self.__valign = v
         elif k == "line_spacing":
             self.__line_spacing = float(v)
-        elif k == "autofit":
-            self.__autofit = v == "true"
         elif k == "autofit_padding":
             self.__autofit_padding = utils.Str2Rect(v)
         elif k == "text_padding":
@@ -79,7 +76,7 @@ class PyDuiLabel(PyDuiWidget):
 
     def estimate_size(self, parent_width: float, parent_height: float) -> tuple[float, float]:
         # and (self.fixed_height == 0 and self.fixed_height == 0)
-        if self.__autofit:
+        if self.autofit:
             size = (0, 0)
             pw = parent_width - utils.RectW(self.__autofit_padding)
             ph = parent_height - utils.RectH(self.__autofit_padding)
@@ -110,7 +107,7 @@ class PyDuiLabel(PyDuiWidget):
 
         draw_xy = (x + self.__text_padding[0], y + self.__text_padding[1])
         draw_wh = (width - utils.RectW(self.__text_padding), height - utils.RectH(self.__text_padding))
-        if self.__autofit:
+        if self.autofit:
             draw_xy = (x + self.__autofit_padding[0], y + self.__autofit_padding[1])
             draw_wh = (width - utils.RectW(self.__autofit_padding), height - utils.RectH(self.__autofit_padding))
         draw_wh = (max(0, draw_wh[0]), max(0, draw_wh[1]))

@@ -41,6 +41,7 @@ class PyDuiWidget(object):
     __fixed_width: float = 0
     __fixed_height: float = 0
     __enabled: bool = True
+    __autofit: bool = False
     # attrib
     __bkcolor: Gdk.RGBA = None
     __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
@@ -193,6 +194,8 @@ class PyDuiWidget(object):
             self.corner = utils.Str2Rect(v)
         elif k == "enable":
             self.enabled = v == "true"
+        elif k == "autofit":
+            self.__autofit = v == "true"
 
     # event
     @property
@@ -425,6 +428,14 @@ class PyDuiWidget(object):
     @enabled.setter
     def enabled(self, enabled: bool):
         self.__enabled = enabled
+
+    @property
+    def autofit(self) -> bool:
+        return self.__autofit
+
+    @autofit.setter
+    def autofit(self, autofit: bool):
+        self.__autofit = autofit
 
     @property
     def is_focused(self) -> bool:
