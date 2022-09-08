@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import math
+import pathlib
 from dataclasses import dataclass
 from typing import Tuple, Type
 
@@ -91,11 +92,13 @@ class PyDuiRender:
             img_attrib = PyDuiAttrStrParser.parse(img_path)
             if "file" in img_attrib:
                 img_path = img_attrib["file"]
+
         buf, factor = loader.load_image(img_path)
         if len(buf) == 0:
             logging.error("load image fail. buf is empty. path = {img_path}")
             return (0, 0)
-        pixbuf_loader = GdkPixbuf.PixbufLoader.new_with_type("png")
+        ext_name = pathlib.Path(img_path).suffix.lstrip(".")
+        pixbuf_loader = GdkPixbuf.PixbufLoader.new_with_type(ext_name)
         pixbuf_loader.write(buf)
         pixbuf_loader.close()
         pixbuf = pixbuf_loader.get_pixbuf()
@@ -130,7 +133,8 @@ class PyDuiRender:
         ctx.save()
         ctx.scale(1.0 / factor, 1.0 / factor)
 
-        pixbuf_loader = GdkPixbuf.PixbufLoader.new_with_type("png")
+        ext_name = pathlib.Path(img_path).suffix.lstrip(".")
+        pixbuf_loader = GdkPixbuf.PixbufLoader.new_with_type(ext_name)
         pixbuf_loader.write(buf)
         pixbuf_loader.close()
         pixbuf = pixbuf_loader.get_pixbuf()
