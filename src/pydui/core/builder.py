@@ -27,9 +27,23 @@ from pydui.layout.fixed_layout import PyDuiFixedLayout
 from pydui.layout.hlayout import PyDuiHLayout
 from pydui.layout.vlayout import PyDuiVLayout
 from pydui.widgets.button import PyDuiButton
+from pydui.widgets.edit import PyDuiEdit
 from pydui.widgets.icon import PyDuiIcon
 from pydui.widgets.label import PyDuiLabel
 from pydui.widgets.picture import PyDuiPicture
+
+INTERNAL_WIDGET_LIST = [
+    PyDuiHLayout,
+    PyDuiVLayout,
+    PyDuiFixedLayout,
+    PyDuiFitLayout,
+    PyDuiLabel,
+    PyDuiButton,
+    PyDuiPicture,
+    PyDuiEdit,
+]
+INTERNAL_WIDGET_TABLE = dict[str, Any]()
+INTERNAL_WIDGET_INIT = False
 
 
 class __PyDuiResourceProvider__(PyDuiResourceLoader):
@@ -164,16 +178,14 @@ class PyDuiBuilder:
         attrib = node.attrib
 
         def build_gtk_widget():
-            INTERNAL_WIDGET_TABLE = {
-                "HLayout": PyDuiHLayout,
-                "VLayout": PyDuiVLayout,
-                "FixedLayout": PyDuiFixedLayout,
-                "FitLayout": PyDuiFitLayout,
-                "Label": PyDuiLabel,
-                "Button": PyDuiButton,
-                "Icon": PyDuiIcon,
-                "Picture": PyDuiPicture,
-            }
+            global INTERNAL_WIDGET_INIT, INTERNAL_WIDGET_TABLE, INTERNAL_WIDGET_LIST
+            if not INTERNAL_WIDGET_INIT:
+                INTERNAL_WIDGET_INIT = True
+                for widget_cls in INTERNAL_WIDGET_LIST:
+                    name = widget_cls.build_name()
+                    INTERNAL_WIDGET_TABLE[name] = widget_cls
+                logging.info(f"Initial internal widget classes. count = {len(INTERNAL_WIDGET_TABLE)}")
+                logging.info(f"Internal widget classes: {INTERNAL_WIDGET_TABLE.keys()}")
             if tag in INTERNAL_WIDGET_TABLE:
                 return INTERNAL_WIDGET_TABLE[tag](parent_widget)
             # TODO: handle custom user define widget

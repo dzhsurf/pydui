@@ -10,6 +10,10 @@ from pydui.core.layout import *
 class PyDuiFixedLayout(PyDuiLayout):
     """FixedLayout implement"""
 
+    @staticmethod
+    def build_name() -> str:
+        return "FixedLayout"
+
     def __init__(self, parent: PyDuiWidget):
         # custom_gtk_widget = Gtk.Fixed.new()
-        super().__init__(parent, custom_gtk_widget)
+        super().__init__(parent, None)

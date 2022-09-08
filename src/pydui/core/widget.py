@@ -51,6 +51,10 @@ class PyDuiWidget(object):
     __enable_mouse_event: bool = False
 
     @staticmethod
+    def build_name() -> str:
+        return "Control"
+
+    @staticmethod
     def find_widget_default_filter(widget: PyDuiWidget) -> bool:
         return widget is not None
 

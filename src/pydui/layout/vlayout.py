@@ -10,6 +10,10 @@ class PyDuiVLayout(PyDuiLayout):
 
     """Vertical layout"""
 
+    @staticmethod
+    def build_name() -> str:
+        return "VLayout"
+
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
 

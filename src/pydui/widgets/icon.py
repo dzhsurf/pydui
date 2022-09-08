@@ -4,6 +4,10 @@ from pydui.widgets.label import PyDuiLabel
 
 
 class PyDuiIcon(PyDuiLabel):
+    @staticmethod
+    def build_name() -> str:
+        return "Icon"
+
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
 

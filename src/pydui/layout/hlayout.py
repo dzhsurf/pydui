@@ -10,6 +10,10 @@ from pydui.core.widget import *
 class PyDuiHLayout(PyDuiLayout):
     """Horizontal layout"""
 
+    @staticmethod
+    def build_name() -> str:
+        return "HLayout"
+
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
 

@@ -42,6 +42,10 @@ class PyDuiLabel(PyDuiWidget):
     __autofit_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
     __text_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
 
+    @staticmethod
+    def build_name() -> str:
+        return "Label"
+
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
 

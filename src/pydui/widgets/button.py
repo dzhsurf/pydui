@@ -28,6 +28,10 @@ class PyDuiButton(PyDuiLabel):
     __bkimage_disable_press: str = ""
     __button_state: PyDuiButtonState = PyDuiButtonState.NORMAL
 
+    @staticmethod
+    def build_name() -> str:
+        return "Button"
+
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
         self.enable_mouse_event = True
