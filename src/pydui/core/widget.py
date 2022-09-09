@@ -148,7 +148,6 @@ class PyDuiWidget(object):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
         logging.debug(f"{self} => ({x}, {y}, {width}, {height})")
-        print(self, x, y, width, height)
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constaint: PyDuiLayoutConstraint

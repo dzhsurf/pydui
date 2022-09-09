@@ -170,7 +170,6 @@ class PyDuiLabel(PyDuiWidget):
     def __estimate_text_size__(
         self, parent_width: float, parent_height: float, constaint: PyDuiLayoutConstraint
     ) -> tuple[float, float]:
-        print(parent_width, parent_height, constaint)
         fontfamily, fontsize, fontcolor = self.__get_font_info__()
         ctx = self.get_render_manager().get_render_context()
         return PyDuiRender.EstimateTextSize(

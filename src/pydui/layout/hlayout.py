@@ -38,14 +38,14 @@ class PyDuiHLayout(PyDuiLayout):
             if last_draw_x is not None:
                 draw_x = last_draw_x + child.margin[0]
             # if is last expand child
-            if int(child.fixed_width) == 0:
-                auto_expand_idx += 1
-                if auto_expand_idx == auto_expand_count:
-                    if i < self.child_count - 1:
-                        next_child = self.get_child_at(i + 1)
-                        draw_w = next_child.x - next_child.margin[0] - draw_x - child.margin[2]
-                    else:
-                        draw_w = x + width - draw_x - child.margin[2]
+            # if int(child.fixed_width) == 0:
+            #     auto_expand_idx += 1
+            #     if auto_expand_idx == auto_expand_count:
+            #         if i < self.child_count - 1:
+            #             next_child = self.get_child_at(i + 1)
+            #             draw_w = next_child.x - next_child.margin[0] - draw_x - child.margin[2]
+            #         else:
+            #             draw_w = x + width - draw_x - child.margin[2]
             ctx.save()
             child.draw(ctx, draw_x, draw_y, draw_w, draw_h)
             ctx.restore()
@@ -99,9 +99,9 @@ class PyDuiHLayout(PyDuiLayout):
                 layout_current_max_h = max(layout_current_max_h, child_h + margin_h)
 
         # add padding
-        if fit_w:
+        if layout_current_max_w != 0:
             layout_current_max_w += utils.RectW(self.padding)
-        if fit_h:
+        if layout_current_max_h != 0:
             layout_current_max_h += utils.RectH(self.padding)
         return (layout_current_max_w, layout_current_max_h)
 
