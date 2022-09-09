@@ -15,6 +15,7 @@ class PyDuiLayoutEstimateResult:
     auto_layout_count: int = 0
     auto_layout_value: int = 0
     estimate_items: list[int] = field(default_factory=list)
+    constaint_items: list[PyDuiLayoutConstraint] = field(default_factory=list)
 
 
 class PyDuiLayout(PyDuiWidget):
@@ -24,18 +25,22 @@ class PyDuiLayout(PyDuiWidget):
     __children: list[PyDuiWidget] = None
     __padding: tuple[float, float, float, float] = (0, 0, 0, 0)
     __childHVAlign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.START, PyDuiAlign.START)
+    __fitrule: list[str] = None
 
     def __init__(self, parent: PyDuiWidget, custom_gtk_widget: Gtk.Widget = None):
         super().__init__(parent)
-        self.__children = list()
+        self.__children = list[PyDuiWidget]()
+        self.__fitrule = list[str]()
 
     def parse_attrib(self, k: str, v: str):
         if k == "halign":
             self.__childHVAlign = (Text2PyDuiAlign(v), self.valign)
         elif k == "valign":
             self.__childHVAlign = (self.halign, Text2PyDuiAlign(v))
-        else:
-            super().parse_attrib(k, v)
+        elif k == "fitrule":
+            self.__fitrule = v.split(",")
+
+        super().parse_attrib(k, v)
 
     def draw(
         self,
@@ -47,8 +52,8 @@ class PyDuiLayout(PyDuiWidget):
     ):
         super().draw(ctx, x, y, width, height)
 
-    def layout(self, x: float, y: float, width: float, height: float):
-        super().layout(x, y, width, height)
+    def layout(self, x: float, y: float, width: float, height: float, constaint: PyDuiLayoutConstraint):
+        super().layout(x, y, width, height, constaint)
 
     def get_children_range_fixed_width(self, start, stop) -> float:
         w = 0
@@ -203,6 +208,10 @@ class PyDuiLayout(PyDuiWidget):
     @property
     def valign(self) -> PyDuiAlign:
         return self.__childHVAlign[1]
+
+    @property
+    def fitrule(self) -> list[str]:
+        return self.__fitrule
 
     # private function
     def __do_layout__(self):

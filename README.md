@@ -177,7 +177,7 @@ In the early stage, performance optimization, resource leakage issue, text rende
 * Layout
   * HLayout, VLayout, FixedLayout, FitLayout 
 * Widgets
-  * Label, Button, Image, Edit, InfiniteList, Menu, Toast
+  * Label, Button, Picture, Edit, InfiniteList, Menu, Toast
 * Deployment
   * Resource builder
   * Application builder
@@ -224,11 +224,11 @@ Layout:
 Widget:
 
 * Widget base - finish
-
 * Label - finish
 * Button - finish
-* Image - 0%, processing
-* Edit - 0%, not started
+* Edit - 0%, processing
+  * Focus event suppose
+* Picture - 0%, processing
 * InfiniteList - 0%, not started
 * Menu - 0%, not started
 

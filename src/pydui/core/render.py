@@ -15,6 +15,36 @@ from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
 
 
+def __pt2px__(pt: float) -> int:
+    return math.ceil(pt * 1.3333343412075)
+
+
+def __px2pt__(px: int) -> float:
+    return round(px / 1.3333343412075)
+
+
+__is_initial__: bool = False
+__display_max_width__: int = 0
+__display_max_height__: int = 0
+
+RENDER_MAX_LINE = 9999
+
+
+def __get_display_maxsize__() -> Tuple[int, int]:
+    global __display_max_width__, __display_max_height__, __is_initial__
+    if __is_initial__:
+        return (__display_max_width__, __display_max_height__)
+    __is_initial__ = True
+    monitors = Gdk.Screen.get_default().get_n_monitors()
+    for i in range(monitors):
+        # resolution = Gdk.Screen.get_default().get_resolution()
+        factor = Gdk.Screen.get_default().get_monitor_scale_factor(i)
+        rect = Gdk.Screen.get_default().get_monitor_geometry(i)
+        __display_max_width__ = max(__display_max_width__, rect.width * factor)
+        __display_max_height__ = max(__display_max_height__, rect.height * factor)
+    return (__display_max_width__, __display_max_height__)
+
+
 def __config_text_layout__(
     layout: Pango.Layout,
     *,
@@ -34,31 +64,35 @@ def __config_text_layout__(
     # PangoCairo.context_set_resolution(layout.get_context(), 96 * 2)
     PangoCairo.context_set_font_options(layout.get_context(), fo)
 
-    font_desc = Pango.font_description_from_string(f"{font} {round(font_size / 1.3333343412075)}")
+    font_desc = Pango.font_description_from_string(f"{font} {__px2pt__(font_size)}")
     layout.set_font_description(font_desc)
     if line_spacing < 1:
         line_spacing = 1
     layout.set_line_spacing(line_spacing)
+    line_height = __pt2px__(font_desc.get_size()) * line_spacing
 
     layout.set_ellipsize(ellipsis_mode)
-    if ellipsis_mode != Pango.EllipsizeMode.NONE:
-        max_line = math.ceil(h * Pango.SCALE / (font_desc.get_size() * line_spacing))
-        layout.set_height(int(max_line * font_desc.get_size()))
+    if ellipsis_mode != Pango.EllipsizeMode.NONE and h != -1:
+        max_line = math.ceil(h * Pango.SCALE / line_height)
+        layout.set_height(math.ceil(max_line * line_height))
     else:
-        layout.set_height(-1)
+        layout.set_height(-RENDER_MAX_LINE)
 
-    layout.set_width(int(w * Pango.SCALE))
+    if w == -1:
+        layout.set_width(-1)
+    else:
+        layout.set_width(int(w * Pango.SCALE))
     if wrap_mode is None:
         if ellipsis_mode == Pango.EllipsizeMode.NONE:
             layout.set_width(-1)
         else:
             # set layout height to single line text height
-            layout.set_height(font_desc.get_size())
+            layout.set_height(line_height)
     else:
         layout.set_wrap(wrap_mode)
         # layout.set_spacing(5 * Pango.SCALE)
         # layout.set_attributes(attrs)
-    return font_desc.get_size() / Pango.SCALE
+    return line_height / Pango.SCALE
 
 
 class PyDuiRender:
@@ -247,13 +281,12 @@ class PyDuiRender:
             layout,
             font=font,
             font_size=font_size,
-            wh=wh,
+            wh=(w, h),
             hvalign=hvalign,
             ellipsis_mode=ellipsis_mode,
             wrap_mode=wrap_mode,
             line_spacing=line_spacing,
         )
-
         PangoCairo.update_layout(ctx, layout)
 
         # calulate text align
@@ -277,26 +310,28 @@ class PyDuiRender:
 
     @staticmethod
     def EstimateTextSize(
+        ctx: cairo.Context,
         *,
         text: str,
         font: str,
         fontsize: int,
-        limit_wh: Tuple[float, float] = None,
+        limit_wh: Tuple[float, float] = (-1, -1),
         hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
         ellipsis_mode: Pango.EllipsizeMode = Pango.EllipsizeMode.END,
         wrap_mode: Pango.WrapMode = Pango.WrapMode.WORD,
         line_spacing: float = 1.25,
     ) -> tuple[float, float]:
         """Estimate text size"""
-        limit_w, limit_h = limit_wh
+        if ctx is None:
+            logging.error("cairo.Context not ready for render text.")
+            return (0, 0)
 
-        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, 1, 1)
-        ctx = cairo.Context(surface)
+        limit_w, limit_h = limit_wh
         layout = PangoCairo.create_layout(ctx)
         layout.set_text(text, -1)
 
         # config font layout
-        __config_text_layout__(
+        line_height = __config_text_layout__(
             layout,
             font=font,
             font_size=fontsize,
@@ -308,6 +343,6 @@ class PyDuiRender:
         )
 
         PangoCairo.update_layout(ctx, layout)
-        w, h = layout.get_size()
-        surface.finish()
-        return (w / Pango.SCALE, h / Pango.SCALE * line_spacing)
+        w, h = layout.get_pixel_size()
+        lines = layout.get_line_count()
+        return (round(w), round(lines * line_height))

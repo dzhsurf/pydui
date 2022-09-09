@@ -3,6 +3,7 @@ from typing import Any, Callable
 
 from pynoticenter import PyNotiCenter, PyNotiTaskQueue
 
+from pydui.core.base import PyDuiLayoutConstraint
 from pydui.core.import_gtk import *
 from pydui.core.layout import PyDuiLayout
 from pydui.core.render_base import PyDuiRenderManagerBase
@@ -18,6 +19,7 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
 
     __loader: PyDuiResourceLoader = None
     __canvas: PyDuiRenderCanvas = None
+    __ctx: cairo.Context = None
     __rootview: PyDuiLayout = None
     __default_fontfamily: str = "Arial"
     __default_fontsize: int = 16
@@ -43,6 +45,9 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         # TODO: redraw dirty area
         self.__canvas.redraw()
         self.__canvas.queue_draw_area(0, 0, self.__canvas.get_width(), self.__canvas.get_height())
+
+    def get_render_context(self) -> cairo.Context:
+        return self.__ctx
 
     def cancel_task(self, task_id: str):
         self.__task_queue.cancel_task(task_id)
@@ -155,7 +160,9 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
     def __on_draw__(self, ctx: cairo.Context, width: float, height: float):
         if self.__rootview is None:
             return
-        self.__rootview.layout(0, 0, width, height)
+        self.__ctx = ctx
+        constaint = PyDuiLayoutConstraint(width, height)
+        self.__rootview.layout(0, 0, width, height, constaint)
         self.__rootview.draw(ctx, 0, 0, width, height)
 
     def __post_task_to_gtk_thread__(self, fn: callable, *args: Any, **kwargs: Any) -> bool:

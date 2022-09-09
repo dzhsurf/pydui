@@ -2,6 +2,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+from pydui.core.import_gtk import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 
 
@@ -12,6 +13,10 @@ class PyDuiRenderManagerBase(ABC):
 
     @abstractmethod
     def notify_redraw(self):
+        pass
+
+    @abstractmethod
+    def get_render_context(self) -> cairo.Context:
         pass
 
     @abstractmethod

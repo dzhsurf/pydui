@@ -144,12 +144,15 @@ class PyDuiWidget(object):
             corner=self.corner,
         )
 
-    def layout(self, x: float, y: float, width: float, height: float):
+    def layout(self, x: float, y: float, width: float, height: float, constaint: PyDuiLayoutConstraint):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
         logging.debug(f"{self} => ({x}, {y}, {width}, {height})")
+        print(self, x, y, width, height)
 
-    def estimate_size(self, parent_width: float, parent_height: float) -> tuple[float, float]:
+    def estimate_size(
+        self, parent_width: float, parent_height: float, constaint: PyDuiLayoutConstraint
+    ) -> tuple[float, float]:
         return (self.fixed_width, self.fixed_height)
 
     def parse_attributes(self, attrib: dict[str, str]):
@@ -335,6 +338,8 @@ class PyDuiWidget(object):
 
     @fixed_height.setter
     def fixed_height(self, h: float):
+        # if self.__id != "":
+        #     print("id=", self.__id, "set_fixed_height=", h)
         self.__fixed_height = h
 
     @property

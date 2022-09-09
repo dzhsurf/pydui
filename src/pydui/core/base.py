@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from dataclasses import dataclass
 from enum import Enum
 
 from pydui.core.import_gtk import *
@@ -18,6 +19,16 @@ class PyDuiClickType(Enum):
     NONE = 0
     CLICK = 1
     DBCLICK = 2
+
+
+@dataclass(frozen=True)
+class PyDuiLayoutConstraint:
+    """Layout constraint
+    if the value set to -1, it means no limit
+    """
+
+    width: float = -1
+    height: float = -1
 
 
 def Text2PyDuiAlign(text: str) -> PyDuiAlign:
