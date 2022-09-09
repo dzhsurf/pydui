@@ -9,16 +9,6 @@ from pydui.core.import_gtk import *
 from pydui.core.widget import *
 
 
-@dataclass(frozen=True)
-class PyDuiLayoutEstimateResult:
-    """Estimate layout result"""
-
-    auto_layout_count: int = 0
-    auto_layout_value: int = 0
-    estimate_items: list[int] = field(default_factory=list)
-    constaint_items: list[PyDuiLayoutConstraint] = field(default_factory=list)
-
-
 class PyDuiLayout(PyDuiWidget):
 
     """Layout base class, all layouts inherit from PyDuiLayout"""
@@ -55,8 +45,8 @@ class PyDuiLayout(PyDuiWidget):
     ):
         super().draw(ctx, x, y, width, height)
 
-    def layout(self, x: float, y: float, width: float, height: float, constaint: PyDuiLayoutConstraint):
-        super().layout(x, y, width, height, constaint)
+    def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
+        super().layout(x, y, width, height, constraint)
 
     def get_children_range_fixed_width(self, start, stop) -> float:
         w = 0

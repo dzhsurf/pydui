@@ -75,25 +75,26 @@ class PyDuiLabel(PyDuiWidget):
         super().parse_attrib(k, v)
 
     def estimate_size(
-        self, parent_width: float, parent_height: float, constaint: PyDuiLayoutConstraint
+        self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
     ) -> tuple[float, float]:
         if self.autofit:
             size = (0, 0)
-            pw = max(0, parent_width - utils.RectW(self.__autofit_padding))
-            ph = max(0, parent_height - utils.RectH(self.__autofit_padding))
+            pw, ph = parent_width, parent_height
+            pw = max(0, pw - utils.RectW(self.__autofit_padding))
+            ph = max(0, ph - utils.RectH(self.__autofit_padding))
             if len(self.text) > 0:
                 pw = max(0, pw - utils.RectW(self.__text_padding))
                 ph = max(0, ph - utils.RectH(self.__text_padding))
-                if constaint.width == -1:
+                if constraint.width == -1:
                     pw = -1
-                if constaint.height == -1:
+                if constraint.height == -1:
                     ph = -1
                 size = self.__estimate_text_size__(pw, ph)
                 size = (size[0] + utils.RectW(self.__text_padding), size[1] + utils.RectH(self.__text_padding))
             elif len(self.bkimage) > 0:
-                if constaint.width == -1:
+                if constraint.width == -1:
                     pw = -1
-                if constaint.height == -1:
+                if constraint.height == -1:
                     ph = -1
                 size = self.__estimate_image_size__(pw, ph)
             if size[0] > 0 and size[1] > 0:
@@ -102,8 +103,8 @@ class PyDuiLabel(PyDuiWidget):
                     size[1] + utils.RectH(self.__autofit_padding),  # + utils.RectH(self.margin),
                 )
                 return size
-            return super().estimate_size(parent_width, parent_height, constaint)
-        return super().estimate_size(parent_width, parent_height, constaint)
+            return super().estimate_size(parent_width, parent_height, constraint)
+        return super().estimate_size(parent_width, parent_height, constraint)
 
     def draw_text(
         self,

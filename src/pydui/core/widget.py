@@ -144,14 +144,14 @@ class PyDuiWidget(object):
             corner=self.corner,
         )
 
-    def layout(self, x: float, y: float, width: float, height: float, constaint: PyDuiLayoutConstraint):
+    def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
         logging.debug(f"{self} => ({x}, {y}, {width}, {height})")
         print(self, f"id={self.get_id()}", f"x={x}", f"y={y}", f"w={width}", f"h={height}")
 
     def estimate_size(
-        self, parent_width: float, parent_height: float, constaint: PyDuiLayoutConstraint
+        self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
     ) -> tuple[float, float]:
         return (self.fixed_width, self.fixed_height)
 

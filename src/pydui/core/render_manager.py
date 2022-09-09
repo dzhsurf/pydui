@@ -161,8 +161,8 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         if self.__rootview is None:
             return
         self.__ctx = ctx
-        constaint = PyDuiLayoutConstraint(width, height)
-        self.__rootview.layout(0, 0, width, height, constaint)
+        constraint = PyDuiLayoutConstraint(width, height)
+        self.__rootview.layout(0, 0, width, height, constraint)
         self.__rootview.draw(ctx, 0, 0, width, height)
 
     def __post_task_to_gtk_thread__(self, fn: callable, *args: Any, **kwargs: Any) -> bool:
