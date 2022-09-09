@@ -183,7 +183,7 @@ In the early stage, performance optimization, resource leakage issue, text rende
 * Core
   * Builder, Render, Event Dispatch
 * Layout
-  * HLayout, VLayout, FixedLayout, FitLayout 
+  * HLayout, VLayout, FixedLayout 
 * Widgets
   * Label, Button, Picture, Edit, InfiniteList, Menu, Toast
 * Deployment
@@ -209,7 +209,7 @@ Builder:
 ResourceLoader:
 
 * DefaultResourceLoader - finish
-* <font color=blue>FileResourceLoader - pending</font>
+* FileResourceLoader - pending
 
 Render:
 
@@ -230,10 +230,10 @@ Widget:
 * Widget base - finish
 * Label - finish
 * Button - finish
-* <font color=blue>Edit - 0%, processing</font>
-  * <font color=blue>Focus event suppose</font>
-* <font color=blue>Picture - 0%, processing</font>
-* <font color=blue>InfiniteList - 0%, pending</font>
+* Edit - 0%, processing
+  * Focus event suppose
+* Picture - 0%, processing
+* InfiniteList - 0%, pending
 * Menu - 0%, not started
 
 
