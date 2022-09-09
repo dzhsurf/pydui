@@ -90,8 +90,6 @@ class PyDuiLabel(PyDuiWidget):
                 size = self.__estimate_image_size__(pw, ph, constaint)
             if size[0] > 0 and size[1] > 0:
                 size = (size[0] + utils.RectW(self.__autofit_padding), size[1] + utils.RectH(self.__autofit_padding))
-                self.fixed_width = size[0]
-                self.fixed_height = size[1]
                 return size
             return super().estimate_size(parent_width, parent_height, constaint)
         return super().estimate_size(parent_width, parent_height, constaint)
@@ -172,6 +170,7 @@ class PyDuiLabel(PyDuiWidget):
     def __estimate_text_size__(
         self, parent_width: float, parent_height: float, constaint: PyDuiLayoutConstraint
     ) -> tuple[float, float]:
+        print(parent_width, parent_height, constaint)
         fontfamily, fontsize, fontcolor = self.__get_font_info__()
         ctx = self.get_render_manager().get_render_context()
         return PyDuiRender.EstimateTextSize(

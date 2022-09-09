@@ -54,6 +54,8 @@ class PyDuiHLayout(PyDuiLayout):
     def __get_fitrule__(self) -> Tuple[bool, bool]:
         fit_w, fit_h = False, False
         if self.autofit:
+            fit_w = "w" in self.fitrule
+            fit_h = "h" in self.fitrule
             if not "w" in self.fitrule and not "h" in self.fitrule:
                 fit_h = True
         return (fit_w, fit_h)
@@ -81,7 +83,7 @@ class PyDuiHLayout(PyDuiLayout):
             child_w, child_h = child.fixed_width, child.fixed_height
             if child.autofit:
                 # update the constaint depends on the fit rule
-                layout_constaint = PyDuiLayoutConstraint(layout_max_w, layout_max_h)
+                layout_constaint = PyDuiLayoutConstraint(layout_max_w - margin_w, layout_max_h - margin_h)
                 if fit_w:
                     layout_constaint = PyDuiLayoutConstraint(-1, layout_constaint.height)
                 if fit_h:
@@ -142,9 +144,9 @@ class PyDuiHLayout(PyDuiLayout):
 
             # calculate widget used area (layout_current_max_w, layout_current_max_h)
             if self.autofit:
-                if fit_w:
+                if child_w > 0 or fit_w:
                     layout_current_max_w = layout_current_max_w + child_w + margin_w
-                if fit_h:
+                if child_h > 0 or fit_h:
                     layout_current_max_h = max(layout_current_max_h, child_h + margin_h)
             else:
                 if child_w != 0:

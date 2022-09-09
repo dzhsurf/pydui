@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Window size="800,600" title='Quickstart Demo' min_size="400,300"
+<Window size="600,600" title='Quickstart Demo' min_size="400,300"
     default_font="Helvetica" default_fontsize="16">
     <HLayout bkcolor="#FFFFFFFF">
         <!-- left panel -->
-        <VLayout bkcolor="#FFC8C8C8" width="200">
+        <!-- <VLayout bkcolor="#FFC8C8C8" width="200">
             <Label text="Text align center. It's the default text align. And use the window default font."
                 fontcolor="#FFFF0000"
                 margin="20,20,20,20" />
-        </VLayout>
+        </VLayout> -->
         <VLayout halign="CENTER">
             <!-- head -->
-            <HLayout height="62" bkcolor="FFD8D8D8">
+            <!-- <HLayout height="62" bkcolor="FFD8D8D8">
                 <Picture width="46" image="res/images/logo.png" margin="8,8,8,8" />
                 <VLayout margin="0,12,0,12">
                     <Label text="PyDui-GTK Group" halign="START" fontcolor="#FF1A1A1A" />
                     <Label text="A powerful desktop UI framework." fontsize="12" halign="START" fontcolor="#FF8A8A8A" />
                 </VLayout>
-            </HLayout>
+            </HLayout> -->
             <!-- body -->
             <VLayout bkcolor="#FFE8E8E8">
 
-                <HLayout valign="START" margin="12,12,12,12" autofit="true" fitrule="v" bkcolor="#FFFF0000">
+                <HLayout valign="START" margin="12,12,12,12" autofit="true" fitrule="h" bkcolor="#FFFF0000">
                     <Picture width="40" height="40" image="res/images/avatar-2.jpeg" />
-                    <VLayout halign="START" margin="12,0,122,0" autofit="true" fitrule="v" bkcolor="#FF00FF00">
+                    <VLayout halign="START" margin="12,0,122,0" autofit="true" fitrule="h" bkcolor="#FF00FF00">
                         <Label text="Angela:" autofit="true"
                             fontsize="14" fontcolor="#FF8A8A8A" valign="START" halign="START" />
                         <Label text="I'd like to know more about the pydui-gtk and discuss how we can use it in our product." margin="0,8,0,0"
@@ -33,7 +33,7 @@
                     </VLayout>
                 </HLayout>
 
-                <HLayout valign="START" margin="12,12,12,12" fitrule="v">
+                <HLayout valign="START" margin="12,12,12,12" autofit="true" fitrule="h">
                     <Control bkcolor="#FFFF0000" />
                     <Label id="12" text="Sure, you can use pydui-gtk to create desktop app. You should try it."
                         margin="122,0,12,0"
@@ -45,6 +45,7 @@
                 </HLayout>
 
                 <!-- bottom bar -->
+                <Control />
                 <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2" />
             </VLayout>
         </VLayout>
