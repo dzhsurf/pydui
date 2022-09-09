@@ -4,9 +4,6 @@
     <HLayout bkcolor="#FFFFFFFF">
         <!-- left panel -->
         <VLayout bkcolor="#FFC8C8C8" width="200">
-            <!-- <Label text="Text align center. It's the default text align. And use the window default font."
-                fontcolor="#FFFF0000"
-                margin="20,20,20,20" /> -->
         </VLayout>
         <VLayout halign="CENTER">
             <!-- head -->

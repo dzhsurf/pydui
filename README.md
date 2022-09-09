@@ -69,13 +69,11 @@ def get_builder() -> PyDuiBuilder:
 class DemoHandler(PyDuiWindowHandler):
     def on_window_init(self, window: PyDuiWindow):
         print(f"on_window_init")
-        
-        def handle_click(object):
-            print("You clicked!", object)
-            
+        #def handle_click(object):
+        #    print("You clicked!", object)   
         # bind widget event here
-        widget = window.get_widget(widget_id="button")
-        widget.connect("clicked", handle_click)
+        #widget = window.get_widget(widget_id="button")
+        #widget.connect("clicked", handle_click)
 
     def on_window_destroy(self):
         print(f"on_window_destroy")
@@ -98,42 +96,52 @@ XML File
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Window size="800,600" title='Quickstart Demo' min_size="400,300">
-    <HLayout bkcolor="#FFE8E8E8">
-        <VLayout bkcolor="#FFA8A8A8" width="200">
-            <Label text="测试中文字体渲染,自动换行自动换行自动换行自动换行" font="Helvetica" fontsize="13" fontcolor="#FFFF0000"
-                margin="20,20,20,20" />
+<Window size="800,600" title='Quickstart Demo' min_size="400,300"
+    default_font="Helvetica" default_fontsize="16">
+    <HLayout bkcolor="#FFFFFFFF">
+        <!-- left panel -->
+        <VLayout bkcolor="#FFC8C8C8" width="200">
         </VLayout>
         <VLayout halign="CENTER">
-            <Button id="button" text="Click Me" margin="8,8,8,8"
-                corner="12,12,12,12" width="200" height="48"
-                bkimage="res/images/common_button_normal.png"
-                bkimage_hover="res/images/common_button_hover.png"
-                bkimage_press="res/images/common_button_press.png"
-                bkimage_disable="res/images/common_button_disable.png"
-            />
-            <Label text="Test single line text end ellipsis, here is the long text document.Test single line text end ellipsis, here is the long text document."
-                font="Helvetica Light"
-                fontsize="16"
-                fontcolor="#FF1A1A1A"
-                bkcolor="#FFC8C8C8"
-                wrap="NONE"
-                margin="20,0,20,0"
-            />
-            <Label text="Test single line text middle ellipsis, here is the long text document.Test single line text middle ellipsis, here is the long text document."
-                font="Helvetica"
-                fontsize="16"
-                fontcolor="#FF1A1A1A"
-                wrap="NONE"
-                ellipsis="MIDDLE"
-                margin="20,20,20,20"
-            />
-            <Label text="Test Multi line text wrap text. Hello World!!! ctx.set_font_options() is part of the cairo toy font API and ignored by...
-                font="SourceCodePro"
-                fontsize="16"
-                fontcolor="#FF1A1A1A"
-                margin="20,20,20,20"
-            />
+            <!-- head -->
+            <HLayout height="62" bkcolor="FFD8D8D8">
+                <Picture width="46" image="res/images/logo.png" margin="8,8,8,8" />
+                <VLayout margin="0,12,0,12">
+                    <Label text="PyDui-GTK Group" halign="START" fontcolor="#FF1A1A1A" />
+                    <Label text="A powerful desktop UI framework." fontsize="12" halign="START" fontcolor="#FF8A8A8A" />
+                </VLayout>
+            </HLayout>
+            <!-- body -->
+            <VLayout bkcolor="#FFE8E8E8">
+
+                <HLayout valign="START" margin="12,12,12,12" autofit="true" fitrule="h" >
+                    <Picture width="40" height="40" image="res/images/avatar-2.jpeg" />
+                    <VLayout halign="START" margin="12,0,122,0" autofit="true" fitrule="h" >
+                        <Label text="Angela:" autofit="true"
+                            fontsize="14" fontcolor="#FF8A8A8A" valign="START" halign="START" />
+                        <Label text="I'd like to know more about the pydui-gtk and discuss how we can use it in our product." margin="0,8,0,0"
+                            autofit="true" autofit_padding="12,8,12,8"
+                            corner="12,12,12,12"
+                            bkimage="res/images/common_button_disable.png"
+                        />
+                    </VLayout>
+                </HLayout>
+
+                <HLayout valign="START" margin="12,12,12,12" autofit="true" fitrule="h">
+                    <Control />
+                    <Label id="12" text="Sure, you can use pydui-gtk to create desktop app. You should try it."
+                        margin="122,0,12,0"
+                        autofit="true" autofit_padding="12,8,12,8"
+                        corner="12,12,12,12"
+                        bkimage="res/images/common_button_normal.png"
+                    />
+                    <Picture width="40" height="40" image="res/images/avatar-1.jpeg" />
+                </HLayout>
+
+                <!-- bottom bar -->
+                <Control />
+                <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2" />
+            </VLayout>
         </VLayout>
     </HLayout>
 </Window>
