@@ -79,17 +79,28 @@ class PyDuiLabel(PyDuiWidget):
     ) -> tuple[float, float]:
         if self.autofit:
             size = (0, 0)
-            pw = parent_width - utils.RectW(self.__autofit_padding)
-            ph = parent_height - utils.RectH(self.__autofit_padding)
+            pw = max(0, parent_width - utils.RectW(self.__autofit_padding))
+            ph = max(0, parent_height - utils.RectH(self.__autofit_padding))
             if len(self.text) > 0:
-                pw = pw - utils.RectW(self.__text_padding)
-                ph = ph - utils.RectH(self.__text_padding)
-                size = self.__estimate_text_size__(pw, ph, constaint)
+                pw = max(0, pw - utils.RectW(self.__text_padding))
+                ph = max(0, ph - utils.RectH(self.__text_padding))
+                if constaint.width == -1:
+                    pw = -1
+                if constaint.height == -1:
+                    ph = -1
+                size = self.__estimate_text_size__(pw, ph)
                 size = (size[0] + utils.RectW(self.__text_padding), size[1] + utils.RectH(self.__text_padding))
             elif len(self.bkimage) > 0:
-                size = self.__estimate_image_size__(pw, ph, constaint)
+                if constaint.width == -1:
+                    pw = -1
+                if constaint.height == -1:
+                    ph = -1
+                size = self.__estimate_image_size__(pw, ph)
             if size[0] > 0 and size[1] > 0:
-                size = (size[0] + utils.RectW(self.__autofit_padding), size[1] + utils.RectH(self.__autofit_padding))
+                size = (
+                    size[0] + utils.RectW(self.__autofit_padding),  # + utils.RectW(self.margin),
+                    size[1] + utils.RectH(self.__autofit_padding),  # + utils.RectH(self.margin),
+                )
                 return size
             return super().estimate_size(parent_width, parent_height, constaint)
         return super().estimate_size(parent_width, parent_height, constaint)
@@ -167,9 +178,7 @@ class PyDuiLabel(PyDuiWidget):
             fontcolor = render_manager.default_fontcolor
         return (fontfamily, fontsize, fontcolor)
 
-    def __estimate_text_size__(
-        self, parent_width: float, parent_height: float, constaint: PyDuiLayoutConstraint
-    ) -> tuple[float, float]:
+    def __estimate_text_size__(self, parent_width: float, parent_height: float) -> tuple[float, float]:
         fontfamily, fontsize, fontcolor = self.__get_font_info__()
         ctx = self.get_render_manager().get_render_context()
         return PyDuiRender.EstimateTextSize(
@@ -177,16 +186,14 @@ class PyDuiLabel(PyDuiWidget):
             text=self.text,
             font=fontfamily,
             fontsize=fontsize,
-            limit_wh=(constaint.width, constaint.height),
+            limit_wh=(parent_width, parent_height),
             hvalign=(Text2PyDuiAlign(self.__halign), Text2PyDuiAlign(self.__valign)),
             ellipsis_mode=Text2EllipsizeMode(self.__ellipsize_mode),
             wrap_mode=Text2WrapMode(self.__wrap_mode),
             line_spacing=self.__line_spacing,
         )
 
-    def __estimate_image_size__(
-        self, parent_width: float, parent_height: float, constaint: PyDuiLayoutConstraint
-    ) -> tuple[float, float]:
+    def __estimate_image_size__(self, parent_width: float, parent_height: float) -> tuple[float, float]:
         loader = self.get_render_manager().get_resource_loader()
 
         return PyDuiRender.EstimateImageSize(loader, self.bkimage, parent_width, parent_height)

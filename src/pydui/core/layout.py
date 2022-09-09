@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Callable
 
+from pydui import utils
 from pydui.core.base import *
 from pydui.core.import_gtk import *
 from pydui.core.widget import *
@@ -33,7 +34,9 @@ class PyDuiLayout(PyDuiWidget):
         self.__fitrule = list[str]()
 
     def parse_attrib(self, k: str, v: str):
-        if k == "halign":
+        if k == "padding":
+            self.padding = utils.Str2Rect(v)
+        elif k == "halign":
             self.__childHVAlign = (Text2PyDuiAlign(v), self.valign)
         elif k == "valign":
             self.__childHVAlign = (self.halign, Text2PyDuiAlign(v))
