@@ -203,16 +203,13 @@ In the early stage, performance optimization, resource leakage issue, text rende
 
 Builder:
 
-* Window - finish
+* [ Window, Control, Label, Button, Edit, Picture, HLayout, VLayout ] - finish
 
-* Label - finish
-* Button - finish
-* HLayout - finish
-* VLayout - finish 
 
 ResourceLoader:
 
 * DefaultResourceLoader - finish
+* <font color=blue>FileResourceLoader - pending</font>
 
 Render:
 
@@ -227,17 +224,16 @@ Layout:
 * HLayout - finish
 * VLayout - finish
 * FixedLayout - 0%
-* FitLayout - 0%
 
 Widget:
 
 * Widget base - finish
 * Label - finish
 * Button - finish
-* Edit - 0%, processing
-  * Focus event suppose
-* Picture - 0%, processing
-* InfiniteList - 0%, not started
+* <font color=blue>Edit - 0%, processing</font>
+  * <font color=blue>Focus event suppose</font>
+* <font color=blue>Picture - 0%, processing</font>
+* <font color=blue>InfiniteList - 0%, pending</font>
 * Menu - 0%, not started
 
 
