@@ -22,7 +22,6 @@ from pydui.core.layout import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
 from pydui.core.window import *
-from pydui.layout.fit_layout import PyDuiFitLayout
 from pydui.layout.fixed_layout import PyDuiFixedLayout
 from pydui.layout.hlayout import PyDuiHLayout
 from pydui.layout.vlayout import PyDuiVLayout
@@ -36,7 +35,6 @@ INTERNAL_WIDGET_LIST = [
     PyDuiHLayout,
     PyDuiVLayout,
     PyDuiFixedLayout,
-    PyDuiFitLayout,
     PyDuiLabel,
     PyDuiButton,
     PyDuiPicture,

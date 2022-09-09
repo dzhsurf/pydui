@@ -15,7 +15,6 @@ layout: Layout module
     - HLayout
     - VLayout
     - FixedLayout
-    - FitLayout
 
 """
 from .core.application import *
