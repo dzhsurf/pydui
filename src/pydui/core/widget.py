@@ -337,8 +337,6 @@ class PyDuiWidget(object):
 
     @fixed_height.setter
     def fixed_height(self, h: float):
-        # if self.__id != "":
-        #     print("id=", self.__id, "set_fixed_height=", h)
         self.__fixed_height = h
 
     @property
