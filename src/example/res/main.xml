@@ -5,23 +5,23 @@
         <!-- left panel -->
         <VLayout bkcolor="#FFC8C8C8" width="200">
         </VLayout>
-        <VLayout halign="CENTER" bkcolor="#FFE8E8E8">
+        <VLayout halign="center" bkcolor="#FFE8E8E8">
             <!-- head -->
             <HLayout height="62" bkcolor="FFD8D8D8">
                 <Picture width="46" image="res/images/logo.png" margin="8,8,8,8" />
                 <VLayout margin="0,12,0,12">
-                    <Label text="PyDui-GTK Group" halign="START" fontcolor="#FF1A1A1A" />
-                    <Label text="A powerful desktop UI framework." fontsize="12" halign="START" fontcolor="#FF8A8A8A" />
+                    <Label text="PyDui-GTK Group" halign="start" fontcolor="#FF1A1A1A" />
+                    <Label text="A powerful desktop UI framework." fontsize="12" halign="start" fontcolor="#FF8A8A8A" />
                 </VLayout>
             </HLayout>
             <!-- body -->
             <VLayout padding="8,8,8,8">
 
-                <HLayout valign="START" margin="12,0,12,0" autofit="true" fitrule="h">
+                <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
                     <Picture width="40" height="40" image="res/images/avatar-2.jpeg" />
-                    <VLayout halign="START" margin="12,0,122,0" autofit="true" fitrule="h" >
+                    <VLayout halign="start" margin="12,0,122,0" autofit="true" fitrule="h" >
                         <Label text="Angela:" autofit="true"
-                            fontsize="14" fontcolor="#FF8A8A8A" valign="START" halign="START" />
+                            fontsize="14" fontcolor="#FF8A8A8A" valign="start" halign="start" />
                         <Label text="I'd like to know more about the pydui-gtk and discuss how we can use it in our product." margin="0,8,0,0"
                             autofit="true" autofit_padding="12,8,12,8"
                             corner="12,12,12,12"
@@ -30,7 +30,7 @@
                     </VLayout>
                 </HLayout>
 
-                <HLayout valign="START" margin="12,0,12,0" autofit="true" fitrule="h">
+                <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
                     <Control />
                     <Label text="Sure, you can use pydui-gtk to create desktop app. You should try it."
                         margin="122,0,12,0"

@@ -34,7 +34,7 @@ class PyDuiLabel(PyDuiWidget):
     __fontcolor: Gdk.RGBA = None
 
     __ellipsize_mode: str = "END"
-    __wrap_mode: str = "WORD"
+    __wrap_mode: str = "WORD_CHAR"
     __halign: str = "CENTER"
     __valign: str = "CENTER"
     __line_spacing: float = 1.25

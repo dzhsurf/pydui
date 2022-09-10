@@ -48,7 +48,7 @@ def Text2PyDuiAlign(text: str) -> PyDuiAlign:
         "CENTER": PyDuiAlign.CENTER,
         "START": PyDuiAlign.START,
         "END": PyDuiAlign.END,
-    }[text]
+    }[text.upper()]
 
 
 def Text2WrapMode(text: str) -> Pango.WrapMode:
@@ -57,7 +57,7 @@ def Text2WrapMode(text: str) -> Pango.WrapMode:
         "WORD": Pango.WrapMode.WORD,
         "CHAR": Pango.WrapMode.CHAR,
         "WORD_CHAR": Pango.WrapMode.WORD_CHAR,
-    }[text]
+    }[text.upper()]
 
 
 def Text2EllipsizeMode(text: str) -> Pango.EllipsizeMode:
@@ -66,4 +66,4 @@ def Text2EllipsizeMode(text: str) -> Pango.EllipsizeMode:
         "START": Pango.EllipsizeMode.START,
         "MIDDLE": Pango.EllipsizeMode.MIDDLE,
         "END": Pango.EllipsizeMode.END,
-    }[text]
+    }[text.upper()]
