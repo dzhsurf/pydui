@@ -210,10 +210,12 @@ ResourceLoader:
 
 * DefaultResourceLoader - finish
 * FileResourceLoader - pending
+* ResourceLoaderCache - pending
+  * lrucache
 
 Render:
 
-* DrawRetangle - finish
+* DrawRectangle - finish
 * DrawImage - finish
 * DrawText - finish
 * Hi-DPI suppose - almost done
@@ -230,10 +232,10 @@ Widget:
 * Widget base - finish
 * Label - finish
 * Button - finish
-* Scrollable - processing
 * Edit - 0%, processing
   * Focus event suppose
 * Picture - 0%, processing
+* Scrollable - 0%, pending
 * InfiniteList - 0%, pending
 * Menu - 0%, not started
 
