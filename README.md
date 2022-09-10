@@ -96,13 +96,13 @@ XML File
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Window size="800,600" title='Quickstart Demo' min_size="400,300"
+<Window size="664,600" title='Quickstart Demo' min_size="600,400"
     default_font="Helvetica" default_fontsize="16">
     <HLayout bkcolor="#FFFFFFFF">
         <!-- left panel -->
         <VLayout bkcolor="#FFC8C8C8" width="200">
         </VLayout>
-        <VLayout halign="CENTER">
+        <VLayout halign="CENTER" bkcolor="#FFE8E8E8">
             <!-- head -->
             <HLayout height="62" bkcolor="FFD8D8D8">
                 <Picture width="46" image="res/images/logo.png" margin="8,8,8,8" />
@@ -112,9 +112,9 @@ XML File
                 </VLayout>
             </HLayout>
             <!-- body -->
-            <VLayout bkcolor="#FFE8E8E8">
+            <VLayout padding="8,8,8,8">
 
-                <HLayout valign="START" margin="12,12,12,12" autofit="true" fitrule="h" >
+                <HLayout valign="START" margin="12,0,12,0" autofit="true" fitrule="h">
                     <Picture width="40" height="40" image="res/images/avatar-2.jpeg" />
                     <VLayout halign="START" margin="12,0,122,0" autofit="true" fitrule="h" >
                         <Label text="Angela:" autofit="true"
@@ -127,9 +127,9 @@ XML File
                     </VLayout>
                 </HLayout>
 
-                <HLayout valign="START" margin="12,12,12,12" autofit="true" fitrule="h">
+                <HLayout valign="START" margin="12,0,12,0" autofit="true" fitrule="h">
                     <Control />
-                    <Label id="12" text="Sure, you can use pydui-gtk to create desktop app. You should try it."
+                    <Label text="Sure, you can use pydui-gtk to create desktop app. You should try it."
                         margin="122,0,12,0"
                         autofit="true" autofit_padding="12,8,12,8"
                         corner="12,12,12,12"
