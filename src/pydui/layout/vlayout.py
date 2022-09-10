@@ -31,31 +31,16 @@ class PyDuiVLayout(PyDuiLayout):
             ctx,
             x + self.padding[0],
             y + self.padding[1],
-            width - utils.RectW(self.padding),
-            height - utils.RectH(self.padding),
+            max(0, width - utils.RectW(self.padding)),
+            max(0, height - utils.RectH(self.padding)),
         )
-        # auto_expand_count = self.__auto_expand_count__()
-        # auto_expand_idx = 0
-        # last_draw_y = None
         for i in range(self.child_count):
             child = self.get_child_at(i)
             draw_x, draw_w, draw_h = child.x, child.width, child.height
             draw_y = child.y
-            # if last_draw_y is not None:
-            #     draw_y = last_draw_y + child.margin[1]
-            # if is last expand child
-            # if int(child.fixed_height) == 0:
-            #     auto_expand_idx += 1
-            #     if auto_expand_idx == auto_expand_count:
-            #         if i < self.child_count - 1:
-            #             next_child = self.get_child_at(i + 1)
-            #             draw_h = next_child.y - next_child.margin[1] - child.margin[3] - draw_y
-            #         else:
-            #             draw_h = y + height - child.margin[3] - draw_y
             ctx.save()
             child.draw(ctx, draw_x, draw_y, draw_w, draw_h)
             ctx.restore()
-            # last_draw_y = draw_y + draw_h + child.margin[3]
 
     def __get_fitrule__(self) -> Tuple[bool, bool]:
         fit_v, fit_h = False, False
@@ -103,8 +88,8 @@ class PyDuiVLayout(PyDuiLayout):
             margin_w = utils.RectW(child.margin)
             margin_h = utils.RectH(child.margin)
             child_w, child_h = child.fixed_width, child.fixed_height
-            child_max_w = layout_max_w - margin_w
-            child_max_h = layout_max_h - margin_h - pre_fixed_widget_total_height - get_ends_height(i)
+            child_max_w = max(0, layout_max_w - margin_w)
+            child_max_h = max(0, layout_max_h - margin_h - pre_fixed_widget_total_height - get_ends_height(i))
             if child.autofit:
                 # update the constraint depends on the fit rule
                 layout_constraint = PyDuiLayoutConstraint(child_max_w, child_max_h)
@@ -132,10 +117,8 @@ class PyDuiVLayout(PyDuiLayout):
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         fit_w, fit_h = self.__get_fitrule__()
 
-        # layout_max_w = width
-        # layout_max_h = height
-        layout_max_w = width - utils.RectW(self.padding)
-        layout_max_h = height - utils.RectH(self.padding)
+        layout_max_w = max(0, width - utils.RectW(self.padding))
+        layout_max_h = max(0, height - utils.RectH(self.padding))
 
         # step 1, preprocess all the fixed widget
         layout_fixed_height_usage_dict = dict[int, int]()
@@ -163,8 +146,8 @@ class PyDuiVLayout(PyDuiLayout):
             margin_w = utils.RectW(child.margin)
             margin_h = utils.RectH(child.margin)
             child_w, child_h = child.fixed_width, child.fixed_height
-            child_max_w = layout_max_w - margin_w
-            child_max_h = layout_max_h - margin_h - get_ends_height(i)
+            child_max_w = max(0, layout_max_w - margin_w)
+            child_max_h = max(0, layout_max_h - margin_h - get_ends_height(i))
             layout_constraint = PyDuiLayoutConstraint(child_max_w, child_max_h)
 
             if child.autofit:
@@ -237,17 +220,9 @@ class PyDuiVLayout(PyDuiLayout):
             layout_constraint = PyDuiLayoutConstraint(child_w, child_h)
             #  start layout
             if self.halign == PyDuiAlign.CENTER:
-                child_x = child_x + round((layout_max_w - margin_w - child_w) / 2);
+                child_x = child_x + round(max(0, (layout_max_w - margin_w - child_w)) / 2)
             if self.halign == PyDuiAlign.END:
-                child_x = child_x + (layout_max_w - margin_w - child_w)
+                child_x = child_x + max(0, (layout_max_w - margin_w - child_w))
             child.layout(child_x, child_y, child_w, child_h, layout_constraint)
             # next position
             layout_y = layout_y + child_h + margin_h
-
-    def __auto_expand_count__(self):
-        count = 0
-        for i in range(self.child_count):
-            child = self.get_child_at(i)
-            if int(child.fixed_height) == 0:
-                count += 1
-        return count
