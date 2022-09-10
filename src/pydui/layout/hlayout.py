@@ -242,6 +242,10 @@ class PyDuiHLayout(PyDuiLayout):
             child_h = max(0, layout_max_h - margin_h) if child_h == 0 else child_h
             layout_constraint = PyDuiLayoutConstraint(child_w, child_h)
             # start layout
+            if self.valign == PyDuiAlign.CENTER:
+                child_y = child_y + round((layout_max_h - margin_h - child_h) / 2);
+            if self.valign == PyDuiAlign.END:
+                child_y = child_y + (layout_max_h - margin_h - child_h)
             child.layout(child_x, child_y, child_w, child_h, layout_constraint)
             # next position
             layout_x = layout_x + child_w + margin_w
