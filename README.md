@@ -181,13 +181,13 @@ pip install -e .
 In the early stage, performance optimization, resource leakage issue, text rendering quality, and correctness issue are not the primary tasks. The first task is to complete the essential module function.
 
 * Core
-  * Builder, Render, Event Dispatch
+  * Builder, Render, ResourceLoader, EventDispatcher
 * Layout
   * HLayout, VLayout, FixedLayout 
 * Widgets
   * Label, Button, Picture, Edit, InfiniteList, Menu, Toast
 * Deployment
-  * Resource builder
+  * Resource packer
   * Application builder
 * Special Features
   * Text selection
@@ -201,10 +201,12 @@ In the early stage, performance optimization, resource leakage issue, text rende
 
 ## Development progress
 
+There's much work to do...
+
 Builder:
 
 * [ Window, Control, Label, Button, Edit, Picture, HLayout, VLayout ] - finish
-
+* StyleManager - planning
 
 ResourceLoader:
 
@@ -212,6 +214,7 @@ ResourceLoader:
 * FileResourceLoader - pending
 * ResourceLoaderCache - pending
   * lrucache
+* ArchiverResourceLoader - planning
 
 Render:
 
@@ -234,6 +237,9 @@ Widget:
 * Button - finish
 * Edit - 0%, processing
   * Focus event suppose
+  * Key Event
+  * Text selection
+  * Drag&Drop
 * Picture - 0%, processing
 * Scrollable - 0%, pending
 * InfiniteList - 0%, pending
