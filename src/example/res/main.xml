@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Window size="500,600" title='Quickstart Demo' min_size="400,300"
+<Window size="664,600" title='Quickstart Demo' min_size="600,400"
     default_font="Helvetica" default_fontsize="16">
     <HLayout bkcolor="#FFFFFFFF">
         <!-- left panel -->
@@ -15,9 +15,9 @@
                 </VLayout>
             </HLayout>
             <!-- body -->
-            <VLayout padding="8,8,8,8" id="test1">
+            <VLayout padding="8,8,8,8">
 
-                <HLayout valign="START" margin="12,0,12,0" autofit="true" fitrule="h" id="test2">
+                <HLayout valign="START" margin="12,0,12,0" autofit="true" fitrule="h">
                     <Picture width="40" height="40" image="res/images/avatar-2.jpeg" />
                     <VLayout halign="START" margin="12,0,122,0" autofit="true" fitrule="h" >
                         <Label text="Angela:" autofit="true"
@@ -30,7 +30,7 @@
                     </VLayout>
                 </HLayout>
 
-                <HLayout valign="START" margin="12,0,12,0" autofit="true" fitrule="h" id="test3">
+                <HLayout valign="START" margin="12,0,12,0" autofit="true" fitrule="h">
                     <Control />
                     <Label text="Sure, you can use pydui-gtk to create desktop app. You should try it."
                         margin="122,0,12,0"

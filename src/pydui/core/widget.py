@@ -148,7 +148,6 @@ class PyDuiWidget(object):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
         logging.debug(f"{self} => ({x}, {y}, {width}, {height})")
-        print(self, f"id={self.get_id()}", f"x={x}", f"y={y}", f"w={width}", f"h={height}")
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
@@ -283,7 +282,7 @@ class PyDuiWidget(object):
         pass
 
     def contain_pos(self, x: float, y: float) -> bool:
-        if x >= self.x and x <= self.x + self.width and y >= self.y and y <= self.y + self.height:
+        if (x >= self.x) and (x <= (self.x + self.width)) and (y >= self.y) and (y <= (self.y + self.height)):
             return True
         return False
 

@@ -99,21 +99,25 @@ class PyDuiHLayout(PyDuiLayout):
         layout_current_max_h = 0
 
         # step 2, preprocess autofit widget
+        pre_fixed_widget_total_width = 0
         for i in range(self.child_count):
             child = self.get_child_at(i)
             margin_w = utils.RectW(child.margin)
             margin_h = utils.RectH(child.margin)
             child_w, child_h = child.fixed_width, child.fixed_height
-            child_max_w = layout_max_w - margin_w - get_ends_width(i)
+            child_max_w = layout_max_w - margin_w - pre_fixed_widget_total_width - get_ends_width(i)
+            child_max_h = layout_max_h - margin_h
             if child.autofit:
                 # update the constraint depends on the fit rule
-                layout_constraint = PyDuiLayoutConstraint(child_max_w, layout_max_h - margin_h)
+                layout_constraint = PyDuiLayoutConstraint(child_max_w, child_max_h)
                 if fit_w:
                     layout_constraint = PyDuiLayoutConstraint(-1, layout_constraint.height)
                 if fit_h:
                     layout_constraint = PyDuiLayoutConstraint(layout_constraint.width, -1)
                 # estimate child size
-                child_w, child_h = child.estimate_size(child_max_w, layout_max_h - margin_h, layout_constraint)
+                child_w, child_h = child.estimate_size(child_max_w, child_max_h, layout_constraint)
+            elif child_w > 0:
+                pre_fixed_widget_total_width += child_w + margin_w
             # record the maximum area
             if fit_w:
                 layout_current_max_w = layout_current_max_w + child_w + margin_w
@@ -122,9 +126,9 @@ class PyDuiHLayout(PyDuiLayout):
 
         # add padding
         if layout_current_max_w != 0:
-            layout_current_max_w += utils.RectW(self.padding) + utils.RectW(self.margin)
+            layout_current_max_w += utils.RectW(self.padding)
         if layout_current_max_h != 0:
-            layout_current_max_h += utils.RectH(self.padding) + utils.RectH(self.margin)
+            layout_current_max_h += utils.RectH(self.padding)
         return (layout_current_max_w, layout_current_max_h)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
@@ -187,6 +191,8 @@ class PyDuiHLayout(PyDuiLayout):
                 if child_w > 0 or fit_w:
                     layout_current_max_w += child_w + margin_w
                 if child_h > 0 and fit_h:
+                    # when set to fit_h, and the child_h is zero, it means child is fit to parent
+                    # so it does not need to count the usage height.
                     layout_current_max_h = max(layout_current_max_h, child_h + margin_h)
             else:
                 if child_w != 0:
@@ -202,10 +208,13 @@ class PyDuiHLayout(PyDuiLayout):
             layout_constraint = PyDuiLayoutConstraint(
                 layout_max_w + utils.RectW(self.padding), layout_max_h + layout_max_h + utils.RectH(self.padding)
             )
+            lw = layout_max_w
+            if fit_w:
+                lw = layout_current_max_w
             super().layout(
                 x,
                 y,
-                layout_max_w + utils.RectW(self.padding),
+                lw + utils.RectW(self.padding),
                 layout_max_h + utils.RectH(self.padding),
                 layout_constraint,
             )

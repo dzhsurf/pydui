@@ -99,8 +99,8 @@ class PyDuiLabel(PyDuiWidget):
                 size = self.__estimate_image_size__(pw, ph)
             if size[0] > 0 and size[1] > 0:
                 size = (
-                    size[0] + utils.RectW(self.__autofit_padding),  # + utils.RectW(self.margin),
-                    size[1] + utils.RectH(self.__autofit_padding),  # + utils.RectH(self.margin),
+                    size[0] + utils.RectW(self.__autofit_padding),
+                    size[1] + utils.RectH(self.__autofit_padding),
                 )
                 return size
             return super().estimate_size(parent_width, parent_height, constraint)
@@ -179,7 +179,7 @@ class PyDuiLabel(PyDuiWidget):
             fontcolor = render_manager.default_fontcolor
         return (fontfamily, fontsize, fontcolor)
 
-    def __estimate_text_size__(self, parent_width: float, parent_height: float) -> tuple[float, float]:
+    def __estimate_text_size__(self, limit_width: float, limit_height: float) -> tuple[float, float]:
         fontfamily, fontsize, fontcolor = self.__get_font_info__()
         ctx = self.get_render_manager().get_render_context()
         return PyDuiRender.EstimateTextSize(
@@ -187,14 +187,14 @@ class PyDuiLabel(PyDuiWidget):
             text=self.text,
             font=fontfamily,
             fontsize=fontsize,
-            limit_wh=(parent_width, parent_height),
+            limit_wh=(limit_width, limit_height),
             hvalign=(Text2PyDuiAlign(self.__halign), Text2PyDuiAlign(self.__valign)),
             ellipsis_mode=Text2EllipsizeMode(self.__ellipsize_mode),
             wrap_mode=Text2WrapMode(self.__wrap_mode),
             line_spacing=self.__line_spacing,
         )
 
-    def __estimate_image_size__(self, parent_width: float, parent_height: float) -> tuple[float, float]:
+    def __estimate_image_size__(self, limit_width: float, limit_height: float) -> tuple[float, float]:
         loader = self.get_render_manager().get_resource_loader()
 
-        return PyDuiRender.EstimateImageSize(loader, self.bkimage, parent_width, parent_height)
+        return PyDuiRender.EstimateImageSize(loader, self.bkimage, limit_width, limit_height)
