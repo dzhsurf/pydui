@@ -52,6 +52,24 @@ Classes
 
       :type: Gtk.WindowPosition
 
+   .. attribute:: default_font
+
+      window default font
+
+      :type: str
+
+   .. attribute:: default_fontsize
+
+      window default font size
+
+      :type: int
+
+   .. attribute:: default_fontbold
+
+      window default font is bold or not
+
+      :type: bool
+
    .. py:attribute:: title
       :annotation: :str
 
@@ -73,14 +91,29 @@ Classes
       
 
    .. py:attribute:: position
-      :annotation: :gi.repository.Gtk.WindowPosition
+      :annotation: :pydui.core.widget.Gtk.WindowPosition
+
+      
+
+   .. py:attribute:: default_font
+      :annotation: :str = Arial
+
+      
+
+   .. py:attribute:: default_fontsize
+      :annotation: :int = 16
+
+      
+
+   .. py:attribute:: default_fontbold
+      :annotation: :bool = False
 
       
 
 
-.. py:class:: PyDuiWindow(loader: pydui.core.render.Type[PyDuiResourceLoader], config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: pydui.core.render.Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
+.. py:class:: PyDuiWindow(loader: Type[pydui.core.resource_loader.PyDuiResourceLoader], config: PyDuiWindowConfig, rootview: pydui.core.widget.PyDuiWidget, handler: Type[pydui.core.window_handler.PyDuiWindowHandler] = None)
 
-   Bases: :py:obj:`object`
+   Bases: :py:obj:`pydui.core.window_base.PyDuiWindowBase`
 
    Window object
 
@@ -91,10 +124,6 @@ Classes
 
 
    .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
-
-
-   .. py:method:: handler() -> pydui.core.window_handler.PyDuiWindowHandler
-      :property:
 
 
 

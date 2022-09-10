@@ -12,42 +12,29 @@ Classes
 
 .. autoapisummary::
 
-   pydui.core.layout.PyDuiLayoutEstimateResult
    pydui.core.layout.PyDuiLayout
 
 
 
 
-.. py:class:: PyDuiLayoutEstimateResult
-
-   Estimate layout result
-
-   .. py:attribute:: auto_layout_count
-      :annotation: :int = 0
-
-      
-
-   .. py:attribute:: auto_layout_value
-      :annotation: :int = 0
-
-      
-
-   .. py:attribute:: estimate_items
-      :annotation: :list[int]
-
-      
-
-
-.. py:class:: PyDuiLayout(parent: pydui.core.widget.PyDuiWidget, layout_class: pydui.core.widget.PyDuiLayoutEnum, custom_gtk_widget: gi.repository.Gtk.Widget = None)
+.. py:class:: PyDuiLayout(parent: pydui.core.widget.PyDuiWidget, custom_gtk_widget: pydui.core.widget.Gtk.Widget = None)
 
    Bases: :py:obj:`pydui.core.widget.PyDuiWidget`
 
    Layout base class, all layouts inherit from PyDuiLayout
 
-   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
 
 
-   .. py:method:: layout(x: float, y: float, width: float, height: float)
+   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float)
+
+
+   .. py:method:: layout(x: float, y: float, width: float, height: float, constraint: pydui.core.widget.PyDuiLayoutConstraint)
 
 
    .. py:method:: get_children_range_fixed_width(start, stop) -> float
@@ -65,6 +52,11 @@ Classes
 
       :returns: return widget object.
       :rtype: PyDuiWidget
+
+
+   .. py:method:: find_widget_by_pos(x: float, y: float, *, filter: Callable[[pydui.core.widget.PyDuiWidget], bool] = PyDuiWidget.find_widget_default_filter) -> pydui.core.widget.PyDuiWidget
+
+      Get child by position
 
 
    .. py:method:: get_child_at(index: int) -> pydui.core.widget.PyDuiWidget
@@ -141,6 +133,18 @@ Classes
 
       :returns: return padding.
       :rtype: tuple[float, float, float, float]
+
+
+   .. py:method:: halign() -> pydui.core.widget.PyDuiAlign
+      :property:
+
+
+   .. py:method:: valign() -> pydui.core.widget.PyDuiAlign
+      :property:
+
+
+   .. py:method:: fitrule() -> list[str]
+      :property:
 
 
 

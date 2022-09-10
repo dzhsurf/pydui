@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html  lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+      <title>pydui.core.render_manager</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="索引" href="../../../../genindex.html" />
+  <link rel="search" title="搜索" href="../../../../search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">快速搜索</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="搜索" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-pydui-s-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../intro.html" class="reference internal ">Introduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../quickstart.html" class="reference internal ">Quickstart</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+
+
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Languages</a></span>
+    </p>
+    <ul>
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal ">en</a>
+          </li>
+      
+          <li class="toctree-l1 current">
+            <a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/" class="reference internal current">zh_CN</a>
+          </li>
+      
+    </ul>
+  </div>
+
+    
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Versions</a></span>
+    </p>
+    <ul class="current">
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/" class="reference internal ">latest</a>
+          </li>
+      
+    </ul>
+  </div>
+
+
+  <!--
+  Free document hosting provided by <a href="https://pages.github.com">Github Pages</a>.
+  -->
+
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+    <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.core.render_manager</span></code></li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-pydui.core.render_manager">
+<span id="pydui-core-render-manager"></span><h1><a class="reference internal" href="#module-pydui.core.render_manager" title="pydui.core.render_manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.core.render_manager</span></code></a><a class="headerlink" href="#module-pydui.core.render_manager" title="此标题的永久链接">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="此标题的永久链接">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="此标题的永久链接">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager" title="pydui.core.render_manager.PyDuiRenderManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiRenderManager</span></code></a></p></td>
+<td><p>Render manager</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.render_manager.</span></span><span class="sig-name descname"><span class="pre">PyDuiRenderManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../window_base/index.html#pydui.core.window_base.PyDuiWindowBase" title="pydui.core.window_base.PyDuiWindowBase"><span class="pre">pydui.core.window_base.PyDuiWindowBase</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader" title="pydui.core.resource_loader.PyDuiResourceLoader"><span class="pre">pydui.core.resource_loader.PyDuiResourceLoader</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager" title="永久链接至目标">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../render_base/index.html#pydui.core.render_base.PyDuiRenderManagerBase" title="pydui.core.render_base.PyDuiRenderManagerBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pydui.core.render_base.PyDuiRenderManagerBase</span></code></a></p>
+<p>Render manager</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.release">
+<span class="sig-name descname"><span class="pre">release</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.release" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.notify_redraw">
+<span class="sig-name descname"><span class="pre">notify_redraw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.notify_redraw" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.get_render_context">
+<span class="sig-name descname"><span class="pre">get_render_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.import_gtk.cairo.Context</span></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.get_render_context" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.cancel_task">
+<span class="sig-name descname"><span class="pre">cancel_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.cancel_task" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.post_task">
+<span class="sig-name descname"><span class="pre">post_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.post_task" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.post_task_with_delay">
+<span class="sig-name descname"><span class="pre">post_task_with_delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.post_task_with_delay" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.get_resource_loader">
+<span class="sig-name descname"><span class="pre">get_resource_loader</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.get_resource_loader" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.default_fontcolor">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_fontcolor</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.import_gtk.Gdk.RGBA</span></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontcolor" title="永久链接至目标">¶</a></dt>
+<dd><p>return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return default font color</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>Gdk.RGBA</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.default_font_desc">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_font_desc</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.default_font_desc" title="永久链接至目标">¶</a></dt>
+<dd><p>return font desc in format f”{font_family} {font_size}”</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>font desc</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.default_fontfamily">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_fontfamily</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontfamily" title="永久链接至目标">¶</a></dt>
+<dd><p>return default font family, default is Arial</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>font family</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.default_fontsize">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_fontsize</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontsize" title="永久链接至目标">¶</a></dt>
+<dd><p>return default font size, default is 16</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>font size</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.set_rootview">
+<span class="sig-name descname"><span class="pre">set_rootview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rootview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../layout/index.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><span class="pre">pydui.core.layout.PyDuiLayout</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.set_rootview" title="永久链接至目标">¶</a></dt>
+<dd><p>set window root view</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rootview</strong> (<a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – widnow root view</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.get_widget">
+<span class="sig-name descname"><span class="pre">get_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.get_widget" title="永久链接至目标">¶</a></dt>
+<dd><p>Get widget by widget id</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget_id</strong> (<em>str</em>) – widget id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.get_widget_by_pos">
+<span class="sig-name descname"><span class="pre">get_widget_by_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PyDuiWidget.find_widget_default_filter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.get_widget_by_pos" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; 版权所有 2022, Hiram Deng.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

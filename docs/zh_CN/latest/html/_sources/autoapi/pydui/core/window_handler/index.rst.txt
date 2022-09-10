@@ -23,7 +23,7 @@ Classes
 
    Window handler
 
-   .. py:method:: on_window_init(window: PyDuiWindow)
+   .. py:method:: on_window_init(window: pydui.core.window_base.PyDuiWindowBase)
 
       On window init event
 

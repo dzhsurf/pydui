@@ -12,9 +12,32 @@ Classes
 
 .. autoapisummary::
 
+   pydui.widgets.button.PyDuiButtonState
    pydui.widgets.button.PyDuiButton
 
 
+
+
+.. py:class:: PyDuiButtonState
+
+   Bases: :py:obj:`pydui.widgets.label.Enum`
+
+   Button State
+
+   .. py:attribute:: NORMAL
+      :annotation: = [0]
+
+      
+
+   .. py:attribute:: HOVER
+      :annotation: = [1]
+
+      
+
+   .. py:attribute:: PRESS
+      :annotation: = [2]
+
+      
 
 
 .. py:class:: PyDuiButton(parent: pydui.widgets.label.PyDuiWidget)
@@ -23,12 +46,25 @@ Classes
 
    Button widget
 
+   .. py:method:: build_name() -> str
+      :staticmethod:
+
+
    .. py:method:: parse_attrib(k: str, v: str)
 
       Parse single attribute
 
       :param attrib: attributes dict key=value ...
       :type attrib: dict[str, str]
+
+
+   .. py:method:: draw_bkimage(ctx: pydui.widgets.label.cairo.Context, x: float, y: float, width: float, height: float)
+
+
+   .. py:method:: on_mouse_enter()
+
+
+   .. py:method:: on_mouse_leave(next_widget: pydui.widgets.label.PyDuiWidget)
 
 
 

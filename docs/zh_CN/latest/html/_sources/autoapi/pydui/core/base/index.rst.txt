@@ -12,8 +12,9 @@ Classes
 
 .. autoapisummary::
 
-   pydui.core.base.PyDuiLayoutEnum
-   pydui.core.base.PyDuiTextAlign
+   pydui.core.base.PyDuiAlign
+   pydui.core.base.PyDuiClickType
+   pydui.core.base.PyDuiLayoutConstraint
 
 
 
@@ -22,69 +23,20 @@ Functions
 
 .. autoapisummary::
 
-   pydui.core.base.Text2TextAlign
+   pydui.core.base.Text2PyDuiAlign
    pydui.core.base.Text2WrapMode
    pydui.core.base.Text2EllipsizeMode
 
 
 
-.. py:class:: PyDuiLayoutEnum
+.. py:class:: PyDuiAlign
 
    Bases: :py:obj:`enum.Enum`
 
-   Layout type enum
-
-   .. attribute:: Undefine
-
-      default
-
-   .. attribute:: HLayout
-
-      horizontal layout
-
-   .. attribute:: VLayout
-
-      vertical layout
-
-   .. py:attribute:: NotLayout
-      :annotation: = 0
-
-      
-
-   .. py:attribute:: HLayout
-      :annotation: = 1
-
-      
-
-   .. py:attribute:: VLayout
-      :annotation: = 2
-
-      
-
-   .. py:attribute:: FitLayout
-      :annotation: = 3
-
-      
-
-   .. py:attribute:: FixedLayout
-      :annotation: = 4
-
-      
-
-   .. py:attribute:: CustomLayout
-      :annotation: = 10
-
-      
-
-
-.. py:class:: PyDuiTextAlign
-
-   Bases: :py:obj:`enum.Enum`
-
-   Text align
+   Align type
 
    .. py:attribute:: CENTER
-      :annotation: = [0]
+      :annotation: = 0
 
       
 
@@ -99,12 +51,55 @@ Functions
       
 
 
-.. py:function:: Text2TextAlign(text: str) -> PyDuiTextAlign
+.. py:class:: PyDuiClickType
+
+   Bases: :py:obj:`enum.Enum`
+
+   Click Type
+
+   .. py:attribute:: NONE
+      :annotation: = 0
+
+      
+
+   .. py:attribute:: CLICK
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: DBCLICK
+      :annotation: = 2
+
+      
 
 
-.. py:function:: Text2WrapMode(text: str) -> gi.repository.Pango.WrapMode
+.. py:class:: PyDuiLayoutConstraint(w: float = -1, h: float = -1)
+
+   Bases: :py:obj:`object`
+
+   Layout constraint
+   if the value set to -1, it means no limit
+
+   .. py:attribute:: width
+      :annotation: :float
+
+      
+
+   .. py:attribute:: height
+      :annotation: :float
+
+      
+
+   .. py:method:: merge(constraint: PyDuiLayoutConstraint)
 
 
-.. py:function:: Text2EllipsizeMode(text: str) -> gi.repository.Pango.EllipsizeMode
+
+.. py:function:: Text2PyDuiAlign(text: str) -> PyDuiAlign
+
+
+.. py:function:: Text2WrapMode(text: str) -> pydui.core.import_gtk.Pango.WrapMode
+
+
+.. py:function:: Text2EllipsizeMode(text: str) -> pydui.core.import_gtk.Pango.EllipsizeMode
 
 

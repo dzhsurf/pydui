@@ -1,0 +1,110 @@
+:py:mod:`pydui.widgets.picture`
+===============================
+
+.. py:module:: pydui.widgets.picture
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.widgets.picture.PyDuiPicture
+
+
+
+
+.. py:class:: PyDuiPicture(parent: pydui.core.widget.PyDuiWidget)
+
+   Bases: :py:obj:`pydui.widgets.label.PyDuiLabel`
+
+   Label widget
+
+   .. attribute:: text
+
+      text content
+
+      :type: str
+
+   .. attribute:: font
+
+      font family name
+
+      :type: str
+
+   .. attribute:: fontsize
+
+      fontsize in pt unit
+
+      :type: int
+
+   .. attribute:: fontcolor
+
+      font color
+
+      :type: Gdk.RGBA
+
+   .. attribute:: ellipsis
+
+      ellipsis mode, [NONE, START, MIDDLE, END], default is END
+
+      :type: str
+
+   .. attribute:: wrap
+
+      wrap mode, [NONE, WORD, CHAR, WORD_CHAR], default is WORD
+
+      :type: str
+
+   .. attribute:: halign
+
+      horizontal TextAlign, [CENTER, STAET, END], default is CENTER
+
+      :type: str
+
+   .. attribute:: valign
+
+      vertical TextAlign, [CENTER, STAET, END], default is CENTER
+
+      :type: str
+
+   .. attribute:: line_spacing
+
+      line spacing
+
+      :type: float
+
+   .. attribute:: autofit
+
+      text is autofit or not
+
+      :type: bool
+
+   .. attribute:: autofit_padding
+
+      when autofit is set, autofit area padding
+
+      :type: Rect
+
+   .. attribute:: text_padding
+
+      text padding
+
+      :type: Rect
+
+   .. py:method:: build_name() -> str
+      :staticmethod:
+
+
+   .. py:method:: parse_attrib(k: str, v: str)
+
+      Parse single attribute
+
+      :param attrib: attributes dict key=value ...
+      :type attrib: dict[str, str]
+
+
+

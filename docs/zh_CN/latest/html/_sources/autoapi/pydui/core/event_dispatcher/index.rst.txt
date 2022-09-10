@@ -1,0 +1,57 @@
+:py:mod:`pydui.core.event_dispatcher`
+=====================================
+
+.. py:module:: pydui.core.event_dispatcher
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.event_dispatcher.PyDuiEventDispatcher
+
+
+
+
+.. py:class:: PyDuiEventDispatcher(window: pydui.core.import_gtk.Gtk.Window, manager: pydui.core.render_manager.PyDuiRenderManager, handler: pydui.core.window_handler.PyDuiWindowHandler, on_init: Callable[[None], None])
+
+   Bases: :py:obj:`object`
+
+   Event Dispatcher
+
+   .. py:method:: init_events()
+
+
+   .. py:method:: handler() -> pydui.core.window_handler.PyDuiWindowHandler
+      :property:
+
+
+   .. py:method:: on_window_destroy(object: pydui.core.import_gtk.Gtk.Widget)
+
+
+   .. py:method:: on_window_show(object: pydui.core.import_gtk.Gtk.Widget)
+
+
+   .. py:method:: on_window_hide(object: pydui.core.import_gtk.Gtk.Widget)
+
+
+   .. py:method:: on_configure_event(object: pydui.core.import_gtk.Gtk.Widget, event: pydui.core.import_gtk.Gdk.EventConfigure)
+
+
+   .. py:method:: on_window_state_event(object: pydui.core.import_gtk.Gtk.Widget, event: pydui.core.import_gtk.Gdk.EventWindowState)
+
+
+   .. py:method:: on_motion_notify(object: pydui.core.import_gtk.Gtk.Widget, event: pydui.core.import_gtk.Gtk.MotionEvent)
+
+
+   .. py:method:: on_button_press(object: pydui.core.import_gtk.Gtk.Widget, event: pydui.core.import_gtk.Gdk.EventButton) -> bool
+
+
+   .. py:method:: on_button_release(object: pydui.core.import_gtk.Gtk.Widget, event: pydui.core.import_gtk.Gdk.EventButton) -> bool
+
+
+

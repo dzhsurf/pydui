@@ -31,17 +31,42 @@ Classes
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.builder.INTERNAL_WIDGET_LIST
+   pydui.core.builder.INTERNAL_WIDGET_TABLE
+   pydui.core.builder.INTERNAL_WIDGET_INIT
+
+
+.. py:data:: INTERNAL_WIDGET_LIST
+   
+
+   
+
+.. py:data:: INTERNAL_WIDGET_TABLE
+   
+
+   
+
+.. py:data:: INTERNAL_WIDGET_INIT
+   :annotation: = False
+
+   
+
 .. py:class:: PyDuiBuilder
 
    Build Widget, Window from xml resource
 
-   .. py:method:: register_resource_loader(loader: pydui.widgets.label.Type[pydui.core.resource_loader.PyDuiResourceLoader])
+   .. py:method:: register_resource_loader(loader: pydui.core.window.PyDuiResourceLoader)
 
 
-   .. py:method:: get_loader() -> pydui.core.resource_loader.PyDuiResourceLoader
+   .. py:method:: get_loader() -> pydui.core.window.PyDuiResourceLoader
 
 
-   .. py:method:: build_widget(path: str) -> pydui.widgets.label.PyDuiWidget
+   .. py:method:: build_widget(path: str) -> pydui.core.window.PyDuiWidget
 
       Build widget from path
 
@@ -52,7 +77,7 @@ Classes
       :rtype: PyDuiWidget
 
 
-   .. py:method:: build_window(path: str, handler: pydui.widgets.label.Type[pydui.core.window.PyDuiWindowHandler]) -> pydui.core.window.PyDuiWindow
+   .. py:method:: build_window(path: str, handler: pydui.core.window.Type[pydui.core.window.PyDuiWindowHandler]) -> pydui.core.window.PyDuiWindow
 
       Build window from path and handler
 

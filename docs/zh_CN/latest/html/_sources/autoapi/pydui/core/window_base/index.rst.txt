@@ -1,0 +1,35 @@
+:py:mod:`pydui.core.window_base`
+================================
+
+.. py:module:: pydui.core.window_base
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.window_base.PyDuiWindowBase
+
+
+
+
+.. py:class:: PyDuiWindowBase
+
+   Bases: :py:obj:`abc.ABC`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: get_gtk_window() -> pydui.core.import_gtk.Gtk.Window
+      :abstractmethod:
+
+
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
+      :abstractmethod:
+
+
+

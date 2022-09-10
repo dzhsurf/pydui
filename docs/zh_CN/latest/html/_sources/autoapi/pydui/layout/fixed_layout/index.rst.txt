@@ -28,4 +28,8 @@ Classes
 
    FixedLayout implement
 
+   .. py:method:: build_name() -> str
+      :staticmethod:
+
+
 

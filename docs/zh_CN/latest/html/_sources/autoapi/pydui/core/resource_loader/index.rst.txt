@@ -54,6 +54,12 @@ Functions
       Load data
 
 
+   .. py:method:: load_image(path: str) -> Tuple[bytes, float]
+      :abstractmethod:
+
+      Load image buffer with hi-dpi suppose
+
+
    .. py:method:: load_string(id: str) -> str
       :abstractmethod:
 

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+      <title>pydui.utils.conversion</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-pydui-s-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../intro.html" class="reference internal ">Introduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../quickstart.html" class="reference internal ">Quickstart</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+
+
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Languages</a></span>
+    </p>
+    <ul>
+      
+          <li class="toctree-l1 current">
+            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal current">en</a>
+          </li>
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/" class="reference internal ">zh_CN</a>
+          </li>
+      
+    </ul>
+  </div>
+
+    
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Versions</a></span>
+    </p>
+    <ul class="current">
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal ">latest</a>
+          </li>
+      
+    </ul>
+  </div>
+
+
+  <!--
+  Free document hosting provided by <a href="https://pages.github.com">Github Pages</a>.
+  -->
+
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+    <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.utils.conversion</span></code></li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-pydui.utils.conversion">
+<span id="pydui-utils-conversion"></span><h1><a class="reference internal" href="#module-pydui.utils.conversion" title="pydui.utils.conversion"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.utils.conversion</span></code></a><a class="headerlink" href="#module-pydui.utils.conversion" title="Permalink to this heading">¶</a></h1>
+<p>Conversion function</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.utils.conversion.Str2Size" title="pydui.utils.conversion.Str2Size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Str2Size</span></code></a>(→ tuple[float, float])</p></td>
+<td><p>Convert text to tuple[float, float]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pydui.utils.conversion.Str2Position" title="pydui.utils.conversion.Str2Position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Str2Position</span></code></a>(→ pydui.core.import_gtk.Gtk.WindowPosition)</p></td>
+<td><p>Convert text to Gtk.WindowPosition flag</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.utils.conversion.Str2Color" title="pydui.utils.conversion.Str2Color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Str2Color</span></code></a>(→ pydui.core.import_gtk.Gdk.RGBA)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pydui.utils.conversion.Str2Rect" title="pydui.utils.conversion.Str2Rect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Str2Rect</span></code></a>(→ tuple[float, float, float, float])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.utils.conversion.IsNoneZeroRect" title="pydui.utils.conversion.IsNoneZeroRect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IsNoneZeroRect</span></code></a>(→ bool)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pydui.utils.conversion.RectH" title="pydui.utils.conversion.RectH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectH</span></code></a>(→ float)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.utils.conversion.RectW" title="pydui.utils.conversion.RectW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectW</span></code></a>(→ float)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.Str2Size">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">Str2Size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.utils.conversion.Str2Size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert text to tuple[float, float]</p>
+<p>if the text in wrong format, it will return (0, 0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – input text</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Retruns:</dt><dd><p>tuple[float, float]: return size in tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.Str2Position">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">Str2Position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.import_gtk.Gtk.WindowPosition</span></span></span><a class="headerlink" href="#pydui.utils.conversion.Str2Position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert text to Gtk.WindowPosition flag</p>
+<p>if the input not match, it will return Gtk.WindowPosition.CENTER by default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – input text</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Retruns:</dt><dd><p>Gtk.WindowPosition: return gtk position flag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.Str2Color">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">Str2Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.import_gtk.Gdk.RGBA</span></span></span><a class="headerlink" href="#pydui.utils.conversion.Str2Color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.Str2Rect">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">Str2Rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.utils.conversion.Str2Rect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.IsNoneZeroRect">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">IsNoneZeroRect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.utils.conversion.IsNoneZeroRect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.RectH">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">RectH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pydui.utils.conversion.RectH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.RectW">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">RectW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pydui.utils.conversion.RectW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2022, Hiram Deng.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

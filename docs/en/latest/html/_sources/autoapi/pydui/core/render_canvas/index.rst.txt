@@ -19,11 +19,17 @@ Classes
 
 .. py:class:: PyDuiRenderCanvas(ondraw: callable, css=None, border_width=0)
 
-   Bases: :py:obj:`gi.repository.Gtk.Frame`
+   Bases: :py:obj:`pydui.core.import_gtk.Gtk.Frame`
 
    Render canvas
 
    .. py:method:: redraw()
+
+
+   .. py:method:: get_width() -> float
+
+
+   .. py:method:: get_height() -> float
 
 
 

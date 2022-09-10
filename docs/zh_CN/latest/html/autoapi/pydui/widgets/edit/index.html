@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html  lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+      <title>pydui.widgets.edit</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="索引" href="../../../../genindex.html" />
+  <link rel="search" title="搜索" href="../../../../search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">快速搜索</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="搜索" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-pydui-s-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../intro.html" class="reference internal ">Introduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../quickstart.html" class="reference internal ">Quickstart</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+
+
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Languages</a></span>
+    </p>
+    <ul>
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal ">en</a>
+          </li>
+      
+          <li class="toctree-l1 current">
+            <a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/" class="reference internal current">zh_CN</a>
+          </li>
+      
+    </ul>
+  </div>
+
+    
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Versions</a></span>
+    </p>
+    <ul class="current">
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/" class="reference internal ">latest</a>
+          </li>
+      
+    </ul>
+  </div>
+
+
+  <!--
+  Free document hosting provided by <a href="https://pages.github.com">Github Pages</a>.
+  -->
+
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+    <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.widgets.edit</span></code></li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-pydui.widgets.edit">
+<span id="pydui-widgets-edit"></span><h1><a class="reference internal" href="#module-pydui.widgets.edit" title="pydui.widgets.edit"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.widgets.edit</span></code></a><a class="headerlink" href="#module-pydui.widgets.edit" title="此标题的永久链接">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="此标题的永久链接">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="此标题的永久链接">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.widgets.edit.PyDuiEdit" title="pydui.widgets.edit.PyDuiEdit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiEdit</span></code></a></p></td>
+<td><p>Widget base class</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.widgets.edit.PyDuiEdit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.edit.</span></span><span class="sig-name descname"><span class="pre">PyDuiEdit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../core/widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">pydui.core.widget.PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit" title="永久链接至目标">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../core/widget/index.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pydui.core.widget.PyDuiWidget</span></code></a></p>
+<p>Widget base class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.edit.PyDuiEdit.build_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit.build_name" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.edit.PyDuiEdit.parse_attrib">
+<span class="sig-name descname"><span class="pre">parse_attrib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit.parse_attrib" title="永久链接至目标">¶</a></dt>
+<dd><p>Parse single attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attrib</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – attributes dict key=value …</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; 版权所有 2022, Hiram Deng.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

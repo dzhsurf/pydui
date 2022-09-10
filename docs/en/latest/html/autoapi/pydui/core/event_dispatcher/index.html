@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+      <title>pydui.core.event_dispatcher</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-pydui-s-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../intro.html" class="reference internal ">Introduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../quickstart.html" class="reference internal ">Quickstart</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+
+
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Languages</a></span>
+    </p>
+    <ul>
+      
+          <li class="toctree-l1 current">
+            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal current">en</a>
+          </li>
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/" class="reference internal ">zh_CN</a>
+          </li>
+      
+    </ul>
+  </div>
+
+    
+
+  <div class="sidebar-group">
+    <p class="caption">
+      <span class="caption-text"><a href="#">Versions</a></span>
+    </p>
+    <ul class="current">
+      
+          <li class="toctree-l1 ">
+            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal ">latest</a>
+          </li>
+      
+    </ul>
+  </div>
+
+
+  <!--
+  Free document hosting provided by <a href="https://pages.github.com">Github Pages</a>.
+  -->
+
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+    <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.core.event_dispatcher</span></code></li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-pydui.core.event_dispatcher">
+<span id="pydui-core-event-dispatcher"></span><h1><a class="reference internal" href="#module-pydui.core.event_dispatcher" title="pydui.core.event_dispatcher"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydui.core.event_dispatcher</span></code></a><a class="headerlink" href="#module-pydui.core.event_dispatcher" title="Permalink to this heading">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher" title="pydui.core.event_dispatcher.PyDuiEventDispatcher"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiEventDispatcher</span></code></a></p></td>
+<td><p>Event Dispatcher</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.event_dispatcher.</span></span><span class="sig-name descname"><span class="pre">PyDuiEventDispatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager" title="pydui.core.render_manager.PyDuiRenderManager"><span class="pre">pydui.core.render_manager.PyDuiRenderManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../window_handler/index.html#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">pydui.core.window_handler.PyDuiWindowHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Event Dispatcher</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.init_events">
+<span class="sig-name descname"><span class="pre">init_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.init_events" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.handler">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handler</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../window_handler/index.html#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">pydui.core.window_handler.PyDuiWindowHandler</span></a></span></span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_destroy">
+<span class="sig-name descname"><span class="pre">on_window_destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Widget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_destroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_show">
+<span class="sig-name descname"><span class="pre">on_window_show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Widget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_hide">
+<span class="sig-name descname"><span class="pre">on_window_hide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Widget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_hide" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.on_configure_event">
+<span class="sig-name descname"><span class="pre">on_configure_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gdk.EventConfigure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_configure_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_state_event">
+<span class="sig-name descname"><span class="pre">on_window_state_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gdk.EventWindowState</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_state_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.on_motion_notify">
+<span class="sig-name descname"><span class="pre">on_motion_notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.MotionEvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_motion_notify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.on_button_press">
+<span class="sig-name descname"><span class="pre">on_button_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gdk.EventButton</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_button_press" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher.on_button_release">
+<span class="sig-name descname"><span class="pre">on_button_release</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gtk.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.import_gtk.Gdk.EventButton</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_button_release" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2022, Hiram Deng.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

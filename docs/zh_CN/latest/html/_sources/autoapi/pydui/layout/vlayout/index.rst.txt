@@ -23,10 +23,17 @@ Classes
 
    Vertical layout
 
-   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+   .. py:method:: build_name() -> str
+      :staticmethod:
 
 
-   .. py:method:: layout(x: float, y: float, width: float, height: float)
+   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float)
+
+
+   .. py:method:: estimate_size(parent_width: float, parent_height: float, constraint: pydui.core.widget.PyDuiLayoutConstraint) -> Tuple[float, float]
+
+
+   .. py:method:: layout(x: float, y: float, width: float, height: float, constraint: pydui.core.widget.PyDuiLayoutConstraint)
 
 
 

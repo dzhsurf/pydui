@@ -172,11 +172,14 @@
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.base.PyDuiLayoutEnum" title="pydui.core.base.PyDuiLayoutEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiLayoutEnum</span></code></a></p></td>
-<td><p>Layout type enum</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.base.PyDuiAlign" title="pydui.core.base.PyDuiAlign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiAlign</span></code></a></p></td>
+<td><p>Align type</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pydui.core.base.PyDuiTextAlign" title="pydui.core.base.PyDuiTextAlign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiTextAlign</span></code></a></p></td>
-<td><p>Text align</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pydui.core.base.PyDuiClickType" title="pydui.core.base.PyDuiClickType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiClickType</span></code></a></p></td>
+<td><p>Click Type</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.base.PyDuiLayoutConstraint" title="pydui.core.base.PyDuiLayoutConstraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint</span></code></a></p></td>
+<td><p>Layout constraint</p></td>
 </tr>
 </tbody>
 </table>
@@ -185,107 +188,97 @@
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.base.Text2TextAlign" title="pydui.core.base.Text2TextAlign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Text2TextAlign</span></code></a>(→ PyDuiTextAlign)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.base.Text2PyDuiAlign" title="pydui.core.base.Text2PyDuiAlign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Text2PyDuiAlign</span></code></a>(→ PyDuiAlign)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pydui.core.base.Text2WrapMode" title="pydui.core.base.Text2WrapMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Text2WrapMode</span></code></a>(→ gi.repository.Pango.WrapMode)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pydui.core.base.Text2WrapMode" title="pydui.core.base.Text2WrapMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Text2WrapMode</span></code></a>(→ pydui.core.import_gtk.Pango.WrapMode)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.base.Text2EllipsizeMode" title="pydui.core.base.Text2EllipsizeMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Text2EllipsizeMode</span></code></a>(→ gi.repository.Pango.EllipsizeMode)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.base.Text2EllipsizeMode" title="pydui.core.base.Text2EllipsizeMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Text2EllipsizeMode</span></code></a>(...)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutEnum">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayoutEnum</span></span><a class="headerlink" href="#pydui.core.base.PyDuiLayoutEnum" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiAlign">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiAlign</span></span><a class="headerlink" href="#pydui.core.base.PyDuiAlign" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Layout type enum</p>
+<p>Align type</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutEnum.Undefine">
-<span class="sig-name descname"><span class="pre">Undefine</span></span><a class="headerlink" href="#pydui.core.base.PyDuiLayoutEnum.Undefine" title="Permalink to this definition">¶</a></dt>
-<dd><p>default</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutEnum.HLayout">
-<span class="sig-name descname"><span class="pre">HLayout</span></span><a class="headerlink" href="#pydui.core.base.PyDuiLayoutEnum.HLayout" title="Permalink to this definition">¶</a></dt>
-<dd><p>horizontal layout</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutEnum.VLayout">
-<span class="sig-name descname"><span class="pre">VLayout</span></span><a class="headerlink" href="#pydui.core.base.PyDuiLayoutEnum.VLayout" title="Permalink to this definition">¶</a></dt>
-<dd><p>vertical layout</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutEnum.NotLayout">
-<span class="sig-name descname"><span class="pre">NotLayout</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pydui.core.base.PyDuiLayoutEnum.NotLayout" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiAlign.CENTER">
+<span class="sig-name descname"><span class="pre">CENTER</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pydui.core.base.PyDuiAlign.CENTER" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">HLayout</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiAlign.START">
+<span class="sig-name descname"><span class="pre">START</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#pydui.core.base.PyDuiAlign.START" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">VLayout</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutEnum.FitLayout">
-<span class="sig-name descname"><span class="pre">FitLayout</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#pydui.core.base.PyDuiLayoutEnum.FitLayout" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutEnum.FixedLayout">
-<span class="sig-name descname"><span class="pre">FixedLayout</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#pydui.core.base.PyDuiLayoutEnum.FixedLayout" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutEnum.CustomLayout">
-<span class="sig-name descname"><span class="pre">CustomLayout</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">10</span></em><a class="headerlink" href="#pydui.core.base.PyDuiLayoutEnum.CustomLayout" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiAlign.END">
+<span class="sig-name descname"><span class="pre">END</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#pydui.core.base.PyDuiAlign.END" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiTextAlign">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiTextAlign</span></span><a class="headerlink" href="#pydui.core.base.PyDuiTextAlign" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiClickType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiClickType</span></span><a class="headerlink" href="#pydui.core.base.PyDuiClickType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Text align</p>
+<p>Click Type</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiTextAlign.CENTER">
-<span class="sig-name descname"><span class="pre">CENTER</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[0]</span></em><a class="headerlink" href="#pydui.core.base.PyDuiTextAlign.CENTER" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiClickType.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pydui.core.base.PyDuiClickType.NONE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiTextAlign.START">
-<span class="sig-name descname"><span class="pre">START</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#pydui.core.base.PyDuiTextAlign.START" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiClickType.CLICK">
+<span class="sig-name descname"><span class="pre">CLICK</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#pydui.core.base.PyDuiClickType.CLICK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiTextAlign.END">
-<span class="sig-name descname"><span class="pre">END</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#pydui.core.base.PyDuiTextAlign.END" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiClickType.DBCLICK">
+<span class="sig-name descname"><span class="pre">DBCLICK</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#pydui.core.base.PyDuiClickType.DBCLICK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutConstraint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayoutConstraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.base.PyDuiLayoutConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Layout constraint
+if the value set to -1, it means no limit</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutConstraint.width">
+<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="w"> </span><span class="pre">:float</span></em><a class="headerlink" href="#pydui.core.base.PyDuiLayoutConstraint.width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutConstraint.height">
+<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="w"> </span><span class="pre">:float</span></em><a class="headerlink" href="#pydui.core.base.PyDuiLayoutConstraint.height" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutConstraint.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.base.PyDuiLayoutConstraint" title="pydui.core.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.base.PyDuiLayoutConstraint.merge" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pydui.core.base.Text2TextAlign">
-<span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">Text2TextAlign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.base.PyDuiTextAlign" title="pydui.core.base.PyDuiTextAlign"><span class="pre">PyDuiTextAlign</span></a></span></span><a class="headerlink" href="#pydui.core.base.Text2TextAlign" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.base.Text2PyDuiAlign">
+<span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">Text2PyDuiAlign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.base.PyDuiAlign" title="pydui.core.base.PyDuiAlign"><span class="pre">PyDuiAlign</span></a></span></span><a class="headerlink" href="#pydui.core.base.Text2PyDuiAlign" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pydui.core.base.Text2WrapMode">
-<span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">Text2WrapMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">gi.repository.Pango.WrapMode</span></span></span><a class="headerlink" href="#pydui.core.base.Text2WrapMode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">Text2WrapMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.import_gtk.Pango.WrapMode</span></span></span><a class="headerlink" href="#pydui.core.base.Text2WrapMode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pydui.core.base.Text2EllipsizeMode">
-<span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">Text2EllipsizeMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">gi.repository.Pango.EllipsizeMode</span></span></span><a class="headerlink" href="#pydui.core.base.Text2EllipsizeMode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">Text2EllipsizeMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.import_gtk.Pango.EllipsizeMode</span></span></span><a class="headerlink" href="#pydui.core.base.Text2EllipsizeMode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>

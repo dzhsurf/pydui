@@ -77,6 +77,28 @@ Classes
 
       :type: float
 
+   .. attribute:: autofit
+
+      text is autofit or not
+
+      :type: bool
+
+   .. attribute:: autofit_padding
+
+      when autofit is set, autofit area padding
+
+      :type: Rect
+
+   .. attribute:: text_padding
+
+      text padding
+
+      :type: Rect
+
+   .. py:method:: build_name() -> str
+      :staticmethod:
+
+
    .. py:method:: parse_attrib(k: str, v: str)
 
       Parse single attribute
@@ -85,13 +107,17 @@ Classes
       :type attrib: dict[str, str]
 
 
-   .. py:method:: draw_bkimage(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+   .. py:method:: estimate_size(parent_width: float, parent_height: float, constraint: pydui.core.widget.PyDuiLayoutConstraint) -> tuple[float, float]
 
 
-   .. py:method:: draw_text(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+   .. py:method:: draw_text(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float)
 
 
-   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+   .. py:method:: draw(ctx: pydui.core.widget.cairo.Context, x: float, y: float, width: float, height: float)
+
+
+   .. py:method:: text() -> str
+      :property:
 
 
 

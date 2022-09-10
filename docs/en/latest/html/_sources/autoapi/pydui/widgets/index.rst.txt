@@ -16,6 +16,9 @@ Submodules
    :maxdepth: 1
 
    button/index.rst
+   edit/index.rst
+   icon/index.rst
    label/index.rst
+   picture/index.rst
 
 

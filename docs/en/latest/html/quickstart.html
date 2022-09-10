@@ -203,6 +203,7 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 </section>
 <section id="code-example">
 <h3>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">¶</a></h3>
+<p><img alt="Demo" src="https://github.com/dzhsurf/pydui/raw/main/images/demo.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pydui</span>
 <span class="kn">from</span> <span class="nn">pydui</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pydui.core.resource_loader</span> <span class="kn">import</span> <span class="n">create_default_resource_loader</span>
@@ -217,13 +218,11 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 <span class="k">class</span> <span class="nc">DemoHandler</span><span class="p">(</span><span class="n">PyDuiWindowHandler</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">on_window_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="n">PyDuiWindow</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;on_window_init&quot;</span><span class="p">)</span>
-
-        <span class="k">def</span> <span class="nf">handle_click</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You clicked!&quot;</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
-
+        <span class="c1">#def handle_click(object):</span>
+        <span class="c1">#    print(&quot;You clicked!&quot;, object)</span>
         <span class="c1"># bind widget event here</span>
-        <span class="n">widget</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">get_widget</span><span class="p">(</span><span class="n">widget_id</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="p">)</span>
-        <span class="n">widget</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="n">handle_click</span><span class="p">)</span>
+        <span class="c1">#widget = window.get_widget(widget_id=&quot;button&quot;)</span>
+        <span class="c1">#widget.connect(&quot;clicked&quot;, handle_click)</span>
 
     <span class="k">def</span> <span class="nf">on_window_destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;on_window_destroy&quot;</span><span class="p">)</span>
@@ -240,6 +239,59 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>XML File</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;Window</span> <span class="na">size=</span><span class="s">&quot;664,600&quot;</span> <span class="na">title=</span><span class="s">&#39;Quickstart Demo&#39;</span> <span class="na">min_size=</span><span class="s">&quot;600,400&quot;</span>
+    <span class="na">default_font=</span><span class="s">&quot;Helvetica&quot;</span> <span class="na">default_fontsize=</span><span class="s">&quot;16&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;HLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFFFFFFF&quot;</span><span class="nt">&gt;</span>
+        <span class="cm">&lt;!-- left panel --&gt;</span>
+        <span class="nt">&lt;VLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFC8C8C8&quot;</span> <span class="na">width=</span><span class="s">&quot;200&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/VLayout&gt;</span>
+        <span class="nt">&lt;VLayout</span> <span class="na">halign=</span><span class="s">&quot;CENTER&quot;</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFE8E8E8&quot;</span><span class="nt">&gt;</span>
+            <span class="cm">&lt;!-- head --&gt;</span>
+            <span class="nt">&lt;HLayout</span> <span class="na">height=</span><span class="s">&quot;62&quot;</span> <span class="na">bkcolor=</span><span class="s">&quot;FFD8D8D8&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;Picture</span> <span class="na">width=</span><span class="s">&quot;46&quot;</span> <span class="na">image=</span><span class="s">&quot;res/images/logo.png&quot;</span> <span class="na">margin=</span><span class="s">&quot;8,8,8,8&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;VLayout</span> <span class="na">margin=</span><span class="s">&quot;0,12,0,12&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;PyDui-GTK Group&quot;</span> <span class="na">halign=</span><span class="s">&quot;START&quot;</span> <span class="na">fontcolor=</span><span class="s">&quot;#FF1A1A1A&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;A powerful desktop UI framework.&quot;</span> <span class="na">fontsize=</span><span class="s">&quot;12&quot;</span> <span class="na">halign=</span><span class="s">&quot;START&quot;</span> <span class="na">fontcolor=</span><span class="s">&quot;#FF8A8A8A&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/VLayout&gt;</span>
+            <span class="nt">&lt;/HLayout&gt;</span>
+            <span class="cm">&lt;!-- body --&gt;</span>
+            <span class="nt">&lt;VLayout</span> <span class="na">padding=</span><span class="s">&quot;8,8,8,8&quot;</span><span class="nt">&gt;</span>
+
+                <span class="nt">&lt;HLayout</span> <span class="na">valign=</span><span class="s">&quot;START&quot;</span> <span class="na">margin=</span><span class="s">&quot;12,0,12,0&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">fitrule=</span><span class="s">&quot;h&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Picture</span> <span class="na">width=</span><span class="s">&quot;40&quot;</span> <span class="na">height=</span><span class="s">&quot;40&quot;</span> <span class="na">image=</span><span class="s">&quot;res/images/avatar-2.jpeg&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;VLayout</span> <span class="na">halign=</span><span class="s">&quot;START&quot;</span> <span class="na">margin=</span><span class="s">&quot;12,0,122,0&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">fitrule=</span><span class="s">&quot;h&quot;</span> <span class="nt">&gt;</span>
+                        <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;Angela:&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span>
+                            <span class="na">fontsize=</span><span class="s">&quot;14&quot;</span> <span class="na">fontcolor=</span><span class="s">&quot;#FF8A8A8A&quot;</span> <span class="na">valign=</span><span class="s">&quot;START&quot;</span> <span class="na">halign=</span><span class="s">&quot;START&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;I&#39;d like to know more about the pydui-gtk and discuss how we can use it in our product.&quot;</span> <span class="na">margin=</span><span class="s">&quot;0,8,0,0&quot;</span>
+                            <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">autofit_padding=</span><span class="s">&quot;12,8,12,8&quot;</span>
+                            <span class="na">corner=</span><span class="s">&quot;12,12,12,12&quot;</span>
+                            <span class="na">bkimage=</span><span class="s">&quot;res/images/common_button_disable.png&quot;</span>
+                        <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/VLayout&gt;</span>
+                <span class="nt">&lt;/HLayout&gt;</span>
+
+                <span class="nt">&lt;HLayout</span> <span class="na">valign=</span><span class="s">&quot;START&quot;</span> <span class="na">margin=</span><span class="s">&quot;12,0,12,0&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">fitrule=</span><span class="s">&quot;h&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Control</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;Sure, you can use pydui-gtk to create desktop app. You should try it.&quot;</span>
+                        <span class="na">margin=</span><span class="s">&quot;122,0,12,0&quot;</span>
+                        <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">autofit_padding=</span><span class="s">&quot;12,8,12,8&quot;</span>
+                        <span class="na">corner=</span><span class="s">&quot;12,12,12,12&quot;</span>
+                        <span class="na">bkimage=</span><span class="s">&quot;res/images/common_button_normal.png&quot;</span>
+                    <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;Picture</span> <span class="na">width=</span><span class="s">&quot;40&quot;</span> <span class="na">height=</span><span class="s">&quot;40&quot;</span> <span class="na">image=</span><span class="s">&quot;res/images/avatar-1.jpeg&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/HLayout&gt;</span>
+
+                <span class="cm">&lt;!-- bottom bar --&gt;</span>
+                <span class="nt">&lt;Control</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;Edit</span> <span class="na">name=</span><span class="s">&quot;input_edit&quot;</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFFFFFFF&quot;</span> <span class="na">height=</span><span class="s">&quot;120&quot;</span> <span class="na">margin=</span><span class="s">&quot;2,2,2,2&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/VLayout&gt;</span>
+        <span class="nt">&lt;/VLayout&gt;</span>
+    <span class="nt">&lt;/HLayout&gt;</span>
+<span class="nt">&lt;/Window&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -272,12 +324,12 @@ pip install -e .
 </li>
 <li><p>Layout</p>
 <ul>
-<li><p>HLayout, VLayout, FixedLayout, FitLayout</p></li>
+<li><p>HLayout, VLayout, FixedLayout</p></li>
 </ul>
 </li>
 <li><p>Widgets</p>
 <ul>
-<li><p>Label, Button, Image, Edit, InfiniteList, Menu, Toast</p></li>
+<li><p>Label, Button, Picture, Edit, InfiniteList, Menu, Toast</p></li>
 </ul>
 </li>
 <li><p>Deployment</p>
@@ -296,6 +348,52 @@ pip install -e .
 <li><p>Window Shadow</p></li>
 </ul>
 </li>
+</ul>
+</section>
+<section id="development-progress">
+<h3>Development progress<a class="headerlink" href="#development-progress" title="Permalink to this heading">¶</a></h3>
+<p>Builder:</p>
+<ul class="simple">
+<li><p>[ Window, Control, Label, Button, Edit, Picture, HLayout, VLayout ] - finish</p></li>
+</ul>
+<p>ResourceLoader:</p>
+<ul class="simple">
+<li><p>DefaultResourceLoader - finish</p></li>
+<li><p>FileResourceLoader - pending</p></li>
+<li><p>ResourceLoaderCache - pending</p>
+<ul>
+<li><p>lrucache</p></li>
+</ul>
+</li>
+</ul>
+<p>Render:</p>
+<ul class="simple">
+<li><p>DrawRectangle - finish</p></li>
+<li><p>DrawImage - finish</p></li>
+<li><p>DrawText - finish</p></li>
+<li><p>Hi-DPI suppose - almost done</p></li>
+<li><p>Draw area boundary protection - 0%, processing</p></li>
+</ul>
+<p>Layout:</p>
+<ul class="simple">
+<li><p>HLayout - finish</p></li>
+<li><p>VLayout - finish</p></li>
+<li><p>FixedLayout - 0%</p></li>
+</ul>
+<p>Widget:</p>
+<ul class="simple">
+<li><p>Widget base - finish</p></li>
+<li><p>Label - finish</p></li>
+<li><p>Button - finish</p></li>
+<li><p>Edit - 0%, processing</p>
+<ul>
+<li><p>Focus event suppose</p></li>
+</ul>
+</li>
+<li><p>Picture - 0%, processing</p></li>
+<li><p>Scrollable - 0%, pending</p></li>
+<li><p>InfiniteList - 0%, pending</p></li>
+<li><p>Menu - 0%, not started</p></li>
 </ul>
 </section>
 <section id="reference">

@@ -43,13 +43,25 @@ Classes
       
 
 
-.. py:class:: PyDuiWidget(parent: PyDuiWidget, layout_class: pydui.core.base.PyDuiLayoutEnum = PyDuiLayoutEnum.NotLayout)
+.. py:class:: PyDuiWidget(parent: PyDuiWidget)
 
    Bases: :py:obj:`object`
 
    Widget base class
 
-   .. py:method:: set_render_manager(render_manager: PyDuiRenderManager)
+   .. py:method:: build_name() -> str
+      :staticmethod:
+
+
+   .. py:method:: find_widget_default_filter(widget: PyDuiWidget) -> bool
+      :staticmethod:
+
+
+   .. py:method:: find_widget_mouse_event_filter(widget: PyDuiWidget) -> bool
+      :staticmethod:
+
+
+   .. py:method:: set_render_manager(render_manager: pydui.core.render_base.PyDuiRenderManagerBase)
 
       Set the render mananger
 
@@ -73,13 +85,19 @@ Classes
       :rtype: str
 
 
-   .. py:method:: draw(ctx: cairo.Context, x: float, y: float, width: float, height: float, canvas_width: float, canvas_height: float)
+   .. py:method:: draw(ctx: pydui.core.import_gtk.cairo.Context, x: float, y: float, width: float, height: float)
 
 
-   .. py:method:: layout(x: float, y: float, width: float, height: float)
+   .. py:method:: draw_bkcolor(ctx: pydui.core.import_gtk.cairo.Context, x: float, y: float, width: float, height: float)
 
 
-   .. py:method:: estimate_size(parent_width: float, parent_height: float) -> tuple[float, float]
+   .. py:method:: draw_bkimage(ctx: pydui.core.import_gtk.cairo.Context, x: float, y: float, width: float, height: float)
+
+
+   .. py:method:: layout(x: float, y: float, width: float, height: float, constraint: pydui.core.base.PyDuiLayoutConstraint)
+
+
+   .. py:method:: estimate_size(parent_width: float, parent_height: float, constraint: pydui.core.base.PyDuiLayoutConstraint) -> tuple[float, float]
 
 
    .. py:method:: parse_attributes(attrib: dict[str, str])
@@ -98,14 +116,65 @@ Classes
       :type attrib: dict[str, str]
 
 
+   .. py:method:: enable_mouse_event() -> bool
+      :property:
+
+
+   .. py:method:: on_mouse_enter()
+
+
+   .. py:method:: on_mouse_leave(next_widget: PyDuiWidget)
+
+
+   .. py:method:: on_mouse_move(x: float, y: float)
+
+
+   .. py:method:: on_lbutton_press(x: float, y: float)
+
+
+   .. py:method:: on_lbutton_release(x: float, y: float)
+
+
+   .. py:method:: on_rbutton_press(x: float, y: float)
+
+
+   .. py:method:: on_rbutton_release(x: float, y: float)
+
+
+   .. py:method:: on_lbutton_click(x: float, y: float)
+
+
+   .. py:method:: on_rbutton_click(x: float, y: float)
+
+
+   .. py:method:: on_l2button_click(x: float, y: float)
+
+
+   .. py:method:: on_r2button_click(x: float, y: float)
+
+
+   .. py:method:: on_l3button_click(x: float, y: float)
+
+
+   .. py:method:: on_r3button_click(x: float, y: float)
+
+
    .. py:method:: connect(signal_name: str, callback: callable)
+
+
+   .. py:method:: disconnect(signal_name: str, callback: callable)
+
+
+   .. py:method:: disconnect_signal(signal_name: str)
+
+
+   .. py:method:: emit(signal_name: str, *args: Any, **kwargs: Any)
 
 
    .. py:method:: set_focus()
 
 
-   .. py:method:: layout_class() -> pydui.core.base.PyDuiLayoutEnum
-      :property:
+   .. py:method:: contain_pos(x: float, y: float) -> bool
 
 
    .. py:method:: parent() -> PyDuiWidget
@@ -191,15 +260,23 @@ Classes
       :property:
 
 
+   .. py:method:: autofit() -> bool
+      :property:
+
+
    .. py:method:: is_focused() -> bool
       :property:
 
 
-   .. py:method:: bkcolor() -> gi.repository.Gdk.RGBA
+   .. py:method:: bkcolor() -> pydui.core.import_gtk.Gdk.RGBA
       :property:
 
 
    .. py:method:: bkimage() -> str
+      :property:
+
+
+   .. py:method:: corner() -> tuple[float, float, float, float]
       :property:
 
 

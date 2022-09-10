@@ -1,0 +1,102 @@
+:py:mod:`pydui.core.render_manager`
+===================================
+
+.. py:module:: pydui.core.render_manager
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.render_manager.PyDuiRenderManager
+
+
+
+
+.. py:class:: PyDuiRenderManager(window: pydui.core.window_base.PyDuiWindowBase, loader: pydui.core.resource_loader.PyDuiResourceLoader)
+
+   Bases: :py:obj:`pydui.core.render_base.PyDuiRenderManagerBase`
+
+   Render manager
+
+   .. py:method:: release()
+
+
+   .. py:method:: notify_redraw()
+
+
+   .. py:method:: get_render_context() -> pydui.core.import_gtk.cairo.Context
+
+
+   .. py:method:: cancel_task(task_id: str)
+
+
+   .. py:method:: post_task(fn: callable, *args: Any, **kwargs: Any) -> str
+
+
+   .. py:method:: post_task_with_delay(delay: float, fn: callable, *args: Any, **kwargs: Any) -> str
+
+
+   .. py:method:: get_resource_loader()
+
+
+   .. py:method:: default_fontcolor() -> pydui.core.import_gtk.Gdk.RGBA
+      :property:
+
+      return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
+
+      :returns: return default font color
+      :rtype: Gdk.RGBA
+
+
+   .. py:method:: default_font_desc() -> str
+      :property:
+
+      return font desc in format f"{font_family} {font_size}"
+
+      :returns: font desc
+      :rtype: str
+
+
+   .. py:method:: default_fontfamily() -> str
+      :property:
+
+      return default font family, default is Arial
+
+      :returns: font family
+      :rtype: str
+
+
+   .. py:method:: default_fontsize() -> int
+      :property:
+
+      return default font size, default is 16
+
+      :returns: font size
+      :rtype: int
+
+
+   .. py:method:: set_rootview(rootview: pydui.core.layout.PyDuiLayout)
+
+      set window root view
+
+      :param rootview: widnow root view
+      :type rootview: PyDuiWidget
+
+
+   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
+
+      Get widget by widget id
+
+      :param widget_id: widget id
+      :type widget_id: str
+
+
+   .. py:method:: get_widget_by_pos(x: float, y: float, *, filter: Callable[[pydui.core.widget.PyDuiWidget], bool] = PyDuiWidget.find_widget_default_filter) -> pydui.core.widget.PyDuiWidget
+
+
+

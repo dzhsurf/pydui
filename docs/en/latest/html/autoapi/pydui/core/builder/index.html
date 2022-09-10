@@ -185,23 +185,54 @@ But you can custom the resource provider to compose the ui resources.</p>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.builder.INTERNAL_WIDGET_LIST" title="pydui.core.builder.INTERNAL_WIDGET_LIST"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INTERNAL_WIDGET_LIST</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pydui.core.builder.INTERNAL_WIDGET_TABLE" title="pydui.core.builder.INTERNAL_WIDGET_TABLE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INTERNAL_WIDGET_TABLE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pydui.core.builder.INTERNAL_WIDGET_INIT" title="pydui.core.builder.INTERNAL_WIDGET_INIT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INTERNAL_WIDGET_INIT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="pydui.core.builder.INTERNAL_WIDGET_LIST">
+<span class="sig-prename descclassname"><span class="pre">pydui.core.builder.</span></span><span class="sig-name descname"><span class="pre">INTERNAL_WIDGET_LIST</span></span><a class="headerlink" href="#pydui.core.builder.INTERNAL_WIDGET_LIST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pydui.core.builder.INTERNAL_WIDGET_TABLE">
+<span class="sig-prename descclassname"><span class="pre">pydui.core.builder.</span></span><span class="sig-name descname"><span class="pre">INTERNAL_WIDGET_TABLE</span></span><a class="headerlink" href="#pydui.core.builder.INTERNAL_WIDGET_TABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pydui.core.builder.INTERNAL_WIDGET_INIT">
+<span class="sig-prename descclassname"><span class="pre">pydui.core.builder.</span></span><span class="sig-name descname"><span class="pre">INTERNAL_WIDGET_INIT</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#pydui.core.builder.INTERNAL_WIDGET_INIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.core.builder.PyDuiBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.builder.</span></span><span class="sig-name descname"><span class="pre">PyDuiBuilder</span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build Widget, Window from xml resource</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.builder.PyDuiBuilder.register_resource_loader">
-<span class="sig-name descname"><span class="pre">register_resource_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.widgets.label.Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader" title="pydui.core.resource_loader.PyDuiResourceLoader"><span class="pre">pydui.core.resource_loader.PyDuiResourceLoader</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.register_resource_loader" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">register_resource_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.window.PyDuiResourceLoader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.register_resource_loader" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.builder.PyDuiBuilder.get_loader">
-<span class="sig-name descname"><span class="pre">get_loader</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader" title="pydui.core.resource_loader.PyDuiResourceLoader"><span class="pre">pydui.core.resource_loader.PyDuiResourceLoader</span></a></span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.get_loader" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_loader</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.window.PyDuiResourceLoader</span></span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.get_loader" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.builder.PyDuiBuilder.build_widget">
-<span class="sig-name descname"><span class="pre">build_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.widgets.label.PyDuiWidget</span></span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.build_widget" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">build_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydui.core.window.PyDuiWidget</span></span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.build_widget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build widget from path</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -218,7 +249,7 @@ But you can custom the resource provider to compose the ui resources.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.builder.PyDuiBuilder.build_window">
-<span class="sig-name descname"><span class="pre">build_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.widgets.label.Type</span><span class="p"><span class="pre">[</span></span><span class="pre">pydui.core.window.PyDuiWindowHandler</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../window/index.html#pydui.core.window.PyDuiWindow" title="pydui.core.window.PyDuiWindow"><span class="pre">pydui.core.window.PyDuiWindow</span></a></span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.build_window" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">build_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pydui.core.window.Type</span><span class="p"><span class="pre">[</span></span><span class="pre">pydui.core.window.PyDuiWindowHandler</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../window/index.html#pydui.core.window.PyDuiWindow" title="pydui.core.window.PyDuiWindow"><span class="pre">pydui.core.window.PyDuiWindow</span></a></span></span><a class="headerlink" href="#pydui.core.builder.PyDuiBuilder.build_window" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build window from path and handler</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

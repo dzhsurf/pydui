@@ -13,93 +13,47 @@ Classes
 .. autoapisummary::
 
    pydui.core.render.PyDuiRender
-   pydui.core.render.PyDuiRenderManager
 
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pydui.core.render.RENDER_MAX_LINE
+
+
+.. py:data:: RENDER_MAX_LINE
+   :annotation: = 9999
+
+   
 
 .. py:class:: PyDuiRender
 
    Render static function
 
-   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: gi.repository.Gdk.RBGA, x: float, y: float, w: float, h: float, canvas_width: float, canvas_height: float)
+   .. py:method:: Rectangle(ctx: pydui.core.widget.cairo.Context, color: pydui.core.widget.Gdk.RGBA, x: float, y: float, w: float, h: float)
       :staticmethod:
 
 
-   .. py:method:: DrawImage(ctx: pydui.core.widget.cairo.Context, image: str, xy: tuple[float, float], wh: tuple[float, float])
+   .. py:method:: EstimateImageSize(loader: pydui.core.resource_loader.PyDuiResourceLoader, path: str, limit_width: float, limit_height: float) -> Tuple[float, float]
       :staticmethod:
 
 
-   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, text: str, font: str, font_size: int, color: gi.repository.Gdk.RBGA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiTextAlign, pydui.core.widget.PyDuiTextAlign] = (PyDuiTextAlign.CENTER, PyDuiTextAlign.CENTER), ellipsis_mode: gi.repository.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: gi.repository.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 0.0)
+   .. py:method:: DrawImage(ctx: pydui.core.widget.cairo.Context, loader: pydui.core.resource_loader.PyDuiResourceLoader, path: str, xy: tuple[float, float], wh: tuple[float, float], corner: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0))
       :staticmethod:
 
 
-   .. py:method:: EstimateText(ctx: pydui.core.widget.cairo.Context, text: str, font_desc: str, limit_width: float = None, limit_height: float = None) -> tuple[float, float]
+   .. py:method:: DrawText(ctx: pydui.core.widget.cairo.Context, *, text: str, font: str, font_size: int, color: pydui.core.widget.Gdk.RGBA, xy: tuple[float, float], wh: tuple[float, float], hvalign: tuple[pydui.core.widget.PyDuiAlign, pydui.core.widget.PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER), ellipsis_mode: pydui.core.widget.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: pydui.core.widget.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 1.25)
+      :staticmethod:
+
+
+   .. py:method:: EstimateTextSize(ctx: pydui.core.widget.cairo.Context, *, text: str, font: str, fontsize: int, limit_wh: Tuple[float, float] = (-1, -1), hvalign: tuple[pydui.core.widget.PyDuiAlign, pydui.core.widget.PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER), ellipsis_mode: pydui.core.widget.Pango.EllipsizeMode = Pango.EllipsizeMode.END, wrap_mode: pydui.core.widget.Pango.WrapMode = Pango.WrapMode.WORD, line_spacing: float = 1.25) -> tuple[float, float]
       :staticmethod:
 
       Estimate text size
-
-
-
-.. py:class:: PyDuiRenderManager(window: PyDuiWindow, loader: PyDuiResourceLoader)
-
-   Bases: :py:obj:`object`
-
-   Render manager
-
-   .. py:method:: get_resource_loader()
-
-
-   .. py:method:: default_fontcolor() -> gi.repository.Gdk.RGBA
-      :property:
-
-      return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
-
-      :returns: return default font color
-      :rtype: Gdk.RGBA
-
-
-   .. py:method:: default_font_desc() -> str
-      :property:
-
-      return font desc in format f"{font_family} {font_size}"
-
-      :returns: font desc
-      :rtype: str
-
-
-   .. py:method:: default_fontfamily() -> str
-      :property:
-
-      return default font family, default is Arial
-
-      :returns: font family
-      :rtype: str
-
-
-   .. py:method:: default_fontsize() -> int
-      :property:
-
-      return default font size, default is 16
-
-      :returns: font size
-      :rtype: int
-
-
-   .. py:method:: set_rootview(rootview: pydui.core.layout.PyDuiLayout)
-
-      set window root view
-
-      :param rootview: widnow root view
-      :type rootview: PyDuiWidget
-
-
-   .. py:method:: get_widget(widget_id: str) -> pydui.core.widget.PyDuiWidget
-
-      Get widget by widget id
-
-      :param widget_id: widget id
-      :type widget_id: str
 
 
 
