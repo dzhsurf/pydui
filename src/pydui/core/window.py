@@ -59,16 +59,17 @@ class PyDuiWindow(PyDuiWindowBase):
     ):
         # Init Gtk Window
         self.__gtk_window = Gtk.Window()
-        # self.__gtk_window.set_decorated(False)
+        # TODO: custom window style
+        #self.__gtk_window.set_decorated(False)
 
         # Init manger
         self.__manager = PyDuiRenderManager(window=self, loader=loader)
         self.__manager.set_rootview(rootview)
         self.__event_dispatcher = PyDuiEventDispatcher(
-            window=self.get_gtk_window(),
-            manager=self.__manager,
-            handler=handler,
-            on_init=self.__on_window_init__,
+           window=self.get_gtk_window(),
+           manager=self.__manager,
+           handler=handler,
+           on_init=self.__on_window_init__,
         )
 
         # config window

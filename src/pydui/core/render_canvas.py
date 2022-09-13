@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import logging
 import platform
-import syslog
 from dataclasses import dataclass
 from typing import Callable, Type
 
@@ -42,7 +41,7 @@ class PyDuiRenderCanvas(Gtk.Frame):
             #     ctypes.windll.user32.SetProcessDPIAware()
             # elif platform.release() == "8" or platform.release() == "10":
             #     ctypes.windll.shcore.SetProcessDpiAwareness(1)
-            return 1.0
+            return 2.0
         elif platform.system() == "Linux":
             pass
         elif platform.system() == "Darwin":
@@ -78,7 +77,7 @@ class PyDuiRenderCanvas(Gtk.Frame):
             context.paint()
         else:
             logging.error("Invalid surface")
-        return False
+        return True
 
     def __on_configure__(self, gtk_object, gtk_event):
         width, height = gtk_event.width, gtk_event.height
@@ -87,6 +86,7 @@ class PyDuiRenderCanvas(Gtk.Frame):
             need_redraw = True
         if need_redraw:
             self.redraw()
+        return True
 
     def __do_drawing__(self, ctx: cairo.Context):
         if self.__ondraw is not None:

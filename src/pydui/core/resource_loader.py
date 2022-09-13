@@ -3,7 +3,6 @@
 import logging
 import os
 import pathlib
-import syslog
 from abc import ABC, abstractmethod
 from typing import Tuple
 
@@ -70,7 +69,7 @@ class __PyDuiDefaultResourceLoader__(PyDuiResourceLoader):
                 return content
         except:
             logging.error(f"open path fail. path = {res_path}")
-            syslog.syslog(syslog.LOG_ALERT, f"open path fail. path = {res_path}")
+            #syslog.syslog(syslog.LOG_ALERT, f"open path fail. path = {res_path}")
         return content
 
     def load_image(self, path: str) -> Tuple[bytes, float]:
@@ -92,7 +91,7 @@ class __PyDuiDefaultResourceLoader__(PyDuiResourceLoader):
                 return buf
         except:
             logging.error(f"open path fail. path = {res_path}")
-            syslog.syslog(syslog.LOG_ALERT, f"open path fail. path = {res_path}")
+            #syslog.syslog(syslog.LOG_ALERT, f"open path fail. path = {res_path}")
         return bytes()
 
     def load_string(self, id: str) -> str:

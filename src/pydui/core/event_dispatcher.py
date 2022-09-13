@@ -82,10 +82,10 @@ class PyDuiEventDispatcher(object):
         logging.debug(f"on_window_hide: {object}")
         self.__handler.on_window_visible_changed(False)
 
-    def on_configure_event(self, object: Gtk.Widget, event: Gdk.EventConfigure):
+    def on_configure_event(self, object: Gtk.Widget, event: Gdk.EventConfigure) -> bool:
         if event.type == Gdk.EventType.NOTHING:
             self.__manager.notify_redraw()
-            return
+            return True
 
         x, y = event.x, event.y
         w, h = event.width, event.height
@@ -96,22 +96,25 @@ class PyDuiEventDispatcher(object):
             self.__wh = (w, h)
             self.__handler.on_window_size_changed(w, h)
 
+        return False 
+
     def on_window_state_event(self, object: Gtk.Widget, event: Gdk.EventWindowState):
         pass
 
-    def on_motion_notify(self, object: Gtk.Widget, event: Gtk.MotionEvent):
+    def on_motion_notify(self, object: Gtk.Widget, event: Gtk.MotionEvent) -> bool:
         x, y, x_root, y_root = int(event.x), int(event.y), event.x_root, event.y_root
 
         if x != self.__mouse_x or y != self.__mouse_y:
             self.__dispatch_mouse_move__(x, y)
+        return False
 
     def on_button_press(self, object: Gtk.Widget, event: Gdk.EventButton) -> bool:
         x, y = event.x, event.y
         widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
-            return True
+            return False
         if not widget.enabled:
-            return True
+            return False 
 
         if event.type == Gdk.EventType.BUTTON_PRESS:
             self.__dispatch_button_press__(widget, event)
@@ -127,7 +130,7 @@ class PyDuiEventDispatcher(object):
         x, y = event.x, event.y
         widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
-            return True
+            return False 
 
         self.__dispatch_button_release__(widget, event)
         return True

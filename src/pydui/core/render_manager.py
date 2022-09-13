@@ -31,7 +31,8 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         self.__window = window
         self.__canvas = PyDuiRenderCanvas(self.__on_draw__)
         self.__loader = loader
-        queue_name = f"pydui-task-queue-{self}"
+        self.__ctx = None
+        queue_name = f"pydui-task-queue"
         self.__task_queue = PyNotiCenter.default().create_task_queue(queue_name)
         self.__task_queue.set_preprocessor(self.__post_task_to_gtk_thread__)
 
