@@ -48,6 +48,52 @@ Even though it's easy to downgrade the python version, personal reasons, the aut
 pip install pydui-gtk
 ```
 
+**Windows:** see the prerequisites below, you must setup the gtk development environment first to build the gtklib on the windows platform.
+
+
+
+## Building
+
+**Prerequisites**
+
+miniconda: https://conda.io/projects/conda/en/latest/user-guide/install/index.html
+
+> If you are already in python3.9 environment, conda is not needed. but we highly recommend using it to manage the dev env.
+
+**Windows:** 
+
+* Build Tools: For Windows platform, Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+* Install gtk environment
+* Use the precompiled binary files or you can build by yourself. Browser the link below. I provided the precompiled files and the building guide.
+  * https://github.com/dzhsurf/gtk3-precompiled-libs-win-vs2019 
+* poetry: https://python-poetry.org/docs/
+
+
+
+**MacOSX:** 
+
+> No extra dependencies needed.
+
+
+
+**Linux:** ...
+
+> ... 
+
+
+
+**Setup and build**
+
+```shell
+# first, checkout the code
+# git clone ...
+# second, use conda setup environment 
+conda env create -f conda_env.yaml
+conda activate pydui
+# local install 
+pip install -e .
+```
+
 
 
 ## Code Example
@@ -151,22 +197,6 @@ XML File
 
 
 
-
-## Build Environment Setup
-
-```shell
-# first, checkout the code
-# second, use conda setup environment 
-conda env create -f conda_env.yaml
-conda activate pydui
-# local install 
-pip install -e .
-```
-
-
-
-
-
 ## Layout Rule
 
 >  TODO: 
@@ -250,6 +280,22 @@ Widget:
 
 
 
+## Benchmarks
+
+> TODO
+>
+> ...
+
+
+
+## Testing
+
+> TODO
+>
+> ...
+
+
+
 ## Reference
 
 Python Gtk-3 Tutorial: https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html
@@ -281,3 +327,6 @@ PangoCairo: https://docs.gtk.org/PangoCairo/
 ---
 
 Gtk pgi Symbol Mapping: https://lazka.github.io/pgi-docs/Gtk-3.0/mapping.html
+
+Gdk pgi Symbol Mapping: https://lazka.github.io/pgi-docs/Gdk-3.0/mapping.html
+
