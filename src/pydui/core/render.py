@@ -20,7 +20,7 @@ def __pt2px__(pt: float) -> int:
 
 
 def __px2pt__(px: int) -> float:
-    return round(px / 1.3333343412075)
+    return math.ceil(px / 1.3333343412075)
 
 
 __is_initial__: bool = False
@@ -61,7 +61,7 @@ def __config_text_layout__(
     fo.set_antialias(cairo.ANTIALIAS_GRAY)  # ANTIALIAS_SUBPIXEL ANTIALIAS_GRAY
     fo.set_hint_style(cairo.HINT_STYLE_FULL)  # HINT_STYLE_SLIGHT HINT_STYLE_FULL
     fo.set_hint_metrics(cairo.HINT_METRICS_DEFAULT)  # HINT_METRICS_ON
-    # PangoCairo.context_set_resolution(layout.get_context(), 96 * 2)
+    PangoCairo.context_set_resolution(layout.get_context(), 96)
     PangoCairo.context_set_font_options(layout.get_context(), fo)
 
     font_desc = Pango.font_description_from_string(f"{font} {__px2pt__(font_size)}")
@@ -292,6 +292,7 @@ class PyDuiRender:
         # calulate text align
         layout_w, layout_h = layout.get_size()
         layout_w, layout_h = layout_w / Pango.SCALE, layout_h / Pango.SCALE
+        print(w, h, layout.get_pixel_size())
         if hvalign[0] == PyDuiAlign.CENTER:
             x = x + round((w - layout_w) / 2)
         elif hvalign[0] == PyDuiAlign.END:
@@ -345,4 +346,4 @@ class PyDuiRender:
         PangoCairo.update_layout(ctx, layout)
         w, h = layout.get_pixel_size()
         lines = layout.get_line_count()
-        return (round(w), round(lines * line_height))
+        return (math.ceil(w), math.ceil(lines * line_height))
