@@ -292,7 +292,6 @@ class PyDuiRender:
         # calulate text align
         layout_w, layout_h = layout.get_size()
         layout_w, layout_h = layout_w / Pango.SCALE, layout_h / Pango.SCALE
-        print(w, h, layout.get_pixel_size())
         if hvalign[0] == PyDuiAlign.CENTER:
             x = x + round((w - layout_w) / 2)
         elif hvalign[0] == PyDuiAlign.END:

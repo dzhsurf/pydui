@@ -98,7 +98,7 @@ pip install -e .
 
 ## Code Example
 
-![Demo](https://github.com/dzhsurf/pydui/raw/main/images/demo.png)
+![](images/demo-mac.png) ![](images/demo-win.jpeg)
 
 ```python
 import pydui
