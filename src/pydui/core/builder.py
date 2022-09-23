@@ -140,7 +140,7 @@ class PyDuiBuilder:
         if xml_content is None:
             logging.error(f"load xml fail. path not exist. path = {path}")
             return (None, PyDuiWidget())
-        #syslog.syslog(syslog.LOG_ALERT, f"xml len {len(xml_content)}, path = {path}")
+        # syslog.syslog(syslog.LOG_ALERT, f"xml len {len(xml_content)}, path = {path}")
         # tree = ET.parse(path)
         # root = tree.getroot()
         root = ET.fromstring(xml_content)

@@ -96,7 +96,7 @@ class PyDuiEventDispatcher(object):
             self.__wh = (w, h)
             self.__handler.on_window_size_changed(w, h)
 
-        return False 
+        return False
 
     def on_window_state_event(self, object: Gtk.Widget, event: Gdk.EventWindowState):
         pass
@@ -114,7 +114,7 @@ class PyDuiEventDispatcher(object):
         if widget is None:
             return False
         if not widget.enabled:
-            return False 
+            return False
 
         if event.type == Gdk.EventType.BUTTON_PRESS:
             self.__dispatch_button_press__(widget, event)
@@ -130,7 +130,7 @@ class PyDuiEventDispatcher(object):
         x, y = event.x, event.y
         widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
-            return False 
+            return False
 
         self.__dispatch_button_release__(widget, event)
         return True
