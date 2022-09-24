@@ -1,6 +1,0 @@
-:py:mod:`pydui.core.import_gtk`
-===============================
-
-.. py:module:: pydui.core.import_gtk
-
-

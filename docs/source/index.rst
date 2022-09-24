@@ -12,6 +12,7 @@ Welcome to pydui's documentation!
 
    intro
    quickstart
+   apis
 
 
 Indices and tables

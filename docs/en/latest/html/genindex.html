@@ -1,168 +1,143 @@
 
 <!DOCTYPE html>
-<html  lang="en">
+
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Index</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; PyDui-GTK https://pypi.org/project/pydui-gtk/ documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="shortcut icon" href="https://pypi.org/static/images/logo-small.95de8436.svg"/>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+
+<div id="top_nav">
     
-          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
-          <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      
-      <!-- sphinx script_files -->
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
 
-      
-      <!-- bundled in js (rollup iife) -->
-      <!-- <script src="_static/theme-vendors.js"></script> -->
-      <script src="_static/theme.js" defer></script>
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">PyDui-GTK Documentation</a></h1>
+            <a id="source_link" href="https://github.com/dzhsurf/pydui/">
     
-  <link rel="index" title="Index" href="#" />
-  <link rel="search" title="Search" href="search.html" /> 
-  </head>
-
-  <body>
-    <div id="app">
-    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
-  <router-link to="index.html" class="home-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
     
-      <img class="logo" src="_static/logo.png" alt="logo"/>
-    
-  </router-link>
+</a>
+        
 
-  <div class="links">
-    <navlinks class="can-hide">
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
 
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
 
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
 
-    </navlinks>
-  </div>
-</navbar>
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
 
-      
-      <div class="sidebar-mask" @click="toggleSidebar(false)">
-      </div>
-        <sidebar @toggle-sidebar="toggleSidebar">
-          
-          <navlinks>
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
             
-
-
-
-            
-          </navlinks><div id="searchbox" class="searchbox" role="search">
-  <div class="caption"><span class="caption-text">Quick search</span>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-      <form class="search" action="search.html" method="get">
-        <input type="text" name="q" />
-        <input type="submit" value="Search" />
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
     </div>
-  </div>
-</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="index.html#welcome-to-pydui-s-documentation">Contents:</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 ">
-            
-              <a href="intro.html" class="reference internal ">Introduction</a>
-            
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 ">
-            
-              <a href="quickstart.html" class="reference internal ">Quickstart</a>
-            
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 ">
-            
-              <a href="autoapi/index.html" class="reference internal ">API Reference</a>
-            
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-
-
-
-  <div class="sidebar-group">
-    <p class="caption">
-      <span class="caption-text"><a href="#">Languages</a></span>
-    </p>
-    <ul>
-      
-          <li class="toctree-l1 current">
-            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal current">en</a>
-          </li>
-      
-          <li class="toctree-l1 ">
-            <a href="https://dzhsurf.github.io/pydui/zh_CN/latest/html/" class="reference internal ">zh_CN</a>
-          </li>
-      
-    </ul>
-  </div>
-
-    
-
-  <div class="sidebar-group">
-    <p class="caption">
-      <span class="caption-text"><a href="#">Versions</a></span>
-    </p>
-    <ul class="current">
-      
-          <li class="toctree-l1 ">
-            <a href="https://dzhsurf.github.io/pydui/en/latest/html/" class="reference internal ">latest</a>
-          </li>
-      
-    </ul>
-  </div>
-
-
-  <!--
-  Free document hosting provided by <a href="https://pages.github.com">Github Pages</a>.
-  -->
-
 </div>
-        </sidebar>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
 
-      <page>
-          <div class="body-header" role="navigation" aria-label="navigation">
-  
-  <ul class="breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
     
-    <li>Index</li>
-  </ul>
-  
-
-  <ul class="page-nav">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">API Documentation</a></li>
 </ul>
-  
-</div>
-<hr>
-          <div class="content" role="main" v-pre>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
 
 <h1 id="index">Index</h1>
@@ -176,10 +151,8 @@
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
- | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
- | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
@@ -187,224 +160,40 @@
  | <a href="#T"><strong>T</strong></a>
  | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
- | <a href="#X"><strong>X</strong></a>
- | <a href="#Y"><strong>Y</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.add_child">add_child() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id118">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id9">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.add_child">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.add_child">add_child() (pydui.core.layout.PyDuiLayout method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id170">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.add_child">[1]</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.add_child_at">add_child_at() (pydui.core.layout.PyDuiLayout method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.add_child_at">add_child_at() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id10">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id119">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.add_child_at">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id171">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.add_child_at">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.autofit">autofit (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id104">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id213">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.autofit">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.autofit">(pydui.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.autofit">(pydui.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.autofit">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id265">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id79">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.autofit">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.autofit">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.autofit">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.autofit">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.autofit_padding">autofit_padding (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.autofit_padding">(pydui.PyDuiLabel attribute)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.autofit">autofit (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.autofit_padding">(pydui.PyDuiPicture attribute)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.autofit_padding">autofit_padding (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.autofit_padding">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.autofit_padding">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.autofit_padding">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.bkcolor">bkcolor (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id106">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id215">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.bkcolor">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.builder.PyDuiBuilder.build_widget">build_widget() (pydui.core.builder.PyDuiBuilder method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id267">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id81">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.bkcolor">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.bkimage">bkimage (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id107">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id216">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.bkimage">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id268">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id82">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.bkimage">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.build_name">build_name() (pydui.core.widget.PyDuiWidget static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/fixed_layout/index.html#pydui.layout.fixed_layout.PyDuiFixedLayout.build_name">(pydui.layout.fixed_layout.PyDuiFixedLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/hlayout/index.html#pydui.layout.hlayout.PyDuiHLayout.build_name">(pydui.layout.hlayout.PyDuiHLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiFixedLayout.build_name">(pydui.layout.PyDuiFixedLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiHLayout.build_name">(pydui.layout.PyDuiHLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiVLayout.build_name">(pydui.layout.PyDuiVLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id161">(pydui.layout.PyDuiWidget static method)</a>, <a href="autoapi/pydui/layout/index.html#id52">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.build_name">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/vlayout/index.html#pydui.layout.vlayout.PyDuiVLayout.build_name">(pydui.layout.vlayout.PyDuiVLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiButton.build_name">(pydui.PyDuiButton static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiEdit.build_name">(pydui.PyDuiEdit static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiFixedLayout.build_name">(pydui.PyDuiFixedLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiHLayout.build_name">(pydui.PyDuiHLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.build_name">(pydui.PyDuiIcon static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.build_name">(pydui.PyDuiLabel static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.build_name">(pydui.PyDuiPicture static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiVLayout.build_name">(pydui.PyDuiVLayout static method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id213">(pydui.PyDuiWidget static method)</a>, <a href="autoapi/pydui/index.html#id27">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.build_name">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButton.build_name">(pydui.widgets.button.PyDuiButton static method)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/edit/index.html#pydui.widgets.edit.PyDuiEdit.build_name">(pydui.widgets.edit.PyDuiEdit static method)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.build_name">(pydui.widgets.icon.PyDuiIcon static method)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.build_name">(pydui.widgets.label.PyDuiLabel static method)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.build_name">(pydui.widgets.picture.PyDuiPicture static method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/builder/index.html#pydui.core.builder.PyDuiBuilder.build_widget">build_widget() (pydui.core.builder.PyDuiBuilder method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiBuilder.build_widget">(pydui.PyDuiBuilder method)</a>
+      <li><a href="pydui.core.html#pydui.core.builder.PyDuiBuilder.build_window">build_window() (pydui.core.builder.PyDuiBuilder method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/builder/index.html#pydui.core.builder.PyDuiBuilder.build_window">build_window() (pydui.core.builder.PyDuiBuilder method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiBuilder.build_window">(pydui.PyDuiBuilder method)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/render_base/index.html#pydui.core.render_base.PyDuiRenderManagerBase.cancel_task">cancel_task() (pydui.core.render_base.PyDuiRenderManagerBase method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.cancel_task">(pydui.core.render_manager.PyDuiRenderManager method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id152">(pydui.layout.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/layout/index.html#id43">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRenderManagerBase.cancel_task">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id114">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.cancel_task">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id18">(pydui.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/index.html#id204">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManagerBase.cancel_task">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiAlign.CENTER">CENTER (pydui.core.base.PyDuiAlign attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id128">(pydui.layout.PyDuiAlign attribute)</a>, <a href="autoapi/pydui/layout/index.html#id19">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiAlign.CENTER">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id180">(pydui.PyDuiAlign attribute)</a>, <a href="autoapi/pydui/index.html#id85">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiAlign.CENTER">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.child_count">child_count (pydui.core.layout.PyDuiLayout property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id122">(pydui.layout.PyDuiLayout property)</a>, <a href="autoapi/pydui/layout/index.html#id13">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.child_count">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id174">(pydui.PyDuiLayout property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.child_count">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiClickType.CLICK">CLICK (pydui.core.base.PyDuiClickType attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id133">(pydui.layout.PyDuiClickType attribute)</a>, <a href="autoapi/pydui/layout/index.html#id24">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiClickType.CLICK">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id185">(pydui.PyDuiClickType attribute)</a>, <a href="autoapi/pydui/index.html#id90">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiClickType.CLICK">[2]</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.connect">connect() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id188">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id79">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.connect">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id240">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id54">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.connect">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.constraint">constraint (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id101">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id210">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.constraint">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id262">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id76">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.constraint">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.contain_pos">contain_pos() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id193">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id84">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.contain_pos">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id245">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id59">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.contain_pos">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.corner">corner (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id108">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id217">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.corner">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id269">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id83">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.corner">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/resource_loader/index.html#pydui.core.resource_loader.create_default_resource_loader">create_default_resource_loader() (in module pydui.core.resource_loader)</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.child_count">child_count (pydui.core.layout.PyDuiLayout property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -412,142 +201,22 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiClickType.DBCLICK">DBCLICK (pydui.core.base.PyDuiClickType attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id134">(pydui.layout.PyDuiClickType attribute)</a>, <a href="autoapi/pydui/layout/index.html#id25">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiClickType.DBCLICK">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.default_font">default_font (pydui.core.window.PyDuiWindowConfig attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id186">(pydui.PyDuiClickType attribute)</a>, <a href="autoapi/pydui/index.html#id91">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiClickType.DBCLICK">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.default_font_desc">default_font_desc (pydui.core.render_manager.PyDuiRenderManager property)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#id4">default_font (pydui.core.window.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.default_font">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id146">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#id154">[1]</a>, <a href="autoapi/pydui/index.html#id5">[2]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.default_font">[3]</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.default_fontbold">default_fontbold (pydui.core.window.PyDuiWindowConfig attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.default_font_desc">default_font_desc (pydui.core.render_manager.PyDuiRenderManager property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id119">(pydui.PyDuiRenderManager property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.default_font_desc">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#id6">default_fontbold (pydui.core.window.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.default_fontbold">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id148">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#id156">[1]</a>, <a href="autoapi/pydui/index.html#id7">[2]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.default_fontbold">[3]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.default_fontcolor">default_fontcolor (pydui.core.render_manager.PyDuiRenderManager property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id118">(pydui.PyDuiRenderManager property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.default_fontcolor">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.default_fontfamily">default_fontfamily (pydui.core.render_manager.PyDuiRenderManager property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id120">(pydui.PyDuiRenderManager property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.default_fontfamily">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.default_fontsize">default_fontsize (pydui.core.render_manager.PyDuiRenderManager property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window/index.html#id5">(pydui.core.window.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.default_fontsize">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id121">(pydui.PyDuiRenderManager property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.default_fontsize">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id147">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#id155">[1]</a>, <a href="autoapi/pydui/index.html#id6">[2]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.default_fontsize">[3]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.disconnect">disconnect() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id189">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id80">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.disconnect">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id241">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id55">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.disconnect">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.disconnect_signal">disconnect_signal() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id190">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id81">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.disconnect_signal">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id242">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id56">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.disconnect_signal">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.draw">draw() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.draw">(pydui.core.widget.PyDuiWidget method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/hlayout/index.html#pydui.layout.hlayout.PyDuiHLayout.draw">(pydui.layout.hlayout.PyDuiHLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiHLayout.draw">(pydui.layout.PyDuiHLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id111">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id2">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.draw">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiVLayout.draw">(pydui.layout.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id167">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id58">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.draw">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/vlayout/index.html#pydui.layout.vlayout.PyDuiVLayout.draw">(pydui.layout.vlayout.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiHLayout.draw">(pydui.PyDuiHLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.draw">(pydui.PyDuiLabel method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id163">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.draw">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiVLayout.draw">(pydui.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id219">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id33">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.draw">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.draw">(pydui.widgets.label.PyDuiLabel method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.draw_bkcolor">draw_bkcolor() (pydui.core.widget.PyDuiWidget method)</a>
+      <li><a href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.default_fontcolor">default_fontcolor (pydui.core.render_manager.PyDuiRenderManager property)</a>
+</li>
+      <li><a href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.default_fontfamily">default_fontfamily (pydui.core.render_manager.PyDuiRenderManager property)</a>
+</li>
+      <li><a href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.default_fontsize">default_fontsize (pydui.core.render_manager.PyDuiRenderManager property)</a>
 
       <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id168">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id59">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.draw_bkcolor">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id220">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id34">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.draw_bkcolor">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.draw_bkimage">draw_bkimage() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id169">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id60">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.draw_bkimage">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiButton.draw_bkimage">(pydui.PyDuiButton method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id221">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id35">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.draw_bkimage">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButton.draw_bkimage">(pydui.widgets.button.PyDuiButton method)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.draw_text">draw_text() (pydui.PyDuiLabel method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.draw_text">(pydui.widgets.label.PyDuiLabel method)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render/index.html#pydui.core.render.PyDuiRender.DrawImage">DrawImage() (pydui.core.render.PyDuiRender static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id145">(pydui.layout.PyDuiRender static method)</a>, <a href="autoapi/pydui/layout/index.html#id36">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRender.DrawImage">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id11">(pydui.PyDuiRender static method)</a>, <a href="autoapi/pydui/index.html#id197">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRender.DrawImage">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render/index.html#pydui.core.render.PyDuiRender.DrawText">DrawText() (pydui.core.render.PyDuiRender static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id146">(pydui.layout.PyDuiRender static method)</a>, <a href="autoapi/pydui/layout/index.html#id37">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRender.DrawText">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id12">(pydui.PyDuiRender static method)</a>, <a href="autoapi/pydui/index.html#id198">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRender.DrawText">[2]</a>
+        <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.default_fontsize">(pydui.core.window.PyDuiWindowConfig attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -556,343 +225,45 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.ellipsis">ellipsis (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.ellipsis">(pydui.PyDuiLabel attribute)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.ellipsis">ellipsis (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.ellipsis">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.ellipsis">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.ellipsis">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.ellipsis">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.emit">emit() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id191">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id82">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.emit">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id243">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id57">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.emit">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.enable_mouse_event">enable_mouse_event (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id174">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id65">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.enable_mouse_event">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id226">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id40">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.enable_mouse_event">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.enabled">enabled (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id103">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id212">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.enabled">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id264">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id78">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.enabled">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiAlign.END">END (pydui.core.base.PyDuiAlign attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id130">(pydui.layout.PyDuiAlign attribute)</a>, <a href="autoapi/pydui/layout/index.html#id21">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiAlign.END">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id182">(pydui.PyDuiAlign attribute)</a>, <a href="autoapi/pydui/index.html#id87">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiAlign.END">[2]</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.estimate_size">estimate_size() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/hlayout/index.html#pydui.layout.hlayout.PyDuiHLayout.estimate_size">(pydui.layout.hlayout.PyDuiHLayout method)</a>
+      <li><a href="pydui.core.html#pydui.core.render.PyDuiRender.EstimateTextSize">EstimateTextSize() (pydui.core.render.PyDuiRender static method)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiHLayout.estimate_size">(pydui.layout.PyDuiHLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiVLayout.estimate_size">(pydui.layout.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id171">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id62">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.estimate_size">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/vlayout/index.html#pydui.layout.vlayout.PyDuiVLayout.estimate_size">(pydui.layout.vlayout.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiHLayout.estimate_size">(pydui.PyDuiHLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.estimate_size">(pydui.PyDuiLabel method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiVLayout.estimate_size">(pydui.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id223">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id37">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.estimate_size">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.estimate_size">(pydui.widgets.label.PyDuiLabel method)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render/index.html#pydui.core.render.PyDuiRender.EstimateImageSize">EstimateImageSize() (pydui.core.render.PyDuiRender static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id144">(pydui.layout.PyDuiRender static method)</a>, <a href="autoapi/pydui/layout/index.html#id35">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRender.EstimateImageSize">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id10">(pydui.PyDuiRender static method)</a>, <a href="autoapi/pydui/index.html#id196">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRender.EstimateImageSize">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render/index.html#pydui.core.render.PyDuiRender.EstimateTextSize">EstimateTextSize() (pydui.core.render.PyDuiRender static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id147">(pydui.layout.PyDuiRender static method)</a>, <a href="autoapi/pydui/layout/index.html#id38">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRender.EstimateTextSize">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id13">(pydui.PyDuiRender static method)</a>, <a href="autoapi/pydui/index.html#id199">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRender.EstimateTextSize">[2]</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.find_widget_by_pos">find_widget_by_pos() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id116">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id7">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.find_widget_by_pos">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.find_widget_by_pos">find_widget_by_pos() (pydui.core.layout.PyDuiLayout method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id168">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.find_widget_by_pos">[1]</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.font">font (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.find_widget_default_filter">find_widget_default_filter() (pydui.core.widget.PyDuiWidget static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id162">(pydui.layout.PyDuiWidget static method)</a>, <a href="autoapi/pydui/layout/index.html#id53">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.find_widget_default_filter">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id214">(pydui.PyDuiWidget static method)</a>, <a href="autoapi/pydui/index.html#id28">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.find_widget_default_filter">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.find_widget_mouse_event_filter">find_widget_mouse_event_filter() (pydui.core.widget.PyDuiWidget static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id163">(pydui.layout.PyDuiWidget static method)</a>, <a href="autoapi/pydui/layout/index.html#id54">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.find_widget_mouse_event_filter">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id215">(pydui.PyDuiWidget static method)</a>, <a href="autoapi/pydui/index.html#id29">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.find_widget_mouse_event_filter">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.fitrule">fitrule (pydui.core.layout.PyDuiLayout property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id126">(pydui.layout.PyDuiLayout property)</a>, <a href="autoapi/pydui/layout/index.html#id17">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.fitrule">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id178">(pydui.PyDuiLayout property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.fitrule">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.fixed_height">fixed_height (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id201">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id92">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.fixed_height">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id253">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id67">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.fixed_height">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.fixed_size">fixed_size (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id199">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id90">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.fixed_size">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id251">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id65">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.fixed_size">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.fixed_width">fixed_width (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id200">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id91">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.fixed_width">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id252">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id66">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.fixed_width">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.fixed_x">fixed_x (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id206">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id97">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.fixed_x">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id258">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id72">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.fixed_x">[2]</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.fixed_xy">fixed_xy (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id208">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id99">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.fixed_xy">[2]</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.fontcolor">fontcolor (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id260">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id74">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.fixed_xy">[2]</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.fontsize">fontsize (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.fixed_y">fixed_y (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id207">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id98">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.fixed_y">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id259">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id73">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.fixed_y">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.font">font (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.font">(pydui.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.font">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.font">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.font">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.font">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.fontcolor">fontcolor (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.fontcolor">(pydui.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.fontcolor">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.fontcolor">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.fontcolor">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.fontcolor">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.fontsize">fontsize (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.fontsize">(pydui.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.fontsize">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.fontsize">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.fontsize">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.fontsize">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.get_child">get_child() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id115">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id6">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.get_child">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.get_child">get_child() (pydui.core.layout.PyDuiLayout method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id167">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.get_child">[1]</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.get_child_at">get_child_at() (pydui.core.layout.PyDuiLayout method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.get_child_at">get_child_at() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id117">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id8">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.get_child_at">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id169">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.get_child_at">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.get_children_range_fixed_height">get_children_range_fixed_height() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id114">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id5">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.get_children_range_fixed_height">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id166">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.get_children_range_fixed_height">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.get_children_range_fixed_width">get_children_range_fixed_width() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id113">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id4">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.get_children_range_fixed_width">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id165">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.get_children_range_fixed_width">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindow.get_gtk_window">get_gtk_window() (pydui.core.window.PyDuiWindow method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window_base/index.html#pydui.core.window_base.PyDuiWindowBase.get_gtk_window">(pydui.core.window_base.PyDuiWindowBase method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id158">(pydui.PyDuiWindow method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindow.get_gtk_window">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id132">(pydui.PyDuiWindowBase method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowBase.get_gtk_window">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_canvas/index.html#pydui.core.render_canvas.PyDuiRenderCanvas.get_height">get_height() (pydui.core.render_canvas.PyDuiRenderCanvas method)</a>
-</li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.get_id">get_id() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id166">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id57">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.get_id">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id218">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id32">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.get_id">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/builder/index.html#pydui.core.builder.PyDuiBuilder.get_loader">get_loader() (pydui.core.builder.PyDuiBuilder method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiBuilder.get_loader">(pydui.PyDuiBuilder method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/render_base/index.html#pydui.core.render_base.PyDuiRenderManagerBase.get_render_context">get_render_context() (pydui.core.render_base.PyDuiRenderManagerBase method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.get_render_context">(pydui.core.render_manager.PyDuiRenderManager method)</a>
+      <li><a href="pydui.core.html#pydui.core.widget.PyDuiWidget.get_id">get_id() (pydui.core.widget.PyDuiWidget method)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id151">(pydui.layout.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/layout/index.html#id42">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRenderManagerBase.get_render_context">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.widget.PyDuiWidget.get_render_manager">get_render_manager() (pydui.core.widget.PyDuiWidget method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id113">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.get_render_context">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id17">(pydui.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/index.html#id203">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManagerBase.get_render_context">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.get_render_manager">get_render_manager() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id165">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id56">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.get_render_manager">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id217">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id31">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.get_render_manager">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_base/index.html#pydui.core.render_base.PyDuiRenderManagerBase.get_resource_loader">get_resource_loader() (pydui.core.render_base.PyDuiRenderManagerBase method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.get_resource_loader">(pydui.core.render_manager.PyDuiRenderManager method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id149">(pydui.layout.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/layout/index.html#id40">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRenderManagerBase.get_resource_loader">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id117">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.get_resource_loader">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id15">(pydui.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/index.html#id201">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManagerBase.get_resource_loader">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.get_widget">get_widget() (pydui.core.render_manager.PyDuiRenderManager method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindow.get_widget">(pydui.core.window.PyDuiWindow method)</a>
-</li>
-        <li><a href="autoapi/pydui/core/window_base/index.html#pydui.core.window_base.PyDuiWindowBase.get_widget">(pydui.core.window_base.PyDuiWindowBase method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id123">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.get_widget">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id160">(pydui.PyDuiWindow method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindow.get_widget">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id133">(pydui.PyDuiWindowBase method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowBase.get_widget">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.get_widget_by_pos">get_widget_by_pos() (pydui.core.render_manager.PyDuiRenderManager method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id124">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.get_widget_by_pos">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_canvas/index.html#pydui.core.render_canvas.PyDuiRenderCanvas.get_width">get_width() (pydui.core.render_canvas.PyDuiRenderCanvas method)</a>
+      <li><a href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.get_widget">get_widget() (pydui.core.render_manager.PyDuiRenderManager method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -900,361 +271,109 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.halign">halign (pydui.core.layout.PyDuiLayout property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id124">(pydui.layout.PyDuiLayout property)</a>, <a href="autoapi/pydui/layout/index.html#id15">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.halign">[2]</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.halign">halign (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.halign">(pydui.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.halign">(pydui.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id176">(pydui.PyDuiLayout property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.halign">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.halign">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.halign">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.halign">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.halign">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.handler">handler (pydui.core.event_dispatcher.PyDuiEventDispatcher property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id101">(pydui.PyDuiEventDispatcher property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.handler">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiLayoutConstraint.height">height (pydui.core.base.PyDuiLayoutConstraint attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.height">(pydui.core.widget.PyDuiWidget property)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id137">(pydui.layout.PyDuiLayoutConstraint attribute)</a>, <a href="autoapi/pydui/layout/index.html#id28">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayoutConstraint.height">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id197">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id88">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.height">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id189">(pydui.PyDuiLayoutConstraint attribute)</a>, <a href="autoapi/pydui/index.html#id94">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayoutConstraint.height">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id249">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id63">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.height">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButtonState.HOVER">HOVER (pydui.widgets.button.PyDuiButtonState attribute)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="I">I</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.init_events">init_events() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id100">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.init_events">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.INTERNAL_WIDGET_INIT">INTERNAL_WIDGET_INIT (in module pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/builder/index.html#pydui.core.builder.INTERNAL_WIDGET_INIT">(in module pydui.core.builder)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.INTERNAL_WIDGET_LIST">INTERNAL_WIDGET_LIST (in module pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/builder/index.html#pydui.core.builder.INTERNAL_WIDGET_LIST">(in module pydui.core.builder)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.INTERNAL_WIDGET_TABLE">INTERNAL_WIDGET_TABLE (in module pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/builder/index.html#pydui.core.builder.INTERNAL_WIDGET_TABLE">(in module pydui.core.builder)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/attribute_string/index.html#pydui.core.attribute_string.PyDuiAttrStrParser.is_attrstr">is_attrstr() (pydui.core.attribute_string.PyDuiAttrStrParser static method)</a>
-</li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.is_float">is_float (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id205">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id96">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.is_float">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id257">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id71">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.is_float">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.is_focused">is_focused (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id105">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id214">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.is_focused">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id266">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id80">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.is_focused">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/utils/index.html#pydui.utils.IsNoneZeroRect">IsNoneZeroRect() (in module pydui.utils)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#pydui.utils.conversion.IsNoneZeroRect">(in module pydui.utils.conversion)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.layout">layout() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.layout">(pydui.core.widget.PyDuiWidget method)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.line_spacing">line_spacing (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/hlayout/index.html#pydui.layout.hlayout.PyDuiHLayout.layout">(pydui.layout.hlayout.PyDuiHLayout method)</a>
+      <li><a href="pydui.core.html#pydui.core.resource_loader.PyDuiResourceLoader.load_data">load_data() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiHLayout.layout">(pydui.layout.PyDuiHLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id112">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id3">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.layout">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiVLayout.layout">(pydui.layout.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id170">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id61">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.layout">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/vlayout/index.html#pydui.layout.vlayout.PyDuiVLayout.layout">(pydui.layout.vlayout.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiHLayout.layout">(pydui.PyDuiHLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id164">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.layout">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiVLayout.layout">(pydui.PyDuiVLayout method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id222">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id36">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.layout">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.layout_rect">layout_rect (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id198">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id89">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.layout_rect">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id250">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id64">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.layout_rect">[2]</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.line_spacing">line_spacing (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.line_spacing">(pydui.PyDuiLabel attribute)</a>
+      <li><a href="pydui.core.html#pydui.core.resource_loader.PyDuiResourceLoader.load_image">load_image() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.line_spacing">(pydui.PyDuiPicture attribute)</a>
+      <li><a href="pydui.core.html#pydui.core.resource_loader.PyDuiResourceLoader.load_string">load_string() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.line_spacing">(pydui.widgets.icon.PyDuiIcon attribute)</a>
+      <li><a href="pydui.core.html#pydui.core.resource_loader.PyDuiResourceLoader.load_xml">load_xml() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.line_spacing">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.line_spacing">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader.load_data">load_data() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id128">(pydui.PyDuiResourceLoader method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiResourceLoader.load_data">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader.load_image">load_image() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id129">(pydui.PyDuiResourceLoader method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiResourceLoader.load_image">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader.load_string">load_string() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id130">(pydui.PyDuiResourceLoader method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiResourceLoader.load_string">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader.load_xml">load_xml() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id127">(pydui.PyDuiResourceLoader method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiResourceLoader.load_xml">[1]</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/application/index.html#pydui.core.application.PyDuiApplication.main_quit">main_quit() (pydui.core.application.PyDuiApplication static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiApplication.main_quit">(pydui.PyDuiApplication static method)</a>
+      <li><a href="pydui.core.html#pydui.core.application.PyDuiApplication.main_quit">main_quit() (pydui.core.application.PyDuiApplication static method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/application/index.html#pydui.core.application.PyDuiApplication.main_run">main_run() (pydui.core.application.PyDuiApplication static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiApplication.main_run">(pydui.PyDuiApplication static method)</a>
+      <li><a href="pydui.core.html#pydui.core.application.PyDuiApplication.main_run">main_run() (pydui.core.application.PyDuiApplication static method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.margin">margin (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id100">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id209">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.margin">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.widget.PyDuiWidget.margin">margin (pydui.core.widget.PyDuiWidget property)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id261">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id75">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.margin">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.max_size">max_size (pydui.core.window.PyDuiWindowConfig attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiConstraint.max_height">max_height (pydui.core.widget.PyDuiConstraint attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id159">(pydui.layout.PyDuiConstraint attribute)</a>, <a href="autoapi/pydui/layout/index.html#id50">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiConstraint.max_height">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.min_size">min_size (pydui.core.window.PyDuiWindowConfig attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id211">(pydui.PyDuiConstraint attribute)</a>, <a href="autoapi/pydui/index.html#id25">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiConstraint.max_height">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#id3">max_size (pydui.core.window.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.max_size">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id144">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#id152">[1]</a>, <a href="autoapi/pydui/index.html#id4">[2]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.max_size">[3]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiConstraint.max_width">max_width (pydui.core.widget.PyDuiConstraint attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id157">(pydui.layout.PyDuiConstraint attribute)</a>, <a href="autoapi/pydui/layout/index.html#id48">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiConstraint.max_width">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id209">(pydui.PyDuiConstraint attribute)</a>, <a href="autoapi/pydui/index.html#id23">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiConstraint.max_width">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiLayoutConstraint.merge">merge() (pydui.core.base.PyDuiLayoutConstraint method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id138">(pydui.layout.PyDuiLayoutConstraint method)</a>, <a href="autoapi/pydui/layout/index.html#id29">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayoutConstraint.merge">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id190">(pydui.PyDuiLayoutConstraint method)</a>, <a href="autoapi/pydui/index.html#id95">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayoutConstraint.merge">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiConstraint.min_height">min_height (pydui.core.widget.PyDuiConstraint attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id158">(pydui.layout.PyDuiConstraint attribute)</a>, <a href="autoapi/pydui/layout/index.html#id49">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiConstraint.min_height">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id210">(pydui.PyDuiConstraint attribute)</a>, <a href="autoapi/pydui/index.html#id24">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiConstraint.min_height">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#id2">min_size (pydui.core.window.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.min_size">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id143">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#id151">[1]</a>, <a href="autoapi/pydui/index.html#id3">[2]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.min_size">[3]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiConstraint.min_width">min_width (pydui.core.widget.PyDuiConstraint attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id156">(pydui.layout.PyDuiConstraint attribute)</a>, <a href="autoapi/pydui/layout/index.html#id47">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiConstraint.min_width">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id208">(pydui.PyDuiConstraint attribute)</a>, <a href="autoapi/pydui/index.html#id22">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiConstraint.min_width">[2]</a>
-</li>
-      </ul></li>
       <li>
     module
 
       <ul>
-        <li><a href="autoapi/pydui/index.html#module-pydui">pydui</a>
+        <li><a href="pydui.html#module-pydui">pydui</a>
 </li>
-        <li><a href="autoapi/pydui/core/index.html#module-pydui.core">pydui.core</a>
+        <li><a href="pydui.core.html#module-pydui.core">pydui.core</a>
 </li>
-        <li><a href="autoapi/pydui/core/application/index.html#module-pydui.core.application">pydui.core.application</a>
+        <li><a href="pydui.core.html#module-pydui.core.application">pydui.core.application</a>
 </li>
-        <li><a href="autoapi/pydui/core/attribute_string/index.html#module-pydui.core.attribute_string">pydui.core.attribute_string</a>
+        <li><a href="pydui.core.html#module-pydui.core.attribute_string">pydui.core.attribute_string</a>
 </li>
-        <li><a href="autoapi/pydui/core/base/index.html#module-pydui.core.base">pydui.core.base</a>
+        <li><a href="pydui.core.html#module-pydui.core.base">pydui.core.base</a>
 </li>
-        <li><a href="autoapi/pydui/core/builder/index.html#module-pydui.core.builder">pydui.core.builder</a>
+        <li><a href="pydui.core.html#module-pydui.core.builder">pydui.core.builder</a>
 </li>
-        <li><a href="autoapi/pydui/core/event_dispatcher/index.html#module-pydui.core.event_dispatcher">pydui.core.event_dispatcher</a>
+        <li><a href="pydui.core.html#module-pydui.core.event_dispatcher">pydui.core.event_dispatcher</a>
 </li>
-        <li><a href="autoapi/pydui/core/import_gtk/index.html#module-pydui.core.import_gtk">pydui.core.import_gtk</a>
+        <li><a href="pydui.core.html#module-pydui.core.import_gtk">pydui.core.import_gtk</a>
 </li>
-        <li><a href="autoapi/pydui/core/layout/index.html#module-pydui.core.layout">pydui.core.layout</a>
+        <li><a href="pydui.core.html#module-pydui.core.layout">pydui.core.layout</a>
 </li>
-        <li><a href="autoapi/pydui/core/render/index.html#module-pydui.core.render">pydui.core.render</a>
+        <li><a href="pydui.core.html#module-pydui.core.render">pydui.core.render</a>
 </li>
-        <li><a href="autoapi/pydui/core/render_base/index.html#module-pydui.core.render_base">pydui.core.render_base</a>
+        <li><a href="pydui.core.html#module-pydui.core.render_base">pydui.core.render_base</a>
 </li>
-        <li><a href="autoapi/pydui/core/render_canvas/index.html#module-pydui.core.render_canvas">pydui.core.render_canvas</a>
+        <li><a href="pydui.core.html#module-pydui.core.render_canvas">pydui.core.render_canvas</a>
 </li>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#module-pydui.core.render_manager">pydui.core.render_manager</a>
+        <li><a href="pydui.core.html#module-pydui.core.render_manager">pydui.core.render_manager</a>
 </li>
-        <li><a href="autoapi/pydui/core/render_pil/index.html#module-pydui.core.render_pil">pydui.core.render_pil</a>
+        <li><a href="pydui.core.html#module-pydui.core.render_pil">pydui.core.render_pil</a>
 </li>
-        <li><a href="autoapi/pydui/core/resource_loader/index.html#module-pydui.core.resource_loader">pydui.core.resource_loader</a>
+        <li><a href="pydui.core.html#module-pydui.core.resource_loader">pydui.core.resource_loader</a>
 </li>
-        <li><a href="autoapi/pydui/core/widget/index.html#module-pydui.core.widget">pydui.core.widget</a>
+        <li><a href="pydui.core.html#module-pydui.core.widget">pydui.core.widget</a>
 </li>
-        <li><a href="autoapi/pydui/core/window/index.html#module-pydui.core.window">pydui.core.window</a>
+        <li><a href="pydui.core.html#module-pydui.core.window">pydui.core.window</a>
 </li>
-        <li><a href="autoapi/pydui/core/window_base/index.html#module-pydui.core.window_base">pydui.core.window_base</a>
+        <li><a href="pydui.core.html#module-pydui.core.window_base">pydui.core.window_base</a>
 </li>
-        <li><a href="autoapi/pydui/core/window_handler/index.html#module-pydui.core.window_handler">pydui.core.window_handler</a>
+        <li><a href="pydui.core.html#module-pydui.core.window_handler">pydui.core.window_handler</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#module-pydui.layout">pydui.layout</a>
+        <li><a href="pydui.layout.html#module-pydui.layout">pydui.layout</a>
 </li>
-        <li><a href="autoapi/pydui/layout/fixed_layout/index.html#module-pydui.layout.fixed_layout">pydui.layout.fixed_layout</a>
+        <li><a href="pydui.layout.html#module-pydui.layout.fixed_layout">pydui.layout.fixed_layout</a>
 </li>
-        <li><a href="autoapi/pydui/layout/hlayout/index.html#module-pydui.layout.hlayout">pydui.layout.hlayout</a>
+        <li><a href="pydui.layout.html#module-pydui.layout.hlayout">pydui.layout.hlayout</a>
 </li>
-        <li><a href="autoapi/pydui/layout/vlayout/index.html#module-pydui.layout.vlayout">pydui.layout.vlayout</a>
+        <li><a href="pydui.layout.html#module-pydui.layout.vlayout">pydui.layout.vlayout</a>
 </li>
-        <li><a href="autoapi/pydui/utils/index.html#module-pydui.utils">pydui.utils</a>
+        <li><a href="pydui.utils.html#module-pydui.utils">pydui.utils</a>
 </li>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#module-pydui.utils.conversion">pydui.utils.conversion</a>
+        <li><a href="pydui.utils.html#module-pydui.utils.conversion">pydui.utils.conversion</a>
 </li>
-        <li><a href="autoapi/pydui/utils/file/index.html#module-pydui.utils.file">pydui.utils.file</a>
+        <li><a href="pydui.utils.html#module-pydui.utils.file">pydui.utils.file</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/index.html#module-pydui.widgets">pydui.widgets</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets">pydui.widgets</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/button/index.html#module-pydui.widgets.button">pydui.widgets.button</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.button">pydui.widgets.button</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/edit/index.html#module-pydui.widgets.edit">pydui.widgets.edit</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.edit">pydui.widgets.edit</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#module-pydui.widgets.icon">pydui.widgets.icon</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.icon">pydui.widgets.icon</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#module-pydui.widgets.label">pydui.widgets.label</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.label">pydui.widgets.label</a>
 </li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#module-pydui.widgets.picture">pydui.widgets.picture</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="N">N</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiClickType.NONE">NONE (pydui.core.base.PyDuiClickType attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id132">(pydui.layout.PyDuiClickType attribute)</a>, <a href="autoapi/pydui/layout/index.html#id23">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiClickType.NONE">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id184">(pydui.PyDuiClickType attribute)</a>, <a href="autoapi/pydui/index.html#id89">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiClickType.NONE">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButtonState.NORMAL">NORMAL (pydui.widgets.button.PyDuiButtonState attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/render_base/index.html#pydui.core.render_base.PyDuiRenderManagerBase.notify_redraw">notify_redraw() (pydui.core.render_base.PyDuiRenderManagerBase method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.notify_redraw">(pydui.core.render_manager.PyDuiRenderManager method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id150">(pydui.layout.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/layout/index.html#id41">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRenderManagerBase.notify_redraw">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id112">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.notify_redraw">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id16">(pydui.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/index.html#id202">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManagerBase.notify_redraw">[2]</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.picture">pydui.widgets.picture</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1263,763 +382,337 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_button_press">on_button_press() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id108">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.on_button_press">[1]</a>
+      <li><a href="pydui.core.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_destroy">on_window_destroy() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_button_release">on_button_release() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id109">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.on_button_release">[1]</a>
+      <li><a href="pydui.core.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_init">on_window_init() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_configure_event">on_configure_event() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id105">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.on_configure_event">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_l2button_click">on_l2button_click() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id184">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id75">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_l2button_click">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id236">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id50">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_l2button_click">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_l3button_click">on_l3button_click() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id186">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id77">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_l3button_click">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id238">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id52">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_l3button_click">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_lbutton_click">on_lbutton_click() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id182">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id73">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_lbutton_click">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id234">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id48">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_lbutton_click">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_lbutton_press">on_lbutton_press() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id178">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id69">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_lbutton_press">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id230">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id44">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_lbutton_press">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_lbutton_release">on_lbutton_release() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id179">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id70">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_lbutton_release">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id231">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id45">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_lbutton_release">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_motion_notify">on_motion_notify() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id107">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.on_motion_notify">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_mouse_enter">on_mouse_enter() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id175">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id66">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_mouse_enter">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiButton.on_mouse_enter">(pydui.PyDuiButton method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id227">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id41">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_mouse_enter">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButton.on_mouse_enter">(pydui.widgets.button.PyDuiButton method)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_mouse_leave">on_mouse_leave() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id176">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id67">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_mouse_leave">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiButton.on_mouse_leave">(pydui.PyDuiButton method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id228">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id42">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_mouse_leave">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButton.on_mouse_leave">(pydui.widgets.button.PyDuiButton method)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_mouse_move">on_mouse_move() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id177">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id68">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_mouse_move">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id229">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id43">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_mouse_move">[2]</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_r2button_click">on_r2button_click() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id185">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id76">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_r2button_click">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_position_changed">on_window_position_changed() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id237">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id51">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_r2button_click">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_size_changed">on_window_size_changed() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_r3button_click">on_r3button_click() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id187">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id78">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_r3button_click">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_visible_changed">on_window_visible_changed() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id239">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id53">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_r3button_click">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_rbutton_click">on_rbutton_click() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id183">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id74">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_rbutton_click">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id235">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id49">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_rbutton_click">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_rbutton_press">on_rbutton_press() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id180">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id71">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_rbutton_press">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id232">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id46">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_rbutton_press">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.on_rbutton_release">on_rbutton_release() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id181">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id72">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.on_rbutton_release">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id233">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id47">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.on_rbutton_release">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_destroy">on_window_destroy() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window_handler/index.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_destroy">(pydui.core.window_handler.PyDuiWindowHandler method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id102">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.on_window_destroy">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id136">(pydui.PyDuiWindowHandler method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowHandler.on_window_destroy">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_hide">on_window_hide() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id104">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.on_window_hide">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window_handler/index.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_init">on_window_init() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id135">(pydui.PyDuiWindowHandler method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowHandler.on_window_init">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window_handler/index.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_position_changed">on_window_position_changed() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id137">(pydui.PyDuiWindowHandler method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowHandler.on_window_position_changed">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_show">on_window_show() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id103">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.on_window_show">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window_handler/index.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_size_changed">on_window_size_changed() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id138">(pydui.PyDuiWindowHandler method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowHandler.on_window_size_changed">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher.on_window_state_event">on_window_state_event() (pydui.core.event_dispatcher.PyDuiEventDispatcher method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id106">(pydui.PyDuiEventDispatcher method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher.on_window_state_event">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window_handler/index.html#pydui.core.window_handler.PyDuiWindowHandler.on_window_visible_changed">on_window_visible_changed() (pydui.core.window_handler.PyDuiWindowHandler method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id139">(pydui.PyDuiWindowHandler method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowHandler.on_window_visible_changed">[1]</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.padding">padding (pydui.core.layout.PyDuiLayout property)</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.padding">padding (pydui.core.layout.PyDuiLayout property)</a>
+</li>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.parse_attrib">parse_attrib() (pydui.core.layout.PyDuiLayout method)</a>
 
       <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id123">(pydui.layout.PyDuiLayout property)</a>, <a href="autoapi/pydui/layout/index.html#id14">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.padding">[2]</a>
+        <li><a href="pydui.core.html#pydui.core.widget.PyDuiWidget.parse_attrib">(pydui.core.widget.PyDuiWidget method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id175">(pydui.PyDuiLayout property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.padding">[1]</a>
+        <li><a href="pydui.widgets.html#pydui.widgets.button.PyDuiButton.parse_attrib">(pydui.widgets.button.PyDuiButton method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.parent">parent (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id194">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id85">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.parent">[2]</a>
+        <li><a href="pydui.widgets.html#pydui.widgets.edit.PyDuiEdit.parse_attrib">(pydui.widgets.edit.PyDuiEdit method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id246">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id60">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.parent">[2]</a>
+        <li><a href="pydui.widgets.html#pydui.widgets.icon.PyDuiIcon.parse_attrib">(pydui.widgets.icon.PyDuiIcon method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/attribute_string/index.html#pydui.core.attribute_string.PyDuiAttrStrParser.parse">parse() (pydui.core.attribute_string.PyDuiAttrStrParser static method)</a>
+        <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.parse_attrib">(pydui.widgets.label.PyDuiLabel method)</a>
 </li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.parse_attrib">parse_attrib() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.parse_attrib">(pydui.core.widget.PyDuiWidget method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id1">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id110">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.parse_attrib">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id173">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id64">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.parse_attrib">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiButton.parse_attrib">(pydui.PyDuiButton method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiEdit.parse_attrib">(pydui.PyDuiEdit method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.parse_attrib">(pydui.PyDuiIcon method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.parse_attrib">(pydui.PyDuiLabel method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id162">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.parse_attrib">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.parse_attrib">(pydui.PyDuiPicture method)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id225">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id39">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.parse_attrib">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButton.parse_attrib">(pydui.widgets.button.PyDuiButton method)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/edit/index.html#pydui.widgets.edit.PyDuiEdit.parse_attrib">(pydui.widgets.edit.PyDuiEdit method)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.parse_attrib">(pydui.widgets.icon.PyDuiIcon method)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.parse_attrib">(pydui.widgets.label.PyDuiLabel method)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.parse_attrib">(pydui.widgets.picture.PyDuiPicture method)</a>
+        <li><a href="pydui.widgets.html#pydui.widgets.picture.PyDuiPicture.parse_attrib">(pydui.widgets.picture.PyDuiPicture method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.parse_attributes">parse_attributes() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id172">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id63">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.parse_attributes">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.widget.PyDuiWidget.parse_attributes">parse_attributes() (pydui.core.widget.PyDuiWidget method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id224">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id38">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.parse_attributes">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.position">position (pydui.core.window.PyDuiWindowConfig attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id153">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.position">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.positon">positon (pydui.core.window.PyDuiWindowConfig attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id145">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.positon">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_base/index.html#pydui.core.render_base.PyDuiRenderManagerBase.post_task">post_task() (pydui.core.render_base.PyDuiRenderManagerBase method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.post_task">(pydui.core.render_manager.PyDuiRenderManager method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id153">(pydui.layout.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/layout/index.html#id44">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRenderManagerBase.post_task">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id115">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.post_task">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id19">(pydui.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/index.html#id205">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManagerBase.post_task">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_base/index.html#pydui.core.render_base.PyDuiRenderManagerBase.post_task_with_delay">post_task_with_delay() (pydui.core.render_base.PyDuiRenderManagerBase method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.post_task_with_delay">(pydui.core.render_manager.PyDuiRenderManager method)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id154">(pydui.layout.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/layout/index.html#id45">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRenderManagerBase.post_task_with_delay">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id116">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.post_task_with_delay">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id20">(pydui.PyDuiRenderManagerBase method)</a>, <a href="autoapi/pydui/index.html#id206">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManagerBase.post_task_with_delay">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButtonState.PRESS">PRESS (pydui.widgets.button.PyDuiButtonState attribute)</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.positon">positon (pydui.core.window.PyDuiWindowConfig attribute)</a>
 </li>
       <li>
     pydui
 
       <ul>
-        <li><a href="autoapi/pydui/index.html#module-pydui">module</a>
+        <li><a href="pydui.html#module-pydui">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core
 
       <ul>
-        <li><a href="autoapi/pydui/core/index.html#module-pydui.core">module</a>
+        <li><a href="pydui.core.html#module-pydui.core">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.application
 
       <ul>
-        <li><a href="autoapi/pydui/core/application/index.html#module-pydui.core.application">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.application">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.attribute_string
 
       <ul>
-        <li><a href="autoapi/pydui/core/attribute_string/index.html#module-pydui.core.attribute_string">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.attribute_string">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.base
 
       <ul>
-        <li><a href="autoapi/pydui/core/base/index.html#module-pydui.core.base">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.base">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.builder
 
       <ul>
-        <li><a href="autoapi/pydui/core/builder/index.html#module-pydui.core.builder">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.builder">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.event_dispatcher
 
       <ul>
-        <li><a href="autoapi/pydui/core/event_dispatcher/index.html#module-pydui.core.event_dispatcher">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.event_dispatcher">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.import_gtk
 
       <ul>
-        <li><a href="autoapi/pydui/core/import_gtk/index.html#module-pydui.core.import_gtk">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.import_gtk">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.layout
 
       <ul>
-        <li><a href="autoapi/pydui/core/layout/index.html#module-pydui.core.layout">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.layout">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.render
 
       <ul>
-        <li><a href="autoapi/pydui/core/render/index.html#module-pydui.core.render">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.render">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.render_base
 
       <ul>
-        <li><a href="autoapi/pydui/core/render_base/index.html#module-pydui.core.render_base">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.render_base">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.render_canvas
 
       <ul>
-        <li><a href="autoapi/pydui/core/render_canvas/index.html#module-pydui.core.render_canvas">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.render_canvas">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.render_manager
 
       <ul>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#module-pydui.core.render_manager">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.render_manager">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.render_pil
 
       <ul>
-        <li><a href="autoapi/pydui/core/render_pil/index.html#module-pydui.core.render_pil">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.render_pil">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.resource_loader
 
       <ul>
-        <li><a href="autoapi/pydui/core/resource_loader/index.html#module-pydui.core.resource_loader">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.resource_loader">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.widget
 
       <ul>
-        <li><a href="autoapi/pydui/core/widget/index.html#module-pydui.core.widget">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.widget">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.window
 
       <ul>
-        <li><a href="autoapi/pydui/core/window/index.html#module-pydui.core.window">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.window">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.window_base
 
       <ul>
-        <li><a href="autoapi/pydui/core/window_base/index.html#module-pydui.core.window_base">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.window_base">module</a>
 </li>
       </ul></li>
       <li>
     pydui.core.window_handler
 
       <ul>
-        <li><a href="autoapi/pydui/core/window_handler/index.html#module-pydui.core.window_handler">module</a>
+        <li><a href="pydui.core.html#module-pydui.core.window_handler">module</a>
 </li>
       </ul></li>
       <li>
     pydui.layout
 
       <ul>
-        <li><a href="autoapi/pydui/layout/index.html#module-pydui.layout">module</a>
+        <li><a href="pydui.layout.html#module-pydui.layout">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     pydui.layout.fixed_layout
 
       <ul>
-        <li><a href="autoapi/pydui/layout/fixed_layout/index.html#module-pydui.layout.fixed_layout">module</a>
+        <li><a href="pydui.layout.html#module-pydui.layout.fixed_layout">module</a>
 </li>
       </ul></li>
       <li>
     pydui.layout.hlayout
 
       <ul>
-        <li><a href="autoapi/pydui/layout/hlayout/index.html#module-pydui.layout.hlayout">module</a>
+        <li><a href="pydui.layout.html#module-pydui.layout.hlayout">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     pydui.layout.vlayout
 
       <ul>
-        <li><a href="autoapi/pydui/layout/vlayout/index.html#module-pydui.layout.vlayout">module</a>
+        <li><a href="pydui.layout.html#module-pydui.layout.vlayout">module</a>
 </li>
       </ul></li>
       <li>
     pydui.utils
 
       <ul>
-        <li><a href="autoapi/pydui/utils/index.html#module-pydui.utils">module</a>
+        <li><a href="pydui.utils.html#module-pydui.utils">module</a>
 </li>
       </ul></li>
       <li>
     pydui.utils.conversion
 
       <ul>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#module-pydui.utils.conversion">module</a>
+        <li><a href="pydui.utils.html#module-pydui.utils.conversion">module</a>
 </li>
       </ul></li>
       <li>
     pydui.utils.file
 
       <ul>
-        <li><a href="autoapi/pydui/utils/file/index.html#module-pydui.utils.file">module</a>
+        <li><a href="pydui.utils.html#module-pydui.utils.file">module</a>
 </li>
       </ul></li>
       <li>
     pydui.widgets
 
       <ul>
-        <li><a href="autoapi/pydui/widgets/index.html#module-pydui.widgets">module</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets">module</a>
 </li>
       </ul></li>
       <li>
     pydui.widgets.button
 
       <ul>
-        <li><a href="autoapi/pydui/widgets/button/index.html#module-pydui.widgets.button">module</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.button">module</a>
 </li>
       </ul></li>
       <li>
     pydui.widgets.edit
 
       <ul>
-        <li><a href="autoapi/pydui/widgets/edit/index.html#module-pydui.widgets.edit">module</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.edit">module</a>
 </li>
       </ul></li>
       <li>
     pydui.widgets.icon
 
       <ul>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#module-pydui.widgets.icon">module</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.icon">module</a>
 </li>
       </ul></li>
       <li>
     pydui.widgets.label
 
       <ul>
-        <li><a href="autoapi/pydui/widgets/label/index.html#module-pydui.widgets.label">module</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.label">module</a>
 </li>
       </ul></li>
       <li>
     pydui.widgets.picture
 
       <ul>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#module-pydui.widgets.picture">module</a>
+        <li><a href="pydui.widgets.html#module-pydui.widgets.picture">module</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/pydui/index.html#id179">PyDuiAlign (class in pydui)</a>, <a href="autoapi/pydui/index.html#id84">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiAlign">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiAlign">(class in pydui.core.base)</a>
+      <li><a href="pydui.core.html#pydui.core.base.PyDuiAlign">PyDuiAlign (class in pydui.core.base)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id127">(class in pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id18">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiAlign">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.application.PyDuiApplication">PyDuiApplication (class in pydui.core.application)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiApplication">PyDuiApplication (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/application/index.html#pydui.core.application.PyDuiApplication">(class in pydui.core.application)</a>
+      <li><a href="pydui.core.html#pydui.core.builder.PyDuiBuilder">PyDuiBuilder (class in pydui.core.builder)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/attribute_string/index.html#pydui.core.attribute_string.PyDuiAttrStrParser">PyDuiAttrStrParser (class in pydui.core.attribute_string)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.button.PyDuiButton">PyDuiButton (class in pydui.widgets.button)</a>
 </li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiBuilder">PyDuiBuilder (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/builder/index.html#pydui.core.builder.PyDuiBuilder">(class in pydui.core.builder)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.button.PyDuiButtonState">PyDuiButtonState (class in pydui.widgets.button)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiButton">PyDuiButton (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButton">(class in pydui.widgets.button)</a>
+      <li><a href="pydui.core.html#pydui.core.base.PyDuiClickType">PyDuiClickType (class in pydui.core.base)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/widgets/button/index.html#pydui.widgets.button.PyDuiButtonState">PyDuiButtonState (class in pydui.widgets.button)</a>
+      <li><a href="pydui.core.html#pydui.core.widget.PyDuiConstraint">PyDuiConstraint (class in pydui.core.widget)</a>
 </li>
-      <li><a href="autoapi/pydui/index.html#id183">PyDuiClickType (class in pydui)</a>, <a href="autoapi/pydui/index.html#id88">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiClickType">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiClickType">(class in pydui.core.base)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.edit.PyDuiEdit">PyDuiEdit (class in pydui.widgets.edit)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id131">(class in pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id22">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiClickType">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.event_dispatcher.PyDuiEventDispatcher">PyDuiEventDispatcher (class in pydui.core.event_dispatcher)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id207">PyDuiConstraint (class in pydui)</a>, <a href="autoapi/pydui/index.html#id21">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiConstraint">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiConstraint">(class in pydui.core.widget)</a>
+      <li><a href="pydui.layout.html#pydui.layout.fixed_layout.PyDuiFixedLayout">PyDuiFixedLayout (class in pydui.layout.fixed_layout)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id155">(class in pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id46">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiConstraint">[2]</a>
+      <li><a href="pydui.layout.html#pydui.layout.hlayout.PyDuiHLayout">PyDuiHLayout (class in pydui.layout.hlayout)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiEdit">PyDuiEdit (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/widgets/edit/index.html#pydui.widgets.edit.PyDuiEdit">(class in pydui.widgets.edit)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.icon.PyDuiIcon">PyDuiIcon (class in pydui.widgets.icon)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id99">PyDuiEventDispatcher (class in pydui)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiEventDispatcher">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/event_dispatcher/index.html#pydui.core.event_dispatcher.PyDuiEventDispatcher">(class in pydui.core.event_dispatcher)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel">PyDuiLabel (class in pydui.widgets.label)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiFixedLayout">PyDuiFixedLayout (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiFixedLayout">(class in pydui.layout)</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout">PyDuiLayout (class in pydui.core.layout)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/fixed_layout/index.html#pydui.layout.fixed_layout.PyDuiFixedLayout">(class in pydui.layout.fixed_layout)</a>
+      <li><a href="pydui.core.html#pydui.core.base.PyDuiLayoutConstraint">PyDuiLayoutConstraint (class in pydui.core.base)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiHLayout">PyDuiHLayout (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiHLayout">(class in pydui.layout)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.picture.PyDuiPicture">PyDuiPicture (class in pydui.widgets.picture)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/hlayout/index.html#pydui.layout.hlayout.PyDuiHLayout">(class in pydui.layout.hlayout)</a>
+      <li><a href="pydui.core.html#pydui.core.render.PyDuiRender">PyDuiRender (class in pydui.core.render)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon">PyDuiIcon (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon">(class in pydui.widgets.icon)</a>
+      <li><a href="pydui.core.html#pydui.core.render_canvas.PyDuiRenderCanvas">PyDuiRenderCanvas (class in pydui.core.render_canvas)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel">PyDuiLabel (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel">(class in pydui.widgets.label)</a>
+      <li><a href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager">PyDuiRenderManager (class in pydui.core.render_manager)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id161">PyDuiLayout (class in pydui)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout">(class in pydui.core.layout)</a>
+      <li><a href="pydui.core.html#pydui.core.render_base.PyDuiRenderManagerBase">PyDuiRenderManagerBase (class in pydui.core.render_base)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id0">(class in pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id109">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.resource_loader.PyDuiResourceLoader">PyDuiResourceLoader (class in pydui.core.resource_loader)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id187">PyDuiLayoutConstraint (class in pydui)</a>, <a href="autoapi/pydui/index.html#id92">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayoutConstraint">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiLayoutConstraint">(class in pydui.core.base)</a>
+      <li><a href="pydui.layout.html#pydui.layout.vlayout.PyDuiVLayout">PyDuiVLayout (class in pydui.layout.vlayout)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id135">(class in pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id26">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayoutConstraint">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.widget.PyDuiWidget">PyDuiWidget (class in pydui.core.widget)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture">PyDuiPicture (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture">(class in pydui.widgets.picture)</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindow">PyDuiWindow (class in pydui.core.window)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id194">PyDuiRender (class in pydui)</a>, <a href="autoapi/pydui/index.html#id8">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRender">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render/index.html#pydui.core.render.PyDuiRender">(class in pydui.core.render)</a>
+      <li><a href="pydui.core.html#pydui.core.window_base.PyDuiWindowBase">PyDuiWindowBase (class in pydui.core.window_base)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id142">(class in pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id33">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRender">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig">PyDuiWindowConfig (class in pydui.core.window)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_canvas/index.html#pydui.core.render_canvas.PyDuiRenderCanvas">PyDuiRenderCanvas (class in pydui.core.render_canvas)</a>
+      <li><a href="pydui.core.html#pydui.core.window_handler.PyDuiWindowHandler">PyDuiWindowHandler (class in pydui.core.window_handler)</a>
 </li>
-      <li><a href="autoapi/pydui/index.html#id110">PyDuiRenderManager (class in pydui)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager">(class in pydui.core.render_manager)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id14">PyDuiRenderManagerBase (class in pydui)</a>, <a href="autoapi/pydui/index.html#id200">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManagerBase">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/render_base/index.html#pydui.core.render_base.PyDuiRenderManagerBase">(class in pydui.core.render_base)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id148">(class in pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id39">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRenderManagerBase">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id125">PyDuiResourceLoader (class in pydui)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiResourceLoader">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader">(class in pydui.core.resource_loader)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiVLayout">PyDuiVLayout (class in pydui)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiVLayout">(class in pydui.layout)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/vlayout/index.html#pydui.layout.vlayout.PyDuiVLayout">(class in pydui.layout.vlayout)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id212">PyDuiWidget (class in pydui)</a>, <a href="autoapi/pydui/index.html#id26">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget">(class in pydui.core.widget)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id160">(class in pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id51">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id157">PyDuiWindow (class in pydui)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindow">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindow">(class in pydui.core.window)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id131">PyDuiWindowBase (class in pydui)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowBase">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window_base/index.html#pydui.core.window_base.PyDuiWindowBase">(class in pydui.core.window_base)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id140">PyDuiWindowConfig (class in pydui)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig">(class in pydui.core.window)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id134">PyDuiWindowHandler (class in pydui)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowHandler">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window_handler/index.html#pydui.core.window_handler.PyDuiWindowHandler">(class in pydui.core.window_handler)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/render/index.html#pydui.core.render.PyDuiRender.Rectangle">Rectangle() (pydui.core.render.PyDuiRender static method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id143">(pydui.layout.PyDuiRender static method)</a>, <a href="autoapi/pydui/layout/index.html#id34">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiRender.Rectangle">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.remove_child">remove_child() (pydui.core.layout.PyDuiLayout method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id195">(pydui.PyDuiRender static method)</a>, <a href="autoapi/pydui/index.html#id9">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRender.Rectangle">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/utils/index.html#pydui.utils.RectH">RectH() (in module pydui.utils)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#pydui.utils.conversion.RectH">(in module pydui.utils.conversion)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/utils/index.html#pydui.utils.RectW">RectW() (in module pydui.utils)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#pydui.utils.conversion.RectW">(in module pydui.utils.conversion)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_canvas/index.html#pydui.core.render_canvas.PyDuiRenderCanvas.redraw">redraw() (pydui.core.render_canvas.PyDuiRenderCanvas method)</a>
-</li>
-      <li><a href="autoapi/pydui/core/builder/index.html#pydui.core.builder.PyDuiBuilder.register_resource_loader">register_resource_loader() (pydui.core.builder.PyDuiBuilder method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiBuilder.register_resource_loader">(pydui.PyDuiBuilder method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.release">release() (pydui.core.render_manager.PyDuiRenderManager method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id111">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.release">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.remove_child">remove_child() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id11">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id120">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.remove_child">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id172">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.remove_child">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.remove_child_at">remove_child_at() (pydui.core.layout.PyDuiLayout method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id12">(pydui.layout.PyDuiLayout method)</a>, <a href="autoapi/pydui/layout/index.html#id121">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.remove_child_at">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id173">(pydui.PyDuiLayout method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.remove_child_at">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render/index.html#pydui.core.render.RENDER_MAX_LINE">RENDER_MAX_LINE (in module pydui.core.render)</a>
+      <li><a href="pydui.core.html#pydui.core.layout.PyDuiLayout.remove_child_at">remove_child_at() (pydui.core.layout.PyDuiLayout method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2027,284 +720,81 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/resource_loader/index.html#pydui.core.resource_loader.PyDuiResourceLoader.scheme">scheme() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id126">(pydui.PyDuiResourceLoader method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiResourceLoader.scheme">[1]</a>
+      <li><a href="pydui.core.html#pydui.core.resource_loader.PyDuiResourceLoader.scheme">scheme() (pydui.core.resource_loader.PyDuiResourceLoader method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.set_focus">set_focus() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id192">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id83">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.set_focus">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.widget.PyDuiWidget.set_render_manager">set_render_manager() (pydui.core.widget.PyDuiWidget method)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id244">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id58">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.set_focus">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.set_rootview">set_rootview() (pydui.core.render_manager.PyDuiRenderManager method)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.set_render_manager">set_render_manager() (pydui.core.widget.PyDuiWidget method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id164">(pydui.layout.PyDuiWidget method)</a>, <a href="autoapi/pydui/layout/index.html#id55">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.set_render_manager">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id216">(pydui.PyDuiWidget method)</a>, <a href="autoapi/pydui/index.html#id30">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.set_render_manager">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/render_manager/index.html#pydui.core.render_manager.PyDuiRenderManager.set_rootview">set_rootview() (pydui.core.render_manager.PyDuiRenderManager method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id122">(pydui.PyDuiRenderManager method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiRenderManager.set_rootview">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindow.show">show() (pydui.core.window.PyDuiWindow method)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id159">(pydui.PyDuiWindow method)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindow.show">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.size">size (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/window/index.html#id1">(pydui.core.window.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.size">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id195">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id86">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.size">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id247">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id61">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.size">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id142">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#id150">[1]</a>, <a href="autoapi/pydui/index.html#id2">[2]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.size">[3]</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiAlign.START">START (pydui.core.base.PyDuiAlign attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id129">(pydui.layout.PyDuiAlign attribute)</a>, <a href="autoapi/pydui/layout/index.html#id20">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiAlign.START">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.size">size (pydui.core.window.PyDuiWindowConfig attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id181">(pydui.PyDuiAlign attribute)</a>, <a href="autoapi/pydui/index.html#id86">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiAlign.START">[2]</a>
+      <li><a href="pydui.utils.html#pydui.utils.conversion.Str2Position">Str2Position() (in module pydui.utils.conversion)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/utils/index.html#pydui.utils.Str2Color">Str2Color() (in module pydui.utils)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#pydui.utils.conversion.Str2Color">(in module pydui.utils.conversion)</a>
+      <li><a href="pydui.utils.html#pydui.utils.conversion.Str2Size">Str2Size() (in module pydui.utils.conversion)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/utils/index.html#pydui.utils.Str2Position">Str2Position() (in module pydui.utils)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#pydui.utils.conversion.Str2Position">(in module pydui.utils.conversion)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/utils/index.html#pydui.utils.Str2Rect">Str2Rect() (in module pydui.utils)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#pydui.utils.conversion.Str2Rect">(in module pydui.utils.conversion)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/utils/index.html#pydui.utils.Str2Size">Str2Size() (in module pydui.utils)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/utils/conversion/index.html#pydui.utils.conversion.Str2Size">(in module pydui.utils.conversion)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.text">text (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.text">(pydui.PyDuiLabel attribute)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.text">text (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#id0">(pydui.PyDuiLabel property)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.text">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.text">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.text">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#id0">(pydui.widgets.label.PyDuiLabel property)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.text">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id193">Text2EllipsizeMode() (in module pydui)</a>, <a href="autoapi/pydui/index.html#id98">[1]</a>, <a href="autoapi/pydui/index.html#pydui.Text2EllipsizeMode">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.Text2EllipsizeMode">(in module pydui.core.base)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id141">(in module pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id32">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.Text2EllipsizeMode">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#id191">Text2PyDuiAlign() (in module pydui)</a>, <a href="autoapi/pydui/index.html#id96">[1]</a>, <a href="autoapi/pydui/index.html#pydui.Text2PyDuiAlign">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.Text2PyDuiAlign">(in module pydui.core.base)</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id139">(in module pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id30">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.Text2PyDuiAlign">[2]</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/index.html#id192">Text2WrapMode() (in module pydui)</a>, <a href="autoapi/pydui/index.html#id97">[1]</a>, <a href="autoapi/pydui/index.html#pydui.Text2WrapMode">[2]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.Text2WrapMode">(in module pydui.core.base)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.text_padding">text_padding (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id140">(in module pydui.layout)</a>, <a href="autoapi/pydui/layout/index.html#id31">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.Text2WrapMode">[2]</a>
+      <li><a href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.title">title (pydui.core.window.PyDuiWindowConfig attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.text_padding">text_padding (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.text_padding">(pydui.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.text_padding">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.text_padding">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.text_padding">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.text_padding">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="autoapi/pydui/core/window/index.html#id0">title (pydui.core.window.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/core/window/index.html#pydui.core.window.PyDuiWindowConfig.title">[1]</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#id1">(pydui.PyDuiWindowConfig attribute)</a>, <a href="autoapi/pydui/index.html#id141">[1]</a>, <a href="autoapi/pydui/index.html#id149">[2]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWindowConfig.title">[3]</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/layout/index.html#pydui.core.layout.PyDuiLayout.valign">valign (pydui.core.layout.PyDuiLayout property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id125">(pydui.layout.PyDuiLayout property)</a>, <a href="autoapi/pydui/layout/index.html#id16">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayout.valign">[2]</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.valign">valign (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.valign">(pydui.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.valign">(pydui.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id177">(pydui.PyDuiLayout property)</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayout.valign">[1]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.valign">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.valign">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.valign">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.valign">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.visible">visible (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id102">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id211">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.visible">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id263">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id77">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.visible">[2]</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/base/index.html#pydui.core.base.PyDuiLayoutConstraint.width">width (pydui.core.base.PyDuiLayoutConstraint attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.width">(pydui.core.widget.PyDuiWidget property)</a>
+      <li><a href="pydui.widgets.html#pydui.widgets.label.PyDuiLabel.wrap">wrap (pydui.widgets.label.PyDuiLabel attribute)</a>
 </li>
-        <li><a href="autoapi/pydui/layout/index.html#id136">(pydui.layout.PyDuiLayoutConstraint attribute)</a>, <a href="autoapi/pydui/layout/index.html#id27">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiLayoutConstraint.width">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/layout/index.html#id196">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id87">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.width">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id188">(pydui.PyDuiLayoutConstraint attribute)</a>, <a href="autoapi/pydui/index.html#id93">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiLayoutConstraint.width">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id248">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id62">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.width">[2]</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/index.html#pydui.PyDuiIcon.wrap">wrap (pydui.PyDuiIcon attribute)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiLabel.wrap">(pydui.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#pydui.PyDuiPicture.wrap">(pydui.PyDuiPicture attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/icon/index.html#pydui.widgets.icon.PyDuiIcon.wrap">(pydui.widgets.icon.PyDuiIcon attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/label/index.html#pydui.widgets.label.PyDuiLabel.wrap">(pydui.widgets.label.PyDuiLabel attribute)</a>
-</li>
-        <li><a href="autoapi/pydui/widgets/picture/index.html#pydui.widgets.picture.PyDuiPicture.wrap">(pydui.widgets.picture.PyDuiPicture attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="X">X</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.x">x (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id203">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id94">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.x">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id255">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id69">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.x">[2]</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.xy">xy (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id202">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id93">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.xy">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id254">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id68">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.xy">[2]</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="Y">Y</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/pydui/core/widget/index.html#pydui.core.widget.PyDuiWidget.y">y (pydui.core.widget.PyDuiWidget property)</a>
-
-      <ul>
-        <li><a href="autoapi/pydui/layout/index.html#id204">(pydui.layout.PyDuiWidget property)</a>, <a href="autoapi/pydui/layout/index.html#id95">[1]</a>, <a href="autoapi/pydui/layout/index.html#pydui.layout.PyDuiWidget.y">[2]</a>
-</li>
-        <li><a href="autoapi/pydui/index.html#id256">(pydui.PyDuiWidget property)</a>, <a href="autoapi/pydui/index.html#id70">[1]</a>, <a href="autoapi/pydui/index.html#pydui.PyDuiWidget.y">[2]</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 
 
+            <div class="clearer"></div>
           </div>
-          <div class="page-nav">
-            <div class="inner"><ul class="page-nav">
-</ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2022, Hiram Deng.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
-</div>
+        </div>
+      </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
             </div>
-          </div>
-      </page>
-    </div></div>
-    
-    
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hiram Deng.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
   </body>
 </html>
