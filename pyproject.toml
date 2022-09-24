@@ -20,7 +20,7 @@ gobject = "^0.1.0"
 pycairo = "^1.21.0"
 pygobject = "^3.42.2"
 asyncio = "^3.4.3"
-pynoticenter = "^0.1.6"
+pynoticenter = "^0.1.8"
 pathlib = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
