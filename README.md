@@ -214,8 +214,10 @@ Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/pog
         align_content="flex_start"
         flex_direction="row"
     >
-        <PGLayout bkcolor="#FFFF0000">
-            <Label text="Hello" />
+        <PGLayout bkcolor="#FFFF0000"
+        	align_items="flex_start"
+        >
+            <Label text="Hello" autofit="true" />
         </PGLayout>
         <PGLayout bkcolor="#FF00FF00" width="100" height="100">
         </PGLayout>
