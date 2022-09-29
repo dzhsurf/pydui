@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Quickstart &#8212; PyDui-GTK https://pypi.org/project/pydui-gtk/ documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="shortcut icon" href="https://pypi.org/static/images/logo-small.95de8436.svg"/>
@@ -300,12 +301,37 @@ pip install -e .
 </pre></div>
 </div>
 </section>
-<section id="layout-rule">
-<h3>Layout Rule<a class="headerlink" href="#layout-rule" title="Permalink to this heading">¶</a></h3>
+<section id="support-yogalayout">
+<h3>Support YogaLayout<a class="headerlink" href="#support-yogalayout" title="Permalink to this heading">¶</a></h3>
+<p>Congratulations! Now you can use YogaLayout in PyDui-GTK!!!</p>
+<p>More details about YogaLayout: https://yogalayout.com/docs/</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;Window</span> <span class="na">size=</span><span class="s">&quot;664,600&quot;</span> <span class="na">title=</span><span class="s">&#39;Quickstart Demo&#39;</span> <span class="na">min_size=</span><span class="s">&quot;600,400&quot;</span>
+    <span class="na">default_font=</span><span class="s">&quot;Helvetica&quot;</span> <span class="na">default_fontsize=</span><span class="s">&quot;16&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;PGLayout</span>
+        <span class="na">bkcolor=</span><span class="s">&quot;#FFEFEFEF&quot;</span>
+        <span class="na">width_percent=</span><span class="s">&quot;100&quot;</span>
+        <span class="na">height_percent=</span><span class="s">&quot;100&quot;</span>
+        <span class="na">align_content=</span><span class="s">&quot;flex_start&quot;</span>
+        <span class="na">flex_direction=</span><span class="s">&quot;row&quot;</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;PGLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFFF0000&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;Hello&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/PGLayout&gt;</span>
+        <span class="nt">&lt;PGLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FF00FF00&quot;</span> <span class="na">width=</span><span class="s">&quot;100&quot;</span> <span class="na">height=</span><span class="s">&quot;100&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/PGLayout&gt;</span>
+    <span class="nt">&lt;/PGLayout&gt;</span>
+<span class="nt">&lt;/Window&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="internal-layout-engine">
+<h3>Internal Layout Engine<a class="headerlink" href="#internal-layout-engine" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><p>TODO:
 …</p>
 </div></blockquote>
+<p>Maybe it will be deprecated in the future.</p>
 </section>
 <section id="development">
 <h3>Development<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h3>
@@ -377,7 +403,12 @@ pip install -e .
 <li><p>HLayout - finish</p></li>
 <li><p>VLayout - finish</p></li>
 <li><p>FixedLayout - 0%</p></li>
-<li><p>YogaLayout Engine - planning</p></li>
+<li><p>PGLayout - 70%</p>
+<ul>
+<li><p>import YogaLayout Engine - 90% - base on poga project.</p></li>
+<li><p>Layout implement</p></li>
+</ul>
+</li>
 </ul>
 <p>Widget:</p>
 <ul class="simple">
@@ -454,7 +485,8 @@ pip install -e .
 <li><a class="reference internal" href="#install">Install</a></li>
 <li><a class="reference internal" href="#building">Building</a></li>
 <li><a class="reference internal" href="#code-example">Code Example</a></li>
-<li><a class="reference internal" href="#layout-rule">Layout Rule</a></li>
+<li><a class="reference internal" href="#support-yogalayout">Support YogaLayout</a></li>
+<li><a class="reference internal" href="#internal-layout-engine">Internal Layout Engine</a></li>
 <li><a class="reference internal" href="#development">Development</a></li>
 <li><a class="reference internal" href="#development-progress">Development progress</a></li>
 <li><a class="reference internal" href="#benchmarks">Benchmarks</a></li>
@@ -492,7 +524,7 @@ pip install -e .
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Hiram Deng.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.2.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

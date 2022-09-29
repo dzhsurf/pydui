@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>pydui.core package &#8212; PyDui-GTK https://pypi.org/project/pydui-gtk/ documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="shortcut icon" href="https://pypi.org/static/images/logo-small.95de8436.svg"/>
@@ -873,23 +874,132 @@ It will reimplment later.</p>
                 <ul>
 <li><a class="reference internal" href="#">pydui.core package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-pydui.core.application">pydui.core.application module</a></li>
+<li><a class="reference internal" href="#module-pydui.core.application">pydui.core.application module</a><ul>
+<li><a class="reference internal" href="#pydui.core.application.PyDuiApplication"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.application.PyDuiApplication.main_quit"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication.main_quit()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.application.PyDuiApplication.main_run"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication.main_run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pydui.core.attribute_string">pydui.core.attribute_string module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.base">pydui.core.base module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.builder">pydui.core.builder module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.event_dispatcher">pydui.core.event_dispatcher module</a></li>
+<li><a class="reference internal" href="#module-pydui.core.base">pydui.core.base module</a><ul>
+<li><a class="reference internal" href="#pydui.core.base.PyDuiAlign"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.base.PyDuiClickType"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.base.PyDuiLayoutConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.builder">pydui.core.builder module</a><ul>
+<li><a class="reference internal" href="#pydui.core.builder.PyDuiBuilder"><code class="docutils literal notranslate"><span class="pre">PyDuiBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.builder.PyDuiBuilder.build_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiBuilder.build_widget()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.builder.PyDuiBuilder.build_window"><code class="docutils literal notranslate"><span class="pre">PyDuiBuilder.build_window()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.event_dispatcher">pydui.core.event_dispatcher module</a><ul>
+<li><a class="reference internal" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher"><code class="docutils literal notranslate"><span class="pre">PyDuiEventDispatcher</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pydui.core.import_gtk">pydui.core.import_gtk module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.layout">pydui.core.layout module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.render">pydui.core.render module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.render_base">pydui.core.render_base module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.render_canvas">pydui.core.render_canvas module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.render_manager">pydui.core.render_manager module</a></li>
+<li><a class="reference internal" href="#module-pydui.core.layout">pydui.core.layout module</a><ul>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.add_child"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.add_child()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.add_child_at"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.add_child_at()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.child_count"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.child_count</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.find_widget_by_pos"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.find_widget_by_pos()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.get_child"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.get_child()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.get_child_at"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.get_child_at()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.padding"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.padding</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.parse_attrib()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.remove_child"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.remove_child()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.remove_child_at"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.remove_child_at()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.render">pydui.core.render module</a><ul>
+<li><a class="reference internal" href="#pydui.core.render.PyDuiRender"><code class="docutils literal notranslate"><span class="pre">PyDuiRender</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.render.PyDuiRender.EstimateTextSize"><code class="docutils literal notranslate"><span class="pre">PyDuiRender.EstimateTextSize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.render_base">pydui.core.render_base module</a><ul>
+<li><a class="reference internal" href="#pydui.core.render_base.PyDuiRenderManagerBase"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManagerBase</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.render_canvas">pydui.core.render_canvas module</a><ul>
+<li><a class="reference internal" href="#pydui.core.render_canvas.PyDuiRenderCanvas"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderCanvas</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.render_manager">pydui.core.render_manager module</a><ul>
+<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_font_desc"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_font_desc</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontcolor"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontcolor</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontfamily"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontfamily</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontsize</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.get_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.get_widget()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.set_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.set_rootview()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pydui.core.render_pil">pydui.core.render_pil module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.resource_loader">pydui.core.resource_loader module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.widget">pydui.core.widget module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.window">pydui.core.window module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.window_base">pydui.core.window_base module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.window_handler">pydui.core.window_handler module</a></li>
+<li><a class="reference internal" href="#module-pydui.core.resource_loader">pydui.core.resource_loader module</a><ul>
+<li><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader.load_data"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader.load_data()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader.load_image"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader.load_image()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader.load_string"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader.load_string()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader.load_xml"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader.load_xml()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader.scheme"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader.scheme()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.widget">pydui.core.widget module</a><ul>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiConstraint</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.get_id"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.get_id()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.get_render_manager"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.get_render_manager()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.margin"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.margin</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parse_attrib()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.parse_attributes"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parse_attributes()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.set_render_manager"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.set_render_manager()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.window">pydui.core.window module</a><ul>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindow"><code class="docutils literal notranslate"><span class="pre">PyDuiWindow</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.title"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.title</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.size</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.min_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.min_size</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.max_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.max_size</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.positon"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.positon</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.default_font"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_font</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontsize</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.default_fontbold"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontbold</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.window_base">pydui.core.window_base module</a><ul>
+<li><a class="reference internal" href="#pydui.core.window_base.PyDuiWindowBase"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowBase</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.window_handler">pydui.core.window_handler module</a><ul>
+<li><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowHandler</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_destroy"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowHandler.on_window_destroy()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_init"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowHandler.on_window_init()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_position_changed"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowHandler.on_window_position_changed()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_size_changed"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowHandler.on_window_size_changed()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler.on_window_visible_changed"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowHandler.on_window_visible_changed()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pydui.core">Module contents</a></li>
 </ul>
 </li>
@@ -921,7 +1031,7 @@ It will reimplment later.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Hiram Deng.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.2.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

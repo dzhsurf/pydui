@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>pydui.widgets package &#8212; PyDui-GTK https://pypi.org/project/pydui-gtk/ documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="shortcut icon" href="https://pypi.org/static/images/logo-small.95de8436.svg"/>
@@ -418,11 +419,54 @@
                 <ul>
 <li><a class="reference internal" href="#">pydui.widgets package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-pydui.widgets.button">pydui.widgets.button module</a></li>
-<li><a class="reference internal" href="#module-pydui.widgets.edit">pydui.widgets.edit module</a></li>
-<li><a class="reference internal" href="#module-pydui.widgets.icon">pydui.widgets.icon module</a></li>
-<li><a class="reference internal" href="#module-pydui.widgets.label">pydui.widgets.label module</a></li>
-<li><a class="reference internal" href="#module-pydui.widgets.picture">pydui.widgets.picture module</a></li>
+<li><a class="reference internal" href="#module-pydui.widgets.button">pydui.widgets.button module</a><ul>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton"><code class="docutils literal notranslate"><span class="pre">PyDuiButton</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.parse_attrib()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButtonState"><code class="docutils literal notranslate"><span class="pre">PyDuiButtonState</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.widgets.edit">pydui.widgets.edit module</a><ul>
+<li><a class="reference internal" href="#pydui.widgets.edit.PyDuiEdit"><code class="docutils literal notranslate"><span class="pre">PyDuiEdit</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.edit.PyDuiEdit.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiEdit.parse_attrib()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.widgets.icon">pydui.widgets.icon module</a><ul>
+<li><a class="reference internal" href="#pydui.widgets.icon.PyDuiIcon"><code class="docutils literal notranslate"><span class="pre">PyDuiIcon</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.icon.PyDuiIcon.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiIcon.parse_attrib()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.widgets.label">pydui.widgets.label module</a><ul>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.text"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.text</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.font"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.font</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.fontsize</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.fontcolor"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.fontcolor</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.ellipsis"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.ellipsis</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.wrap"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.wrap</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.halign"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.halign</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.valign"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.valign</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.line_spacing"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.line_spacing</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.autofit"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.autofit</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.autofit_padding"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.autofit_padding</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.text_padding"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.text_padding</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.label.PyDuiLabel.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiLabel.parse_attrib()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.widgets.picture">pydui.widgets.picture module</a><ul>
+<li><a class="reference internal" href="#pydui.widgets.picture.PyDuiPicture"><code class="docutils literal notranslate"><span class="pre">PyDuiPicture</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.picture.PyDuiPicture.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiPicture.parse_attrib()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pydui.widgets">Module contents</a></li>
 </ul>
 </li>
@@ -452,7 +496,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Hiram Deng.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.2.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
