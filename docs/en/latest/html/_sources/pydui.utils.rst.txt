@@ -18,6 +18,13 @@ pydui.utils.file module
    :members:
    :show-inheritance:
 
+pydui.utils.poga_utils module
+-----------------------------
+
+.. automodule:: pydui.utils.poga_utils
+   :members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

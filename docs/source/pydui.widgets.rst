@@ -32,6 +32,12 @@ pydui.widgets.label module
    :members:
    :show-inheritance:
 
+pydui.widgets.pgview module
+---------------------------
+.. automodule:: pydui.widgets.pgview
+   :members:
+   :show-inheritance:
+
 pydui.widgets.picture module
 ----------------------------
 

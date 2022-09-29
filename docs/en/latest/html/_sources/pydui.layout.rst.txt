@@ -18,6 +18,13 @@ pydui.layout.hlayout module
    :members:
    :show-inheritance:
 
+pydui.layout.pglayout module
+----------------------------
+
+.. automodule:: pydui.layout.pglayout
+   :members:
+   :show-inheritance:
+
 pydui.layout.vlayout module
 ---------------------------
 

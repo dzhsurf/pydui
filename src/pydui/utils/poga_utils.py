@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from poga import *
 
 def Str2YGPostionType(text: str) -> YGPositionType:
@@ -15,7 +16,7 @@ def Str2YGPostionType(text: str) -> YGPositionType:
 def Str2YGAlign(text: str) -> YGAlign:
     text = text.lower()
     align_types = {
-        "felx_start": YGAlign.FlexStart,
+        "flex_start": YGAlign.FlexStart,
         "flex_end": YGAlign.FlexEnd,
         "stretch": YGAlign.Stretch,
         "center": YGAlign.Center,
@@ -81,6 +82,106 @@ def Str2YGFlexDirection(text: str) -> YGFlexDirection:
 
 def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
     """Apply poga attributes to PogaLayout.
+
+    .. list-table:: Attributes Table
+        :header-rows: 1
+
+        * - Key
+          - Type
+          - Value
+          - Description
+        * - poga_layout
+          - bool
+          - true, false
+          - Enable poga layout
+        * - position_type
+          - YGPositionType
+          - relative, absolute
+          -
+        * - align_content
+          - YGAlign
+          - flex_start, flex_end, stretch, center, space_between, space_around, baseline, auto
+          -
+        * - align_items
+          - YGAlign
+          -
+          -
+        * - align_self
+          - YGAlign
+          -
+          -
+        * - flex_wrap
+          - YGWrap
+          - nowrap, wrap, wrap_reverse
+          -
+        * - flex_grow
+          -
+          -
+          -
+        * - flex_shrink
+          -
+          -
+          -
+        * - flex_basis
+          -
+          -
+          -
+        * - justify_content
+          - YGJustify
+          - flex_start, flex_end, center, space_between, space_around, space_evenly
+          -
+        * - layout_direction
+          - YGDirection
+          - ltr, rtl
+          - default is ltr
+        * - margin
+          -
+          -
+          -
+        * - padding
+          -
+          -
+          -
+        * - border
+          -
+          -
+          -
+        * - min_width
+          -
+          -
+          -
+        * - min_height
+          -
+          -
+          -
+        * - max_width
+          -
+          -
+          -
+        * - max_height
+          -
+          -
+          -
+        * - flex_direction
+          - YGFlexDirection
+          - row, column, row_reverse, column_reverse
+          - default is row
+        * - width
+          -
+          -
+          -
+        * - width_percent
+          -
+          -
+          -
+        * - height
+          -
+          -
+          -
+        * - height_percent
+          -
+          -
+          -
 
     Args:
         layout (PogaLayout): PogaLayout instance

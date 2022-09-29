@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from typing import Iterable, Tuple
 
 from poga import *
