@@ -3,13 +3,12 @@
     default_font="Helvetica" default_fontsize="16">
     <PGLayout
         bkcolor="#FFEFEFEF"
-        width_percent="100"
-        height_percent="100"
         align_content="flex_start"
+        align_items="flex_start"
         flex_direction="row"
     >
         <PGLayout bkcolor="#FFFF0000"
-            align_items="stretch"
+            align_items="flex_start"
         >
             <Label text="Hello" autofit="true" autofit_padding="4,4,4,4" />
         </PGLayout>

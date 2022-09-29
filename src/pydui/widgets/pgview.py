@@ -21,7 +21,6 @@ class PyDuiPGView(PyDuiWidget, PogaView):
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
         self.__layout = PogaLayout(self)
-        self.__layout.flex_direction = YGFlexDirection.Row
 
     def parse_attrib(self, k: str, v: str):
         if not apply_poga_attributes(self.__layout, k, v):
