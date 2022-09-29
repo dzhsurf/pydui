@@ -201,6 +201,8 @@ Congratulations! Now you can use YogaLayout in PyDui-GTK!!!
 
 More details about YogaLayout: https://yogalayout.com/docs/
 
+Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/poga
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Window size="664,600" title='Quickstart Demo' min_size="600,400"
