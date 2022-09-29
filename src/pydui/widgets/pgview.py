@@ -37,9 +37,11 @@ class PyDuiPGView(PyDuiWidget, PogaView):
         return (self.x, self.y)
 
     def set_frame_origin(self, x: float, y: float):
+        # print(self, "set_frame_origin", "x", x, "y", y)
         super().layout(x, y, self.width, self.height, constraint=PyDuiLayoutConstraint())
 
     def set_frame_size(self, width: float, height: float):
+        # print(self, "set_frame_size", "w", width, "h", height)
         super().layout(self.x, self.y, width, height, constraint=PyDuiLayoutConstraint())
 
     def bounds_size(self) -> Tuple[float, float]:

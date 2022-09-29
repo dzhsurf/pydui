@@ -54,7 +54,7 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
 
         for i in range(self.child_count):
             child = self.get_child_at(i)
-            child.draw(ctx, child.x, child.y, child.width, child.height)
+            child.draw(ctx, self.x + child.x, self.y + child.y, child.width, child.height)
 
     # PogaView interface
     def size_that_fits(self, width: float, height: float) -> Tuple[float, float]:
@@ -65,9 +65,11 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
         return (self.x, self.y)
 
     def set_frame_origin(self, x: float, y: float):
+        # print(self, "set_frame_origin", "x", x, "y", y)
         super().layout(x, y, self.width, self.height, constraint=PyDuiLayoutConstraint())
 
     def set_frame_size(self, width: float, height: float):
+        # print(self, "set_frame_size", "w", width, "h", height)
         super().layout(self.x, self.y, width, height, constraint=PyDuiLayoutConstraint())
 
     def bounds_size(self) -> Tuple[float, float]:
