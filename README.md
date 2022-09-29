@@ -265,11 +265,9 @@ In the early stage, performance optimization, resource leakage issue, text rende
 
 There's much work to do...
 
-https://yogalayout.com/  Recently my friend recommended yogalayout to me as it's a good solution for finishing the layout work, it seems powerful and elegant. I decided to put it on the plan.
-
 Builder:
 
-* [ Window, Control, Label, Button, Edit, Picture, HLayout, VLayout ] - finish
+* [ Window, Control, Label, Button, Edit, Picture, HLayout, VLayout, PGLayout ] - finish
 * StyleManager - planning
 
 ResourceLoader:
@@ -285,7 +283,7 @@ Render:
 * DrawRectangle - finish
 * DrawImage - finish
 * DrawText - finish
-* Hi-DPI suppose - almost done
+* Hi-DPI support - almost done
 * Draw area boundary protection - 0%, processing
 
 Layout:
@@ -331,6 +329,8 @@ Widget:
 
 
 ## Reference
+
+YogaLayout: https://yogalayout.com/docs
 
 Python Gtk-3 Tutorial: https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html
 
