@@ -29,7 +29,7 @@ class DemoHandler(PyDuiWindowHandler):
 def main():
     print(f"start pydui version: {pydui.__version__}")
 
-    window = get_builder().build_window(path="res/main.xml", handler=DemoHandler)
+    window = get_builder().build_window(path="res/main_poga.xml", handler=DemoHandler)
     window.show()
 
     PyDuiApplication.main_run()

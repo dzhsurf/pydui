@@ -46,6 +46,7 @@ class PyDuiLayout(PyDuiWidget):
         super().draw(ctx, x, y, width, height)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
+        print("Layout:", self, x, y, width, height)
         super().layout(x, y, width, height, constraint)
 
     def get_children_range_fixed_width(self, start, stop) -> float:
