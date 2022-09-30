@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from poga import *
 
+
 def Str2YGPostionType(text: str) -> YGPositionType:
     text = text.lower()
     pos_types = {
@@ -79,6 +80,7 @@ def Str2YGFlexDirection(text: str) -> YGFlexDirection:
     if text in flex_direction_types:
         return flex_direction_types[text]
     return YGFlexDirection.Row
+
 
 def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
     """Apply poga attributes to PogaLayout.

@@ -2,12 +2,12 @@
 from __future__ import annotations
 
 import logging
-import platform
 from dataclasses import dataclass
 from typing import Callable, Type
 
 from pydui import utils
 from pydui.core.import_gtk import *
+from pydui.core.screen import PyDuiScreen
 
 
 class PyDuiRenderCanvas(Gtk.Frame):
@@ -34,20 +34,6 @@ class PyDuiRenderCanvas(Gtk.Frame):
         self.__area.connect("draw", self.__on_draw__)
         self.__area.connect("configure-event", self.__on_configure__)
 
-    def __get_system_dpi_scale__(self) -> float:
-        # TODO: detect system dpi scale
-        if platform.system() == "Windows":
-            # if platform.release() == "7":
-            #     ctypes.windll.user32.SetProcessDPIAware()
-            # elif platform.release() == "8" or platform.release() == "10":
-            #     ctypes.windll.shcore.SetProcessDpiAwareness(1)
-            return 2.0
-        elif platform.system() == "Linux":
-            pass
-        elif platform.system() == "Darwin":
-            pass
-        return 2.0
-
     def __init_surface__(self, area: Gtk.DrawingArea):
         # Destroy previous buffer
         if self.surface is not None:
@@ -55,7 +41,7 @@ class PyDuiRenderCanvas(Gtk.Frame):
             self.surface = None
 
         # Create a new buffer
-        scale_factor = self.__get_system_dpi_scale__()
+        scale_factor = PyDuiScreen.get_system_dpi_scale()
         self.surface = cairo.ImageSurface(
             cairo.FORMAT_ARGB32,
             round(area.get_allocated_width() * scale_factor),

@@ -8,9 +8,9 @@ from pydui.core.base import PyDuiLayoutConstraint
 from pydui.core.widget import PyDuiWidget
 from pydui.utils.poga_utils import *
 
+
 class PyDuiPGView(PyDuiWidget, PogaView):
-    """PyDuiPGView
-    """
+    """PyDuiPGView"""
 
     # PyDuiWidget interface
     @staticmethod

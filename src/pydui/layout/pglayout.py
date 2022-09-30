@@ -7,6 +7,7 @@ from pydui import utils
 from pydui.core.base import PyDuiLayoutConstraint
 from pydui.core.import_gtk import *
 from pydui.core.layout import PyDuiLayout
+from pydui.core.screen import PyDuiScreen
 from pydui.core.widget import PyDuiWidget
 from pydui.utils.poga_utils import *
 
@@ -18,6 +19,9 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
 
     """
 
+    global __global_init
+    __global_init = False
+
     __layout: PogaLayout = None
 
     # PyDuiWidget interface
@@ -28,7 +32,16 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
+        self.__global_init_poga_layout__()
         self.__layout = PogaLayout(self)
+
+    def __global_init_poga_layout__(self):
+        global __global_init
+        if __global_init:
+            return
+        __global_init = True
+        scale = PyDuiScreen.get_system_dpi_scale()
+        PogaLayout.config_set_point_scale_factor(scale)
 
     def parse_attrib(self, k: str, v: str):
         if not apply_poga_attributes(self.__layout, k.lower(), v):

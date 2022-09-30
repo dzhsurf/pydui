@@ -9,6 +9,7 @@ from pydui.core.render import PyDuiRender
 from pydui.core.widget import *
 from pydui.widgets.pgview import PyDuiPGView
 
+
 class PyDuiLabel(PyDuiPGView):
 
     """Label widget

@@ -12,6 +12,7 @@ from pydui.core.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.render_canvas import *
 from pydui.core.resource_loader import PyDuiResourceLoader
+from pydui.core.screen import PyDuiScreen
 from pydui.core.widget import *
 
 
