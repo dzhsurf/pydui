@@ -264,6 +264,12 @@ In the early stage, performance optimization, resource leakage issue, text rende
 
 
 
+## Planning: Web Platform Support
+
+In the future, I want to add Web platform support on pydui. It is technically possible. Use js-worker to run python code in the browser background thread to handle the framework logic. Such as use  pyodide(https://pyodide.org/en/stable/usage/quickstart.html) . Implement the text measure functions RenderAPIs on the web platform instead of cairo on the desktop. Implement yoga-js builder for building the UI from the layout code.
+
+
+
 ## Development progress
 
 There's much work to do...
