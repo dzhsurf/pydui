@@ -20,9 +20,9 @@ gobject = "^0.1.0"
 pycairo = "^1.21.0"
 pygobject = "^3.42.2"
 asyncio = "^3.4.3"
-pynoticenter = "^0.1.8"
+pynoticenter = ">=0.1.8"
 pathlib = "^1.0.1"
-poga = "^0.1.3"
+poga = ">=0.1.6"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
