@@ -14,7 +14,7 @@ dependencies:
     - pygobject==3.42.2
     - asyncio==3.4.3
     - pynoticenter>=0.1.8
-    - poga>=0.1.6
+    - poga>=0.1.10
     - myst_parser==0.18.0
     - recommonmark==0.7.1
     - sphinx-intl==2.0.1

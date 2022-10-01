@@ -7,7 +7,7 @@ import pydui
 from pydui import *
 from pydui.core.import_gtk import *
 from pydui.core.resource_loader import create_default_resource_loader
-
+from poga.libpoga_capi import poga_version
 
 # config builder here
 def get_builder() -> PyDuiBuilder:
@@ -28,6 +28,7 @@ class DemoHandler(PyDuiWindowHandler):
 
 def main():
     print(f"start pydui version: {pydui.__version__}")
+    print(f"Poga version: {poga_version()}")
 
     window = get_builder().build_window(path="res/main_poga.xml", handler=DemoHandler)
     window.show()
