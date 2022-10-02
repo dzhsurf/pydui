@@ -199,7 +199,3 @@ class PyDuiLabel(PyDuiPGView):
         loader = self.get_render_manager().get_resource_loader()
 
         return PyDuiRender.EstimateImageSize(loader, self.bkimage, limit_width, limit_height)
-
-    # PogaView interface
-    def size_that_fits(self, width: float, height: float) -> Tuple[float, float]:
-        return self.estimate_size(width, height, constraint=PyDuiLayoutConstraint())

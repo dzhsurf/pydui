@@ -127,11 +127,29 @@ def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
     elif k == "layout_direction":
         layout.direction = Str2YGDirection(v)
     elif k == "margin":
-        # TODO:
-        pass
+        margin_arr = v.split(",")
+        if len(margin_arr) < 2:
+            layout.margin = YGValue(float(margin_arr[0]), YGUnit.Point)
+        elif len(margin_arr) < 4:
+            layout.margin_horizontal = YGValue(float(margin_arr[0]), YGUnit.Point)
+            layout.margin_vertical = YGValue(float(margin_arr[1]), YGUnit.Point)
+        else:
+            layout.margin_left = YGValue(float(margin_arr[0]), YGUnit.Point)
+            layout.margin_top = YGValue(float(margin_arr[1]), YGUnit.Point)
+            layout.margin_right = YGValue(float(margin_arr[2]), YGUnit.Point)
+            layout.margin_bottom = YGValue(float(margin_arr[3]), YGUnit.Point)
     elif k == "padding":
-        # TODO:
-        pass
+        padding_arr = v.split(",")
+        if len(padding_arr) < 2:
+            layout.padding = YGValue(float(padding_arr[0]), YGUnit.Point)
+        elif len(padding_arr) < 4:
+            layout.padding_horizontal = YGValue(float(padding_arr[0]), YGUnit.Point)
+            layout.padding_vertical = YGValue(float(padding_arr[1]), YGUnit.Point)
+        else:
+            layout.padding_left = YGValue(float(padding_arr[0]), YGUnit.Point)
+            layout.padding_top = YGValue(float(padding_arr[1]), YGUnit.Point)
+            layout.padding_right = YGValue(float(padding_arr[2]), YGUnit.Point)
+            layout.padding_bottom = YGValue(float(padding_arr[3]), YGUnit.Point)
     elif k == "border":
         # TODO:
         pass

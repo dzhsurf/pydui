@@ -53,7 +53,7 @@ class PyDuiWidget(object):
 
     @staticmethod
     def build_name() -> str:
-        return "Control"
+        return "__Control"
 
     @staticmethod
     def find_widget_default_filter(widget: PyDuiWidget) -> bool:

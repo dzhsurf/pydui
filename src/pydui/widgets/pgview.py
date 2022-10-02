@@ -16,7 +16,7 @@ class PyDuiPGView(PyDuiWidget, PogaView):
     # PyDuiWidget interface
     @staticmethod
     def build_name() -> str:
-        return "PGView"
+        return "Control"
 
     # PyDuiWidget interface
     def __init__(self, parent: PyDuiWidget):
@@ -24,8 +24,10 @@ class PyDuiPGView(PyDuiWidget, PogaView):
         self.__layout = PogaLayout(self)
 
     def parse_attrib(self, k: str, v: str):
-        if not apply_poga_attributes(self.__layout, k, v):
-            super().parse_attrib(k, v)
+        super().parse_attrib(k, v)
+        # not a pglayout item
+        if k.lower() in ["width", "height", "margin", "align_self"]:
+            apply_poga_attributes(self.__layout, k, v)
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
         super().draw(ctx, x, y, width, height)
@@ -35,7 +37,18 @@ class PyDuiPGView(PyDuiWidget, PogaView):
     def size_that_fits(self, width: float, height: float) -> Tuple[float, float]:
         # only leaf node will call this function
         # override by subclass
-        return (0, 0)
+        constraint = PyDuiLayoutConstraint()
+        if not YGFloatIsUndefined(width):
+            constraint.width = width
+        if not YGFloatIsUndefined(height):
+            constraint.height = height
+        size = self.estimate_size(width, height, constraint=constraint)
+        if size[0] == 0:
+            size = (width, size[1])
+        if size[1] == 0:
+            size = (size[0], height)
+        # print(self, "size_that_fits", "w", width, "h", height, "size", size)
+        return size
 
     def frame_origin(self) -> Tuple[float, float]:
         return (self.x, self.y)

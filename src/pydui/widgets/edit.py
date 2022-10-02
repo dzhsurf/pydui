@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from pydui.core.widget import PyDuiWidget
+from pydui.widgets.pgview import PyDuiPGView
 
 
-class PyDuiEdit(PyDuiWidget):
+class PyDuiEdit(PyDuiPGView):
     @staticmethod
     def build_name() -> str:
         return "Edit"
