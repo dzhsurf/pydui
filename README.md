@@ -293,8 +293,6 @@ Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/pog
 >  TODO: 
 > ...
 
-Maybe it will be deprecated in the future.
-
 
 
 
