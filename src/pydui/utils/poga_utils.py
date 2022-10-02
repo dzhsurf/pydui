@@ -85,106 +85,6 @@ def Str2YGFlexDirection(text: str) -> YGFlexDirection:
 def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
     """Apply poga attributes to PogaLayout.
 
-    .. list-table:: Attributes Table
-        :header-rows: 1
-
-        * - Key
-          - Type
-          - Value
-          - Description
-        * - poga_layout
-          - bool
-          - true, false
-          - Enable poga layout
-        * - position_type
-          - YGPositionType
-          - relative, absolute
-          -
-        * - align_content
-          - YGAlign
-          - flex_start, flex_end, stretch, center, space_between, space_around, baseline, auto
-          -
-        * - align_items
-          - YGAlign
-          -
-          -
-        * - align_self
-          - YGAlign
-          -
-          -
-        * - flex_wrap
-          - YGWrap
-          - nowrap, wrap, wrap_reverse
-          -
-        * - flex_grow
-          -
-          -
-          -
-        * - flex_shrink
-          -
-          -
-          -
-        * - flex_basis
-          -
-          -
-          -
-        * - justify_content
-          - YGJustify
-          - flex_start, flex_end, center, space_between, space_around, space_evenly
-          -
-        * - layout_direction
-          - YGDirection
-          - ltr, rtl
-          - default is ltr
-        * - margin
-          -
-          -
-          -
-        * - padding
-          -
-          -
-          -
-        * - border
-          -
-          -
-          -
-        * - min_width
-          -
-          -
-          -
-        * - min_height
-          -
-          -
-          -
-        * - max_width
-          -
-          -
-          -
-        * - max_height
-          -
-          -
-          -
-        * - flex_direction
-          - YGFlexDirection
-          - row, column, row_reverse, column_reverse
-          - default is row
-        * - width
-          -
-          -
-          -
-        * - width_percent
-          -
-          -
-          -
-        * - height
-          -
-          -
-          -
-        * - height_percent
-          -
-          -
-          -
-
     Args:
         layout (PogaLayout): PogaLayout instance
         k (str): attribute key
@@ -193,6 +93,7 @@ def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
     Returns:
         bool: Return True means it is handled.
     """
+
     if k == "poga_layout":
         layout.is_enabled = v.lower() == "true"
     elif k == "position_type":
@@ -213,7 +114,12 @@ def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
         layout.flex_shrink = float(v)
     elif k == "flex_basis":
         # TODO:
-        pass
+        if v.lower() == "auto":
+            layout.flex_basis = YGValue(YGUndefined, YGUnit.Auto)
+        else:
+            layout.flex_basis = YGValue(float(v), YGUnit.Point)
+    elif k == "flex_basis_percent":
+        layout.flex_basis = YGValue(float(v), YGUnit.Percent)
     elif k == "justify_content":
         layout.justify_content = Str2Justify(v)
     elif k == "layout_direction":
@@ -228,26 +134,38 @@ def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
         # TODO:
         pass
     elif k == "min_width":
-        pass
+        layout.min_width = YGValue(float(v), YGUnit.Point)
     elif k == "min_height":
-        pass
+        layout.min_height = YGValue(float(v), YGUnit.Point)
+    elif k == "min_width_percent":
+        layout.min_width = YGValue(float(v), YGUnit.Percent)
+    elif k == "min_height_percent":
+        layout.min_height = YGValue(float(v), YGUnit.Percent)
     elif k == "max_width":
-        pass
+        layout.max_width = YGValue(float(v), YGUnit.Point)
     elif k == "max_height":
-        pass
+        layout.max_height = YGValue(float(v), YGUnit.Point)
+    elif k == "max_width_percent":
+        layout.max_width = YGValue(float(v), YGUnit.Percent)
+    elif k == "max_height_percent":
+        layout.max_height = YGValue(float(v), YGUnit.Percent)
     elif k == "flex_direction":
         layout.flex_direction = Str2YGFlexDirection(v)
     elif k == "width":
         if v.lower() == "auto":
-            layout.width = YGValue(0.0, YGUnit.Auto)
+            layout.width = YGValue(YGUndefined, YGUnit.Auto)
         else:
             layout.width = YGValue(float(v), YGUnit.Point)
     elif k == "width_percent":
         layout.width = YGValue(float(v), YGUnit.Percent)
     elif k == "height":
         if v.lower() == "auto":
-            layout.height = YGValue(0.0, YGUnit.Auto)
+            layout.height = YGValue(YGUndefined, YGUnit.Auto)
         else:
             layout.height = YGValue(float(v), YGUnit.Point)
     elif k == "height_percent":
         layout.height = YGValue(float(v), YGUnit.Percent)
+    else:
+        return False
+
+    return True
