@@ -151,8 +151,17 @@ def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
             layout.padding_right = YGValue(float(padding_arr[2]), YGUnit.Point)
             layout.padding_bottom = YGValue(float(padding_arr[3]), YGUnit.Point)
     elif k == "border":
-        # TODO:
-        pass
+        border_arr = v.split(",")
+        if len(border_arr) < 2:
+            layout.border_width = YGValue(float(border_arr[0]), YGUnit.Point)
+        elif len(border_arr) < 4:
+            layout.border_start_width = YGValue(float(border_arr[0]), YGUnit.Point)
+            layout.border_end_width = YGValue(float(border_arr[1]), YGUnit.Point)
+        else:
+            layout.border_left_width = YGValue(float(border_arr[0]), YGUnit.Point)
+            layout.border_top_width = YGValue(float(border_arr[1]), YGUnit.Point)
+            layout.border_right_width = YGValue(float(border_arr[2]), YGUnit.Point)
+            layout.border_bottom_width = YGValue(float(border_arr[3]), YGUnit.Point)
     elif k == "min_width":
         layout.min_width = YGValue(float(v), YGUnit.Point)
     elif k == "min_height":
