@@ -172,7 +172,7 @@ class PyDuiBuilder:
         )
 
     def __process_tree_node__(self, node: ET.Element, parent_widget: PyDuiLayout) -> PyDuiWidget:
-        logging.debug(f"node {node.tag}: {node.attrib}")
+        logging.debug(f"Builder parse node, Key: {node.tag} Value: {node.attrib}")
         tag = node.tag
         attrib = node.attrib
 

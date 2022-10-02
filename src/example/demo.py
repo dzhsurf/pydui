@@ -1,13 +1,24 @@
 # -*- coding: utf-8 -*-
 import threading
 
+from poga.libpoga_capi import poga_version
 from pynoticenter import PyNotiCenter
 
 import pydui
 from pydui import *
 from pydui.core.import_gtk import *
 from pydui.core.resource_loader import create_default_resource_loader
-from poga.libpoga_capi import poga_version
+
+# setup logger
+stdout_handler = logging.StreamHandler(sys.stdout)
+handlers = [stdout_handler]
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s",
+    handlers=handlers,
+)
+logger = logging.getLogger(__name__)
+
 
 # config builder here
 def get_builder() -> PyDuiBuilder:

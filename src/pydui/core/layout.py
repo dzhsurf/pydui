@@ -46,7 +46,6 @@ class PyDuiLayout(PyDuiWidget):
         super().draw(ctx, x, y, width, height)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
-        print("Layout:", self, x, y, width, height)
         super().layout(x, y, width, height, constraint)
 
     def get_children_range_fixed_width(self, start, stop) -> float:
@@ -213,4 +212,5 @@ class PyDuiLayout(PyDuiWidget):
 
     # private functions
     def __process_resize_or_move__(self, gtk_widget, gtk_event):
-        logging.debug(f"resize, {object}")
+        pass
+        # logging.debug(f"resize, {object}")

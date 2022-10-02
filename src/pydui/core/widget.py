@@ -147,7 +147,7 @@ class PyDuiWidget(object):
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
-        logging.debug(f"{self} => ({x}, {y}, {width}, {height})")
+        logging.debug(f"Layout: {self.build_name()} => ({x}, {y}, {width}, {height})")
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
@@ -170,7 +170,7 @@ class PyDuiWidget(object):
         Args:
             attrib (dict[str, str]): attributes dict key=value ...
         """
-        logging.debug(f"{self} parse {k} = {v}")
+        # logging.debug(f"{self} parse {k} = {v}")
         if k == "id":
             self.__id = v
         elif k == "width":
