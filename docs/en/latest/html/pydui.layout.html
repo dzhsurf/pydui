@@ -173,22 +173,341 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.layout.hlayout.PyDuiHLayout">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.hlayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiHLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.hlayout.PyDuiHLayout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a></p>
 <p>Horizontal layout</p>
 </dd></dl>
 
 </section>
-<section id="module-pydui.layout.pglayout">
-<span id="pydui-layout-pglayout-module"></span><h2>pydui.layout.pglayout module<a class="headerlink" href="#module-pydui.layout.pglayout" title="Permalink to this heading">¶</a></h2>
+<section id="pydui-layout-pglayout-module">
+<h2>pydui.layout.pglayout module<a class="headerlink" href="#pydui-layout-pglayout-module" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Attributes Table</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>poga_layout</p></td>
+<td><p>bool</p></td>
+<td><p>true, false</p></td>
+<td><p>Enable poga layout</p></td>
+</tr>
+<tr class="row-odd"><td><p>position_type</p></td>
+<td><p>YGPositionType</p></td>
+<td><p>relative, absolute</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>align_content</p></td>
+<td><p>YGAlign</p></td>
+<td><p>flex_start, flex_end, stretch, center, space_between, space_around, baseline, auto</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>align_items</p></td>
+<td><p>YGAlign</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>align_self</p></td>
+<td><p>YGAlign</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>flex_wrap</p></td>
+<td><p>YGWrap</p></td>
+<td><p>nowrap, wrap, wrap_reverse</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>flex_grow</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>flex_shrink</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>flex_basis</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>justify_content</p></td>
+<td><p>YGJustify</p></td>
+<td><p>flex_start, flex_end, center, space_between, space_around, space_evenly</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>layout_direction</p></td>
+<td><p>YGDirection</p></td>
+<td><p>ltr, rtl</p></td>
+<td><p>default is ltr</p></td>
+</tr>
+<tr class="row-odd"><td><p>margin</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>padding</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>border</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>min_width</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>min_height</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_width</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>max_height</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>flex_direction</p></td>
+<td><p>YGFlexDirection</p></td>
+<td><p>row, column, row_reverse, column_reverse</p></td>
+<td><p>default is row</p></td>
+</tr>
+<tr class="row-odd"><td><p>width</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>width_percent</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>height</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>height_percent</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-pydui.layout.pglayout"></span><dl class="py class">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.pglayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayoutWithPogaSupport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PogaView</span></code></p>
+<p>PyDui-GTK internal layout engine, with poga layout support.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.bounds_size">
+<span class="sig-name descname"><span class="pre">bounds_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.bounds_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the layout bounds size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bounds size, mainly equal the frame size.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[float, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.frame_origin">
+<span class="sig-name descname"><span class="pre">frame_origin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.frame_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return frame position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Return frame (x, y) position.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[float, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.is_container">
+<span class="sig-name descname"><span class="pre">is_container</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.is_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return current view is container or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Return True is container.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.parse_attrib">
+<span class="sig-name descname"><span class="pre">parse_attrib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.parse_attrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse single attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attrib</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – attributes dict key=value …</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.poga_layout">
+<span class="sig-name descname"><span class="pre">poga_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PogaLayout</span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.poga_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return PogaLayout</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PogaLayout object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>PogaLayout</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.set_frame_origin">
+<span class="sig-name descname"><span class="pre">set_frame_origin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.set_frame_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the frame position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – The frame x position</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – The frame y position</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.set_frame_size">
+<span class="sig-name descname"><span class="pre">set_frame_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.set_frame_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the frame size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – The frame width</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – The frame height</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.size_that_fits">
+<span class="sig-name descname"><span class="pre">size_that_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.size_that_fits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the frame size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – Parent layout width.</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Parent layout height.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return frame size (width, height).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[float, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.subviews">
+<span class="sig-name descname"><span class="pre">subviews</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">PogaView</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.subviews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return subviews, subview type must be PogaView.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>subviews</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Iterable[PogaView]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.subviews_count">
+<span class="sig-name descname"><span class="pre">subviews_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.subviews_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return subviews count.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>subviews count</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.pglayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiPGLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PogaView</span></code></p>
 <p>YogaLayout on PyDui-GTK</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.bounds_size">
+<span class="sig-name descname"><span class="pre">bounds_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.bounds_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the layout bounds size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bounds size, mainly equal the frame size.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[float, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.build_name">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.build_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>PyDuiPGLayout build name: PGLayout</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.frame_origin">
+<span class="sig-name descname"><span class="pre">frame_origin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.frame_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return frame position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Return frame (x, y) position.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[float, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.is_container">
+<span class="sig-name descname"><span class="pre">is_container</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.is_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return current view is container or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Return True is container.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -202,6 +521,96 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.poga_layout">
+<span class="sig-name descname"><span class="pre">poga_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PogaLayout</span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.poga_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return PogaLayout</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PogaLayout object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>PogaLayout</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.set_frame_origin">
+<span class="sig-name descname"><span class="pre">set_frame_origin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.set_frame_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the frame position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – The frame x position</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – The frame y position</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.set_frame_size">
+<span class="sig-name descname"><span class="pre">set_frame_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.set_frame_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the frame size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – The frame width</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – The frame height</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.size_that_fits">
+<span class="sig-name descname"><span class="pre">size_that_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.size_that_fits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the frame size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – Parent layout width.</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Parent layout height.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return frame size (width, height).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[float, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.subviews">
+<span class="sig-name descname"><span class="pre">subviews</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">PogaView</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.subviews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return subviews, subview type must be PogaView.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>subviews</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Iterable[PogaView]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.subviews_count">
+<span class="sig-name descname"><span class="pre">subviews_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.subviews_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return subviews count.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>subviews count</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -210,7 +619,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.layout.vlayout.PyDuiVLayout">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.vlayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiVLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.vlayout.PyDuiVLayout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a></p>
 <p>Vertical layout</p>
 </dd></dl>
 
@@ -245,10 +654,32 @@
 <li><a class="reference internal" href="#pydui.layout.hlayout.PyDuiHLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiHLayout</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-pydui.layout.pglayout">pydui.layout.pglayout module</a><ul>
+<li><a class="reference internal" href="#pydui-layout-pglayout-module">pydui.layout.pglayout module</a><ul>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.bounds_size"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.bounds_size()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.frame_origin"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.frame_origin()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.is_container"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.is_container()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.parse_attrib()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.poga_layout"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.poga_layout()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.set_frame_origin"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.set_frame_origin()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.set_frame_size"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.set_frame_size()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.size_that_fits"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.size_that_fits()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.subviews"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.subviews()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.subviews_count"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.subviews_count()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.bounds_size"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.bounds_size()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.build_name()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.frame_origin"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.frame_origin()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.is_container"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.is_container()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.parse_attrib()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.poga_layout"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.poga_layout()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.set_frame_origin"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.set_frame_origin()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.set_frame_size"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.set_frame_size()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.size_that_fits"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.size_that_fits()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.subviews"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.subviews()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.pglayout.PyDuiPGLayout.subviews_count"><code class="docutils literal notranslate"><span class="pre">PyDuiPGLayout.subviews_count()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -288,7 +719,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Hiram Deng.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

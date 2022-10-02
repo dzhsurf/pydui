@@ -307,28 +307,87 @@ pip install -e .
 <p>More details about YogaLayout: https://yogalayout.com/docs/</p>
 <p>Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/poga</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;Window</span> <span class="na">size=</span><span class="s">&quot;664,600&quot;</span> <span class="na">title=</span><span class="s">&#39;Quickstart Demo&#39;</span> <span class="na">min_size=</span><span class="s">&quot;600,400&quot;</span>
+<span class="nt">&lt;Window</span> <span class="na">size=</span><span class="s">&quot;800,600&quot;</span> <span class="na">title=</span><span class="s">&#39;Quickstart Demo&#39;</span> <span class="na">min_size=</span><span class="s">&quot;600,400&quot;</span>
     <span class="na">default_font=</span><span class="s">&quot;Helvetica&quot;</span> <span class="na">default_fontsize=</span><span class="s">&quot;16&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;PGLayout</span>
         <span class="na">bkcolor=</span><span class="s">&quot;#FFEFEFEF&quot;</span>
-        <span class="na">align_content=</span><span class="s">&quot;center&quot;</span>
-        <span class="na">align_items=</span><span class="s">&quot;flex_start&quot;</span>
+        <span class="na">align_content=</span><span class="s">&quot;stretch&quot;</span>
+        <span class="na">align_items=</span><span class="s">&quot;stretch&quot;</span>
         <span class="na">flex_direction=</span><span class="s">&quot;row&quot;</span>
+        <span class="na">flex_wrap=</span><span class="s">&quot;nowrap&quot;</span>
     <span class="nt">&gt;</span>
-        <span class="nt">&lt;PGLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFFF0000&quot;</span>
-            <span class="na">align_items=</span><span class="s">&quot;flex_start&quot;</span>
+        <span class="cm">&lt;!-- left --&gt;</span>
+        <span class="nt">&lt;PGLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFC8C8C8&quot;</span>
+            <span class="na">width_percent=</span><span class="s">&quot;20&quot;</span>
+            <span class="na">flex_grow=</span><span class="s">&quot;0&quot;</span>
         <span class="nt">&gt;</span>
-            <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;Hello YogaLayout&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">autofit_padding=</span><span class="s">&quot;4,4,4,4&quot;</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;/PGLayout&gt;</span>
-        <span class="nt">&lt;PGLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FF00FF00&quot;</span> <span class="na">width=</span><span class="s">&quot;200&quot;</span> <span class="na">height=</span><span class="s">&quot;100&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;/PGLayout&gt;</span>
-        <span class="nt">&lt;PGLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FF0000FF&quot;</span> <span class="na">width=</span><span class="s">&quot;200&quot;</span> <span class="na">height=</span><span class="s">&quot;100&quot;</span><span class="nt">&gt;</span>
+
+        <span class="cm">&lt;!-- right --&gt;</span>
+        <span class="nt">&lt;PGLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFE8E8E8&quot;</span>
+            <span class="na">width_percent=</span><span class="s">&quot;80&quot;</span>
+            <span class="na">flex_direction=</span><span class="s">&quot;column&quot;</span>
+            <span class="na">align_content=</span><span class="s">&quot;stretch&quot;</span>
+            <span class="na">align_items=</span><span class="s">&quot;stretch&quot;</span>
+            <span class="na">flex_wrap=</span><span class="s">&quot;nowrap&quot;</span>
+        <span class="nt">&gt;</span>
+            <span class="cm">&lt;!-- head: Use PGLayout --&gt;</span>
+            <span class="nt">&lt;PGLayout</span> <span class="na">bkcolor=</span><span class="s">&quot;FFD8D8D8&quot;</span>
+                <span class="na">flex_direction=</span><span class="s">&quot;row&quot;</span>
+                <span class="na">height=</span><span class="s">&quot;62&quot;</span>
+            <span class="nt">&gt;</span>
+                <span class="nt">&lt;Picture</span> <span class="na">width=</span><span class="s">&quot;40&quot;</span> <span class="na">height=</span><span class="s">&quot;40&quot;</span> <span class="na">image=</span><span class="s">&quot;res/images/logo.png&quot;</span> <span class="na">margin=</span><span class="s">&quot;8,8,8,8&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;PGLayout</span> <span class="na">margin=</span><span class="s">&quot;0,12&quot;</span>
+                    <span class="na">flex_direction=</span><span class="s">&quot;column&quot;</span>
+                    <span class="na">flex_grow=</span><span class="s">&quot;0&quot;</span> <span class="nt">&gt;</span>
+                    <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;PyDui-GTK Group&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">halign=</span><span class="s">&quot;start&quot;</span> <span class="na">fontcolor=</span><span class="s">&quot;#FF1A1A1A&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;A powerful desktop UI framework.&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">fontsize=</span><span class="s">&quot;12&quot;</span> <span class="na">halign=</span><span class="s">&quot;start&quot;</span> <span class="na">fontcolor=</span><span class="s">&quot;#FF8A8A8A&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/PGLayout&gt;</span>
+            <span class="nt">&lt;/PGLayout&gt;</span>
+
+            <span class="cm">&lt;!-- body area: Use PGLayout --&gt;</span>
+            <span class="nt">&lt;PGLayout</span>
+                <span class="na">flex_direction=</span><span class="s">&quot;column&quot;</span>
+                <span class="na">flex_grow=</span><span class="s">&quot;1&quot;</span>
+                <span class="na">align_content=</span><span class="s">&quot;stretch&quot;</span>
+                <span class="na">align_items=</span><span class="s">&quot;stretch&quot;</span>
+            <span class="nt">&gt;</span>
+                <span class="cm">&lt;!-- Item use HLayout in PGLayout --&gt;</span>
+                <span class="nt">&lt;HLayout</span> <span class="na">valign=</span><span class="s">&quot;start&quot;</span> <span class="na">margin=</span><span class="s">&quot;12,0,12,0&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">fitrule=</span><span class="s">&quot;h&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Picture</span> <span class="na">width=</span><span class="s">&quot;40&quot;</span> <span class="na">height=</span><span class="s">&quot;40&quot;</span> <span class="na">image=</span><span class="s">&quot;res/images/avatar-2.jpeg&quot;</span> <span class="na">margin=</span><span class="s">&quot;0,8,0,8&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;VLayout</span> <span class="na">halign=</span><span class="s">&quot;start&quot;</span> <span class="na">margin=</span><span class="s">&quot;8,0,122,0&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">fitrule=</span><span class="s">&quot;h&quot;</span> <span class="nt">&gt;</span>
+                        <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;Angela:&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span>
+                            <span class="na">fontsize=</span><span class="s">&quot;14&quot;</span> <span class="na">fontcolor=</span><span class="s">&quot;#FF8A8A8A&quot;</span> <span class="na">valign=</span><span class="s">&quot;start&quot;</span> <span class="na">halign=</span><span class="s">&quot;start&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;I&#39;d like to know more about the pydui-gtk and discuss how we can use it in our product.&quot;</span> <span class="na">margin=</span><span class="s">&quot;0,8,0,0&quot;</span>
+                            <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">autofit_padding=</span><span class="s">&quot;12,8,12,8&quot;</span>
+                            <span class="na">corner=</span><span class="s">&quot;12,12,12,12&quot;</span>
+                            <span class="na">bkimage=</span><span class="s">&quot;res/images/common_button_disable.png&quot;</span>
+                        <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/VLayout&gt;</span>
+                <span class="nt">&lt;/HLayout&gt;</span>
+
+                <span class="nt">&lt;HLayout</span> <span class="na">valign=</span><span class="s">&quot;start&quot;</span> <span class="na">margin=</span><span class="s">&quot;12,0,12,0&quot;</span> <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">fitrule=</span><span class="s">&quot;h&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Control</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;Label</span> <span class="na">text=</span><span class="s">&quot;Sure, you can use pydui-gtk to create desktop app. You should try it.&quot;</span>
+                        <span class="na">margin=</span><span class="s">&quot;122,0,12,0&quot;</span>
+                        <span class="na">autofit=</span><span class="s">&quot;true&quot;</span> <span class="na">autofit_padding=</span><span class="s">&quot;12,8,12,8&quot;</span>
+                        <span class="na">corner=</span><span class="s">&quot;12,12,12,12&quot;</span>
+                        <span class="na">bkimage=</span><span class="s">&quot;res/images/common_button_normal.png&quot;</span>
+                    <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;Picture</span> <span class="na">width=</span><span class="s">&quot;40&quot;</span> <span class="na">height=</span><span class="s">&quot;40&quot;</span> <span class="na">image=</span><span class="s">&quot;res/images/avatar-1.jpeg&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/HLayout&gt;</span>
+
+                <span class="nt">&lt;PGLayout</span> <span class="na">flex_grow=</span><span class="s">&quot;1&quot;</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;/PGLayout&gt;</span>
+
+                <span class="cm">&lt;!-- bottom bar --&gt;</span>
+                <span class="nt">&lt;Edit</span> <span class="na">name=</span><span class="s">&quot;input_edit&quot;</span> <span class="na">bkcolor=</span><span class="s">&quot;#FFFFFFFF&quot;</span> <span class="na">height=</span><span class="s">&quot;120&quot;</span> <span class="na">margin=</span><span class="s">&quot;2,2,2,2&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/PGLayout&gt;</span>
         <span class="nt">&lt;/PGLayout&gt;</span>
     <span class="nt">&lt;/PGLayout&gt;</span>
 <span class="nt">&lt;/Window&gt;</span>
 </pre></div>
 </div>
-<p><img alt="" src="_images/demo-yogalayout.png" /></p>
 </section>
 <section id="internal-layout-engine">
 <h3>Internal Layout Engine<a class="headerlink" href="#internal-layout-engine" title="Permalink to this heading">¶</a></h3>
@@ -374,6 +433,10 @@ pip install -e .
 </ul>
 </li>
 </ul>
+</section>
+<section id="planning-web-platform-support">
+<h3>Planning: Web Platform Support<a class="headerlink" href="#planning-web-platform-support" title="Permalink to this heading">¶</a></h3>
+<p>In the future, I want to add Web platform support on pydui. It is technically possible. Use js-worker to run python code in the browser background thread to handle the framework logic. Such as use  pyodide(https://pyodide.org/en/stable/usage/quickstart.html) . Implement the text measure functions RenderAPIs on the web platform instead of cairo on the desktop. Implement yoga-js builder for building the UI from the layout code.</p>
 </section>
 <section id="development-progress">
 <h3>Development progress<a class="headerlink" href="#development-progress" title="Permalink to this heading">¶</a></h3>
@@ -493,6 +556,7 @@ pip install -e .
 <li><a class="reference internal" href="#support-yogalayout">Support YogaLayout</a></li>
 <li><a class="reference internal" href="#internal-layout-engine">Internal Layout Engine</a></li>
 <li><a class="reference internal" href="#development">Development</a></li>
+<li><a class="reference internal" href="#planning-web-platform-support">Planning: Web Platform Support</a></li>
 <li><a class="reference internal" href="#development-progress">Development progress</a></li>
 <li><a class="reference internal" href="#benchmarks">Benchmarks</a></li>
 <li><a class="reference internal" href="#testing">Testing</a></li>
@@ -529,7 +593,7 @@ pip install -e .
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Hiram Deng.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
