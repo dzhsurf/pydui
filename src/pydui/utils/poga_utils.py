@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
+import math
+
 from poga import *
+from poga.libpoga_capi import *
 
 
 def Str2YGPostionType(text: str) -> YGPositionType:
@@ -105,7 +108,7 @@ def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
     elif k == "align_self":
         layout.align_self = Str2YGAlign(v)
     elif k == "aspect_ratio":
-        layout.aspect_ratio = float(v)
+        layout.aspect_ratio = YGUndefined if v.lower() == "nan" else float(v)
     elif k == "flex_wrap":
         layout.flex_wrap = Str2YGWrap(v)
     elif k == "flex_grow":
@@ -113,7 +116,6 @@ def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
     elif k == "flex_shrink":
         layout.flex_shrink = float(v)
     elif k == "flex_basis":
-        # TODO:
         if v.lower() == "auto":
             layout.flex_basis = YGValue(YGUndefined, YGUnit.Auto)
         else:

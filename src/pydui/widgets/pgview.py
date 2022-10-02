@@ -5,8 +5,8 @@ from poga import *
 
 from pydui import utils
 from pydui.core.base import PyDuiLayoutConstraint
-from pydui.core.widget import PyDuiWidget
 from pydui.core.import_gtk import *
+from pydui.core.widget import PyDuiWidget
 from pydui.utils.poga_utils import *
 
 
