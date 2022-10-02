@@ -205,28 +205,86 @@ Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/pog
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Window size="664,600" title='Quickstart Demo' min_size="600,400"
+<Window size="800,600" title='Quickstart Demo' min_size="600,400"
     default_font="Helvetica" default_fontsize="16">
     <PGLayout
         bkcolor="#FFEFEFEF"
-        align_content="center"
-        align_items="flex_start"
+        align_content="stretch"
+        align_items="stretch"
         flex_direction="row"
+        flex_wrap="nowrap"
     >
-        <PGLayout bkcolor="#FFFF0000"
-            align_items="flex_start"
+        <!-- left -->
+        <PGLayout bkcolor="#FFC8C8C8"
+            width_percent="20"
+            flex_grow="0"
         >
-            <Label text="Hello YogaLayout" autofit="true" autofit_padding="4,4,4,4" />
         </PGLayout>
-        <PGLayout bkcolor="#FF00FF00" width="200" height="100">
-        </PGLayout>
-        <PGLayout bkcolor="#FF0000FF" width="200" height="100">
+
+        <!-- right -->
+        <PGLayout bkcolor="#FFE8E8E8"
+            width_percent="80"
+            flex_direction="column"
+            align_content="stretch"
+            align_items="stretch"
+            flex_wrap="nowrap"
+        >
+            <!-- head: Use PGLayout -->
+            <PGLayout bkcolor="FFD8D8D8"
+                flex_direction="row"
+                height="62"
+            >
+                <Picture width="40" height="40" image="res/images/logo.png" margin="8,8,8,8" />
+                <PGLayout margin="0,12"
+                    flex_direction="column"
+                    flex_grow="0" >
+                    <Label text="PyDui-GTK Group" autofit="true" halign="start" fontcolor="#FF1A1A1A" />
+                    <Label text="A powerful desktop UI framework." autofit="true" fontsize="12" halign="start" fontcolor="#FF8A8A8A" />
+                </PGLayout>
+            </PGLayout>
+
+            <!-- body area: Use PGLayout -->
+            <PGLayout
+                flex_direction="column"
+                flex_grow="1"
+                align_content="stretch"
+                align_items="stretch"
+            >
+                <!-- Item use HLayout in PGLayout -->
+                <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
+                    <Picture width="40" height="40" image="res/images/avatar-2.jpeg" margin="0,8,0,8" />
+                    <VLayout halign="start" margin="8,0,122,0" autofit="true" fitrule="h" >
+                        <Label text="Angela:" autofit="true"
+                            fontsize="14" fontcolor="#FF8A8A8A" valign="start" halign="start" />
+                        <Label text="I'd like to know more about the pydui-gtk and discuss how we can use it in our product." margin="0,8,0,0"
+                            autofit="true" autofit_padding="12,8,12,8"
+                            corner="12,12,12,12"
+                            bkimage="res/images/common_button_disable.png"
+                        />
+                    </VLayout>
+                </HLayout>
+
+                <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
+                    <Control />
+                    <Label text="Sure, you can use pydui-gtk to create desktop app. You should try it."
+                        margin="122,0,12,0"
+                        autofit="true" autofit_padding="12,8,12,8"
+                        corner="12,12,12,12"
+                        bkimage="res/images/common_button_normal.png"
+                    />
+                    <Picture width="40" height="40" image="res/images/avatar-1.jpeg" />
+                </HLayout>
+
+                <PGLayout flex_grow="1" >
+                </PGLayout>
+
+                <!-- bottom bar -->
+                <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2" />
+            </PGLayout>
         </PGLayout>
     </PGLayout>
 </Window>
 ```
-
-![](./images/demo-yogalayout.png)
 
 
 
