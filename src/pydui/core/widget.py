@@ -5,7 +5,7 @@ import logging
 import sys
 import weakref
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, List
 from weakref import ReferenceType
 
 from pydui import utils
@@ -204,6 +204,18 @@ class PyDuiWidget(object):
     @enable_mouse_event.setter
     def enable_mouse_event(self, enable: bool):
         self.__enable_mouse_event = enable
+
+    def get_signals(self) -> List[str]:
+        return [
+            "lclick",
+            "rclick" "l2click",
+            "r2click",
+            "l3click",
+            "r3click",
+        ]
+
+    def on_post_init(self):
+        pass
 
     def on_mouse_enter(self):
         pass
@@ -464,10 +476,6 @@ class PyDuiWidget(object):
     @corner.setter
     def corner(self, corner: tuple[float, float, float, float]):
         self.__corner = corner
-
-    # event
-    def on_post_init(self):
-        pass
 
     # private function
     def __do_post_init__(self, render_manager: PyDuiRenderManagerBase):

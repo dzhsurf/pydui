@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from typing import Tuple
+from curses import textpad
+from signal import signal
+from typing import List, Tuple
 
 from pydui import utils
 from pydui.core.base import PyDuiLayoutConstraint
@@ -114,6 +116,17 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
     def get_textpadding(self) -> Tuple[float, float, float, float]:
         return self.__text_padding
 
+    def get_signals(self) -> List[str]:
+        signals = super().get_signals()
+        signals.extend(
+            [
+                "changed",
+                "insert-text",
+                "paste-done",
+            ]
+        )
+        return signals
+
     # private
     def __init_gtk_text_view_if_needed__(self):
         if self.__gtk_scrolled_window is not None:
@@ -130,3 +143,22 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
         self.__gtk_text_view.get_buffer().set_text(self.__text)
         self.__gtk_scrolled_window.add(self.__gtk_text_view)
         self.get_render_manager().put_gtk_widget(self)
+
+        # register event
+        text_buffer = self.__gtk_text_view.get_buffer()
+        text_buffer.connect("changed", self.__on_changed__)
+        text_buffer.connect("insert-text", self.__on_insert_text__)
+        text_buffer.connect("paste-done", self.__on_paste_done__)
+
+    def __on_changed__(self, text_buffer: Gtk.TextBuffer):
+        start = text_buffer.get_iter_at_offset(0)
+        end = text_buffer.get_iter_at_offset(-1)
+        self.__text = text_buffer.get_text(start, end, False)
+        self.emit("changed", self.__text)
+
+    def __on_insert_text__(self, text_buffer: Gtk.TextBuffer, location: Gtk.TextIter, text: str, len: int):
+        self.emit("insert-text", location.get_offset(), text)
+
+    def __on_paste_done__(self, text_buffer: Gtk.TextBuffer, clipboard: Gtk.Clipboard):
+        # print("paste done", clipboard.wait_for_text())
+        self.emit("paste-done", clipboard)
