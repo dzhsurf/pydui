@@ -526,6 +526,20 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.get_rootview">
+<span class="sig-name descname"><span class="pre">get_rootview</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><span class="pre">PyDuiLayout</span></a></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.get_rootview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return root view widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>root view.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout">PyDuiLayout</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.get_widget">
 <span class="sig-name descname"><span class="pre">get_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.get_widget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get widget by widget id</p>
@@ -542,7 +556,7 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dd><p>set window root view</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>rootview</strong> (<a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – widnow root view</p>
+<dd class="field-odd"><p><strong>rootview</strong> (<a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – window root view</p>
 </dd>
 </dl>
 </dd></dl>
@@ -625,9 +639,7 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.get_render_manager">
 <span class="sig-name descname"><span class="pre">get_render_manager</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.get_render_manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the widget render manager</p>
-<p>If widget is a child and not contain render manager, it will find the parent until reach to top.
-It’s not a good design as it will cause problems by incorrect maintain the widget render manager.
-It will reimplment later.</p>
+<p>The widget will setup render manager after call do_post_init. before the widget init finish, render manager will be empty.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -939,6 +951,7 @@ It will reimplment later.</p>
 <li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontcolor"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontcolor</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontfamily"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontfamily</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontsize</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.get_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.get_rootview()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.get_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.get_widget()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.set_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.set_rootview()</span></code></a></li>
 </ul>
