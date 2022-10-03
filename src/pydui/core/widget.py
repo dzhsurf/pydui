@@ -3,8 +3,10 @@ from __future__ import annotations
 
 import logging
 import sys
+import weakref
 from dataclasses import dataclass
 from typing import Any
+from weakref import ReferenceType
 
 from pydui import utils
 from pydui.core.base import *
@@ -28,7 +30,7 @@ class PyDuiWidget(object):
 
     """Widget base class"""
 
-    __render_manager: PyDuiRenderManagerBase = None
+    __render_manager: ReferenceType[PyDuiRenderManagerBase] = None
 
     __id: str = ""
     __parent: PyDuiWidget
@@ -75,7 +77,7 @@ class PyDuiWidget(object):
 
         Do not call this function yourself if you do not know what it is for!
         """
-        self.__render_manager = render_manager
+        self.__render_manager = weakref.ref(render_manager)
 
     def get_render_manager(self):
         """Get the widget render manager
@@ -84,11 +86,12 @@ class PyDuiWidget(object):
         It's not a good design as it will cause problems by incorrect maintain the widget render manager.
         It will reimplment later.
         """
-        render_manager = self.__render_manager
+        render_manager = None
         widget = self
         while render_manager is None and widget is not None:
+            if widget.__render_manager is not None:
+                render_manager = widget.__render_manager()
             widget = widget.parent
-            render_manager = widget.__render_manager
 
         return render_manager
 
@@ -473,3 +476,5 @@ class PyDuiWidget(object):
         pass
 
     # private function
+    def __do_post_init__(self):
+        self.on_post_init()
