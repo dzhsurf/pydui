@@ -129,6 +129,8 @@ class PyDuiLayout(PyDuiWidget):
         if child is None:
             return
         self.__children.append(child)
+        if self.get_render_manager() is not None:
+            child.__do_post_init__()
 
     def add_child_at(self, child: PyDuiWidget, index: int):
         """Add child widget at index
@@ -206,16 +208,15 @@ class PyDuiLayout(PyDuiWidget):
     def fitrule(self) -> list[str]:
         return self.__fitrule
 
-    # event
-    def on_post_init(self):
-        for i in range(self.child_count):
-            child = self.get_child_at(i)
-            child.on_post_init()
-        super().on_post_init()
-
     # private function
     def __do_layout__(self):
         pass
+
+    def __do_post_init__(self):
+        for i in range(self.child_count):
+            child = self.get_child_at(i)
+            child.__do_post_init__()
+        super().__do_post_init__()
 
     # private functions
     def __process_resize_or_move__(self, gtk_widget, gtk_event):
