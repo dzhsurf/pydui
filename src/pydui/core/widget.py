@@ -44,6 +44,7 @@ class PyDuiWidget(object):
     __fixed_height: float = 0
     __enabled: bool = True
     __autofit: bool = False
+    __can_focus: bool = False
     # attrib
     __bkcolor: Gdk.RGBA = None
     __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
@@ -205,15 +206,6 @@ class PyDuiWidget(object):
     def enable_mouse_event(self, enable: bool):
         self.__enable_mouse_event = enable
 
-    def get_signals(self) -> List[str]:
-        return [
-            "lclick",
-            "rclick" "l2click",
-            "r2click",
-            "l3click",
-            "r3click",
-        ]
-
     def on_post_init(self):
         pass
 
@@ -239,24 +231,27 @@ class PyDuiWidget(object):
         pass
 
     def on_lbutton_click(self, x: float, y: float):
-        self.emit("lclick", self, x, y)
+        pass
 
     def on_rbutton_click(self, x: float, y: float):
-        self.emit("rclick", self, x, y)
+        pass
 
     def on_l2button_click(self, x: float, y: float):
-        self.emit("l2click", self, x, y)
+        pass
 
     def on_r2button_click(self, x: float, y: float):
-        self.emit("r2click", self, x, y)
+        pass
 
     def on_l3button_click(self, x: float, y: float):
-        self.emit("l3click", self, x, y)
+        pass
 
     def on_r3button_click(self, x: float, y: float):
-        self.emit("r3click", self, x, y)
+        pass
 
     # method
+    def get_signals(self) -> List[str]:
+        return []
+
     def connect(self, signal_name: str, callback: callable):
         if signal_name in self.__signals:
             self.__signals[signal_name].append(callback)
@@ -450,7 +445,16 @@ class PyDuiWidget(object):
 
     @property
     def is_focused(self) -> bool:
-        pass
+        # return self.get_manager().is_focused(self)
+        return False
+
+    @property
+    def can_focus(self) -> bool:
+        return self.__can_focus
+
+    @can_focus.setter
+    def can_focus(self, can_focus: bool):
+        self.__can_focus = can_focus
 
     # appearance
     @property

@@ -24,6 +24,9 @@ class PyDuiEventDispatcher(object):
     __xy: tuple[float, float] = (0, 0)
     __wh: tuple[float, float] = (0, 0)
 
+    # focus widget
+    __focused_widget: PyDuiWidget = None
+
     # mouse state
     __mouse_x: int = 0
     __mouse_y: int = 0

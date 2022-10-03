@@ -27,6 +27,7 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
+        self.can_focus = True
 
     def on_post_init(self):
         self.__init_gtk_text_view_if_needed__()

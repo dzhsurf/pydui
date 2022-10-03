@@ -34,6 +34,7 @@ class PyDuiButton(PyDuiLabel):
 
     def __init__(self, parent: PyDuiWidget):
         super().__init__(parent)
+        self.can_focus = True
         self.enable_mouse_event = True
 
     def parse_attrib(self, k: str, v: str):
@@ -74,6 +75,20 @@ class PyDuiButton(PyDuiLabel):
             corner=self.corner,
         )
 
+    def get_signals(self) -> List[str]:
+        signals = super().get_signals()
+        signals.extend(
+            [
+                "lclick",
+                "rclick",
+                "l2click",
+                "r2click",
+                "l3click",
+                "r3click",
+            ]
+        )
+        return signals
+
     def on_mouse_enter(self):
         super().on_mouse_enter()
         self.__button_state = PyDuiButtonState.HOVER
@@ -83,6 +98,24 @@ class PyDuiButton(PyDuiLabel):
         super().on_mouse_leave(next_widget)
         self.__button_state = PyDuiButtonState.NORMAL
         self.get_render_manager().notify_redraw()
+
+    def on_lbutton_click(self, x: float, y: float):
+        self.emit("lclick", self, x, y)
+
+    def on_rbutton_click(self, x: float, y: float):
+        self.emit("rclick", self, x, y)
+
+    def on_l2button_click(self, x: float, y: float):
+        self.emit("l2click", self, x, y)
+
+    def on_r2button_click(self, x: float, y: float):
+        self.emit("r2click", self, x, y)
+
+    def on_l3button_click(self, x: float, y: float):
+        self.emit("l3click", self, x, y)
+
+    def on_r3button_click(self, x: float, y: float):
+        self.emit("r3click", self, x, y)
 
     def __get_drawimage_by_state(self):
         if not self.enabled:
