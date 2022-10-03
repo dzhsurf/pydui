@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import annotations
-
 from dataclasses import dataclass
 from enum import Enum
 
@@ -23,7 +21,7 @@ class PyDuiClickType(Enum):
     DBCLICK = 2
 
 
-class PyDuiLayoutConstraint(object):
+class PyDuiLayoutConstraint:
     """Layout constraint
     if the value set to -1, it means no limit
     """
@@ -36,11 +34,11 @@ class PyDuiLayoutConstraint(object):
     width: float = -1
     height: float = -1
 
-    def merge(self, constraint: PyDuiLayoutConstraint):
-        if constraint.width != -1:
-            self.width = min(self.width, constraint.width)
-        if constraint.height != -1:
-            self.height = min(self.height, constraint.height)
+    # def merge(self, constraint: PyDuiLayoutConstraint):
+    #     if constraint.width != -1:
+    #         self.width = min(self.width, constraint.width)
+    #     if constraint.height != -1:
+    #         self.height = min(self.height, constraint.height)
 
 
 def Text2PyDuiAlign(text: str) -> PyDuiAlign:

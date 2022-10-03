@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-from __future__ import annotations
-
 import logging
 import sys
 import weakref
 from dataclasses import dataclass
-from typing import Any, List
+from typing import Any, List, Tuple
 from weakref import ReferenceType
 
 from pydui import utils
@@ -26,14 +24,20 @@ class PyDuiConstraint:
     max_height: float = sys.maxsize
 
 
-class PyDuiWidget(object):
+class PyDuiObject:
+    """PyDuiObject, base object"""
+
+    pass
+
+
+class PyDuiWidget(PyDuiObject):
 
     """Widget base class"""
 
     __window_client: ReferenceType[PyDuiWindowClientInterface] = None
 
     __id: str = ""
-    __parent: PyDuiWidget
+    __parent: PyDuiObject
     __x: float = 0
     __y: float = 0
     __width: float = 0
@@ -59,16 +63,16 @@ class PyDuiWidget(object):
         return "__Control"
 
     @staticmethod
-    def find_widget_default_filter(widget: PyDuiWidget) -> bool:
+    def find_widget_default_filter(widget: PyDuiObject) -> bool:
         return widget is not None
 
     @staticmethod
-    def find_widget_mouse_event_filter(widget: PyDuiWidget) -> bool:
+    def find_widget_mouse_event_filter(widget: PyDuiObject) -> bool:
         if widget is None:
             return False
         return widget.enable_mouse_event
 
-    def __init__(self, parent: PyDuiWidget):
+    def __init__(self, parent: PyDuiObject):
         super().__init__()
         self.__parent = parent
         self.__signals = dict[str, list[callable]]()
@@ -212,7 +216,7 @@ class PyDuiWidget(object):
     def on_mouse_enter(self):
         pass
 
-    def on_mouse_leave(self, next_widget: PyDuiWidget):
+    def on_mouse_leave(self, next_widget: PyDuiObject):
         pass
 
     def on_mouse_move(self, x: float, y: float):
@@ -294,11 +298,11 @@ class PyDuiWidget(object):
     # position & size
 
     @property
-    def parent(self) -> PyDuiWidget:
+    def parent(self) -> PyDuiObject:
         return self.__parent
 
     @property
-    def size(self) -> tuple[float, float]:
+    def size(self) -> Tuple[float, float]:
         return (self.width, self.height)
 
     @property

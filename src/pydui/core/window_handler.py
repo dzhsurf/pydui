@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-from __future__ import annotations
-
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.window_base import PyDuiWindowBase
 
 
-class PyDuiWindowHandler(object):
+class PyDuiWindowHandler:
 
     """Window handler"""
 

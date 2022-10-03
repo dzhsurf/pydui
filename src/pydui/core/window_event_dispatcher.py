@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# from __future__ import annotations
-
 import logging
 import weakref
 from typing import Any, Callable, Tuple, Type
