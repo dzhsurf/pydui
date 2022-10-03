@@ -126,6 +126,7 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
         desc = f"{self.get_font()} {self.get_fontsize()}"
         self.__gtk_text_view.override_font(Pango.font_description_from_string(desc))
         self.__gtk_text_view.set_editable(self.__editable)
+        self.__gtk_text_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
         self.__gtk_text_view.get_buffer().set_text(self.__text)
         self.__gtk_scrolled_window.add(self.__gtk_text_view)
         self.get_render_manager().put_gtk_widget(self)
