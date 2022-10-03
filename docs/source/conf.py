@@ -101,6 +101,7 @@ html_theme_options = {
     "source_icon": "github",
     #"banner_text": 'banner text',
 }
+html_sidebars = {"**": ["globaltoc.html", "relations.html", "sourcelink.html", "searchbox.html"]}
 
 # # SET CURRENT_LANGUAGE
 # if 'current_language' in os.environ:
