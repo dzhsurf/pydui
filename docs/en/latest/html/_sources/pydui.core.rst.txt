@@ -4,24 +4,17 @@ pydui.core package
 Submodules
 ----------
 
+pydui.core.appearance\_manager module
+-------------------------------------
+
+.. automodule:: pydui.core.appearance_manager
+   :members:
+   :show-inheritance:
+
 pydui.core.application module
 -----------------------------
 
 .. automodule:: pydui.core.application
-   :members:
-   :show-inheritance:
-
-pydui.core.attribute\_string module
------------------------------------
-
-.. automodule:: pydui.core.attribute_string
-   :members:
-   :show-inheritance:
-
-pydui.core.base module
-----------------------
-
-.. automodule:: pydui.core.base
    :members:
    :show-inheritance:
 
@@ -32,17 +25,10 @@ pydui.core.builder module
    :members:
    :show-inheritance:
 
-pydui.core.event\_dispatcher module
------------------------------------
+pydui.core.gtk\_widget\_interface module
+----------------------------------------
 
-.. automodule:: pydui.core.event_dispatcher
-   :members:
-   :show-inheritance:
-
-pydui.core.import\_gtk module
------------------------------
-
-.. automodule:: pydui.core.import_gtk
+.. automodule:: pydui.core.gtk_widget_interface
    :members:
    :show-inheritance:
 
@@ -60,13 +46,6 @@ pydui.core.render module
    :members:
    :show-inheritance:
 
-pydui.core.render\_base module
-------------------------------
-
-.. automodule:: pydui.core.render_base
-   :members:
-   :show-inheritance:
-
 pydui.core.render\_canvas module
 --------------------------------
 
@@ -74,24 +53,17 @@ pydui.core.render\_canvas module
    :members:
    :show-inheritance:
 
-pydui.core.render\_manager module
----------------------------------
-
-.. automodule:: pydui.core.render_manager
-   :members:
-   :show-inheritance:
-
-pydui.core.render\_pil module
------------------------------
-
-.. automodule:: pydui.core.render_pil
-   :members:
-   :show-inheritance:
-
 pydui.core.resource\_loader module
 ----------------------------------
 
 .. automodule:: pydui.core.resource_loader
+   :members:
+   :show-inheritance:
+
+pydui.core.screen module
+------------------------
+
+.. automodule:: pydui.core.screen
    :members:
    :show-inheritance:
 
@@ -113,6 +85,34 @@ pydui.core.window\_base module
 ------------------------------
 
 .. automodule:: pydui.core.window_base
+   :members:
+   :show-inheritance:
+
+pydui.core.window\_client module
+--------------------------------
+
+.. automodule:: pydui.core.window_client
+   :members:
+   :show-inheritance:
+
+pydui.core.window\_client\_interface module
+-------------------------------------------
+
+.. automodule:: pydui.core.window_client_interface
+   :members:
+   :show-inheritance:
+
+pydui.core.window\_config module
+--------------------------------
+
+.. automodule:: pydui.core.window_config
+   :members:
+   :show-inheritance:
+
+pydui.core.window\_event\_dispatcher module
+-------------------------------------------
+
+.. automodule:: pydui.core.window_event_dispatcher
    :members:
    :show-inheritance:
 

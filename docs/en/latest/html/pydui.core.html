@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="pydui.layout package" href="pydui.layout.html" />
-    <link rel="prev" title="pydui package" href="pydui.html" /> 
+    <link rel="prev" title="pydui.common package" href="pydui.common.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -133,6 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="apis.html">API Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pydui.html">pydui package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pydui.common.html">pydui.common package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pydui.core package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.layout.html">pydui.layout package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.utils.html">pydui.utils package</a></li>
@@ -156,6 +157,9 @@
 <h1>pydui.core package<a class="headerlink" href="#pydui-core-package" title="Permalink to this heading">¶</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-pydui.core.appearance_manager">
+<span id="pydui-core-appearance-manager-module"></span><h2>pydui.core.appearance_manager module<a class="headerlink" href="#module-pydui.core.appearance_manager" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-pydui.core.application">
 <span id="pydui-core-application-module"></span><h2>pydui.core.application module<a class="headerlink" href="#module-pydui.core.application" title="Permalink to this heading">¶</a></h2>
@@ -181,34 +185,6 @@
 <dd><p>Start main run-loop</p>
 </dd></dl>
 
-</dd></dl>
-
-</section>
-<section id="module-pydui.core.attribute_string">
-<span id="pydui-core-attribute-string-module"></span><h2>pydui.core.attribute_string module<a class="headerlink" href="#module-pydui.core.attribute_string" title="Permalink to this heading">¶</a></h2>
-</section>
-<section id="module-pydui.core.base">
-<span id="pydui-core-base-module"></span><h2>pydui.core.base module<a class="headerlink" href="#module-pydui.core.base" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiAlign">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiAlign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.base.PyDuiAlign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
-<p>Align type</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiClickType">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiClickType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.base.PyDuiClickType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
-<p>Click Type</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.base.PyDuiLayoutConstraint">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayoutConstraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.base.PyDuiLayoutConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Layout constraint
-if the value set to -1, it means no limit</p>
 </dd></dl>
 
 </section>
@@ -267,18 +243,14 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 </section>
-<section id="module-pydui.core.event_dispatcher">
-<span id="pydui-core-event-dispatcher-module"></span><h2>pydui.core.event_dispatcher module<a class="headerlink" href="#module-pydui.core.event_dispatcher" title="Permalink to this heading">¶</a></h2>
+<section id="module-pydui.core.gtk_widget_interface">
+<span id="pydui-core-gtk-widget-interface-module"></span><h2>pydui.core.gtk_widget_interface module<a class="headerlink" href="#module-pydui.core.gtk_widget_interface" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.event_dispatcher.PyDuiEventDispatcher">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.event_dispatcher.</span></span><span class="sig-name descname"><span class="pre">PyDuiEventDispatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager" title="pydui.core.render_manager.PyDuiRenderManager"><span class="pre">PyDuiRenderManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">PyDuiWindowHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Event Dispatcher</p>
+<dt class="sig sig-object py" id="pydui.core.gtk_widget_interface.PyDuiGtkWidgetInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.gtk_widget_interface.</span></span><span class="sig-name descname"><span class="pre">PyDuiGtkWidgetInterface</span></span><a class="headerlink" href="#pydui.core.gtk_widget_interface.PyDuiGtkWidgetInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 </dd></dl>
 
-</section>
-<section id="module-pydui.core.import_gtk">
-<span id="pydui-core-import-gtk-module"></span><h2>pydui.core.import_gtk module<a class="headerlink" href="#module-pydui.core.import_gtk" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-pydui.core.layout">
 <span id="pydui-core-layout-module"></span><h2>pydui.core.layout module<a class="headerlink" href="#module-pydui.core.layout" title="Permalink to this heading">¶</a></h2>
@@ -436,19 +408,10 @@ But you can custom the resource provider to compose the ui resources.</p>
 <p>Render static function</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.render.PyDuiRender.EstimateTextSize">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EstimateTextSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx:</span> <span class="pre">~cairo.Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_wh:</span> <span class="pre">~typing.Tuple[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float]</span> <span class="pre">=</span> <span class="pre">(-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">-1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hvalign:</span> <span class="pre">tuple[pydui.core.base.PyDuiAlign</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pydui.core.base.PyDuiAlign]</span> <span class="pre">=</span> <span class="pre">(&lt;PyDuiAlign.CENTER:</span> <span class="pre">0&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;PyDuiAlign.CENTER:</span> <span class="pre">0&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ellipsis_mode:</span> <span class="pre">~gi.repository.Pango.EllipsizeMode</span> <span class="pre">=</span> <span class="pre">&lt;enum</span> <span class="pre">PANGO_ELLIPSIZE_END</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">Pango.EllipsizeMode&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap_mode:</span> <span class="pre">~gi.repository.Pango.WrapMode</span> <span class="pre">=</span> <span class="pre">&lt;enum</span> <span class="pre">PANGO_WRAP_WORD</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">Pango.WrapMode&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_spacing:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1.25</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.core.render.PyDuiRender.EstimateTextSize" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EstimateTextSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx:</span> <span class="pre">~cairo.Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_wh:</span> <span class="pre">~typing.Tuple[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float]</span> <span class="pre">=</span> <span class="pre">(-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">-1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hvalign:</span> <span class="pre">tuple[pydui.common.base.PyDuiAlign</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pydui.common.base.PyDuiAlign]</span> <span class="pre">=</span> <span class="pre">(&lt;PyDuiAlign.CENTER:</span> <span class="pre">0&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;PyDuiAlign.CENTER:</span> <span class="pre">0&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ellipsis_mode:</span> <span class="pre">~gi.repository.Pango.EllipsizeMode</span> <span class="pre">=</span> <span class="pre">&lt;enum</span> <span class="pre">PANGO_ELLIPSIZE_END</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">Pango.EllipsizeMode&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap_mode:</span> <span class="pre">~gi.repository.Pango.WrapMode</span> <span class="pre">=</span> <span class="pre">&lt;enum</span> <span class="pre">PANGO_WRAP_WORD</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">Pango.WrapMode&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_spacing:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1.25</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.core.render.PyDuiRender.EstimateTextSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimate text size</p>
 </dd></dl>
 
-</dd></dl>
-
-</section>
-<section id="module-pydui.core.render_base">
-<span id="pydui-core-render-base-module"></span><h2>pydui.core.render_base module<a class="headerlink" href="#module-pydui.core.render_base" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.render_base.PyDuiRenderManagerBase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.render_base.</span></span><span class="sig-name descname"><span class="pre">PyDuiRenderManagerBase</span></span><a class="headerlink" href="#pydui.core.render_base.PyDuiRenderManagerBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 </dd></dl>
 
 </section>
@@ -461,111 +424,6 @@ But you can custom the resource provider to compose the ui resources.</p>
 <p>Render canvas</p>
 </dd></dl>
 
-</section>
-<section id="module-pydui.core.render_manager">
-<span id="pydui-core-render-manager-module"></span><h2>pydui.core.render_manager module<a class="headerlink" href="#module-pydui.core.render_manager" title="Permalink to this heading">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.render_manager.</span></span><span class="sig-name descname"><span class="pre">PyDuiRenderManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_base.PyDuiWindowBase" title="pydui.core.window_base.PyDuiWindowBase"><span class="pre">PyDuiWindowBase</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader" title="pydui.core.resource_loader.PyDuiResourceLoader"><span class="pre">PyDuiResourceLoader</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#pydui.core.render_base.PyDuiRenderManagerBase" title="pydui.core.render_base.PyDuiRenderManagerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiRenderManagerBase</span></code></a></p>
-<p>Render manager</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.default_font_desc">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_font_desc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.default_font_desc" title="Permalink to this definition">¶</a></dt>
-<dd><p>return font desc in format f”{font_family} {font_size}”</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>font desc</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.default_fontcolor">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_fontcolor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">RGBA</span></em><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontcolor" title="Permalink to this definition">¶</a></dt>
-<dd><p>return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>return default font color</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Gdk.RGBA</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.default_fontfamily">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_fontfamily</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontfamily" title="Permalink to this definition">¶</a></dt>
-<dd><p>return default font family, default is Arial</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>font family</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.default_fontsize">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_fontsize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontsize" title="Permalink to this definition">¶</a></dt>
-<dd><p>return default font size, default is 16</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>font size</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.get_rootview">
-<span class="sig-name descname"><span class="pre">get_rootview</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><span class="pre">PyDuiLayout</span></a></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.get_rootview" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return root view widget.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>root view.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout">PyDuiLayout</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.get_widget">
-<span class="sig-name descname"><span class="pre">get_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.get_widget" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get widget by widget id</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>widget_id</strong> (<em>str</em>) – widget id</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.render_manager.PyDuiRenderManager.set_rootview">
-<span class="sig-name descname"><span class="pre">set_rootview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rootview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><span class="pre">PyDuiLayout</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.render_manager.PyDuiRenderManager.set_rootview" title="Permalink to this definition">¶</a></dt>
-<dd><p>set window root view</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>rootview</strong> (<a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – window root view</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-pydui.core.render_pil">
-<span id="pydui-core-render-pil-module"></span><h2>pydui.core.render_pil module<a class="headerlink" href="#module-pydui.core.render_pil" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-pydui.core.resource_loader">
 <span id="pydui-core-resource-loader-module"></span><h2>pydui.core.resource_loader module<a class="headerlink" href="#module-pydui.core.resource_loader" title="Permalink to this heading">¶</a></h2>
@@ -607,6 +465,22 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 </section>
+<section id="module-pydui.core.screen">
+<span id="pydui-core-screen-module"></span><h2>pydui.core.screen module<a class="headerlink" href="#module-pydui.core.screen" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.screen.PyDuiScreen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.screen.</span></span><span class="sig-name descname"><span class="pre">PyDuiScreen</span></span><a class="headerlink" href="#pydui.core.screen.PyDuiScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PyDuiScreen class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.screen.PyDuiScreen.get_system_dpi_scale">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_system_dpi_scale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pydui.core.screen.PyDuiScreen.get_system_dpi_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return system dpi scale</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-pydui.core.widget">
 <span id="pydui-core-widget-module"></span><h2>pydui.core.widget module<a class="headerlink" href="#module-pydui.core.widget" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
@@ -617,9 +491,16 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.widget.</span></span><span class="sig-name descname"><span class="pre">PyDuiWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiObject">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.widget.</span></span><span class="sig-name descname"><span class="pre">PyDuiObject</span></span><a class="headerlink" href="#pydui.core.widget.PyDuiObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PyDuiObject, base object</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.widget.</span></span><span class="sig-name descname"><span class="pre">PyDuiWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiObject" title="pydui.core.widget.PyDuiObject"><span class="pre">PyDuiObject</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pydui.core.widget.PyDuiObject" title="pydui.core.widget.PyDuiObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiObject</span></code></a></p>
 <p>Widget base class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.get_id">
@@ -636,10 +517,10 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.get_render_manager">
-<span class="sig-name descname"><span class="pre">get_render_manager</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.get_render_manager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the widget render manager</p>
-<p>The widget will setup render manager after call do_post_init. before the widget init finish, render manager will be empty.</p>
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.get_window_client">
+<span class="sig-name descname"><span class="pre">get_window_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.get_window_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the widget window client</p>
+<p>The widget will setup window client after call do_post_init. before the widget init finish, window client will be empty.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -680,9 +561,9 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.set_render_manager">
-<span class="sig-name descname"><span class="pre">set_render_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">render_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.render_base.PyDuiRenderManagerBase" title="pydui.core.render_base.PyDuiRenderManagerBase"><span class="pre">PyDuiRenderManagerBase</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.set_render_manager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the render mananger</p>
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.set_window_client">
+<span class="sig-name descname"><span class="pre">set_window_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface" title="pydui.core.window_client_interface.PyDuiWindowClientInterface"><span class="pre">PyDuiWindowClientInterface</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.set_window_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the window client</p>
 <p>Do not call this function yourself if you do not know what it is for!</p>
 </dd></dl>
 
@@ -693,19 +574,75 @@ But you can custom the resource provider to compose the ui resources.</p>
 <span id="pydui-core-window-module"></span><h2>pydui.core.window module<a class="headerlink" href="#module-pydui.core.window" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.core.window.PyDuiWindow">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader" title="pydui.core.resource_loader.PyDuiResourceLoader"><span class="pre">PyDuiResourceLoader</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig" title="pydui.core.window.PyDuiWindowConfig"><span class="pre">PyDuiWindowConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rootview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">PyDuiWindowHandler</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window.PyDuiWindow" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader" title="pydui.core.resource_loader.PyDuiResourceLoader"><span class="pre">PyDuiResourceLoader</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig" title="pydui.core.window_config.PyDuiWindowConfig"><span class="pre">PyDuiWindowConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rootview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">PyDuiWindowHandler</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window.PyDuiWindow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pydui.core.window_base.PyDuiWindowBase" title="pydui.core.window_base.PyDuiWindowBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiWindowBase</span></code></a></p>
 <p>Window object</p>
 </dd></dl>
 
+</section>
+<section id="module-pydui.core.window_base">
+<span id="pydui-core-window-base-module"></span><h2>pydui.core.window_base module<a class="headerlink" href="#module-pydui.core.window_base" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">title:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">tuple[int,</span> <span class="pre">int],</span> <span class="pre">min_size:</span> <span class="pre">tuple[int,</span> <span class="pre">int],</span> <span class="pre">max_size:</span> <span class="pre">tuple[int,</span> <span class="pre">int],</span> <span class="pre">position:</span> <span class="pre">~gi.repository.Gtk.WindowPosition</span> <span class="pre">=</span> <span class="pre">&lt;enum</span> <span class="pre">GTK_WIN_POS_CENTER</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">Gtk.WindowPosition&gt;,</span> <span class="pre">default_font:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Arial',</span> <span class="pre">default_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">default_fontbold:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_base.PyDuiWindowBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_base.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowBase</span></span><a class="headerlink" href="#pydui.core.window_base.PyDuiWindowBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-pydui.core.window_client">
+<span id="pydui-core-window-client-module"></span><h2>pydui.core.window_client module<a class="headerlink" href="#module-pydui.core.window_client" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.window_client.PyDuiWindowClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_client.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_base.PyDuiWindowBase" title="pydui.core.window_base.PyDuiWindowBase"><span class="pre">PyDuiWindowBase</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig" title="pydui.core.window_config.PyDuiWindowConfig"><span class="pre">PyDuiWindowConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader" title="pydui.core.resource_loader.PyDuiResourceLoader"><span class="pre">PyDuiResourceLoader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rootview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><span class="pre">PyDuiLayout</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">PyDuiWindowHandler</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_client.PyDuiWindowClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface" title="pydui.core.window_client_interface.PyDuiWindowClientInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiWindowClientInterface</span></code></a></p>
+<p>Window client</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_client.PyDuiWindowClient.get_rootview">
+<span class="sig-name descname"><span class="pre">get_rootview</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><span class="pre">PyDuiLayout</span></a></span></span><a class="headerlink" href="#pydui.core.window_client.PyDuiWindowClient.get_rootview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return root view widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>root view.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout">PyDuiLayout</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_client.PyDuiWindowClient.get_widget">
+<span class="sig-name descname"><span class="pre">get_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></span><a class="headerlink" href="#pydui.core.window_client.PyDuiWindowClient.get_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get widget by widget id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget_id</strong> (<em>str</em>) – widget id</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pydui.core.window_client_interface">
+<span id="pydui-core-window-client-interface-module"></span><h2>pydui.core.window_client_interface module<a class="headerlink" href="#module-pydui.core.window_client_interface" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.window_client_interface.PyDuiWindowClientInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_client_interface.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowClientInterface</span></span><a class="headerlink" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-pydui.core.window_config">
+<span id="pydui-core-window-config-module"></span><h2>pydui.core.window_config module<a class="headerlink" href="#module-pydui.core.window_config" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_config.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">title:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">~typing.Tuple[int,</span> <span class="pre">int],</span> <span class="pre">min_size:</span> <span class="pre">~typing.Tuple[int,</span> <span class="pre">int],</span> <span class="pre">max_size:</span> <span class="pre">~typing.Tuple[int,</span> <span class="pre">int],</span> <span class="pre">position:</span> <span class="pre">~gi.repository.Gtk.WindowPosition</span> <span class="pre">=</span> <span class="pre">&lt;enum</span> <span class="pre">GTK_WIN_POS_CENTER</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">Gtk.WindowPosition&gt;,</span> <span class="pre">default_font:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Arial',</span> <span class="pre">default_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">default_fontbold:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Window config dataclass</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig.title">
-<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.title" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig.title" title="Permalink to this definition">¶</a></dt>
 <dd><p>window title</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -715,8 +652,8 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig.size">
-<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.size" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig.size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig.size" title="Permalink to this definition">¶</a></dt>
 <dd><p>window size, default is (400, 300)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -726,8 +663,8 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig.min_size">
-<span class="sig-name descname"><span class="pre">min_size</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.min_size" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig.min_size">
+<span class="sig-name descname"><span class="pre">min_size</span></span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig.min_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>window min size, default is (0, 0)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -737,8 +674,8 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig.max_size">
-<span class="sig-name descname"><span class="pre">max_size</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.max_size" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig.max_size">
+<span class="sig-name descname"><span class="pre">max_size</span></span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig.max_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>window max size, default is (0, 0), when set to zero, means no limit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -748,8 +685,8 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig.positon">
-<span class="sig-name descname"><span class="pre">positon</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.positon" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig.positon">
+<span class="sig-name descname"><span class="pre">positon</span></span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig.positon" title="Permalink to this definition">¶</a></dt>
 <dd><p>window initial position</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -759,8 +696,8 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig.default_font">
-<span class="sig-name descname"><span class="pre">default_font</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.default_font" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig.default_font">
+<span class="sig-name descname"><span class="pre">default_font</span></span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig.default_font" title="Permalink to this definition">¶</a></dt>
 <dd><p>window default font</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -770,8 +707,8 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig.default_fontsize">
-<span class="sig-name descname"><span class="pre">default_fontsize</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.default_fontsize" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig.default_fontsize">
+<span class="sig-name descname"><span class="pre">default_fontsize</span></span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig.default_fontsize" title="Permalink to this definition">¶</a></dt>
 <dd><p>window default font size</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -781,8 +718,8 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pydui.core.window.PyDuiWindowConfig.default_fontbold">
-<span class="sig-name descname"><span class="pre">default_fontbold</span></span><a class="headerlink" href="#pydui.core.window.PyDuiWindowConfig.default_fontbold" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pydui.core.window_config.PyDuiWindowConfig.default_fontbold">
+<span class="sig-name descname"><span class="pre">default_fontbold</span></span><a class="headerlink" href="#pydui.core.window_config.PyDuiWindowConfig.default_fontbold" title="Permalink to this definition">¶</a></dt>
 <dd><p>window default font is bold or not</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -794,12 +731,13 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 </section>
-<section id="module-pydui.core.window_base">
-<span id="pydui-core-window-base-module"></span><h2>pydui.core.window_base module<a class="headerlink" href="#module-pydui.core.window_base" title="Permalink to this heading">¶</a></h2>
+<section id="module-pydui.core.window_event_dispatcher">
+<span id="pydui-core-window-event-dispatcher-module"></span><h2>pydui.core.window_event_dispatcher module<a class="headerlink" href="#module-pydui.core.window_event_dispatcher" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="pydui.core.window_base.PyDuiWindowBase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_base.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowBase</span></span><a class="headerlink" href="#pydui.core.window_base.PyDuiWindowBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_event_dispatcher.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowEventDispatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface" title="pydui.core.window_client_interface.PyDuiWindowClientInterface"><span class="pre">PyDuiWindowClientInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">PyDuiWindowHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Window Event Dispatcher</p>
 </dd></dl>
 
 </section>
@@ -886,19 +824,13 @@ But you can custom the resource provider to compose the ui resources.</p>
                 <ul>
 <li><a class="reference internal" href="#">pydui.core package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pydui.core.appearance_manager">pydui.core.appearance_manager module</a></li>
 <li><a class="reference internal" href="#module-pydui.core.application">pydui.core.application module</a><ul>
 <li><a class="reference internal" href="#pydui.core.application.PyDuiApplication"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication</span></code></a><ul>
 <li><a class="reference internal" href="#pydui.core.application.PyDuiApplication.main_quit"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication.main_quit()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.application.PyDuiApplication.main_run"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication.main_run()</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-pydui.core.attribute_string">pydui.core.attribute_string module</a></li>
-<li><a class="reference internal" href="#module-pydui.core.base">pydui.core.base module</a><ul>
-<li><a class="reference internal" href="#pydui.core.base.PyDuiAlign"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.base.PyDuiClickType"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.base.PyDuiLayoutConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.core.builder">pydui.core.builder module</a><ul>
@@ -909,11 +841,10 @@ But you can custom the resource provider to compose the ui resources.</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-pydui.core.event_dispatcher">pydui.core.event_dispatcher module</a><ul>
-<li><a class="reference internal" href="#pydui.core.event_dispatcher.PyDuiEventDispatcher"><code class="docutils literal notranslate"><span class="pre">PyDuiEventDispatcher</span></code></a></li>
+<li><a class="reference internal" href="#module-pydui.core.gtk_widget_interface">pydui.core.gtk_widget_interface module</a><ul>
+<li><a class="reference internal" href="#pydui.core.gtk_widget_interface.PyDuiGtkWidgetInterface"><code class="docutils literal notranslate"><span class="pre">PyDuiGtkWidgetInterface</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-pydui.core.import_gtk">pydui.core.import_gtk module</a></li>
 <li><a class="reference internal" href="#module-pydui.core.layout">pydui.core.layout module</a><ul>
 <li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a><ul>
 <li><a class="reference internal" href="#pydui.core.layout.PyDuiLayout.add_child"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.add_child()</span></code></a></li>
@@ -937,28 +868,10 @@ But you can custom the resource provider to compose the ui resources.</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-pydui.core.render_base">pydui.core.render_base module</a><ul>
-<li><a class="reference internal" href="#pydui.core.render_base.PyDuiRenderManagerBase"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManagerBase</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#module-pydui.core.render_canvas">pydui.core.render_canvas module</a><ul>
 <li><a class="reference internal" href="#pydui.core.render_canvas.PyDuiRenderCanvas"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderCanvas</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-pydui.core.render_manager">pydui.core.render_manager module</a><ul>
-<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager</span></code></a><ul>
-<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_font_desc"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_font_desc</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontcolor"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontcolor</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontfamily"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontfamily</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontsize</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.get_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.get_rootview()</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.get_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.get_widget()</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.render_manager.PyDuiRenderManager.set_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.set_rootview()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-pydui.core.render_pil">pydui.core.render_pil module</a></li>
 <li><a class="reference internal" href="#module-pydui.core.resource_loader">pydui.core.resource_loader module</a><ul>
 <li><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader</span></code></a><ul>
 <li><a class="reference internal" href="#pydui.core.resource_loader.PyDuiResourceLoader.load_data"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader.load_data()</span></code></a></li>
@@ -970,36 +883,63 @@ But you can custom the resource provider to compose the ui resources.</p>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-pydui.core.screen">pydui.core.screen module</a><ul>
+<li><a class="reference internal" href="#pydui.core.screen.PyDuiScreen"><code class="docutils literal notranslate"><span class="pre">PyDuiScreen</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.screen.PyDuiScreen.get_system_dpi_scale"><code class="docutils literal notranslate"><span class="pre">PyDuiScreen.get_system_dpi_scale()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pydui.core.widget">pydui.core.widget module</a><ul>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiConstraint</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiObject"><code class="docutils literal notranslate"><span class="pre">PyDuiObject</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget</span></code></a><ul>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.get_id"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.get_id()</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.get_render_manager"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.get_render_manager()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.get_window_client"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.get_window_client()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.margin"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.margin</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parse_attrib()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.parse_attributes"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parse_attributes()</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.set_render_manager"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.set_render_manager()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.set_window_client"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.set_window_client()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.core.window">pydui.core.window module</a><ul>
 <li><a class="reference internal" href="#pydui.core.window.PyDuiWindow"><code class="docutils literal notranslate"><span class="pre">PyDuiWindow</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig</span></code></a><ul>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.title"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.title</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.size</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.min_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.min_size</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.max_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.max_size</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.positon"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.positon</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.default_font"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_font</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontsize</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.window.PyDuiWindowConfig.default_fontbold"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontbold</span></code></a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.core.window_base">pydui.core.window_base module</a><ul>
 <li><a class="reference internal" href="#pydui.core.window_base.PyDuiWindowBase"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowBase</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.window_client">pydui.core.window_client module</a><ul>
+<li><a class="reference internal" href="#pydui.core.window_client.PyDuiWindowClient"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.window_client.PyDuiWindowClient.get_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient.get_rootview()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_client.PyDuiWindowClient.get_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient.get_widget()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.window_client_interface">pydui.core.window_client_interface module</a><ul>
+<li><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClientInterface</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.window_config">pydui.core.window_config module</a><ul>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig.title"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.title</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig.size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.size</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig.min_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.min_size</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig.max_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.max_size</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig.positon"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.positon</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig.default_font"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_font</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontsize</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_config.PyDuiWindowConfig.default_fontbold"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontbold</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.window_event_dispatcher">pydui.core.window_event_dispatcher module</a><ul>
+<li><a class="reference internal" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.core.window_handler">pydui.core.window_handler module</a><ul>
@@ -1028,8 +968,8 @@ But you can custom the resource provider to compose the ui resources.</p>
         <div class="button_nav">
             <div class="left">
                 
-                <a href="pydui.html">
-                    <span class="icon"><</span><span>pydui package</span></a>
+                <a href="pydui.common.html">
+                    <span class="icon"><</span><span>pydui.common package</span></a>
                 
             </div>
 

@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="https://pypi.org/static/images/logo-small.95de8436.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pydui.core package" href="pydui.core.html" />
+    <link rel="next" title="pydui.common package" href="pydui.common.html" />
     <link rel="prev" title="API Documentation" href="apis.html" /> 
   </head><body>
 
@@ -133,6 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="apis.html">API Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pydui package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pydui.common.html">pydui.common package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html">pydui.core package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.layout.html">pydui.layout package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.utils.html">pydui.utils package</a></li>
@@ -158,21 +159,28 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="pydui.common.html">pydui.common package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pydui.common.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.common.html#module-pydui.common.attribute_string">pydui.common.attribute_string module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.common.html#module-pydui.common.base">pydui.common.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiAlign"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiClickType"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.common.html#module-pydui.common.import_gtk">pydui.common.import_gtk module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.common.html#module-pydui.common">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="pydui.core.html">pydui.core package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.appearance_manager">pydui.core.appearance_manager module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.application">pydui.core.application module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.application.PyDuiApplication"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.application.PyDuiApplication.main_quit"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication.main_quit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.application.PyDuiApplication.main_run"><code class="docutils literal notranslate"><span class="pre">PyDuiApplication.main_run()</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.attribute_string">pydui.core.attribute_string module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.base">pydui.core.base module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.base.PyDuiAlign"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.base.PyDuiClickType"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.base.PyDuiLayoutConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.builder">pydui.core.builder module</a><ul>
@@ -183,11 +191,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.event_dispatcher">pydui.core.event_dispatcher module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.event_dispatcher.PyDuiEventDispatcher"><code class="docutils literal notranslate"><span class="pre">PyDuiEventDispatcher</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.gtk_widget_interface">pydui.core.gtk_widget_interface module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.gtk_widget_interface.PyDuiGtkWidgetInterface"><code class="docutils literal notranslate"><span class="pre">PyDuiGtkWidgetInterface</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.import_gtk">pydui.core.import_gtk module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.layout">pydui.core.layout module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout.add_child"><code class="docutils literal notranslate"><span class="pre">PyDuiLayout.add_child()</span></code></a></li>
@@ -211,28 +218,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.render_base">pydui.core.render_base module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.render_base.PyDuiRenderManagerBase"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManagerBase</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.render_canvas">pydui.core.render_canvas module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.render_canvas.PyDuiRenderCanvas"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderCanvas</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.render_manager">pydui.core.render_manager module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.default_font_desc"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_font_desc</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.default_fontcolor"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontcolor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.default_fontfamily"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontfamily</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.default_fontsize</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.get_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.get_rootview()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.get_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.get_widget()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.render_manager.PyDuiRenderManager.set_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiRenderManager.set_rootview()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.render_pil">pydui.core.render_pil module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.resource_loader">pydui.core.resource_loader module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.resource_loader.PyDuiResourceLoader"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.resource_loader.PyDuiResourceLoader.load_data"><code class="docutils literal notranslate"><span class="pre">PyDuiResourceLoader.load_data()</span></code></a></li>
@@ -244,36 +233,63 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.screen">pydui.core.screen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.screen.PyDuiScreen"><code class="docutils literal notranslate"><span class="pre">PyDuiScreen</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.screen.PyDuiScreen.get_system_dpi_scale"><code class="docutils literal notranslate"><span class="pre">PyDuiScreen.get_system_dpi_scale()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.widget">pydui.core.widget module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiConstraint</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiObject"><code class="docutils literal notranslate"><span class="pre">PyDuiObject</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget.get_id"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.get_id()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget.get_render_manager"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.get_render_manager()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget.get_window_client"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.get_window_client()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget.margin"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.margin</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parse_attrib()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget.parse_attributes"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parse_attributes()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget.set_render_manager"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.set_render_manager()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget.set_window_client"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.set_window_client()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.window">pydui.core.window module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindow"><code class="docutils literal notranslate"><span class="pre">PyDuiWindow</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.title"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.title</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.size</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.min_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.min_size</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.max_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.max_size</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.positon"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.positon</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.default_font"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_font</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontsize</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window.PyDuiWindowConfig.default_fontbold"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontbold</span></code></a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.window_base">pydui.core.window_base module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.window_base.PyDuiWindowBase"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.window_client">pydui.core.window_client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.window_client.PyDuiWindowClient"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_client.PyDuiWindowClient.get_rootview"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient.get_rootview()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_client.PyDuiWindowClient.get_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient.get_widget()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.window_client_interface">pydui.core.window_client_interface module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.window_client_interface.PyDuiWindowClientInterface"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClientInterface</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.window_config">pydui.core.window_config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig.title"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig.size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig.min_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.min_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig.max_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.max_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig.positon"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.positon</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig.default_font"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_font</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig.default_fontsize"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontsize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pydui.core.html#pydui.core.window_config.PyDuiWindowConfig.default_fontbold"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowConfig.default_fontbold</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.window_event_dispatcher">pydui.core.window_event_dispatcher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pydui.core.html#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pydui.core.html#module-pydui.core.window_handler">pydui.core.window_handler module</a><ul>
@@ -300,7 +316,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pydui.layout.html#pydui.layout.hlayout.PyDuiHLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiHLayout</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pydui.layout.html#pydui-layout-pglayout-module">pydui.layout.pglayout module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pydui.layout.html#module-pydui.layout.pglayout">pydui.layout.pglayout module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pydui.layout.html#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="pydui.layout.html#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.bounds_size"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.bounds_size()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="pydui.layout.html#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport.frame_origin"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport.frame_origin()</span></code></a></li>
@@ -485,7 +501,7 @@
 
             <div class="right">
                 
-                    <a href="pydui.core.html"><span>pydui.core package</span><span class="icon">></span></a>
+                    <a href="pydui.common.html"><span>pydui.common package</span><span class="icon">></span></a>
                 
             </div>
         </div>

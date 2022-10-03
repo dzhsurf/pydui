@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   pydui.common
    pydui.core
    pydui.layout
    pydui.utils
