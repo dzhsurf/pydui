@@ -3,8 +3,8 @@ import logging
 from typing import Callable, Type
 
 from pydui import utils
+from pydui.common.import_gtk import *
 from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
-from pydui.core.import_gtk import *
 from pydui.core.screen import PyDuiScreen
 
 

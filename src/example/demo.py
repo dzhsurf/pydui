@@ -6,7 +6,7 @@ from pynoticenter import PyNotiCenter
 
 import pydui
 from pydui import *
-from pydui.core.import_gtk import *
+from pydui.common.import_gtk import *
 from pydui.core.resource_loader import create_default_resource_loader
 
 # setup logger

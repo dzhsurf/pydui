@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 from typing import Tuple
 
-from pydui.core.import_gtk import *
+from pydui.common.import_gtk import *
 
 
 @dataclass(frozen=True)

@@ -2,8 +2,8 @@
 from typing import Callable
 
 from pydui import utils
+from pydui.common.import_gtk import *
 from pydui.core.base import *
-from pydui.core.import_gtk import *
 from pydui.core.widget import *
 
 

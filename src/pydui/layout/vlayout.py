@@ -2,7 +2,7 @@
 from typing import Tuple
 
 from pydui import utils
-from pydui.core.import_gtk import *
+from pydui.common.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.widget import *
 from pydui.layout.pglayout import PyDuiLayoutWithPogaSupport

@@ -4,8 +4,8 @@ import weakref
 from typing import Any, Callable, Tuple, Type
 from weakref import ReferenceType
 
+from pydui.common.import_gtk import *
 from pydui.core.base import PyDuiClickType
-from pydui.core.import_gtk import *
 from pydui.core.widget import PyDuiWidget
 from pydui.core.window_client import PyDuiWindowClientInterface
 from pydui.core.window_handler import PyDuiWindowHandler

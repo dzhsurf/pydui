@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 from enum import Enum
 
-from pydui.core.import_gtk import *
+from pydui.common.import_gtk import *
 
 
 class PyDuiAlign(Enum):

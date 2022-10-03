@@ -2,7 +2,7 @@
 """Conversion function
 """
 
-from pydui.core.import_gtk import *
+from pydui.common.import_gtk import *
 
 
 def Str2Size(text: str) -> tuple[float, float]:

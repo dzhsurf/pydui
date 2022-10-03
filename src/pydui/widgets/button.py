@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Type
 
-from pydui.core.import_gtk import *
+from pydui.common.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.widget import *
 from pydui.widgets.label import *

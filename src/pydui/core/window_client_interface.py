@@ -2,8 +2,8 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+from pydui.common.import_gtk import *
 from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
-from pydui.core.import_gtk import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 
 

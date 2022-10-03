@@ -4,9 +4,9 @@ from signal import signal
 from typing import List, Tuple
 
 from pydui import utils
+from pydui.common.import_gtk import *
 from pydui.core.base import PyDuiLayoutConstraint
 from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
-from pydui.core.import_gtk import *
 from pydui.core.widget import PyDuiWidget
 from pydui.widgets.pgview import PyDuiPGView
 

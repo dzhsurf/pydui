@@ -2,8 +2,8 @@
 """FixedLayout unit
 """
 
+from pydui.common.import_gtk import *
 from pydui.core.base import *
-from pydui.core.import_gtk import *
 from pydui.core.layout import *
 
 

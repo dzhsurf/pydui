@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from pydui.core.import_gtk import *
+from pydui.common.import_gtk import *
 
 
 class PyDuiAppearanceManager:

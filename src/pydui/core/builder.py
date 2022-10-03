@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from typing import Callable, Tuple, Type, Union
 
 from pydui import utils
-from pydui.core.import_gtk import *
+from pydui.common.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
