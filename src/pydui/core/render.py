@@ -51,8 +51,8 @@ def __config_text_layout__(
     *,
     font: str,
     font_size: int,
-    wh: tuple[float, float],
-    hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
+    wh: Tuple[float, float],
+    hvalign: Tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
     ellipsis_mode: Pango.EllipsizeMode = Pango.EllipsizeMode.END,
     wrap_mode: Pango.WrapMode = Pango.WrapMode.WORD,
     line_spacing: float = 1.25,
@@ -145,9 +145,9 @@ class PyDuiRender:
         ctx: cairo.Context,
         loader: PyDuiResourceLoader,
         path: str,
-        xy: tuple[float, float],
-        wh: tuple[float, float],
-        corner: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0),
+        xy: Tuple[float, float],
+        wh: Tuple[float, float],
+        corner: Tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0),
     ):
         img_path = path
         img_attrib = dict[str, Any]()
@@ -258,9 +258,9 @@ class PyDuiRender:
         font: str,
         font_size: int,
         color: Gdk.RGBA,
-        xy: tuple[float, float],
-        wh: tuple[float, float],
-        hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
+        xy: Tuple[float, float],
+        wh: Tuple[float, float],
+        hvalign: Tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
         ellipsis_mode: Pango.EllipsizeMode = Pango.EllipsizeMode.END,
         wrap_mode: Pango.WrapMode = Pango.WrapMode.WORD,
         line_spacing: float = 1.25,
@@ -317,11 +317,11 @@ class PyDuiRender:
         font: str,
         fontsize: int,
         limit_wh: Tuple[float, float] = (-1, -1),
-        hvalign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
+        hvalign: Tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.CENTER, PyDuiAlign.CENTER),
         ellipsis_mode: Pango.EllipsizeMode = Pango.EllipsizeMode.END,
         wrap_mode: Pango.WrapMode = Pango.WrapMode.WORD,
         line_spacing: float = 1.25,
-    ) -> tuple[float, float]:
+    ) -> Tuple[float, float]:
         """Estimate text size"""
         if ctx is None:
             logging.error("cairo.Context not ready for render text.")

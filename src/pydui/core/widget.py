@@ -51,8 +51,8 @@ class PyDuiWidget(PyDuiObject):
     __can_focus: bool = False
     # attrib
     __bkcolor: Gdk.RGBA = None
-    __margin: tuple[float, float, float, float] = (0, 0, 0, 0)
-    __corner: tuple[float, float, float, float] = (0, 0, 0, 0)
+    __margin: Tuple[float, float, float, float] = (0, 0, 0, 0)
+    __corner: Tuple[float, float, float, float] = (0, 0, 0, 0)
     __bkimage: str = ""
     # event
     __signals: dict[str, list[callable]] = None
@@ -153,7 +153,7 @@ class PyDuiWidget(PyDuiObject):
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
-    ) -> tuple[float, float]:
+    ) -> Tuple[float, float]:
         return (self.fixed_width, self.fixed_height)
 
     def parse_attributes(self, attrib: dict[str, str]):
@@ -314,7 +314,7 @@ class PyDuiWidget(PyDuiObject):
         return self.__height
 
     @property
-    def layout_rect(self) -> tuple[float, float, float, float]:
+    def layout_rect(self) -> Tuple[float, float, float, float]:
         return (
             self.x,
             self.y,
@@ -323,11 +323,11 @@ class PyDuiWidget(PyDuiObject):
         )
 
     @property
-    def fixed_size(self) -> tuple[float, float]:
+    def fixed_size(self) -> Tuple[float, float]:
         return (self.fixed_width, self.fixed_height)
 
     @fixed_size.setter
-    def fixed_size(self, size: tuple[float, float]):
+    def fixed_size(self, size: Tuple[float, float]):
         self.fixed_width = size[0]
         self.fixed_height = size[1]
 
@@ -348,7 +348,7 @@ class PyDuiWidget(PyDuiObject):
         self.__fixed_height = h
 
     @property
-    def xy(self) -> tuple[float, float]:
+    def xy(self) -> Tuple[float, float]:
         return (self.x, self.y)
 
     @property
@@ -380,11 +380,11 @@ class PyDuiWidget(PyDuiObject):
         self.__fixed_y = y
 
     @property
-    def fixed_xy(self) -> tuple[float, float]:
+    def fixed_xy(self) -> Tuple[float, float]:
         return (self.__fixed_x, self.__fixed_y)
 
     @fixed_xy.setter
-    def fixed_xy(self, xy: tuple[float, float]):
+    def fixed_xy(self, xy: Tuple[float, float]):
         self.fixed_x = xy[0]
         self.fixed_y = xy[1]
 
@@ -393,22 +393,22 @@ class PyDuiWidget(PyDuiObject):
         pass
 
     @property
-    def margin(self) -> tuple[float, float, float, float]:
+    def margin(self) -> Tuple[float, float, float, float]:
         """Return widget margin
 
         The value in tuple means [left, top, right, bottom]
 
         Returns:
-            tuple[float, float, float, float]: return margin.
+            Tuple[float, float, float, float]: return margin.
         """
         return self.__margin
 
     @margin.setter
-    def margin(self, margin: tuple[float, float, float, float]):
+    def margin(self, margin: Tuple[float, float, float, float]):
         """Set the widget margin
 
         Args:
-            margin (tuple[float, float, float, float]): widget margin
+            margin (Tuple[float, float, float, float]): widget margin
 
         """
         self.__margin = margin
@@ -478,11 +478,11 @@ class PyDuiWidget(PyDuiObject):
         self.__bkimage = image
 
     @property
-    def corner(self) -> tuple[float, float, float, float]:
+    def corner(self) -> Tuple[float, float, float, float]:
         return self.__corner
 
     @corner.setter
-    def corner(self, corner: tuple[float, float, float, float]):
+    def corner(self, corner: Tuple[float, float, float, float]):
         self.__corner = corner
 
     # private function

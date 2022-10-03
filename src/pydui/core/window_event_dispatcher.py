@@ -20,8 +20,8 @@ class PyDuiWindowEventDispatcher:
     __on_init: Callable[[None], None] = None
 
     # window position
-    __xy: tuple[float, float] = (0, 0)
-    __wh: tuple[float, float] = (0, 0)
+    __xy: Tuple[float, float] = (0, 0)
+    __wh: Tuple[float, float] = (0, 0)
 
     # focus widget
     __focused_widget: PyDuiWidget = None

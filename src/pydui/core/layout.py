@@ -12,8 +12,8 @@ class PyDuiLayout(PyDuiWidget):
     """Layout base class, all layouts inherit from PyDuiLayout"""
 
     __children: list[PyDuiWidget] = None
-    __padding: tuple[float, float, float, float] = (0, 0, 0, 0)
-    __childHVAlign: tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.START, PyDuiAlign.START)
+    __padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
+    __childHVAlign: Tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.START, PyDuiAlign.START)
     __fitrule: list[str] = None
 
     def __init__(self, parent: PyDuiWidget, custom_gtk_widget: Gtk.Widget = None):
@@ -184,22 +184,22 @@ class PyDuiLayout(PyDuiWidget):
         return len(self.__children)
 
     @property
-    def padding(self) -> tuple[float, float, float, float]:
+    def padding(self) -> Tuple[float, float, float, float]:
         """Return widget padding
 
         The value in tuple means [left, top, right, bottom]
 
         Returns:
-            tuple[float, float, float, float]: return padding.
+            Tuple[float, float, float, float]: return padding.
         """
         return self.__padding
 
     @padding.setter
-    def padding(self, padding: tuple[float, float, float, float]):
+    def padding(self, padding: Tuple[float, float, float, float]):
         """Set the widget padding
 
         Args:
-            padding (tuple[float, float, float, float]): widget padding
+            padding (Tuple[float, float, float, float]): widget padding
 
         """
         self.__padding = padding

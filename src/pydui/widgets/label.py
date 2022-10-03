@@ -77,7 +77,7 @@ class PyDuiLabel(PyDuiPGView):
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
-    ) -> tuple[float, float]:
+    ) -> Tuple[float, float]:
         if self.autofit:
             size = (0, 0)
             pw, ph = parent_width, parent_height
@@ -180,7 +180,7 @@ class PyDuiLabel(PyDuiPGView):
             fontcolor = window_client.get_appearance().default_fontcolor
         return (fontfamily, fontsize, fontcolor)
 
-    def __estimate_text_size__(self, limit_width: float, limit_height: float) -> tuple[float, float]:
+    def __estimate_text_size__(self, limit_width: float, limit_height: float) -> Tuple[float, float]:
         fontfamily, fontsize, fontcolor = self.__get_font_info__()
         ctx = self.get_window_client().get_render_context()
         return PyDuiRender.EstimateTextSize(
@@ -195,7 +195,7 @@ class PyDuiLabel(PyDuiPGView):
             line_spacing=self.__line_spacing,
         )
 
-    def __estimate_image_size__(self, limit_width: float, limit_height: float) -> tuple[float, float]:
+    def __estimate_image_size__(self, limit_width: float, limit_height: float) -> Tuple[float, float]:
         loader = self.get_window_client().get_resource_loader()
 
         return PyDuiRender.EstimateImageSize(loader, self.bkimage, limit_width, limit_height)

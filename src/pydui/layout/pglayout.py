@@ -124,7 +124,7 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
-    ) -> tuple[float, float]:
+    ) -> Tuple[float, float]:
         return self.__layout.calculate_layout_with_size((parent_width, parent_height))
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):

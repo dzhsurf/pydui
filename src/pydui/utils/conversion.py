@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 """Conversion function
 """
-
+from typing import Tuple
 from pydui.common.import_gtk import *
 
-
-def Str2Size(text: str) -> tuple[float, float]:
-    """Convert text to tuple[float, float]
+def Str2Size(text: str) -> Tuple[float, float]:
+    """Convert text to Tuple[float, float]
 
     if the text in wrong format, it will return (0, 0)
 
@@ -14,7 +13,7 @@ def Str2Size(text: str) -> tuple[float, float]:
         text (str): input text
 
     Retruns:
-        tuple[float, float]: return size in tuple
+        Tuple[float, float]: return size in tuple
     """
     arr = text.split(",")
     if len(arr) != 2:
@@ -55,7 +54,7 @@ def Str2Color(text: str) -> Gdk.RGBA:
     return Gdk.RGBA(color[1] / 255, color[2] / 255, color[3] / 255, color[0] / 255)
 
 
-def Str2Rect(text: str) -> tuple[float, float, float, float]:
+def Str2Rect(text: str) -> Tuple[float, float, float, float]:
     arr = text.split(",")
     if len(arr) != 4:
         return (0, 0, 0, 0)
@@ -63,16 +62,16 @@ def Str2Rect(text: str) -> tuple[float, float, float, float]:
     return tuple(float(n) for n in arr)
 
 
-def IsNoneZeroRect(rect: tuple[float, float, float, float]) -> bool:
+def IsNoneZeroRect(rect: Tuple[float, float, float, float]) -> bool:
     for r in rect:
         if int(r) == 0:
             return False
     return True
 
 
-def RectH(rect: tuple[float, float, float, float]) -> float:
+def RectH(rect: Tuple[float, float, float, float]) -> float:
     return rect[1] + rect[3]
 
 
-def RectW(rect: tuple[float, float, float, float]) -> float:
+def RectW(rect: Tuple[float, float, float, float]) -> float:
     return rect[0] + rect[2]
