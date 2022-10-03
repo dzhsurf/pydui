@@ -95,7 +95,7 @@ class PyDuiWindow(PyDuiWindowBase):
         self.__manager.set_window_size(config.size[0], config.size[1])
 
     def __on_window_init__(self):
-        self.__manager.get_rootview().__do_post_init__()
+        self.__manager.get_rootview().__do_post_init__(self.__manager)
         self.__event_dispatcher.handler.on_window_init(self)
 
     def get_gtk_window(self):

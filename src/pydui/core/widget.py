@@ -82,18 +82,12 @@ class PyDuiWidget(object):
     def get_render_manager(self):
         """Get the widget render manager
 
-        If widget is a child and not contain render manager, it will find the parent until reach to top.
-        It's not a good design as it will cause problems by incorrect maintain the widget render manager.
-        It will reimplment later.
+        The widget will setup render manager after call do_post_init. before the widget init finish, render manager will be empty.
         """
-        render_manager = None
-        widget = self
-        while render_manager is None and widget is not None:
-            if widget.__render_manager is not None:
-                render_manager = widget.__render_manager()
-            widget = widget.parent
+        if self.__render_manager is not None:
+            return self.__render_manager()
 
-        return render_manager
+        return None
 
     def get_id(self) -> str:
         """Return widget id
@@ -476,5 +470,6 @@ class PyDuiWidget(object):
         pass
 
     # private function
-    def __do_post_init__(self):
+    def __do_post_init__(self, render_manager: PyDuiRenderManagerBase):
+        self.set_render_manager(render_manager)
         self.on_post_init()
