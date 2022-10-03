@@ -49,7 +49,7 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
         super().layout(x, y, width, height, constraint)
         if self.__gtk_scrolled_window is None:
             return
-        self.get_render_manager().move_gtk_widget(self, x + self.__text_padding[0], y + self.__text_padding[1])
+        self.get_window_client().move_gtk_widget(self, x + self.__text_padding[0], y + self.__text_padding[1])
         text_padding_w = utils.RectW(self.__text_padding)
         text_padding_h = utils.RectH(self.__text_padding)
         self.__gtk_scrolled_window.set_size_request(max(0, width - text_padding_w), max(0, height - text_padding_h))
@@ -86,7 +86,7 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
 
     def get_font(self) -> str:
         if self.__font == "":
-            return self.get_render_manager().default_fontfamily
+            return self.get_window_client().get_appearance().default_fontfamily
         return self.__font
 
     def set_font(self, font: str):
@@ -98,7 +98,7 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
 
     def get_fontsize(self) -> int:
         if self.__fontsize == 0:
-            return self.get_render_manager().default_fontsize
+            return self.get_window_client().get_appearance().default_fontsize
         return self.__fontsize
 
     def set_fontsize(self, fontsize: int):
@@ -112,7 +112,7 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
         self.__text_padding = text_padding
         if self.__gtk_text_view is None:
             return
-        self.get_render_manager().notify_redraw()
+        self.get_window_client().notify_redraw()
 
     def get_textpadding(self) -> Tuple[float, float, float, float]:
         return self.__text_padding
@@ -143,7 +143,7 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
         self.__gtk_text_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
         self.__gtk_text_view.get_buffer().set_text(self.__text)
         self.__gtk_scrolled_window.add(self.__gtk_text_view)
-        self.get_render_manager().put_gtk_widget(self)
+        self.get_window_client().put_gtk_widget(self)
 
         # register event
         text_buffer = self.__gtk_text_view.get_buffer()

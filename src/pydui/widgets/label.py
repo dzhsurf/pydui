@@ -166,23 +166,23 @@ class PyDuiLabel(PyDuiPGView):
         self.__text = text
 
     def __get_font_info__(self) -> Tuple[str, int, str]:
-        render_manager = self.get_render_manager()
+        window_client = self.get_window_client()
         fontfamily = self.__font
         if fontfamily is None or fontfamily == "":
-            fontfamily = render_manager.default_fontfamily
+            fontfamily = window_client.get_appearance().default_fontfamily
 
         fontsize = self.__fontsize
         if fontsize is None:
-            fontsize = render_manager.default_fontsize
+            fontsize = window_client.get_appearance().default_fontsize
 
         fontcolor = self.__fontcolor
         if fontcolor is None:
-            fontcolor = render_manager.default_fontcolor
+            fontcolor = window_client.get_appearance().default_fontcolor
         return (fontfamily, fontsize, fontcolor)
 
     def __estimate_text_size__(self, limit_width: float, limit_height: float) -> tuple[float, float]:
         fontfamily, fontsize, fontcolor = self.__get_font_info__()
-        ctx = self.get_render_manager().get_render_context()
+        ctx = self.get_window_client().get_render_context()
         return PyDuiRender.EstimateTextSize(
             ctx,
             text=self.text,
@@ -196,6 +196,6 @@ class PyDuiLabel(PyDuiPGView):
         )
 
     def __estimate_image_size__(self, limit_width: float, limit_height: float) -> tuple[float, float]:
-        loader = self.get_render_manager().get_resource_loader()
+        loader = self.get_window_client().get_resource_loader()
 
         return PyDuiRender.EstimateImageSize(loader, self.bkimage, limit_width, limit_height)

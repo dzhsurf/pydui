@@ -68,7 +68,7 @@ class PyDuiButton(PyDuiLabel):
 
         PyDuiRender.DrawImage(
             ctx,
-            loader=self.get_render_manager().get_resource_loader(),
+            loader=self.get_window_client().get_resource_loader(),
             path=path,
             xy=(x, y),
             wh=(width, height),
@@ -92,12 +92,12 @@ class PyDuiButton(PyDuiLabel):
     def on_mouse_enter(self):
         super().on_mouse_enter()
         self.__button_state = PyDuiButtonState.HOVER
-        self.get_render_manager().notify_redraw()
+        self.get_window_client().notify_redraw()
 
     def on_mouse_leave(self, next_widget: PyDuiWidget):
         super().on_mouse_leave(next_widget)
         self.__button_state = PyDuiButtonState.NORMAL
-        self.get_render_manager().notify_redraw()
+        self.get_window_client().notify_redraw()
 
     def on_lbutton_click(self, x: float, y: float):
         self.emit("lclick", self, x, y)

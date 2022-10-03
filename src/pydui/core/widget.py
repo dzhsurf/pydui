@@ -12,7 +12,7 @@ from pydui import utils
 from pydui.core.base import *
 from pydui.core.import_gtk import *
 from pydui.core.render import PyDuiRender
-from pydui.core.render_base import PyDuiRenderManagerBase
+from pydui.core.window_client_interface import PyDuiWindowClientInterface
 
 
 @dataclass(frozen=True)
@@ -30,7 +30,7 @@ class PyDuiWidget(object):
 
     """Widget base class"""
 
-    __render_manager: ReferenceType[PyDuiRenderManagerBase] = None
+    __window_client: ReferenceType[PyDuiWindowClientInterface] = None
 
     __id: str = ""
     __parent: PyDuiWidget
@@ -73,20 +73,20 @@ class PyDuiWidget(object):
         self.__parent = parent
         self.__signals = dict[str, list[callable]]()
 
-    def set_render_manager(self, render_manager: PyDuiRenderManagerBase):
-        """Set the render mananger
+    def set_window_client(self, window_client: PyDuiWindowClientInterface):
+        """Set the window client
 
         Do not call this function yourself if you do not know what it is for!
         """
-        self.__render_manager = weakref.ref(render_manager)
+        self.__window_client = weakref.ref(window_client)
 
-    def get_render_manager(self):
-        """Get the widget render manager
+    def get_window_client(self):
+        """Get the widget window client
 
-        The widget will setup render manager after call do_post_init. before the widget init finish, render manager will be empty.
+        The widget will setup window client after call do_post_init. before the widget init finish, window client will be empty.
         """
-        if self.__render_manager is not None:
-            return self.__render_manager()
+        if self.__window_client is not None:
+            return self.__window_client()
 
         return None
 
@@ -135,7 +135,7 @@ class PyDuiWidget(object):
 
         PyDuiRender.DrawImage(
             ctx,
-            loader=self.get_render_manager().get_resource_loader(),
+            loader=self.get_window_client().get_resource_loader(),
             path=self.bkimage,
             xy=(x, y),
             wh=(width, height),
@@ -280,7 +280,7 @@ class PyDuiWidget(object):
                     if fn(*args, **kwargs):
                         break
 
-            self.get_render_manager().post_task(run_all_fn, *args, **kwargs)
+            self.get_window_client().post_task(run_all_fn, *args, **kwargs)
 
     def set_focus(self):
         pass
@@ -482,6 +482,6 @@ class PyDuiWidget(object):
         self.__corner = corner
 
     # private function
-    def __do_post_init__(self, render_manager: PyDuiRenderManagerBase):
-        self.set_render_manager(render_manager)
+    def __do_post_init__(self, window_client: PyDuiWindowClientInterface):
+        self.set_window_client(window_client)
         self.on_post_init()

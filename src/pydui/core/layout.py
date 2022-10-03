@@ -129,8 +129,8 @@ class PyDuiLayout(PyDuiWidget):
         if child is None:
             return
         self.__children.append(child)
-        if self.get_render_manager() is not None:
-            child.__do_post_init__(self.get_render_manager())
+        if self.get_window_client() is not None:
+            child.__do_post_init__(self.get_window_client())
 
     def add_child_at(self, child: PyDuiWidget, index: int):
         """Add child widget at index
@@ -147,8 +147,8 @@ class PyDuiLayout(PyDuiWidget):
         if child is None:
             return
         self.__children.insert(index, child)
-        if self.get_render_manager() is not None:
-            child.__do_post_init__(self.get_render_manager())
+        if self.get_window_client() is not None:
+            child.__do_post_init__(self.get_window_client())
 
     def remove_child(self, widget_id: str):
         """Remove child widget by widget_id
@@ -222,11 +222,11 @@ class PyDuiLayout(PyDuiWidget):
     def __do_layout__(self):
         pass
 
-    def __do_post_init__(self, render_manager: PyDuiRenderManagerBase):
-        super().__do_post_init__(render_manager)
+    def __do_post_init__(self, window_client: PyDuiWindowClientInterface):
+        super().__do_post_init__(window_client)
         for i in range(self.child_count):
             child = self.get_child_at(i)
-            child.__do_post_init__(render_manager)
+            child.__do_post_init__(window_client)
 
     # private functions
     def __process_resize_or_move__(self, gtk_widget, gtk_event):

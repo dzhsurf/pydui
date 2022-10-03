@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*-
-from __future__ import annotations
+# from __future__ import annotations
 
 import logging
-import queue
+import weakref
 from typing import Any, Callable, Tuple, Type
+from weakref import ReferenceType
 
 from pydui.core.base import PyDuiClickType
 from pydui.core.import_gtk import *
-from pydui.core.render_manager import PyDuiRenderManager
 from pydui.core.widget import PyDuiWidget
+from pydui.core.window_client import PyDuiWindowClientInterface
 from pydui.core.window_handler import PyDuiWindowHandler
 
 
-class PyDuiEventDispatcher(object):
-    """Event Dispatcher"""
+class PyDuiWindowEventDispatcher:
+    """Window Event Dispatcher"""
 
     __window: Gtk.Window = None
-    __manager: PyDuiRenderManager = None
+    __client: ReferenceType[PyDuiWindowClientInterface] = None
     __handler: PyDuiWindowHandler = None
     __on_init: Callable[[None], None] = None
 
@@ -40,12 +41,12 @@ class PyDuiEventDispatcher(object):
     def __init__(
         self,
         window: Gtk.Window,
-        manager: PyDuiRenderManager,
+        client: PyDuiWindowClientInterface,
         handler: PyDuiWindowHandler,
         on_init: Callable[[None], None],
     ):
         self.__window = window
-        self.__manager = manager
+        self.__client = weakref.ref(client)
         self.__handler = PyDuiWindowHandler()
         self.__on_init = on_init
         if handler is not None:
@@ -75,7 +76,7 @@ class PyDuiEventDispatcher(object):
     def on_window_destroy(self, object: Gtk.Widget):
         logging.debug(f"on_window_destroy: {object}")
         self.__handler.on_window_destroy()
-        self.__manager.release()
+        self.__client().release()
 
     def on_window_show(self, object: Gtk.Widget):
         logging.debug(f"on_window_show: {object}")
@@ -87,7 +88,7 @@ class PyDuiEventDispatcher(object):
 
     def on_configure_event(self, object: Gtk.Widget, event: Gdk.EventConfigure) -> bool:
         if event.type == Gdk.EventType.NOTHING:
-            self.__manager.notify_redraw()
+            self.__client().notify_redraw()
             return True
 
         x, y = event.x, event.y
@@ -96,7 +97,7 @@ class PyDuiEventDispatcher(object):
             self.__xy = (x, y)
             self.__handler.on_window_position_changed(x, y)
         if w != self.__wh[0] or y != self.__wh[1]:
-            self.__manager.set_window_size(w, h)
+            self.__client().set_window_size(w, h)
             self.__wh = (w, h)
             self.__handler.on_window_size_changed(w, h)
 
@@ -105,7 +106,7 @@ class PyDuiEventDispatcher(object):
     def on_window_state_event(self, object: Gtk.Widget, event: Gdk.EventWindowState):
         pass
 
-    def on_motion_notify(self, object: Gtk.Widget, event: Gtk.MotionEvent) -> bool:
+    def on_motion_notify(self, object: Gtk.Widget, event: Gdk.EventMotion) -> bool:
         x, y, x_root, y_root = int(event.x), int(event.y), event.x_root, event.y_root
 
         if x != self.__mouse_x or y != self.__mouse_y:
@@ -114,7 +115,7 @@ class PyDuiEventDispatcher(object):
 
     def on_button_press(self, object: Gtk.Widget, event: Gdk.EventButton) -> bool:
         x, y = event.x, event.y
-        widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+        widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
             return False
         if not widget.enabled:
@@ -132,7 +133,7 @@ class PyDuiEventDispatcher(object):
         if event.type != Gdk.EventType.BUTTON_RELEASE:
             return
         x, y = event.x, event.y
-        widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+        widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
             return False
 
@@ -148,7 +149,7 @@ class PyDuiEventDispatcher(object):
     def __dispatch_mouse_move__(self, x: int, y: int):
         self.__mouse_x, self.__mouse_y = x, y
 
-        widget = self.__manager.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+        widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
 
         hover_change = widget != self.__last_hover_widget
         old_widget = self.__last_hover_widget
@@ -189,17 +190,17 @@ class PyDuiEventDispatcher(object):
         if click:
             if self.__last_click_type == PyDuiClickType.CLICK:
                 self.__last_click_type = PyDuiClickType.DBCLICK
-                self.__manager.cancel_task(self.__last_click_task)
-                self.__last_click_task = self.__manager.post_task(self.__dispatch_button_dbclick__, widget, event)
+                self.__client().cancel_task(self.__last_click_task)
+                self.__last_click_task = self.__client().post_task(self.__dispatch_button_dbclick__, widget, event)
             else:
                 interval = 0.2  # TODO, get dbclick interval from setting
                 self.__last_click_type = PyDuiClickType.CLICK
-                self.__last_click_task = self.__manager.post_task_with_delay(
+                self.__last_click_task = self.__client().post_task_with_delay(
                     interval, self.__dispatch_button_click__, widget, event
                 )
         else:
             if self.__last_click_task != "":
-                self.__manager.cancel_task(self.__last_click_task)
+                self.__client().cancel_task(self.__last_click_task)
             self.__reset_button_click_state__()
 
     def __reset_button_click_state__(self):

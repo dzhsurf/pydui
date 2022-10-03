@@ -1,44 +1,70 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Callable
+import weakref
+from typing import Any, Callable, Type
+from weakref import ReferenceType
 
 from pynoticenter import PyNotiCenter, PyNotiTaskQueue
 
+from pydui.core.appearance_manager import PyDuiAppearanceManager
 from pydui.core.base import PyDuiLayoutConstraint
 from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
 from pydui.core.import_gtk import *
 from pydui.core.layout import PyDuiLayout
-from pydui.core.render_base import PyDuiRenderManagerBase
 from pydui.core.render_canvas import PyDuiRenderCanvas
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import PyDuiWidget
 from pydui.core.window_base import PyDuiWindowBase
+from pydui.core.window_client_interface import PyDuiWindowClientInterface
+from pydui.core.window_config import PyDuiWindowConfig
+from pydui.core.window_event_dispatcher import PyDuiWindowEventDispatcher
+from pydui.core.window_handler import PyDuiWindowHandler
 
 
-class PyDuiRenderManager(PyDuiRenderManagerBase):
+class PyDuiWindowClient(PyDuiWindowClientInterface):
 
-    """Render manager"""
+    """Window client"""
 
+    # window client component
+    __appearance_manager: PyDuiAppearanceManager = None
+    __task_queue: PyNotiTaskQueue = None
     __loader: PyDuiResourceLoader = None
+    __rootview: PyDuiLayout = None
+    __event_dispatcher: PyDuiWindowEventDispatcher = None
+
+    # window backend
+    __window: ReferenceType[PyDuiWindowBase] = None
     __canvas: PyDuiRenderCanvas = None
     __layer: Gtk.Fixed = None
     __ctx: cairo.Context = None
-    __rootview: PyDuiLayout = None
-    __default_fontfamily: str = "Arial"
-    __default_fontsize: int = 16
-    __default_fontcolor: Gdk.RGBA = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
-    __task_queue: PyNotiTaskQueue = None
 
-    # manager all widget
-    def __init__(self, window: PyDuiWindowBase, loader: PyDuiResourceLoader):
-        self.__window = window
-        self.__canvas = PyDuiRenderCanvas(self.__on_draw__)
+    def __init__(
+        self,
+        window: PyDuiWindowBase,
+        config: PyDuiWindowConfig,
+        loader: PyDuiResourceLoader,
+        rootview: PyDuiLayout,
+        handler: Type[PyDuiWindowHandler],
+    ):
+        gtk_window = window.get_gtk_window()
+
+        # init component
+        self.__window = weakref.ref(window)  # weakref
+        self.__appearance_manager = PyDuiAppearanceManager()
         self.__loader = loader
-        self.__ctx = None
-        queue_name = f"pydui-task-queue"
-        self.__task_queue = PyNotiCenter.default().create_task_queue(queue_name)
+        self.__task_queue = PyNotiCenter.default().create_task_queue("pydui-client-queue")
         self.__task_queue.set_preprocessor(self.__post_task_to_gtk_thread__)
+        self.__rootview = rootview
+        # self.__rootview.set_window_client(self)  # weakref
+        self.__event_dispatcher = PyDuiWindowEventDispatcher(
+            window=gtk_window,  # weakref
+            client=self,  # weakref
+            handler=handler,
+            on_init=self.__on_window_init__,
+        )
 
-        gtk_window = self.__window.get_gtk_window()
+        # window backend component
+        self.__ctx = None
+        self.__canvas = PyDuiRenderCanvas(self.__on_draw__)
 
         scrolled_window = Gtk.ScrolledWindow()
         scrolled_window.set_hexpand(True)
@@ -50,6 +76,9 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         scrolled_window.add(self.__layer)
 
         gtk_window.add(scrolled_window)
+
+        # start init
+        self.__config_window__(gtk_window, config)
 
     def release(self):
         self.__task_queue.terminate(False)
@@ -99,77 +128,8 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
     def get_resource_loader(self):
         return self.__loader
 
-    @property
-    def default_fontcolor(self) -> Gdk.RGBA:
-        """return default font color, default is Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
-
-        Returns:
-            Gdk.RGBA: return default font color
-        """
-        return self.__default_fontcolor
-
-    @default_fontcolor.setter
-    def default_fontcolor(self, fontcolor: Gdk.RGBA):
-        """set default font color
-
-        Args:
-            font_color (Gdk.RGBA): font color
-        """
-        self.__default_fontcolor = fontcolor
-
-    @property
-    def default_font_desc(self) -> str:
-        """return font desc in format f"{font_family} {font_size}"
-
-        Returns:
-            str: font desc
-        """
-        return f"{self.default_fontfamily} {self.default_fontsize}"
-
-    @property
-    def default_fontfamily(self) -> str:
-        """return default font family, default is Arial
-
-        Returns:
-            str: font family
-        """
-        return self.__default_fontfamily
-
-    @default_fontfamily.setter
-    def default_fontfamily(self, font_family: str):
-        """set fefault font family
-
-        Args:
-            font_family (str): font family
-        """
-        self.__default_fontfamily = font_family
-
-    @property
-    def default_fontsize(self) -> int:
-        """return default font size, default is 16
-
-        Returns:
-            int: font size
-        """
-        return self.__default_fontsize
-
-    @default_fontsize.setter
-    def default_fontsize(self, font_size: int):
-        """set fefault font size
-
-        Args:
-            font_size (int): font size
-        """
-        self.__default_fontsize = font_size
-
-    def set_rootview(self, rootview: PyDuiLayout):
-        """set window root view
-
-        Args:
-            rootview (PyDuiWidget): window root view
-        """
-        self.__rootview = rootview
-        rootview.set_render_manager(self)
+    def get_appearance(self) -> PyDuiAppearanceManager:
+        return self.__appearance_manager
 
     def get_rootview(self) -> PyDuiLayout:
         """Return root view widget.
@@ -198,6 +158,30 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
             return None
 
         return self.__rootview.find_widget_by_pos(x, y, filter=filter)
+
+    # private
+
+    def __config_window__(
+        self,
+        gtk_window: Gtk.Window,
+        config: PyDuiWindowConfig,
+    ):
+        gtk_window.set_title(config.title)
+        gtk_window.set_default_size(*config.size)
+        gtk_window.set_size_request(*config.min_size)
+        gtk_window.set_position(config.position)
+
+        self.__appearance_manager.default_fontfamily = config.default_font
+        if config.default_fontbold:
+            self.__appearance_manager.default_fontfamily = self.__appearance_manager.default_fontfamily + " bold"
+        self.__appearance_manager.default_fontsize = config.default_fontsize
+        self.set_window_size(config.size[0], config.size[1])
+
+        self.__event_dispatcher.init_events()
+
+    def __on_window_init__(self):
+        self.__rootview.__do_post_init__(self)
+        self.__event_dispatcher.handler.on_window_init(self.__window())
 
     def __on_draw__(self, ctx: cairo.Context, width: float, height: float):
         if self.__rootview is None:

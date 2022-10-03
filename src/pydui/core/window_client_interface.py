@@ -7,7 +7,7 @@ from pydui.core.import_gtk import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 
 
-class PyDuiRenderManagerBase(ABC):
+class PyDuiWindowClientInterface(ABC):
     @abstractmethod
     def get_resource_loader(self) -> PyDuiResourceLoader:
         pass
