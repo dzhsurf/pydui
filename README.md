@@ -304,9 +304,9 @@ In the early stage, performance optimization, resource leakage issue, text rende
 * Core
   * Builder, Render, ResourceLoader, EventDispatcher
 * Layout
-  * HLayout, VLayout, FixedLayout 
+  * HLayout, VLayout, FixedLayout, PGLayout
 * Widgets
-  * Label, Button, Picture, Edit, InfiniteList, Menu, Toast
+  * Label, Button, Picture, Edit, TableView, FlowListView, Menu, Toast
 * Deployment
   * Resource packer
   * Application builder
@@ -356,23 +356,22 @@ Layout:
 * HLayout - finish
 * VLayout - finish
 * FixedLayout - 0%
-* PGLayout - 70%
-  * import YogaLayout Engine - 90% - base on poga project.
-  * Layout implement
+* PGLayout - 90%
 
 Widget:
 
 * Widget base - finish
 * Label - finish
 * Button - finish
-* Edit - 0%, processing
+* Edit - 30%, processing
   * Focus event suppose
   * Key Event
   * Text selection
   * Drag&Drop
 * Picture - 0%, processing
 * Scrollable - 0%, pending
-* InfiniteList - 0%, pending
+* TableView - 0%, pending
+* FlowListView - 0%, not started
 * Menu - 0%, not started
 
 
