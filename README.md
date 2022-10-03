@@ -9,7 +9,8 @@ PyDui Documentation
 
 
 
-## Introduction
+Introduction
+------------
 
 **PyDui base on GTK-3, PyGObject**
 
@@ -38,7 +39,8 @@ This is a good question because DuiLib only works on windows. And the author wor
 
 
 
-## Install
+Install
+-------
 
 `PyDui require python >= 3.9`
 
@@ -52,7 +54,8 @@ pip install pydui-gtk
 
 
 
-## Building
+Building
+--------
 
 **Prerequisites**
 
@@ -96,7 +99,8 @@ pip install -e .
 
 
 
-## Code Example
+Code Example
+------------
 
 ![](images/demo-mac.png) ![](images/demo-win.jpeg)
 
@@ -195,7 +199,8 @@ XML File
 
 
 
-## Support YogaLayout
+Support YogaLayout
+------------------
 
 Congratulations! Now you can use YogaLayout in PyDui-GTK!!!
 
@@ -288,16 +293,25 @@ Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/pog
 
 ![](./images/demo-yogalayout.png)
 
-## Internal Layout Engine
+
+
+Internal Layout Engine
+----------------------
 
 >  TODO: 
 > ...
 
 
 
+Architecture
+------------
+
+![](./images/architecture.png)
 
 
-## Development
+
+Development
+-----------
 
 In the early stage, performance optimization, resource leakage issue, text rendering quality, and correctness issue are not the primary tasks. The first task is to complete the essential module function.
 
@@ -320,13 +334,15 @@ In the early stage, performance optimization, resource leakage issue, text rende
 
 
 
-## Planning: Web Platform Support
+Planning: Web Platform Support
+------------------------------
 
 In the future, I want to add Web platform support on pydui. It is technically possible. Use js-worker to run python code in the browser background thread to handle the framework logic. Such as use  pyodide(https://pyodide.org/en/stable/usage/quickstart.html) . Implement the text measure functions RenderAPIs on the web platform instead of cairo on the desktop. Implement yoga-js builder for building the UI from the layout code.
 
 
 
-## Development progress
+Development progress
+--------------------
 
 There's much work to do...
 
@@ -376,7 +392,8 @@ Widget:
 
 
 
-## Benchmarks
+Benchmarks
+----------
 
 > TODO
 >
@@ -384,7 +401,8 @@ Widget:
 
 
 
-## Testing
+Testing
+-------
 
 > TODO
 >
@@ -392,7 +410,8 @@ Widget:
 
 
 
-## Reference
+Reference
+---------
 
 YogaLayout: https://yogalayout.com/docs
 

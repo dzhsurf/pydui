@@ -30,10 +30,10 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     __loader: PyDuiResourceLoader = None
     __rootview: PyDuiLayout = None
     __event_dispatcher: PyDuiWindowEventDispatcher = None
+    __canvas: PyDuiRenderCanvas = None
 
     # window backend
     __window: ReferenceType[PyDuiWindowBase] = None
-    __canvas: PyDuiRenderCanvas = None
     __layer: Gtk.Fixed = None
     __ctx: cairo.Context = None
 
