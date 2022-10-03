@@ -18,7 +18,7 @@ class PyDuiRenderCanvas(Gtk.Frame):
     __height: float = 0
     __ondraw: Callable[[cairo.Context, float, float], None] = None
 
-    def __init__(self, ondraw: callable, css=None, border_width=0):
+    def __init__(self, ondraw: Callable[[cairo.Context, float, float], None], css=None, border_width=0):
         super().__init__()
         self.set_shadow_type(Gtk.ShadowType.NONE)
         self.set_border_width(0)
