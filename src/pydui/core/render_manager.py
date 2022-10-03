@@ -65,6 +65,12 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         gtk_widget = widget.get_gtk_widget()
         self.__layer.put(gtk_widget, 0, 0)
 
+    def remove_gtk_widget(self, widget: PyDuiGtkWidgetInterface):
+        if not isinstance(widget, PyDuiGtkWidgetInterface):
+            return
+        gtk_widget = widget.get_gtk_widget()
+        self.__layer.remove(gtk_widget)
+
     def move_gtk_widget(self, widget: PyDuiGtkWidgetInterface, x: float, y: float):
         if not isinstance(widget, PyDuiGtkWidgetInterface):
             return

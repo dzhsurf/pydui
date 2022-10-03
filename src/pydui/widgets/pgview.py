@@ -26,7 +26,7 @@ class PyDuiPGView(PyDuiWidget, PogaView):
     def parse_attrib(self, k: str, v: str):
         super().parse_attrib(k, v)
         # not a pglayout item
-        if k.lower() in ["width", "height", "margin", "align_self"]:
+        if k in ["width", "height", "margin", "align_self"]:
             apply_poga_attributes(self.__layout, k, v)
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):

@@ -25,7 +25,7 @@ class PyDuiLayoutWithPogaSupport(PyDuiLayout, PogaView):
     def parse_attrib(self, k: str, v: str):
         super().parse_attrib(k, v)
         # not a pglayout item
-        if k.lower() in ["width", "height", "margin", "align_self"]:
+        if k in ["width", "height", "margin", "align_self"]:
             apply_poga_attributes(self.__layout, k, v)
 
     # PogaView interface
@@ -116,7 +116,7 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
         PogaLayout.config_set_point_scale_factor(scale)
 
     def parse_attrib(self, k: str, v: str):
-        if not apply_poga_attributes(self.__layout, k.lower(), v):
+        if not apply_poga_attributes(self.__layout, k, v):
             super().parse_attrib(k, v)
 
     # def add_child(self, child: PyDuiWidget):
