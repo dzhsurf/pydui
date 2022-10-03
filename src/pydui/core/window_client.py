@@ -5,9 +5,9 @@ from weakref import ReferenceType
 
 from pynoticenter import PyNotiCenter, PyNotiTaskQueue
 
+from pydui.common.base import PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
 from pydui.core.appearance_manager import PyDuiAppearanceManager
-from pydui.core.base import PyDuiLayoutConstraint
 from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
 from pydui.core.layout import PyDuiLayout
 from pydui.core.render_canvas import PyDuiRenderCanvas

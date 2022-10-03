@@ -6,9 +6,9 @@ from dataclasses import dataclass
 from typing import Tuple, Type
 
 from pydui import utils
+from pydui.common.attribute_string import PyDuiAttrStrParser
+from pydui.common.base import *
 from pydui.common.import_gtk import *
-from pydui.core.attribute_string import PyDuiAttrStrParser
-from pydui.core.base import *
 from pydui.core.layout import *
 from pydui.core.render_canvas import *
 from pydui.core.resource_loader import PyDuiResourceLoader

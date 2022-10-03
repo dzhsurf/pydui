@@ -7,8 +7,8 @@ from typing import Any, List, Tuple
 from weakref import ReferenceType
 
 from pydui import utils
+from pydui.common.base import *
 from pydui.common.import_gtk import *
-from pydui.core.base import *
 from pydui.core.render import PyDuiRender
 from pydui.core.window_client_interface import PyDuiWindowClientInterface
 

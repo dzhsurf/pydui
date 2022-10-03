@@ -2,8 +2,8 @@
 from typing import Tuple
 
 from pydui import utils
+from pydui.common.base import *
 from pydui.common.import_gtk import *
-from pydui.core.base import *
 from pydui.core.layout import *
 from pydui.core.render import PyDuiRender
 from pydui.core.widget import *

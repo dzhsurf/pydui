@@ -4,8 +4,8 @@ from typing import Iterable, Tuple
 from poga import *
 
 from pydui import utils
+from pydui.common.base import PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
-from pydui.core.base import PyDuiLayoutConstraint
 from pydui.core.layout import PyDuiLayout
 from pydui.core.screen import PyDuiScreen
 from pydui.core.widget import PyDuiWidget
