@@ -129,8 +129,9 @@ class PyDuiBuilder:
         Returns:
             PyDuiWindow: return window object.
         """
+        # build widget from xml
         config, root_widget = self.__build_window_from_path__(path)
-        # render_manager = PyDuiRenderManager(window, loader)
+        # create window
         window = PyDuiWindow(
             loader=self.__resource_provider,
             config=config,

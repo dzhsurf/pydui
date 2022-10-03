@@ -59,11 +59,11 @@ class PyDuiPGView(PyDuiWidget, PogaView):
         if self.parent is not None:
             layout_x += self.parent.x
             layout_y += self.parent.y
-        super().layout(layout_x, layout_y, self.width, self.height, constraint=PyDuiLayoutConstraint())
+        self.layout(layout_x, layout_y, self.width, self.height, constraint=PyDuiLayoutConstraint())
 
     def set_frame_size(self, width: float, height: float):
         # print(self, "set_frame_size", "w", width, "h", height)
-        super().layout(self.x, self.y, width, height, constraint=PyDuiLayoutConstraint())
+        self.layout(self.x, self.y, width, height, constraint=PyDuiLayoutConstraint())
 
     def bounds_size(self) -> Tuple[float, float]:
         return (self.width, self.height)

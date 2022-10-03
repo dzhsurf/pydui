@@ -468,4 +468,8 @@ class PyDuiWidget(object):
     def corner(self, corner: tuple[float, float, float, float]):
         self.__corner = corner
 
+    # event
+    def on_post_init(self):
+        pass
+
     # private function

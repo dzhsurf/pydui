@@ -2,6 +2,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
 from pydui.core.import_gtk import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 
@@ -29,4 +30,12 @@ class PyDuiRenderManagerBase(ABC):
 
     @abstractmethod
     def post_task_with_delay(self, delay: float, fn: callable, *args: Any, **kwargs: Any):
+        pass
+
+    @abstractmethod
+    def put_gtk_widget(self, widget: PyDuiGtkWidgetInterface):
+        pass
+
+    @abstractmethod
+    def move_gtk_widget(self, widget: PyDuiGtkWidgetInterface, x: float, y: float):
         pass

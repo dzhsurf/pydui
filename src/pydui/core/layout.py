@@ -206,6 +206,13 @@ class PyDuiLayout(PyDuiWidget):
     def fitrule(self) -> list[str]:
         return self.__fitrule
 
+    # event
+    def on_post_init(self):
+        for i in range(self.child_count):
+            child = self.get_child_at(i)
+            child.on_post_init()
+        super().on_post_init()
+
     # private function
     def __do_layout__(self):
         pass

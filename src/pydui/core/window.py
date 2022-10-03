@@ -92,8 +92,10 @@ class PyDuiWindow(PyDuiWindowBase):
         if config.default_fontbold:
             self.__manager.default_fontfamily = self.__manager.default_fontfamily + " bold"
         self.__manager.default_fontsize = config.default_fontsize
+        self.__manager.set_window_size(config.size[0], config.size[1])
 
     def __on_window_init__(self):
+        self.__manager.get_rootview().on_post_init()
         self.__event_dispatcher.handler.on_window_init(self)
 
     def get_gtk_window(self):

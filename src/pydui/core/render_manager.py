@@ -4,6 +4,7 @@ from typing import Any, Callable
 from pynoticenter import PyNotiCenter, PyNotiTaskQueue
 
 from pydui.core.base import PyDuiLayoutConstraint
+from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
 from pydui.core.import_gtk import *
 from pydui.core.layout import PyDuiLayout
 from pydui.core.render_base import PyDuiRenderManagerBase
@@ -19,6 +20,7 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
 
     __loader: PyDuiResourceLoader = None
     __canvas: PyDuiRenderCanvas = None
+    __layer: Gtk.Fixed = None
     __ctx: cairo.Context = None
     __rootview: PyDuiLayout = None
     __default_fontfamily: str = "Arial"
@@ -37,7 +39,17 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         self.__task_queue.set_preprocessor(self.__post_task_to_gtk_thread__)
 
         gtk_window = self.__window.get_gtk_window()
-        gtk_window.add(self.__canvas)
+
+        scrolled_window = Gtk.ScrolledWindow()
+        scrolled_window.set_hexpand(True)
+        scrolled_window.set_vexpand(True)
+
+        self.__layer = Gtk.Fixed()
+        self.__layer.set_has_window(True)
+        self.__layer.put(self.__canvas, 0, 0)
+        scrolled_window.add(self.__layer)
+
+        gtk_window.add(scrolled_window)
 
     def release(self):
         self.__task_queue.terminate(False)
@@ -46,6 +58,21 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         # TODO: redraw dirty area
         self.__canvas.redraw()
         self.__canvas.queue_draw_area(0, 0, self.__canvas.get_width(), self.__canvas.get_height())
+
+    def put_gtk_widget(self, widget: PyDuiGtkWidgetInterface):
+        if not isinstance(widget, PyDuiGtkWidgetInterface):
+            return
+        gtk_widget = widget.get_gtk_widget()
+        self.__layer.put(gtk_widget, 0, 0)
+
+    def move_gtk_widget(self, widget: PyDuiGtkWidgetInterface, x: float, y: float):
+        if not isinstance(widget, PyDuiGtkWidgetInterface):
+            return
+        gtk_widget = widget.get_gtk_widget()
+        self.__layer.move(gtk_widget, x, y)
+
+    def set_window_size(self, w: float, h: float):
+        self.__canvas.set_size_request(w, h)
 
     def get_render_context(self) -> cairo.Context:
         return self.__ctx
@@ -133,10 +160,18 @@ class PyDuiRenderManager(PyDuiRenderManagerBase):
         """set window root view
 
         Args:
-            rootview (PyDuiWidget): widnow root view
+            rootview (PyDuiWidget): window root view
         """
         self.__rootview = rootview
         rootview.set_render_manager(self)
+
+    def get_rootview(self) -> PyDuiLayout:
+        """Return root view widget.
+
+        Returns:
+            PyDuiLayout: root view.
+        """
+        return self.__rootview
 
     def get_widget(self, widget_id: str) -> PyDuiWidget:
         """Get widget by widget id

@@ -93,6 +93,7 @@ class PyDuiEventDispatcher(object):
             self.__xy = (x, y)
             self.__handler.on_window_position_changed(x, y)
         if w != self.__wh[0] or y != self.__wh[1]:
+            self.__manager.set_window_size(w, h)
             self.__wh = (w, h)
             self.__handler.on_window_size_changed(w, h)
 
