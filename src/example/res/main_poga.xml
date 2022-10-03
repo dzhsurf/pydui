@@ -75,6 +75,7 @@
                 <!-- bottom bar -->
                 <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2"
                     text="Hello World!"
+                    text_padding="8,8,8,8"
                 />
             </PGLayout>
         </PGLayout>
