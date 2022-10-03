@@ -13,6 +13,7 @@ Welcome to pydui's documentation!
    intro
    quickstart
    apis
+   pglayout
 
 
 Indices and tables
