@@ -3,13 +3,13 @@ from dataclasses import dataclass
 from enum import Enum
 
 
-class PyDuiButtonType(Enum):
+class ButtonType(Enum):
     UNDEFINED = 0
     BUTTON_LEFT = 1
     BUTTON_RIGHT = 2
 
 
-class PyDuiButtonEventType(Enum):
+class ButtonEventType(Enum):
     UNDEFINED = 0
     PRESS = 1
     DBPRESS = 2
@@ -18,14 +18,14 @@ class PyDuiButtonEventType(Enum):
 
 
 @dataclass(frozen=True)
-class PyDuiWindowEvent:
+class EventObject:
     pass
 
 
 @dataclass(frozen=True)
-class PyDuiWindowButtonEvent(PyDuiWindowEvent):
+class ButtonEvent(EventObject):
     x: int
     y: int
-    button_type: PyDuiButtonType
-    event_type: PyDuiButtonEventType
+    button: ButtonType
+    event: ButtonEventType
     time: int

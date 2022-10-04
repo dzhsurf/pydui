@@ -5,9 +5,9 @@ from typing import Any, Callable, Tuple, Type
 from weakref import ReferenceType
 
 from pydui.common.base import PyDuiClickType
+from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType
 from pydui.core.widget import PyDuiWidget
 from pydui.core.window_client import PyDuiWindowClientInterface
-from pydui.core.window_event import PyDuiButtonEventType, PyDuiButtonType, PyDuiWindowButtonEvent
 from pydui.core.window_handler import PyDuiWindowHandler
 from pydui.core.window_interface import PyDuiWindowInterface
 
@@ -33,7 +33,7 @@ class PyDuiWindowEventDispatcher:
     __last_hover_widget: PyDuiWidget = None
     __last_click_task: str = ""
     __last_press_widget: PyDuiWidget = None
-    __last_press_button: PyDuiButtonType = PyDuiButtonType.UNDEFINED
+    __last_press_button: ButtonType = ButtonType.UNDEFINED
     __last_press_time: int = 0
     __last_click_type: PyDuiClickType = PyDuiClickType.NONE
 
@@ -107,7 +107,7 @@ class PyDuiWindowEventDispatcher:
             self.__dispatch_mouse_move__(x, y)
         return False
 
-    def on_button_press(self, event: PyDuiWindowButtonEvent) -> bool:
+    def on_button_press(self, event: ButtonEvent) -> bool:
         x, y = event.x, event.y
         widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
@@ -115,17 +115,17 @@ class PyDuiWindowEventDispatcher:
         if not widget.enabled:
             return False
 
-        if event.event_type == PyDuiButtonEventType.PRESS:
+        if event.event == ButtonEventType.PRESS:
             self.__dispatch_button_press__(widget, event)
-        elif event.event_type == PyDuiButtonEventType.DBPRESS:
+        elif event.event == ButtonEventType.DBPRESS:
             self.__dispatch_2button_press__(widget, event)
-        elif event.event_type == PyDuiButtonEventType.TRIPRESS:
+        elif event.event == ButtonEventType.TRIPRESS:
             self.__dispatch_3button_press__(widget, event)
 
         return True
 
-    def on_button_release(self, event: PyDuiWindowButtonEvent) -> bool:
-        if event.event_type != PyDuiButtonEventType.RELEASE:
+    def on_button_release(self, event: ButtonEvent) -> bool:
+        if event.event != ButtonEventType.RELEASE:
             return False
 
         x, y = event.x, event.y
@@ -154,25 +154,24 @@ class PyDuiWindowEventDispatcher:
             if widget is not None:
                 widget.on_mouse_move(x, y)
 
-    def __dispatch_button_press__(self, widget: PyDuiWidget, event: PyDuiWindowButtonEvent):
+    def __dispatch_button_press__(self, widget: PyDuiWidget, event: ButtonEvent):
         if widget is None:
             return
         if widget.on_lbutton_press(event.x, event.y):
             return
-        # event.state : Gdk.ModifierType
-        button, time = event.button_type, event.time
+        button, time = event.button, event.time
         self.__last_press_widget = widget
         self.__last_press_button = button
         self.__last_press_time = time
 
-    def __dispatch_button_release__(self, widget: PyDuiWidget, event: PyDuiWindowButtonEvent):
+    def __dispatch_button_release__(self, widget: PyDuiWidget, event: ButtonEvent):
         if widget is None:
             return True
         if not widget.enabled:
             return True
 
         click = True
-        if widget != self.__last_press_widget or event.button_type != self.__last_press_button:
+        if widget != self.__last_press_widget or event.button != self.__last_press_button:
             click = False
         if not widget.contain_pos(event.x, event.y):
             click = False
@@ -197,10 +196,10 @@ class PyDuiWindowEventDispatcher:
         self.__last_click_type = PyDuiClickType.NONE
         self.__last_click_task = ""
         self.__last_press_widget = None
-        self.__last_press_button = PyDuiButtonType.UNDEFINED
+        self.__last_press_button = ButtonType.UNDEFINED
         self.__last_press_time = 0
 
-    def __dispatch_button_click__(self, widget: PyDuiWidget, event: PyDuiWindowButtonEvent):
+    def __dispatch_button_click__(self, widget: PyDuiWidget, event: ButtonEvent):
         last_press_widget = self.__last_press_widget
         last_press_button = self.__last_press_button
         last_press_time = self.__last_press_time
@@ -209,18 +208,18 @@ class PyDuiWindowEventDispatcher:
         if (
             widget is None
             or last_press_widget != widget
-            or last_press_button != event.button_type
+            or last_press_button != event.button
             or last_click_type != PyDuiClickType.CLICK
         ):
             return
         if last_press_time == 0:
             return
-        if event.button_type == PyDuiButtonType.BUTTON_RIGHT:
+        if event.button == ButtonType.BUTTON_RIGHT:
             widget.on_rbutton_click(event.x, event.y)
         else:
             widget.on_lbutton_click(event.x, event.y)
 
-    def __dispatch_button_dbclick__(self, widget: PyDuiWidget, event: PyDuiWindowButtonEvent):
+    def __dispatch_button_dbclick__(self, widget: PyDuiWidget, event: ButtonEvent):
         last_press_widget = self.__last_press_widget
         last_press_button = self.__last_press_button
         last_press_time = self.__last_press_time
@@ -229,21 +228,21 @@ class PyDuiWindowEventDispatcher:
         if (
             widget is None
             or last_press_widget != widget
-            or last_press_button != event.button_type
+            or last_press_button != event.button
             or last_click_type != PyDuiClickType.DBCLICK
         ):
             return
         if last_press_time == 0:
             return
-        if event.button_type == PyDuiButtonType.BUTTON_RIGHT:
+        if event.button == ButtonType.BUTTON_RIGHT:
             widget.on_r2button_click(event.x, event.y)
         else:
             widget.on_l2button_click(event.x, event.y)
 
-    def __dispatch_2button_press__(self, widget: PyDuiWidget, event: PyDuiWindowButtonEvent):
+    def __dispatch_2button_press__(self, widget: PyDuiWidget, event: ButtonEvent):
         # This event is difficult to manage and should be avoided. Use press to simulate.
         pass
 
-    def __dispatch_3button_press__(self, widget: PyDuiWidget, event: PyDuiWindowButtonEvent):
+    def __dispatch_3button_press__(self, widget: PyDuiWidget, event: ButtonEvent):
         # This event is difficult to manage and should be avoided. Use press to simulate.
         pass

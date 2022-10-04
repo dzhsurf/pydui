@@ -4,37 +4,37 @@ from typing import Any, Callable, Dict, List
 
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetProvider
+from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType
 from pydui.core.render_canvas import PyDuiRenderCanvas
 from pydui.core.window_config import PyDuiWindowConfig
-from pydui.core.window_event import PyDuiButtonEventType, PyDuiButtonType, PyDuiWindowButtonEvent, PyDuiWindowEvent
 from pydui.core.window_interface import PyDuiWindowProvider
 from pydui.provider.embedded_widget_provider_gtk3 import PyDuiEmbeddedWidgetProviderGTK3
 
 
-def __to_button_type__(button: int) -> PyDuiButtonType:
+def __to_button_type__(button: int) -> ButtonType:
     if button == 3:
-        return PyDuiButtonType.BUTTON_RIGHT
-    return PyDuiButtonType.BUTTON_LEFT
+        return ButtonType.BUTTON_RIGHT
+    return ButtonType.BUTTON_LEFT
 
 
-def __to_event_type__(type: Gdk.EventType) -> PyDuiButtonEventType:
+def __to_event_type__(type: Gdk.EventType) -> ButtonEventType:
     if type == Gdk.EventType.BUTTON_PRESS:
-        return PyDuiButtonEventType.PRESS
+        return ButtonEventType.PRESS
     elif type == Gdk.EventType._2BUTTON_PRESS:
-        return PyDuiButtonEventType.DBPRESS
+        return ButtonEventType.DBPRESS
     elif type == Gdk.EventType._3BUTTON_PRESS:
-        return PyDuiButtonEventType.TRIPRESS
+        return ButtonEventType.TRIPRESS
     elif type == Gdk.EventType.BUTTON_RELEASE:
-        return PyDuiButtonEventType.RELEASE
-    return PyDuiButtonEventType.UNDEFINED
+        return ButtonEventType.RELEASE
+    return ButtonEventType.UNDEFINED
 
 
-def __to_button_event__(event: Gdk.EventButton) -> PyDuiWindowButtonEvent:
-    return PyDuiWindowButtonEvent(
+def __to_button_event__(event: Gdk.EventButton) -> ButtonEvent:
+    return ButtonEvent(
         x=int(event.x),
         y=int(event.y),
-        button_type=__to_button_type__(event.button),
-        event_type=__to_event_type__(event.type),
+        button=__to_button_type__(event.button),
+        event=__to_event_type__(event.type),
         time=int(event.time),
     )
 
