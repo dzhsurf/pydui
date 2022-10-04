@@ -17,3 +17,9 @@ class PyDuiEmbeddedWidgetHostGTK3(PyDuiEmbeddedWidgetHost[T]):
     @abstractmethod
     def get_gtk_widget(self) -> Gtk.Widget:
         pass
+
+    def show(self):
+        widget = self.get_gtk_widget()
+        if widget is None:
+            return
+        widget.show_all()

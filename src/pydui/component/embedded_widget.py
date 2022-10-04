@@ -17,6 +17,9 @@ class PyDuiEmbeddedWidgetHost(Generic[T]):
     def api(self) -> T:
         return self
 
+    def show(self):
+        pass
+
 
 class PyDuiEmbeddedWidgetProvider(Protocol[T]):
     """PyDuiEmbeddedWidgetProvider"""
