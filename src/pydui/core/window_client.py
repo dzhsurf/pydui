@@ -7,13 +7,13 @@ from pynoticenter import PyNotiCenter, PyNotiTaskQueue
 
 from pydui.common.base import PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
+from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost, PyDuiEmbeddedWidgetProvider
 from pydui.core.appearance_manager import PyDuiAppearanceManager
-from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
 from pydui.core.layout import PyDuiLayout
 from pydui.core.render_canvas import PyDuiRenderCanvas
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import PyDuiWidget
-from pydui.core.window_base import PyDuiWindowBase
+from pydui.core.window_base import PyDuiWindowBase, PyDuiWindowProvider
 from pydui.core.window_client_interface import PyDuiWindowClientInterface
 from pydui.core.window_config import PyDuiWindowConfig
 from pydui.core.window_event_dispatcher import PyDuiWindowEventDispatcher
@@ -30,12 +30,9 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     __loader: PyDuiResourceLoader = None
     __rootview: PyDuiLayout = None
     __event_dispatcher: PyDuiWindowEventDispatcher = None
-    __canvas: PyDuiRenderCanvas = None
 
     # window backend
     __window: ReferenceType[PyDuiWindowBase] = None
-    __layer: Gtk.Fixed = None
-    __ctx: cairo.Context = None
 
     def __init__(
         self,
@@ -45,8 +42,6 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         rootview: PyDuiLayout,
         handler: Type[PyDuiWindowHandler],
     ):
-        gtk_window = window.get_gtk_window()
-
         # init component
         self.__window = weakref.ref(window)  # weakref
         self.__appearance_manager = PyDuiAppearanceManager()
@@ -56,61 +51,31 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         self.__rootview = rootview
         # self.__rootview.set_window_client(self)  # weakref
         self.__event_dispatcher = PyDuiWindowEventDispatcher(
-            window=gtk_window,  # weakref
+            window=window,  # weakref
             client=self,  # weakref
             handler=handler,
             on_init=self.__on_window_init__,
         )
 
-        # window backend component
-        self.__ctx = None
-        self.__canvas = PyDuiRenderCanvas(self.__on_draw__)
-
-        scrolled_window = Gtk.ScrolledWindow()
-        scrolled_window.set_hexpand(True)
-        scrolled_window.set_vexpand(True)
-
-        self.__layer = Gtk.Fixed()
-        self.__layer.set_has_window(True)
-        self.__layer.put(self.__canvas, 0, 0)
-        scrolled_window.add(self.__layer)
-
-        gtk_window.add(scrolled_window)
-
-        # start init
-        self.__config_window__(gtk_window, config)
+        # start build window
+        window.get_window_provider().init_window(config, ondraw=self.__on_draw__)
+        self.__config_window__(config)
 
     def release(self):
         self.__task_queue.terminate(False)
 
     def notify_redraw(self):
         # TODO: redraw dirty area
-        self.__canvas.redraw()
-        self.__canvas.queue_draw_area(0, 0, self.__canvas.get_width(), self.__canvas.get_height())
+        self.get_window_provider().notify_redraw()
 
-    def put_gtk_widget(self, widget: PyDuiGtkWidgetInterface):
-        if not isinstance(widget, PyDuiGtkWidgetInterface):
-            return
-        gtk_widget = widget.get_gtk_widget()
-        self.__layer.put(gtk_widget, 0, 0)
-
-    def remove_gtk_widget(self, widget: PyDuiGtkWidgetInterface):
-        if not isinstance(widget, PyDuiGtkWidgetInterface):
-            return
-        gtk_widget = widget.get_gtk_widget()
-        self.__layer.remove(gtk_widget)
-
-    def move_gtk_widget(self, widget: PyDuiGtkWidgetInterface, x: float, y: float):
-        if not isinstance(widget, PyDuiGtkWidgetInterface):
-            return
-        gtk_widget = widget.get_gtk_widget()
-        self.__layer.move(gtk_widget, x, y)
+    def init_window(self, config: PyDuiWindowConfig, ondraw: Callable[[Any, float, float], None]):
+        self.get_window_provider().init_window(config, ondraw)
 
     def set_window_size(self, w: float, h: float):
-        self.__canvas.set_size_request(w, h)
+        self.get_window_provider().set_window_size(w, h)
 
     def get_render_context(self) -> cairo.Context:
-        return self.__ctx
+        return self.get_window_provider().get_render_context()
 
     def cancel_task(self, task_id: str):
         self.__task_queue.cancel_task(task_id)
@@ -127,6 +92,24 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
 
     def get_resource_loader(self):
         return self.__loader
+
+    def get_window_provider(self) -> PyDuiWindowProvider:
+        window = self.__window()
+        if window is None:
+            return None
+        return window.get_window_provider()
+
+    def create_embedded_widget(self, widget_typename: str) -> PyDuiEmbeddedWidgetHost:
+        return self.get_window_provider().get_embedded_widget_provider().create_embedded_widget(widget_typename)
+
+    def add_embedded_widget(self, widget: PyDuiEmbeddedWidgetHost):
+        self.get_window_provider().get_embedded_widget_provider().add_embedded_widget(widget)
+
+    def remove_embedded_widget(self, widget: PyDuiEmbeddedWidgetHost):
+        self.get_window_provider().get_embedded_widget_provider().remove_embedded_widget(widget)
+
+    def update_embedded_widget_position(self, widget: PyDuiEmbeddedWidgetHost, x: float, y: float):
+        self.get_window_provider().get_embedded_widget_provider().update_embedded_widget_position(widget, x, y)
 
     def get_appearance(self) -> PyDuiAppearanceManager:
         return self.__appearance_manager
@@ -163,20 +146,13 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
 
     def __config_window__(
         self,
-        gtk_window: Gtk.Window,
         config: PyDuiWindowConfig,
     ):
-        gtk_window.set_title(config.title)
-        gtk_window.set_default_size(*config.size)
-        gtk_window.set_size_request(*config.min_size)
-        gtk_window.set_position(config.position)
-
         self.__appearance_manager.default_fontfamily = config.default_font
         if config.default_fontbold:
             self.__appearance_manager.default_fontfamily = self.__appearance_manager.default_fontfamily + " bold"
         self.__appearance_manager.default_fontsize = config.default_fontsize
         self.set_window_size(config.size[0], config.size[1])
-
         self.__event_dispatcher.init_events()
 
     def __on_window_init__(self):
@@ -186,7 +162,7 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     def __on_draw__(self, ctx: cairo.Context, width: float, height: float):
         if self.__rootview is None:
             return
-        self.__ctx = ctx
+        self.get_window_provider().set_render_context(ctx)
         constraint = PyDuiLayoutConstraint(width, height)
         self.__rootview.layout(0, 0, width, height, constraint)
         self.__rootview.draw(ctx, 0, 0, width, height)

@@ -4,7 +4,6 @@ from typing import Callable, Type
 
 from pydui import utils
 from pydui.common.import_gtk import *
-from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
 from pydui.core.screen import PyDuiScreen
 
 
@@ -13,7 +12,6 @@ class PyDuiRenderCanvas(Gtk.Frame):
     """Render canvas"""
 
     __area: Gtk.DrawingArea = None
-    __fixed: Gtk.Fixed = None
     __width: float = 0
     __height: float = 0
     __ondraw: Callable[[cairo.Context, float, float], None] = None
@@ -84,11 +82,3 @@ class PyDuiRenderCanvas(Gtk.Frame):
 
     def get_height(self) -> float:
         return self.__height
-
-    def put_gtk_widget(self, widget: PyDuiGtkWidgetInterface):
-        gtk_widget = widget.get_gtk_widget()
-        self.__fixed.put(gtk_widget, 0, 0)
-
-    def move_gtk_widget(self, widget: PyDuiGtkWidgetInterface, x: float, y: float):
-        gtk_widget = widget.get_gtk_widget()
-        self.__fixed.move(gtk_widget, x, y)

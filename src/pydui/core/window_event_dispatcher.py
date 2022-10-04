@@ -7,6 +7,7 @@ from weakref import ReferenceType
 from pydui.common.base import PyDuiClickType
 from pydui.common.import_gtk import *
 from pydui.core.widget import PyDuiWidget
+from pydui.core.window_base import PyDuiWindowBase
 from pydui.core.window_client import PyDuiWindowClientInterface
 from pydui.core.window_handler import PyDuiWindowHandler
 
@@ -14,7 +15,7 @@ from pydui.core.window_handler import PyDuiWindowHandler
 class PyDuiWindowEventDispatcher:
     """Window Event Dispatcher"""
 
-    __window: Gtk.Window = None
+    __window: ReferenceType[PyDuiWindowBase] = None
     __client: ReferenceType[PyDuiWindowClientInterface] = None
     __handler: PyDuiWindowHandler = None
     __on_init: Callable[[None], None] = None
@@ -43,27 +44,36 @@ class PyDuiWindowEventDispatcher:
         handler: PyDuiWindowHandler,
         on_init: Callable[[None], None],
     ):
-        self.__window = window
+        self.__window = weakref.ref(window)
         self.__client = weakref.ref(client)
         self.__handler = PyDuiWindowHandler()
         self.__on_init = on_init
         if handler is not None:
             self.__handler = handler()
 
-    def init_events(self):
-        self.__window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
-        self.__window.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
-        self.__window.add_events(Gdk.EventMask.BUTTON_PRESS_MASK)
-        self.__window.add_events(Gdk.EventMask.BUTTON_RELEASE_MASK)
-        self.__window.connect("configure-event", self.on_configure_event)
-        self.__window.connect("destroy", self.on_window_destroy)
-        self.__window.connect("window-state-event", self.on_window_state_event)
-        self.__window.connect("show", self.on_window_show)
-        self.__window.connect("hide", self.on_window_hide)
-        self.__window.connect("motion-notify-event", self.on_motion_notify)
-        self.__window.connect("button-press-event", self.on_button_press)
-        self.__window.connect("button-release-event", self.on_button_release)
+    def __init_gtk_events__(self, gtk_window: Gtk.Window):
+        gtk_window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
+        gtk_window.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
+        gtk_window.add_events(Gdk.EventMask.BUTTON_PRESS_MASK)
+        gtk_window.add_events(Gdk.EventMask.BUTTON_RELEASE_MASK)
+        gtk_window.connect("configure-event", self.on_configure_event)
+        gtk_window.connect("destroy", self.on_window_destroy)
+        gtk_window.connect("window-state-event", self.on_window_state_event)
+        gtk_window.connect("show", self.on_window_show)
+        gtk_window.connect("hide", self.on_window_hide)
+        gtk_window.connect("motion-notify-event", self.on_motion_notify)
+        gtk_window.connect("button-press-event", self.on_button_press)
+        gtk_window.connect("button-release-event", self.on_button_release)
 
+    def init_events(self):
+        window = self.__window()
+        if window is None:
+            return
+
+        # TODO: abstract EventAPI
+        window.execute_platform_code(self.__init_gtk_events__)
+
+        # init finish, callback
         if self.__on_init is not None:
             self.__on_init()
 

@@ -1,20 +1,21 @@
 # -*- coding: utf-8 -*-
 from curses import textpad
 from signal import signal
-from typing import List, Tuple
+from typing import Iterable, List, Tuple
 
 from pydui import utils
 from pydui.common.base import PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
-from pydui.core.gtk_widget_interface import PyDuiGtkWidgetInterface
+from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
+from pydui.component.text_view.text_view_gtk3 import PyDuiEmbeddedTextViewGTK3
+from pydui.component.text_view.text_view_protocol import PyDuiTextViewProtocol
 from pydui.core.widget import PyDuiWidget
 from pydui.widgets.pgview import PyDuiPGView
 
 
-class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
+class PyDuiEdit(PyDuiPGView):
 
-    __gtk_text_view: Gtk.TextView = None
-    __gtk_scrolled_window: Gtk.ScrolledWindow = None
+    __text_view: PyDuiEmbeddedWidgetHost[PyDuiTextViewProtocol] = None
     __text: str = ""
     __editable: bool = True  # Default is can edit
     __font: str = ""
@@ -30,7 +31,7 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
         self.can_focus = True
 
     def on_post_init(self):
-        self.__init_gtk_text_view_if_needed__()
+        self.__init_text_view_if_needed__()
 
     def parse_attrib(self, k: str, v: str):
         if k == "text":
@@ -47,42 +48,41 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         super().layout(x, y, width, height, constraint)
-        if self.__gtk_scrolled_window is None:
+        if self.__text_view is None:
             return
-        self.get_window_client().move_gtk_widget(self, x + self.__text_padding[0], y + self.__text_padding[1])
+
         text_padding_w = utils.RectW(self.__text_padding)
         text_padding_h = utils.RectH(self.__text_padding)
-        self.__gtk_scrolled_window.set_size_request(max(0, width - text_padding_w), max(0, height - text_padding_h))
-
-    # PyDuiGtkWidgetInterface
-    def get_gtk_widget(self) -> Gtk.Widget:
-        return self.__gtk_scrolled_window
+        self.get_window_client().update_embedded_widget_position(
+            self.__text_view, x + self.__text_padding[0], y + self.__text_padding[1]
+        )
+        self.__text_view.api.set_size_request(max(0, width - text_padding_w), max(0, height - text_padding_h))
 
     @property
     def text(self) -> str:
-        if self.__gtk_text_view is None:
+        if self.__text_view is None:
             return self.__text
-        return self.__gtk_text_view.get_buffer().text()
+        return self.__text_view.api.get_text()
 
     @text.setter
-    def text(self, txt: str):
-        self.__text = txt
-        if self.__gtk_text_view is None:
+    def text(self, text: str):
+        self.__text = text
+        if self.__text_view is None:
             return
-        self.__gtk_text_view.get_buffer().set_text(txt)
+        self.__text_view.api.set_text(text)
 
     @property
     def editable(self) -> bool:
-        if self.__gtk_text_view is None:
+        if self.__text_view is None:
             return self.__editable
-        return self.__gtk_text_view.get_editable()
+        return self.__text_view.api.get_editable()
 
     @editable.setter
     def editable(self, editable: bool):
         self.__editable = editable
-        if self.__gtk_text_view is None:
+        if self.__text_view is None:
             return
-        self.__gtk_text_view.set_editable(self.__editable)
+        self.__text_view.api.set_editable(self.__editable)
 
     def get_font(self) -> str:
         if self.__font == "":
@@ -91,10 +91,9 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
 
     def set_font(self, font: str):
         self.__font = font
-        if self.__gtk_text_view is None:
+        if self.__text_view is None:
             return
-        desc = f"{self.font} {self.fontsize}"
-        self.__gtk_text_view.override_font(Pango.font_description_from_string(desc))
+        self.__text_view.api.set_font(self.get_font(), self.get_fontsize())
 
     def get_fontsize(self) -> int:
         if self.__fontsize == 0:
@@ -103,15 +102,15 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
 
     def set_fontsize(self, fontsize: int):
         self.__fontsize = fontsize
-        if self.__gtk_text_view is None:
+        if self.__text_view is None:
             return
-        desc = f"{self.get_font()} {self.get_fontsize()}"
-        self.__gtk_text_view.override_font(Pango.font_description_from_string(desc))
+        self.__text_view.api.set_font(self.get_font(), self.get_fontsize())
 
     def set_textpadding(self, text_padding: Tuple[float, float, float, float]):
         self.__text_padding = text_padding
-        if self.__gtk_text_view is None:
+        if self.__text_view is None:
             return
+        self.poga_layout().mark_dirty()
         self.get_window_client().notify_redraw()
 
     def get_textpadding(self) -> Tuple[float, float, float, float]:
@@ -129,37 +128,14 @@ class PyDuiEdit(PyDuiPGView, PyDuiGtkWidgetInterface):
         return signals
 
     # private
-    def __init_gtk_text_view_if_needed__(self):
-        if self.__gtk_scrolled_window is not None:
+    def __init_text_view_if_needed__(self):
+        client = self.get_window_client()
+        if client is None:
             return
-        self.__gtk_scrolled_window = Gtk.ScrolledWindow()
-        self.__gtk_scrolled_window.set_hexpand(True)
-        self.__gtk_scrolled_window.set_vexpand(True)
 
-        self.__gtk_text_view = Gtk.TextView()
-        desc = f"{self.get_font()} {self.get_fontsize()}"
-        self.__gtk_text_view.override_font(Pango.font_description_from_string(desc))
-        self.__gtk_text_view.set_editable(self.__editable)
-        self.__gtk_text_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
-        self.__gtk_text_view.get_buffer().set_text(self.__text)
-        self.__gtk_scrolled_window.add(self.__gtk_text_view)
-        self.get_window_client().put_gtk_widget(self)
-
-        # register event
-        text_buffer = self.__gtk_text_view.get_buffer()
-        text_buffer.connect("changed", self.__on_changed__)
-        text_buffer.connect("insert-text", self.__on_insert_text__)
-        text_buffer.connect("paste-done", self.__on_paste_done__)
-
-    def __on_changed__(self, text_buffer: Gtk.TextBuffer):
-        start = text_buffer.get_iter_at_offset(0)
-        end = text_buffer.get_iter_at_offset(-1)
-        self.__text = text_buffer.get_text(start, end, False)
-        self.emit("changed", self.__text)
-
-    def __on_insert_text__(self, text_buffer: Gtk.TextBuffer, location: Gtk.TextIter, text: str, len: int):
-        self.emit("insert-text", location.get_offset(), text)
-
-    def __on_paste_done__(self, text_buffer: Gtk.TextBuffer, clipboard: Gtk.Clipboard):
-        # print("paste done", clipboard.wait_for_text())
-        self.emit("paste-done", clipboard)
+        self.__text_view = client.create_embedded_widget("TextView")
+        client.add_embedded_widget(self.__text_view)
+        # init attributes
+        self.__text_view.api.set_text(self.__text)
+        self.__text_view.api.set_editable(self.__editable)
+        self.__text_view.api.set_font(self.get_font(), self.get_fontsize())
