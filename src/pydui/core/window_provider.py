@@ -34,3 +34,15 @@ class PyDuiWindowProvider(Protocol):
     @abstractmethod
     def get_embedded_widget_provider(self) -> PyDuiEmbeddedWidgetProvider:
         pass
+
+    @abstractmethod
+    def connect(self, signal: str, fn: Callable):
+        pass
+
+    @abstractmethod
+    def disconnect(self, signal: str, fn: Callable):
+        pass
+
+    @abstractmethod
+    def disaconnect_all(self, signal: str):
+        pass

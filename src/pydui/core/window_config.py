@@ -8,8 +8,7 @@ from pydui.common.import_gtk import *
 @dataclass(frozen=True)
 class PyDuiWindowConfig:
 
-    """Window config dataclass
-    """
+    """Window config dataclass"""
 
     title: str
     size: Tuple[int, int]

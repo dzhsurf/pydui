@@ -72,6 +72,12 @@
                 <PGLayout flex_grow="1" >
                 </PGLayout>
 
+                <Button width="120" height="80"
+                    bkimage="res/images/common_button_normal.png"
+                    bkimage_hover="res/images/common_button_hover.png"
+                    bkimage_press="res/images/common_button_press.png"
+                />
+
                 <!-- bottom bar -->
                 <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2"
                     text="Hello World!"
