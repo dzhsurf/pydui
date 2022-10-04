@@ -83,16 +83,16 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         # init window events
         gtk_window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
         gtk_window.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
-        gtk_window.add_events(Gdk.EventMask.BUTTON_PRESS_MASK)
-        gtk_window.add_events(Gdk.EventMask.BUTTON_RELEASE_MASK)
+        self.__layer.add_events(Gdk.EventMask.BUTTON_PRESS_MASK)
+        self.__layer.add_events(Gdk.EventMask.BUTTON_RELEASE_MASK)
         gtk_window.connect("configure-event", self.on_configure_event)
         gtk_window.connect("destroy", self.on_window_destroy)
         gtk_window.connect("window-state-event", self.on_window_state_event)
         gtk_window.connect("show", self.on_window_show)
         gtk_window.connect("hide", self.on_window_hide)
         gtk_window.connect("motion-notify-event", self.on_motion_notify)
-        gtk_window.connect("button-press-event", self.on_button_press)
-        gtk_window.connect("button-release-event", self.on_button_release)
+        self.__layer.connect("button-press-event", self.on_button_press)
+        self.__layer.connect("button-release-event", self.on_button_release)
 
     def set_render_context(self, context: Any):
         self.__ctx = context
