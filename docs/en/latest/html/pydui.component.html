@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Welcome to pydui’s documentation! &#8212; PyDui-GTK https://pypi.org/project/pydui-gtk/ documentation</title>
+    <title>pydui.component package &#8212; PyDui-GTK https://pypi.org/project/pydui-gtk/ documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -20,7 +20,8 @@
     <link rel="shortcut icon" href="https://pypi.org/static/images/logo-small.95de8436.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="intro.html" /> 
+    <link rel="next" title="pydui.core package" href="pydui.core.html" />
+    <link rel="prev" title="pydui.common package" href="pydui.common.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -30,7 +31,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="#" title="Go to homepage">PyDui-GTK Documentation</a></h1>
+        <h1><a href="index.html" title="Go to homepage">PyDui-GTK Documentation</a></h1>
             <a id="source_link" href="https://github.com/dzhsurf/pydui/">
     
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
@@ -127,22 +128,39 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">API Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pydui.html">pydui package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pydui.common.html">pydui.common package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">pydui.component package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.core.html">pydui.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.layout.html">pydui.layout package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.provider.html">pydui.provider package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.utils.html">pydui.utils package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.widgets.html">pydui.widgets package</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="pglayout.html">PGLayout attributes</a></li>
 </ul>
 
   <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="pydui.common.html"
+                          title="previous chapter">pydui.common package</a></p>
+  </div>
+  <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="intro.html"
-                          title="next chapter">Introduction</a></p>
+    <p class="topless"><a href="pydui.core.html"
+                          title="next chapter">pydui.core package</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
+      <li><a href="_sources/pydui.component.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div><div id="searchbox" class="searchbox" role="search">
@@ -166,31 +184,55 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="welcome-to-pydui-s-documentation">
-<h1>Welcome to pydui’s documentation!<a class="headerlink" href="#welcome-to-pydui-s-documentation" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#pydui-documentation">PyDui Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">API Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pydui.html">pydui package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pglayout.html">PGLayout attributes</a></li>
-</ul>
-</div>
+  <section id="pydui-component-package">
+<h1>pydui.component package<a class="headerlink" href="#pydui-component-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+<section id="module-pydui.component.embedded_widget">
+<span id="pydui-component-embedded-widget-module"></span><h2>pydui.component.embedded_widget module<a class="headerlink" href="#module-pydui.component.embedded_widget" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.component.embedded_widget.</span></span><span class="sig-name descname"><span class="pre">PyDuiEmbeddedWidgetHost</span></span><a class="headerlink" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost.api">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></em><a class="headerlink" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost.api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.component.embedded_widget.</span></span><span class="sig-name descname"><span class="pre">PyDuiEmbeddedWidgetProvider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.add_embedded_widget">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add_embedded_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><span class="pre">PyDuiEmbeddedWidgetHost</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.add_embedded_widget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.create_embedded_widget">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_embedded_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_typename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><span class="pre">PyDuiEmbeddedWidgetHost</span></a></span></span><a class="headerlink" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.create_embedded_widget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.remove_embedded_widget">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remove_embedded_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><span class="pre">PyDuiEmbeddedWidgetHost</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.remove_embedded_widget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.update_embedded_widget_position">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_embedded_widget_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><span class="pre">PyDuiEmbeddedWidgetHost</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.update_embedded_widget_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pydui.component">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pydui.component" title="Permalink to this heading">¶</a></h2>
+<p>PyDui-GTK extra component module</p>
+</section>
 </section>
 
 
@@ -207,8 +249,25 @@
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">Welcome to pydui’s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">pydui.component package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pydui.component.embedded_widget">pydui.component.embedded_widget module</a><ul>
+<li><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><code class="docutils literal notranslate"><span class="pre">PyDuiEmbeddedWidgetHost</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost.api"><code class="docutils literal notranslate"><span class="pre">PyDuiEmbeddedWidgetHost.api</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider"><code class="docutils literal notranslate"><span class="pre">PyDuiEmbeddedWidgetProvider</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.add_embedded_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiEmbeddedWidgetProvider.add_embedded_widget()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.create_embedded_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiEmbeddedWidgetProvider.create_embedded_widget()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.remove_embedded_widget"><code class="docutils literal notranslate"><span class="pre">PyDuiEmbeddedWidgetProvider.remove_embedded_widget()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider.update_embedded_widget_position"><code class="docutils literal notranslate"><span class="pre">PyDuiEmbeddedWidgetProvider.update_embedded_widget_position()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.component">Module contents</a></li>
+</ul>
+</li>
 </ul>
 
             </div>
@@ -221,11 +280,14 @@
         <div class="button_nav">
             <div class="left">
                 
+                <a href="pydui.common.html">
+                    <span class="icon"><</span><span>pydui.common package</span></a>
+                
             </div>
 
             <div class="right">
                 
-                    <a href="intro.html"><span>Introduction</span><span class="icon">></span></a>
+                    <a href="pydui.core.html"><span>pydui.core package</span><span class="icon">></span></a>
                 
             </div>
         </div>

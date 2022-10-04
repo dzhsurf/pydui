@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="https://pypi.org/static/images/logo-small.95de8436.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pydui.core package" href="pydui.core.html" />
+    <link rel="next" title="pydui.component package" href="pydui.component.html" />
     <link rel="prev" title="pydui package" href="pydui.html" /> 
   </head><body>
 
@@ -131,11 +131,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="apis.html">API Documentation</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pydui.html">pydui package</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pydui.common package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.component.html">pydui.component package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html">pydui.core package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.layout.html">pydui.layout package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.provider.html">pydui.provider package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.utils.html">pydui.utils package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.widgets.html">pydui.widgets package</a></li>
 </ul>
@@ -152,8 +154,8 @@
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="pydui.core.html"
-                          title="next chapter">pydui.core package</a></p>
+    <p class="topless"><a href="pydui.component.html"
+                          title="next chapter">pydui.component package</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -189,6 +191,22 @@
 </section>
 <section id="module-pydui.common.attribute_string">
 <span id="pydui-common-attribute-string-module"></span><h2>pydui.common.attribute_string module<a class="headerlink" href="#module-pydui.common.attribute_string" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.common.attribute_string.PyDuiAttrStrParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.common.attribute_string.</span></span><span class="sig-name descname"><span class="pre">PyDuiAttrStrParser</span></span><a class="headerlink" href="#pydui.common.attribute_string.PyDuiAttrStrParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.common.attribute_string.PyDuiAttrStrParser.is_attrstr">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_attrstr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.common.attribute_string.PyDuiAttrStrParser.is_attrstr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.common.attribute_string.PyDuiAttrStrParser.parse">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.common.attribute_string.PyDuiAttrStrParser.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-pydui.common.base">
 <span id="pydui-common-base-module"></span><h2>pydui.common.base module<a class="headerlink" href="#module-pydui.common.base" title="Permalink to this heading">¶</a></h2>
@@ -197,6 +215,21 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.common.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiAlign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.common.base.PyDuiAlign" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>Align type</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.common.base.PyDuiAlign.CENTER">
+<span class="sig-name descname"><span class="pre">CENTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pydui.common.base.PyDuiAlign.CENTER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.common.base.PyDuiAlign.END">
+<span class="sig-name descname"><span class="pre">END</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pydui.common.base.PyDuiAlign.END" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.common.base.PyDuiAlign.START">
+<span class="sig-name descname"><span class="pre">START</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pydui.common.base.PyDuiAlign.START" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -204,6 +237,21 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.common.base.</span></span><span class="sig-name descname"><span class="pre">PyDuiClickType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.common.base.PyDuiClickType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>Click Type</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.common.base.PyDuiClickType.CLICK">
+<span class="sig-name descname"><span class="pre">CLICK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pydui.common.base.PyDuiClickType.CLICK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.common.base.PyDuiClickType.DBCLICK">
+<span class="sig-name descname"><span class="pre">DBCLICK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pydui.common.base.PyDuiClickType.DBCLICK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.common.base.PyDuiClickType.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pydui.common.base.PyDuiClickType.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -212,7 +260,32 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Layout constraint
 if the value set to -1, it means no limit</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.common.base.PyDuiLayoutConstraint.height">
+<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#pydui.common.base.PyDuiLayoutConstraint.height" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.common.base.PyDuiLayoutConstraint.width">
+<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#pydui.common.base.PyDuiLayoutConstraint.width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.common.base.Text2EllipsizeMode">
+<span class="sig-prename descclassname"><span class="pre">pydui.common.base.</span></span><span class="sig-name descname"><span class="pre">Text2EllipsizeMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">EllipsizeMode</span></span></span><a class="headerlink" href="#pydui.common.base.Text2EllipsizeMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.common.base.Text2PyDuiAlign">
+<span class="sig-prename descclassname"><span class="pre">pydui.common.base.</span></span><span class="sig-name descname"><span class="pre">Text2PyDuiAlign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.common.base.PyDuiAlign" title="pydui.common.base.PyDuiAlign"><span class="pre">PyDuiAlign</span></a></span></span><a class="headerlink" href="#pydui.common.base.Text2PyDuiAlign" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.common.base.Text2WrapMode">
+<span class="sig-prename descclassname"><span class="pre">pydui.common.base.</span></span><span class="sig-name descname"><span class="pre">Text2WrapMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">WrapMode</span></span></span><a class="headerlink" href="#pydui.common.base.Text2WrapMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </section>
 <section id="module-pydui.common.import_gtk">
@@ -240,11 +313,35 @@ if the value set to -1, it means no limit</p>
                 <ul>
 <li><a class="reference internal" href="#">pydui.common package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-pydui.common.attribute_string">pydui.common.attribute_string module</a></li>
+<li><a class="reference internal" href="#module-pydui.common.attribute_string">pydui.common.attribute_string module</a><ul>
+<li><a class="reference internal" href="#pydui.common.attribute_string.PyDuiAttrStrParser"><code class="docutils literal notranslate"><span class="pre">PyDuiAttrStrParser</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.common.attribute_string.PyDuiAttrStrParser.is_attrstr"><code class="docutils literal notranslate"><span class="pre">PyDuiAttrStrParser.is_attrstr()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.attribute_string.PyDuiAttrStrParser.parse"><code class="docutils literal notranslate"><span class="pre">PyDuiAttrStrParser.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pydui.common.base">pydui.common.base module</a><ul>
-<li><a class="reference internal" href="#pydui.common.base.PyDuiAlign"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign</span></code></a></li>
-<li><a class="reference internal" href="#pydui.common.base.PyDuiClickType"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType</span></code></a></li>
-<li><a class="reference internal" href="#pydui.common.base.PyDuiLayoutConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiAlign"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiAlign.CENTER"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign.CENTER</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiAlign.END"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign.END</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiAlign.START"><code class="docutils literal notranslate"><span class="pre">PyDuiAlign.START</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiClickType"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiClickType.CLICK"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType.CLICK</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiClickType.DBCLICK"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType.DBCLICK</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiClickType.NONE"><code class="docutils literal notranslate"><span class="pre">PyDuiClickType.NONE</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiLayoutConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiLayoutConstraint.height"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint.height</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.base.PyDuiLayoutConstraint.width"><code class="docutils literal notranslate"><span class="pre">PyDuiLayoutConstraint.width</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.common.base.Text2EllipsizeMode"><code class="docutils literal notranslate"><span class="pre">Text2EllipsizeMode()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.base.Text2PyDuiAlign"><code class="docutils literal notranslate"><span class="pre">Text2PyDuiAlign()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.common.base.Text2WrapMode"><code class="docutils literal notranslate"><span class="pre">Text2WrapMode()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.common.import_gtk">pydui.common.import_gtk module</a></li>
@@ -270,7 +367,7 @@ if the value set to -1, it means no limit</p>
 
             <div class="right">
                 
-                    <a href="pydui.core.html"><span>pydui.core package</span><span class="icon">></span></a>
+                    <a href="pydui.component.html"><span>pydui.component package</span><span class="icon">></span></a>
                 
             </div>
         </div>

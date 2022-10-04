@@ -12,7 +12,7 @@ Welcome to pydui's documentation!
 
    intro
    quickstart
-   apis
+   modules
    pglayout
 
 

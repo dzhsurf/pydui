@@ -15,7 +15,6 @@ class PyDuiLabel(PyDuiPGView):
     """Label widget
 
     Attributes:
-        text (str): text content
         font (str): font family name
         fontsize (int): fontsize in pt unit
         fontcolor (Gdk.RGBA): font color

@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="pydui.widgets package" href="pydui.widgets.html" />
-    <link rel="prev" title="pydui.layout package" href="pydui.layout.html" /> 
+    <link rel="prev" title="pydui.provider package" href="pydui.provider.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -131,11 +131,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="apis.html">API Documentation</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pydui.html">pydui package</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pydui.common.html">pydui.common package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.component.html">pydui.component package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.core.html">pydui.core package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.layout.html">pydui.layout package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pydui.provider.html">pydui.provider package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pydui.utils package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pydui.widgets.html">pydui.widgets package</a></li>
 </ul>
@@ -147,8 +149,8 @@
 
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="pydui.layout.html"
-                          title="previous chapter">pydui.layout package</a></p>
+    <p class="topless"><a href="pydui.provider.html"
+                          title="previous chapter">pydui.provider package</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -191,6 +193,26 @@
 <span id="pydui-utils-conversion-module"></span><h2>pydui.utils.conversion module<a class="headerlink" href="#module-pydui.utils.conversion" title="Permalink to this heading">¶</a></h2>
 <p>Conversion function</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.IsNoneZeroRect">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">IsNoneZeroRect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.utils.conversion.IsNoneZeroRect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.RectH">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">RectH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pydui.utils.conversion.RectH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.RectW">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">RectW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pydui.utils.conversion.RectW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.Str2Color">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">Str2Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RGBA</span></span></span><a class="headerlink" href="#pydui.utils.conversion.Str2Color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pydui.utils.conversion.Str2Position">
 <span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">Str2Position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">WindowPosition</span></span></span><a class="headerlink" href="#pydui.utils.conversion.Str2Position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert text to Gtk.WindowPosition flag</p>
@@ -205,6 +227,11 @@
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.conversion.Str2Rect">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">Str2Rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.utils.conversion.Str2Rect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pydui.utils.conversion.Str2Size">
@@ -228,6 +255,36 @@
 </section>
 <section id="module-pydui.utils.poga_utils">
 <span id="pydui-utils-poga-utils-module"></span><h2>pydui.utils.poga_utils module<a class="headerlink" href="#module-pydui.utils.poga_utils" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.poga_utils.Str2Justify">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.poga_utils.</span></span><span class="sig-name descname"><span class="pre">Str2Justify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">YGJustify</span></span></span><a class="headerlink" href="#pydui.utils.poga_utils.Str2Justify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.poga_utils.Str2YGAlign">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.poga_utils.</span></span><span class="sig-name descname"><span class="pre">Str2YGAlign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">YGAlign</span></span></span><a class="headerlink" href="#pydui.utils.poga_utils.Str2YGAlign" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.poga_utils.Str2YGDirection">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.poga_utils.</span></span><span class="sig-name descname"><span class="pre">Str2YGDirection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">YGDirection</span></span></span><a class="headerlink" href="#pydui.utils.poga_utils.Str2YGDirection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.poga_utils.Str2YGFlexDirection">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.poga_utils.</span></span><span class="sig-name descname"><span class="pre">Str2YGFlexDirection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">YGFlexDirection</span></span></span><a class="headerlink" href="#pydui.utils.poga_utils.Str2YGFlexDirection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.poga_utils.Str2YGPostionType">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.poga_utils.</span></span><span class="sig-name descname"><span class="pre">Str2YGPostionType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">YGPositionType</span></span></span><a class="headerlink" href="#pydui.utils.poga_utils.Str2YGPostionType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pydui.utils.poga_utils.Str2YGWrap">
+<span class="sig-prename descclassname"><span class="pre">pydui.utils.poga_utils.</span></span><span class="sig-name descname"><span class="pre">Str2YGWrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">YGWrap</span></span></span><a class="headerlink" href="#pydui.utils.poga_utils.Str2YGWrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="pydui.utils.poga_utils.apply_poga_attributes">
 <span class="sig-prename descclassname"><span class="pre">pydui.utils.poga_utils.</span></span><span class="sig-name descname"><span class="pre">apply_poga_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PogaLayout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.utils.poga_utils.apply_poga_attributes" title="Permalink to this definition">¶</a></dt>
@@ -272,12 +329,23 @@
 <li><a class="reference internal" href="#">pydui.utils package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-pydui.utils.conversion">pydui.utils.conversion module</a><ul>
+<li><a class="reference internal" href="#pydui.utils.conversion.IsNoneZeroRect"><code class="docutils literal notranslate"><span class="pre">IsNoneZeroRect()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.conversion.RectH"><code class="docutils literal notranslate"><span class="pre">RectH()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.conversion.RectW"><code class="docutils literal notranslate"><span class="pre">RectW()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.conversion.Str2Color"><code class="docutils literal notranslate"><span class="pre">Str2Color()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.utils.conversion.Str2Position"><code class="docutils literal notranslate"><span class="pre">Str2Position()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.conversion.Str2Rect"><code class="docutils literal notranslate"><span class="pre">Str2Rect()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.utils.conversion.Str2Size"><code class="docutils literal notranslate"><span class="pre">Str2Size()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.utils.file">pydui.utils.file module</a></li>
 <li><a class="reference internal" href="#module-pydui.utils.poga_utils">pydui.utils.poga_utils module</a><ul>
+<li><a class="reference internal" href="#pydui.utils.poga_utils.Str2Justify"><code class="docutils literal notranslate"><span class="pre">Str2Justify()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.poga_utils.Str2YGAlign"><code class="docutils literal notranslate"><span class="pre">Str2YGAlign()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.poga_utils.Str2YGDirection"><code class="docutils literal notranslate"><span class="pre">Str2YGDirection()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.poga_utils.Str2YGFlexDirection"><code class="docutils literal notranslate"><span class="pre">Str2YGFlexDirection()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.poga_utils.Str2YGPostionType"><code class="docutils literal notranslate"><span class="pre">Str2YGPostionType()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.utils.poga_utils.Str2YGWrap"><code class="docutils literal notranslate"><span class="pre">Str2YGWrap()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.utils.poga_utils.apply_poga_attributes"><code class="docutils literal notranslate"><span class="pre">apply_poga_attributes()</span></code></a></li>
 </ul>
 </li>
@@ -296,8 +364,8 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="pydui.layout.html">
-                    <span class="icon"><</span><span>pydui.layout package</span></a>
+                <a href="pydui.provider.html">
+                    <span class="icon"><</span><span>pydui.provider package</span></a>
                 
             </div>
 
