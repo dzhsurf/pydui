@@ -1,0 +1,1 @@
+"""PyDui-GTK provider module"""

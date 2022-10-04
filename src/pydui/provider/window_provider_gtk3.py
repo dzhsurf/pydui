@@ -5,9 +5,9 @@ from typing import Any, Callable, Protocol, TypeVar
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetProvider
 from pydui.core.render_canvas import PyDuiRenderCanvas
-from pydui.core.window_base import PyDuiWindowProvider
 from pydui.core.window_config import PyDuiWindowConfig
-from pydui.platform.embedded_widget_provider_gtk3 import PyDuiEmbeddedWidgetProviderGTK3
+from pydui.core.window_interface import PyDuiWindowProvider
+from pydui.provider.embedded_widget_provider_gtk3 import PyDuiEmbeddedWidgetProviderGTK3
 
 
 class PyDuiWindowProviderGTK3(PyDuiWindowProvider):

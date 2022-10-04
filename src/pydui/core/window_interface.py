@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from abc import ABC, abstractmethod
-from typing import Any, Callable, Protocol
+from typing import Any, Callable
 
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
@@ -8,7 +8,7 @@ from pydui.core.widget import PyDuiWidget
 from pydui.core.window_provider import PyDuiWindowProvider
 
 
-class PyDuiWindowBase(ABC):
+class PyDuiWindowInterface(ABC):
     @abstractmethod
     def get_widget(self, widget_id: str) -> PyDuiWidget:
         pass

@@ -29,7 +29,7 @@ def get_builder() -> PyDuiBuilder:
 
 # custom window handler
 class DemoHandler(PyDuiWindowHandler):
-    def on_window_init(self, window: PyDuiWindowBase):
+    def on_window_init(self, window: PyDuiWindowInterface):
         print(f"on_window_init")
 
     def on_window_destroy(self):

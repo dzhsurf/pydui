@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from pydui.core.resource_loader import PyDuiResourceLoader
-from pydui.core.window_base import PyDuiWindowBase
+from pydui.core.window_interface import PyDuiWindowInterface
 
 
 class PyDuiWindowHandler:
 
     """Window handler"""
 
-    def on_window_init(self, window: PyDuiWindowBase):
+    def on_window_init(self, window: PyDuiWindowInterface):
         """On window init event"""
         pass
 

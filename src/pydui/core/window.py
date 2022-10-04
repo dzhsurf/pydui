@@ -6,14 +6,15 @@ from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
 from pydui.core.layout import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
-from pydui.core.window_base import PyDuiWindowBase, PyDuiWindowProvider
 from pydui.core.window_client import PyDuiWindowClient
 from pydui.core.window_config import PyDuiWindowConfig
 from pydui.core.window_handler import PyDuiWindowHandler
-from pydui.platform.window_provider_gtk3 import PyDuiWindowProviderGTK3
+from pydui.core.window_interface import PyDuiWindowInterface
+from pydui.core.window_provider import PyDuiWindowProvider
+from pydui.provider.window_provider_gtk3 import PyDuiWindowProviderGTK3
 
 
-class PyDuiWindow(PyDuiWindowBase):
+class PyDuiWindow(PyDuiWindowInterface):
     """PyDuiWindow"""
 
     __provider: PyDuiWindowProvider = None
@@ -38,7 +39,7 @@ class PyDuiWindow(PyDuiWindowBase):
             handler=handler,
         )
 
-    # PyDuiWindowBase implement
+    # PyDuiWindowInterface implement
     def get_widget(self, widget_id: str) -> PyDuiWidget:
         return self.__client.get_widget(widget_id=widget_id)
 

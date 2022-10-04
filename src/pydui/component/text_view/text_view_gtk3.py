@@ -2,7 +2,7 @@
 """PyDuiEmbbeddedTextViewGTK3"""
 from pydui.common.import_gtk import *
 from pydui.component.text_view.text_view_protocol import PyDuiTextViewProtocol
-from pydui.platform.embedded_widget_host_gtk3 import PyDuiEmbeddedWidgetHostGTK3
+from pydui.provider.embedded_widget_host_gtk3 import PyDuiEmbeddedWidgetHostGTK3
 
 
 class PyDuiEmbeddedTextViewGTK3(PyDuiEmbeddedWidgetHostGTK3[PyDuiTextViewProtocol], PyDuiTextViewProtocol):

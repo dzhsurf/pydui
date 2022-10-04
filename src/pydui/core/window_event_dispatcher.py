@@ -7,15 +7,15 @@ from weakref import ReferenceType
 from pydui.common.base import PyDuiClickType
 from pydui.common.import_gtk import *
 from pydui.core.widget import PyDuiWidget
-from pydui.core.window_base import PyDuiWindowBase
 from pydui.core.window_client import PyDuiWindowClientInterface
 from pydui.core.window_handler import PyDuiWindowHandler
+from pydui.core.window_interface import PyDuiWindowInterface
 
 
 class PyDuiWindowEventDispatcher:
     """Window Event Dispatcher"""
 
-    __window: ReferenceType[PyDuiWindowBase] = None
+    __window: ReferenceType[PyDuiWindowInterface] = None
     __client: ReferenceType[PyDuiWindowClientInterface] = None
     __handler: PyDuiWindowHandler = None
     __on_init: Callable[[None], None] = None

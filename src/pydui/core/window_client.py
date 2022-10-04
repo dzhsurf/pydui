@@ -13,11 +13,11 @@ from pydui.core.layout import PyDuiLayout
 from pydui.core.render_canvas import PyDuiRenderCanvas
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import PyDuiWidget
-from pydui.core.window_base import PyDuiWindowBase, PyDuiWindowProvider
 from pydui.core.window_client_interface import PyDuiWindowClientInterface
 from pydui.core.window_config import PyDuiWindowConfig
 from pydui.core.window_event_dispatcher import PyDuiWindowEventDispatcher
 from pydui.core.window_handler import PyDuiWindowHandler
+from pydui.core.window_interface import PyDuiWindowInterface, PyDuiWindowProvider
 
 
 class PyDuiWindowClient(PyDuiWindowClientInterface):
@@ -32,11 +32,11 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     __event_dispatcher: PyDuiWindowEventDispatcher = None
 
     # window backend
-    __window: ReferenceType[PyDuiWindowBase] = None
+    __window: ReferenceType[PyDuiWindowInterface] = None
 
     def __init__(
         self,
-        window: PyDuiWindowBase,
+        window: PyDuiWindowInterface,
         config: PyDuiWindowConfig,
         loader: PyDuiResourceLoader,
         rootview: PyDuiLayout,

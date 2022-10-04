@@ -3,7 +3,7 @@
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost, PyDuiEmbeddedWidgetProvider
 from pydui.component.text_view.text_view_gtk3 import PyDuiEmbeddedTextViewGTK3
-from pydui.platform.embedded_widget_host_gtk3 import PyDuiEmbeddedWidgetHostGTK3
+from pydui.provider.embedded_widget_host_gtk3 import PyDuiEmbeddedWidgetHostGTK3
 
 
 class PyDuiEmbeddedWidgetProviderGTK3(PyDuiEmbeddedWidgetProvider):
