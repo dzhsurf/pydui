@@ -28,6 +28,14 @@ pydui.core.builder module
    :undoc-members:
    :show-inheritance:
 
+pydui.core.event module
+-----------------------
+
+.. automodule:: pydui.core.event
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pydui.core.layout module
 ------------------------
 

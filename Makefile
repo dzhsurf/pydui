@@ -33,9 +33,13 @@ format: ## Black & isort the code
 	poetry run black $(SRC_DIRS)
 	poetry run isort $(SRC_DIRS)
 
-.PHONY: pydoc
-pydoc:
-	poetry run pydocstyle renaissance
+.PHONY: gendocs
+gendocs:
+	sphinx-apidoc -o docs/source src/pydui
+
+.PHONY: docs
+docs:
+	sphinx-build -b html docs/source docs/en/latest/html
 
 .PHONY: mypy
 mypy:

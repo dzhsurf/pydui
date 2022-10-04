@@ -346,6 +346,100 @@ But you can custom the resource provider to compose the ui resources.</p>
 </dd></dl>
 
 </section>
+<section id="module-pydui.core.event">
+<span id="pydui-core-event-module"></span><h2>pydui.core.event module<a class="headerlink" href="#module-pydui.core.event" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEvent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.event.</span></span><span class="sig-name descname"><span class="pre">ButtonEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.event.ButtonType" title="pydui.core.event.ButtonType"><span class="pre">pydui.core.event.ButtonType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.event.ButtonEventType" title="pydui.core.event.ButtonEventType"><span class="pre">pydui.core.event.ButtonEventType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event.ButtonEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pydui.core.event.EventObject" title="pydui.core.event.EventObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventObject</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEvent.button">
+<span class="sig-name descname"><span class="pre">button</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pydui.core.event.ButtonType" title="pydui.core.event.ButtonType"><span class="pre">ButtonType</span></a></em><a class="headerlink" href="#pydui.core.event.ButtonEvent.button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEvent.event">
+<span class="sig-name descname"><span class="pre">event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pydui.core.event.ButtonEventType" title="pydui.core.event.ButtonEventType"><span class="pre">ButtonEventType</span></a></em><a class="headerlink" href="#pydui.core.event.ButtonEvent.event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEvent.time">
+<span class="sig-name descname"><span class="pre">time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#pydui.core.event.ButtonEvent.time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEvent.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#pydui.core.event.ButtonEvent.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEvent.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#pydui.core.event.ButtonEvent.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEventType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.event.</span></span><span class="sig-name descname"><span class="pre">ButtonEventType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event.ButtonEventType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEventType.DBPRESS">
+<span class="sig-name descname"><span class="pre">DBPRESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pydui.core.event.ButtonEventType.DBPRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEventType.PRESS">
+<span class="sig-name descname"><span class="pre">PRESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pydui.core.event.ButtonEventType.PRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEventType.RELEASE">
+<span class="sig-name descname"><span class="pre">RELEASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pydui.core.event.ButtonEventType.RELEASE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEventType.TRIPRESS">
+<span class="sig-name descname"><span class="pre">TRIPRESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#pydui.core.event.ButtonEventType.TRIPRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonEventType.UNDEFINED">
+<span class="sig-name descname"><span class="pre">UNDEFINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pydui.core.event.ButtonEventType.UNDEFINED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.event.</span></span><span class="sig-name descname"><span class="pre">ButtonType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event.ButtonType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonType.BUTTON_LEFT">
+<span class="sig-name descname"><span class="pre">BUTTON_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pydui.core.event.ButtonType.BUTTON_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonType.BUTTON_RIGHT">
+<span class="sig-name descname"><span class="pre">BUTTON_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pydui.core.event.ButtonType.BUTTON_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ButtonType.UNDEFINED">
+<span class="sig-name descname"><span class="pre">UNDEFINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pydui.core.event.ButtonType.UNDEFINED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.event.EventObject">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.event.</span></span><span class="sig-name descname"><span class="pre">EventObject</span></span><a class="headerlink" href="#pydui.core.event.EventObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
 <section id="module-pydui.core.layout">
 <span id="pydui-core-layout-module"></span><h2>pydui.core.layout module<a class="headerlink" href="#module-pydui.core.layout" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
@@ -1306,7 +1400,7 @@ But you can custom the resource provider to compose the ui resources.</p>
 <span id="pydui-core-window-event-dispatcher-module"></span><h2>pydui.core.window_event_dispatcher module<a class="headerlink" href="#module-pydui.core.window_event_dispatcher" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_event_dispatcher.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowEventDispatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface" title="pydui.core.window_client_interface.PyDuiWindowClientInterface"><span class="pre">PyDuiWindowClientInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">PyDuiWindowHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_event_dispatcher.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowEventDispatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_interface.PyDuiWindowInterface" title="pydui.core.window_interface.PyDuiWindowInterface"><span class="pre">PyDuiWindowInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface" title="pydui.core.window_client_interface.PyDuiWindowClientInterface"><span class="pre">PyDuiWindowClientInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.window_handler.PyDuiWindowHandler" title="pydui.core.window_handler.PyDuiWindowHandler"><span class="pre">PyDuiWindowHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Window Event Dispatcher</p>
 <dl class="py property">
@@ -1321,42 +1415,42 @@ But you can custom the resource provider to compose the ui resources.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_button_press">
-<span class="sig-name descname"><span class="pre">on_button_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">EventButton</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_button_press" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_button_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.event.ButtonEvent" title="pydui.core.event.ButtonEvent"><span class="pre">ButtonEvent</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_button_press" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_button_release">
-<span class="sig-name descname"><span class="pre">on_button_release</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">EventButton</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_button_release" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_button_release</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.event.ButtonEvent" title="pydui.core.event.ButtonEvent"><span class="pre">ButtonEvent</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_button_release" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_configure_event">
-<span class="sig-name descname"><span class="pre">on_configure_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">EventConfigure</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_configure_event" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_configure_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_configure_event" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_motion_notify">
-<span class="sig-name descname"><span class="pre">on_motion_notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">EventMotion</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_motion_notify" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_motion_notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_motion_notify" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_destroy">
-<span class="sig-name descname"><span class="pre">on_window_destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_destroy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_window_destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_destroy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_hide">
-<span class="sig-name descname"><span class="pre">on_window_hide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_hide" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_window_hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_hide" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_show">
-<span class="sig-name descname"><span class="pre">on_window_show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_show" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_window_show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_state_event">
-<span class="sig-name descname"><span class="pre">on_window_state_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">EventWindowState</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_state_event" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_window_state_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_state_event" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1464,6 +1558,21 @@ But you can custom the resource provider to compose the ui resources.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.window_provider.</span></span><span class="sig-name descname"><span class="pre">PyDuiWindowProvider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_provider.PyDuiWindowProvider" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
 <dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_provider.PyDuiWindowProvider.connect">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_provider.PyDuiWindowProvider.connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_provider.PyDuiWindowProvider.disaconnect_all">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disaconnect_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_provider.PyDuiWindowProvider.disaconnect_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_provider.PyDuiWindowProvider.disconnect">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_provider.PyDuiWindowProvider.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_provider.PyDuiWindowProvider.get_embedded_widget_provider">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_embedded_widget_provider</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pydui.component.html#pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetProvider"><span class="pre">PyDuiEmbeddedWidgetProvider</span></a></span></span><a class="headerlink" href="#pydui.core.window_provider.PyDuiWindowProvider.get_embedded_widget_provider" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1549,6 +1658,32 @@ But you can custom the resource provider to compose the ui resources.</p>
 <li><a class="reference internal" href="#pydui.core.builder.PyDuiBuilder.register_resource_loader"><code class="docutils literal notranslate"><span class="pre">PyDuiBuilder.register_resource_loader()</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.core.event">pydui.core.event module</a><ul>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEvent"><code class="docutils literal notranslate"><span class="pre">ButtonEvent</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEvent.button"><code class="docutils literal notranslate"><span class="pre">ButtonEvent.button</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEvent.event"><code class="docutils literal notranslate"><span class="pre">ButtonEvent.event</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEvent.time"><code class="docutils literal notranslate"><span class="pre">ButtonEvent.time</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEvent.x"><code class="docutils literal notranslate"><span class="pre">ButtonEvent.x</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEvent.y"><code class="docutils literal notranslate"><span class="pre">ButtonEvent.y</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEventType"><code class="docutils literal notranslate"><span class="pre">ButtonEventType</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEventType.DBPRESS"><code class="docutils literal notranslate"><span class="pre">ButtonEventType.DBPRESS</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEventType.PRESS"><code class="docutils literal notranslate"><span class="pre">ButtonEventType.PRESS</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEventType.RELEASE"><code class="docutils literal notranslate"><span class="pre">ButtonEventType.RELEASE</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEventType.TRIPRESS"><code class="docutils literal notranslate"><span class="pre">ButtonEventType.TRIPRESS</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonEventType.UNDEFINED"><code class="docutils literal notranslate"><span class="pre">ButtonEventType.UNDEFINED</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonType"><code class="docutils literal notranslate"><span class="pre">ButtonType</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.event.ButtonType.BUTTON_LEFT"><code class="docutils literal notranslate"><span class="pre">ButtonType.BUTTON_LEFT</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonType.BUTTON_RIGHT"><code class="docutils literal notranslate"><span class="pre">ButtonType.BUTTON_RIGHT</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ButtonType.UNDEFINED"><code class="docutils literal notranslate"><span class="pre">ButtonType.UNDEFINED</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.core.event.EventObject"><code class="docutils literal notranslate"><span class="pre">EventObject</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.core.layout">pydui.core.layout module</a><ul>
@@ -1795,6 +1930,9 @@ But you can custom the resource provider to compose the ui resources.</p>
 </li>
 <li><a class="reference internal" href="#module-pydui.core.window_provider">pydui.core.window_provider module</a><ul>
 <li><a class="reference internal" href="#pydui.core.window_provider.PyDuiWindowProvider"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowProvider</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.window_provider.PyDuiWindowProvider.connect"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowProvider.connect()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_provider.PyDuiWindowProvider.disaconnect_all"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowProvider.disaconnect_all()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_provider.PyDuiWindowProvider.disconnect"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowProvider.disconnect()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_provider.PyDuiWindowProvider.get_embedded_widget_provider"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowProvider.get_embedded_widget_provider()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_provider.PyDuiWindowProvider.get_render_context"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowProvider.get_render_context()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_provider.PyDuiWindowProvider.init_window"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowProvider.init_window()</span></code></a></li>
