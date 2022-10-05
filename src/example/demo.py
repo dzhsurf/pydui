@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
+import pathlib
 import threading
 
 from poga.libpoga_capi import poga_version
@@ -40,6 +42,9 @@ class DemoHandler(PyDuiWindowHandler):
 def main():
     print(f"start pydui version: {pydui.__version__}")
     print(f"Poga version: {poga_version()}")
+
+    # change current working directory
+    os.chdir(pathlib.Path(__file__).parent)
 
     window = get_builder().build_window(path="res/main_poga.xml", handler=DemoHandler)
     window.show()
