@@ -142,9 +142,18 @@ class PyDuiBuilder:
 
     def __build_window_from_path__(self, path: str) -> Tuple[Union[PyDuiWindowConfig, None], PyDuiWidget]:
         xml_content = self.__resource_provider.load_xml(path)
-        if xml_content is None:
+        if xml_content is None or len(xml_content) == 0:
             logging.error(f"load xml fail. path not exist. path = {path}")
-            return (None, PyDuiWidget())
+            return (
+                PyDuiWindowConfig(
+                    title="",
+                    size=(400, 300),
+                    min_size=(0, 0),
+                    max_size=(0, 0),
+                    position=Gtk.WindowPosition.CENTER,
+                ),
+                PyDuiVLayout(None),
+            )
         # syslog.syslog(syslog.LOG_ALERT, f"xml len {len(xml_content)}, path = {path}")
         # tree = ET.parse(path)
         # root = tree.getroot()
