@@ -197,7 +197,7 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install pydui-gtk
 </pre></div>
 </div>
-<p><strong>Windows:</strong> see the prerequisites below, you must setup the gtk development environment first to build the gtklib on the windows platform.</p>
+<p><strong>Windows:</strong> see the prerequisites below, you must setup the gtk environment first.</p>
 </section>
 <section id="building">
 <h3>Building<a class="headerlink" href="#building" title="Permalink to this heading">¶</a></h3>
@@ -207,15 +207,25 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 <div><p>If you are already in python3.9 environment, conda is not needed. but we highly recommend using it to manage the dev env.</p>
 </div></blockquote>
 <p><strong>Windows:</strong></p>
-<ul class="simple">
-<li><p>Build Tools: For Windows platform, Microsoft Visual C++ 14.0 or greater is required. Get it with “Microsoft C++ Build Tools”: https://visualstudio.microsoft.com/visual-cpp-build-tools/</p></li>
-<li><p>Install gtk environment</p></li>
-<li><p>Use the precompiled binary files or you can build by yourself. Browser the link below. I provided the precompiled files and the building guide.</p>
 <ul>
-<li><p>https://github.com/dzhsurf/gtk3-precompiled-libs-win-vs2019</p></li>
+<li><p>You can use prebuilt libraries.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install --no-binary :all: pygobject-pycairo-prebuilt-libraries-vs2019
+</pre></div>
+</div>
+<p>Or, you can build your own GTK libraries by following the guide below.</p>
+</li>
+<li><p>https://github.com/dzhsurf/gtk3-precompiled-libs-win-vs2019</p>
+<ul>
+<li><p>Build Tools: For Windows platform, Microsoft Visual C++ 14.0 or greater is required. Get it with “Microsoft C++ Build Tools”: https://visualstudio.microsoft.com/visual-cpp-build-tools/</p></li>
+<li><p>Download the prebuilt GTK libraries, then set add bin to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment, and set the <code class="docutils literal notranslate"><span class="pre">GI_TYPELIB_PATH</span></code> to the <code class="docutils literal notranslate"><span class="pre">gi_typelib</span></code> directory. Or you can build the GTK libraries your self.</p></li>
+<li><p>Run pip install <code class="docutils literal notranslate"><span class="pre">pygobject</span></code> and <code class="docutils literal notranslate"><span class="pre">pycairo</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install --no-binary --force-reinstall :all: pygobject
+pip install --no-binary --force-reinstall :all: pycairo
+</pre></div>
+</div>
+</li>
 </ul>
 </li>
-<li><p>poetry: https://python-poetry.org/docs/</p></li>
 </ul>
 <p><strong>MacOSX:</strong></p>
 <blockquote>
@@ -223,7 +233,7 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 </div></blockquote>
 <p><strong>Linux:</strong> …</p>
 <blockquote>
-<div><p>…</p>
+<div><p>No extra dependencies needed. GCC has basically been installed in desktop linux.</p>
 </div></blockquote>
 <p><strong>Setup and build</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, checkout the code</span>
@@ -233,6 +243,8 @@ conda env create -f conda_env.yaml
 conda activate pydui
 <span class="c1"># local install</span>
 pip install -e .
+<span class="c1"># then you can run the demo</span>
+python src/example/demo.py
 </pre></div>
 </div>
 </section>

@@ -8,5 +8,7 @@ poetry.lock
 src/example/build/
 docs/source/generated/
 docs/en/**/doctrees/
+docs/en/**/.doctrees/
 docs/zh_CN/**/doctrees/
+docs/zh_CN/**/.doctrees/
 docs/en/**/gettext/
