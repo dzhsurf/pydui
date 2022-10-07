@@ -16,13 +16,12 @@ exclude = [ "**/*.pyc", "**/*.pyi" ]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-gobject = "^0.1.0"
-pycairo = "^1.21.0"
-pygobject = "^3.42.2"
+pycairo = {version = "^1.21.0", platform = "linux;darwin"}
+pygobject = {version = "^3.42.2", platform = "linux;darwin"}
+pygobject-pycairo-prebuilt-libraries-vs2019 = { version="^0.1.1a6", platform = "windows" }
 asyncio = "^3.4.3"
-pynoticenter = ">=0.1.8"
-pathlib = "^1.0.1"
-poga = ">=0.1.12"
+pynoticenter = "^0.1.8"
+poga = "^0.1.14a3"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
