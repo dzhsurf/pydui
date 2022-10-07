@@ -9,3 +9,6 @@ dependencies:
   - pip:
     - pynoticenter
     - poga
+    - PyGObject-stubs
+    - pycairo = ">=1.21.0"
+    - pygobject = ">=3.42.2"
