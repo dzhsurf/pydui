@@ -8,7 +8,6 @@ readme = "README.md"
 license = "MIT"
 homepage = "https://github.com/dzhsurf/pydui"
 repository = "https://github.com/dzhsurf/pydui"
-include = [ "LICENSE" ]
 packages = [
 	{ include = "pydui", from = "src" }
 ]
