@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 import os
 import pathlib
+import platform
 import threading
 
 from poga.libpoga_capi import poga_version
 from pynoticenter import PyNotiCenter
 
-import platform
+from pydui.core.event import NCAreaType
+
 if platform.system() == "Windows":
     try:
         from pygobject_prebuilt_deps import import_pygobject_dll_module
+
         import_pygobject_dll_module()
     except ImportError:
         pass
@@ -45,6 +48,9 @@ class DemoHandler(PyDuiWindowHandler):
     def on_window_destroy(self):
         print(f"on_window_destroy")
         PyDuiApplication.main_quit()
+
+    # def on_nchittest(self, x: float, y: float) -> NCAreaType:
+    #     return NCAreaType.CAPTION
 
 
 def main():

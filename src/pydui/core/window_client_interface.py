@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from abc import ABC, abstractmethod
-from typing import Any, Callable
+from typing import Any, Callable, Tuple
 
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
+from pydui.core.event import NCAreaType
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.window_config import PyDuiWindowConfig
 from pydui.core.window_provider import PyDuiWindowProvider
@@ -39,7 +40,23 @@ class PyDuiWindowClientInterface(ABC):
         pass
 
     @abstractmethod
+    def get_window_size(self) -> Tuple[float, float]:
+        pass
+
+    @abstractmethod
     def set_window_size(self, width: float, height: float):
+        pass
+
+    @abstractmethod
+    def get_customize_titlebar(self) -> bool:
+        pass
+
+    @abstractmethod
+    def get_caption_area(self) -> Tuple[int, int, int, int]:
+        pass
+
+    @abstractmethod
+    def get_box_size(self) -> Tuple[int, int, int, int]:
         pass
 
     @abstractmethod

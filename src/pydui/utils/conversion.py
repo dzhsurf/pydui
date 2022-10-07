@@ -56,6 +56,14 @@ def Str2Color(text: str) -> Gdk.RGBA:
     return Gdk.RGBA(color[1] / 255, color[2] / 255, color[3] / 255, color[0] / 255)
 
 
+def Str2IntRect(text: str) -> Tuple[int, int, int, int]:
+    arr = text.split(",")
+    if len(arr) != 4:
+        return (0, 0, 0, 0)
+
+    return tuple(int(n) for n in arr)
+
+
 def Str2Rect(text: str) -> Tuple[float, float, float, float]:
     arr = text.split(",")
     if len(arr) != 4:
@@ -69,6 +77,17 @@ def IsNoneZeroRect(rect: Tuple[float, float, float, float]) -> bool:
         if int(r) == 0:
             return False
     return True
+
+
+def IsPointInRect(x: float, y: float, rect: Tuple[float, float, float, float]) -> bool:
+    if x >= rect[0] and x <= rect[2] and y >= rect[1] and y <= rect[3]:
+        return True
+    return False
+
+
+def IsPointInIntRect(x: float, y: float, rect: Tuple[int, int, int, int]) -> bool:
+    float_rect = tuple(float(n) for n in rect)
+    return IsPointInRect(x, y, float_rect)
 
 
 def RectH(rect: Tuple[float, float, float, float]) -> float:

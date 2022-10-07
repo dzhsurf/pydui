@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from pydui.core.resource_loader import PyDuiResourceLoader
+from pydui.core.event import NCAreaType
 from pydui.core.window_interface import PyDuiWindowInterface
 
 
@@ -40,3 +40,6 @@ class PyDuiWindowHandler:
             show: window is visible
         """
         pass
+
+    def on_nchittest(self, x: float, y: float) -> NCAreaType:
+        return NCAreaType.UNDEFINED

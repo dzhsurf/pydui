@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from abc import abstractmethod
-from typing import Any, Callable, Protocol
+from typing import Any, Callable, Protocol, Tuple
 
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetProvider
+from pydui.core.event import NCAreaType
 from pydui.core.window_config import PyDuiWindowConfig
 
 
@@ -28,6 +29,10 @@ class PyDuiWindowProvider(Protocol):
         pass
 
     @abstractmethod
+    def get_window_size(self) -> Tuple[float, float]:
+        pass
+
+    @abstractmethod
     def set_window_size(self, width: float, height: float):
         pass
 
@@ -45,4 +50,12 @@ class PyDuiWindowProvider(Protocol):
 
     @abstractmethod
     def disaconnect_all(self, signal: str):
+        pass
+
+    @abstractmethod
+    def begin_move_drag(self, x: float, y: float):
+        pass
+
+    @abstractmethod
+    def begin_resize_drag(self, area_type: NCAreaType, x: float, y: float):
         pass

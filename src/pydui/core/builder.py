@@ -160,6 +160,7 @@ class PyDuiBuilder:
         root = ET.fromstring(xml_content)
         config = self.__process_root_node__(root)
         root_widget = PyDuiVLayout(None)
+        # root_widget.bkcolor = utils.Str2Color("#00FFFFFF")
         for child in root:
             self.__recursive_tree_node__(
                 node=child,
@@ -181,6 +182,9 @@ class PyDuiBuilder:
             default_font=node.attrib.get("default_font", "Arial"),
             default_fontsize=int(node.attrib.get("default_fontsize", "16")),
             default_fontbold=node.attrib.get("default_fontbold", "false") == "true",
+            customize_titlebar=node.attrib.get("customize_titlebar", "false") == "true",
+            caption_height=int(node.attrib.get("caption_height", "24")),
+            box_size=utils.Str2IntRect(node.attrib.get("box_size", "4,4,4,4")),
         )
 
     def __process_tree_node__(self, node: ET.Element, parent_widget: PyDuiLayout) -> PyDuiWidget:

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Window size="800,600" title='Quickstart Demo' min_size="600,400"
-    default_font="Helvetica" default_fontsize="16">
+    default_font="Helvetica" default_fontsize="16"
+    customize_titlebar="false" box_size="16,16,16,16" caption_height="32"
+    >
     <PGLayout
         bkcolor="#FFEFEFEF"
         align_content="stretch"

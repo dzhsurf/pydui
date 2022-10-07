@@ -4,8 +4,9 @@ import weakref
 from typing import Any, Callable, Tuple, Type
 from weakref import ReferenceType
 
+from pydui import utils
 from pydui.common.base import PyDuiClickType
-from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType
+from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType
 from pydui.core.widget import PyDuiWidget
 from pydui.core.window_client import PyDuiWindowClientInterface
 from pydui.core.window_handler import PyDuiWindowHandler
@@ -109,6 +110,16 @@ class PyDuiWindowEventDispatcher:
 
     def on_button_press(self, event: ButtonEvent) -> bool:
         x, y = event.x, event.y
+
+        if self.__handler is not None:
+            area_type = self.__handler.on_nchittest(x, y)
+            if area_type == NCAreaType.UNDEFINED:
+                area_type = self.__default_on_nchittest__(x, y)
+
+            if area_type != NCAreaType.UNDEFINED and area_type != NCAreaType.CLIENT:
+                self.__handle_ncpress__(area_type, x, y)
+                return False
+
         widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
             return False
@@ -129,6 +140,7 @@ class PyDuiWindowEventDispatcher:
             return False
 
         x, y = event.x, event.y
+
         widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
             return False
@@ -246,3 +258,49 @@ class PyDuiWindowEventDispatcher:
     def __dispatch_3button_press__(self, widget: PyDuiWidget, event: ButtonEvent):
         # This event is difficult to manage and should be avoided. Use press to simulate.
         pass
+
+    def __default_on_nchittest__(self, x: float, y: float) -> NCAreaType:
+        client = self.__client()
+        if client.get_customize_titlebar():
+
+            w, h = client.get_window_size()
+            box_size = client.get_box_size()
+
+            if utils.IsPointInIntRect(x, y, (0, 0, box_size[0], box_size[1])):
+                return NCAreaType.LEFT_TOP
+            if utils.IsPointInIntRect(x, y, (box_size[0], 0, w - box_size[2], box_size[1])):
+                return NCAreaType.TOP
+            if utils.IsPointInIntRect(x, y, (w - box_size[2], 0, w, box_size[1])):
+                return NCAreaType.RIGHT_TOP
+
+            if utils.IsPointInIntRect(x, y, (0, box_size[1], box_size[0], h - box_size[3])):
+                return NCAreaType.LEFT
+            if utils.IsPointInIntRect(x, y, (w - box_size[2], box_size[1], w, h - box_size[3])):
+                return NCAreaType.RIGHT
+
+            if utils.IsPointInIntRect(x, y, (0, h - box_size[3], box_size[0], h)):
+                return NCAreaType.LEFT_BOTTOM
+            if utils.IsPointInIntRect(x, y, (box_size[0], h - box_size[3], w - box_size[2], h)):
+                return NCAreaType.BOTTOM
+            if utils.IsPointInIntRect(x, y, (w - box_size[2], h - box_size[3], w, h)):
+                return NCAreaType.RIGHT_BOTTOM
+
+            caption_area = client.get_caption_area()
+            if utils.IsPointInIntRect(x, y, caption_area):
+                return NCAreaType.CAPTION
+
+            return NCAreaType.CLIENT
+
+        return NCAreaType.UNDEFINED
+
+    def __handle_ncpress__(self, area_type: NCAreaType, x: float, y: float):
+        if area_type == NCAreaType.CAPTION:
+            self.__process_begin_move_drag__(x, y)
+        else:
+            self.__process_begin_resize_drag__(area_type, x, y)
+
+    def __process_begin_move_drag__(self, x: float, y: float):
+        self.__client().get_window_provider().begin_move_drag(x, y)
+
+    def __process_begin_resize_drag__(self, area_type: NCAreaType, x: float, y: float):
+        self.__client().get_window_provider().begin_resize_drag(area_type, x, y)

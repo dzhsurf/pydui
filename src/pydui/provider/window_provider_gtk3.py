@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """PyDui window provider implement with GTK-3"""
-from typing import Any, Callable, Dict, List
+from distutils.util import convert_path
+from time import time
+from typing import Any, Callable, Dict, List, Tuple
 
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetProvider
-from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType
+from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType
 from pydui.core.render_canvas import PyDuiRenderCanvas
 from pydui.core.window_config import PyDuiWindowConfig
 from pydui.core.window_interface import PyDuiWindowProvider
@@ -30,9 +32,11 @@ def __to_event_type__(type: Gdk.EventType) -> ButtonEventType:
 
 
 def __to_button_event__(event: Gdk.EventButton) -> ButtonEvent:
+    screen_x, screen_y = event.window.get_root_coords(event.x, event.y)
+    base_x, base_y = event.window.get_root_origin()
     return ButtonEvent(
-        x=int(event.x),
-        y=int(event.y),
+        x=int(screen_x - base_x),
+        y=int(screen_y - base_y),
         button=__to_button_type__(event.button),
         event=__to_event_type__(event.type),
         time=int(event.time),
@@ -54,8 +58,7 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
 
         # Init Gtk Window
         self.__gtk_window = Gtk.Window()
-        # TODO: custom window style
-        # self.__gtk_window.set_decorated(False)
+        self.__gtk_window.set_border_width(0)
 
     def init_window(self, config: PyDuiWindowConfig, ondraw: Callable[[Any, float, float], None]):
         super().init_window(config, ondraw)
@@ -65,11 +68,20 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         scrolled_window = Gtk.ScrolledWindow()
         scrolled_window.set_hexpand(True)
         scrolled_window.set_vexpand(True)
+        scrolled_window.set_border_width(0)
+        scrolled_window.set_shadow_type(Gtk.ShadowType.NONE)
+        scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
 
         self.__layer = Gtk.Fixed()
+        self.__layer.set_border_width(0)
         self.__layer.set_has_window(True)
+
+        viewport = Gtk.Viewport()
+        viewport.set_shadow_type(Gtk.ShadowType.NONE)
+        viewport.add(self.__layer)
+
         self.__layer.put(self.__canvas, 0, 0)
-        scrolled_window.add(self.__layer)
+        scrolled_window.add(viewport)
 
         gtk_window = self.__gtk_window
         gtk_window.add(scrolled_window)
@@ -79,6 +91,8 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         gtk_window.set_default_size(*config.size)
         gtk_window.set_size_request(*config.min_size)
         gtk_window.set_position(config.position)
+        if config.customize_titlebar:
+            self.__gtk_window.set_decorated(False)
 
         # init window events
         gtk_window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
@@ -91,6 +105,10 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         gtk_window.connect("show", self.on_window_show)
         gtk_window.connect("hide", self.on_window_hide)
         gtk_window.connect("motion-notify-event", self.on_motion_notify)
+        gtk_window.connect("drag-begin", self.on_drag_begin)
+        gtk_window.connect("drag-end", self.on_drag_end)
+        # scrolled_window.connect("button-press-event", self.on_button_press)
+        # scrolled_window.connect("button-release-event", self.on_button_release)
         self.__layer.connect("button-press-event", self.on_button_press)
         self.__layer.connect("button-release-event", self.on_button_release)
 
@@ -106,6 +124,11 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
 
     def show(self):
         self.__gtk_window.show_all()
+
+    def get_window_size(self) -> Tuple[float, float]:
+        w = self.__gtk_window.get_allocated_width()
+        h = self.__gtk_window.get_allocated_height()
+        return (float(w), float(h))
 
     def set_window_size(self, width: float, height: float):
         self.__canvas.set_size_request(width, height)
@@ -162,11 +185,36 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
 
         return self.__notify_signals__("motion-notify-event", x, y, x_root, y_root)
 
+    def on_drag_begin(self, object: Gtk.Widget, context: Gdk.DragContext):
+        pass
+
+    def on_drag_end(self, object: Gtk.Widget, context: Gdk.DragContext):
+        pass
+
     def on_button_press(self, object: Gtk.Widget, event: Gdk.EventButton) -> bool:
         return self.__notify_signals__("button-press-event", __to_button_event__(event))
 
     def on_button_release(self, object: Gtk.Widget, event: Gdk.EventButton) -> bool:
         return self.__notify_signals__("button-release-event", __to_button_event__(event))
+
+    def begin_move_drag(self, x: float, y: float):
+        timestamp = int(time())
+        self.__gtk_window.begin_move_drag(1, int(x), int(y), timestamp)
+
+    def begin_resize_drag(self, area_type: NCAreaType, x: float, y: float):
+        convert_table = {
+            NCAreaType.LEFT: Gdk.WindowEdge.WEST,
+            NCAreaType.TOP: Gdk.WindowEdge.NORTH,
+            NCAreaType.RIGHT: Gdk.WindowEdge.EAST,
+            NCAreaType.BOTTOM: Gdk.WindowEdge.SOUTH,
+            NCAreaType.LEFT_TOP: Gdk.WindowEdge.NORTH_WEST,
+            NCAreaType.LEFT_BOTTOM: Gdk.WindowEdge.SOUTH_WEST,
+            NCAreaType.RIGHT_TOP: Gdk.WindowEdge.NORTH_EAST,
+            NCAreaType.RIGHT_BOTTOM: Gdk.WindowEdge.SOUTH_EAST,
+        }
+        edge = convert_table[area_type]
+        timestamp = int(time())
+        self.__gtk_window.begin_resize_drag(edge, 1, int(x), int(y), timestamp)
 
     def __notify_signals__(self, signal: str, *args: Any) -> bool:
         if signal not in self.__signals_fn_dict:

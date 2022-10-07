@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import weakref
-from typing import Any, Callable, Type
+from typing import Any, Callable, Tuple, Type
 from weakref import ReferenceType
 
 from pynoticenter import PyNotiCenter, PyNotiTaskQueue
@@ -10,7 +10,6 @@ from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost, PyDuiEmbeddedWidgetProvider
 from pydui.core.appearance_manager import PyDuiAppearanceManager
 from pydui.core.layout import PyDuiLayout
-from pydui.core.render_canvas import PyDuiRenderCanvas
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import PyDuiWidget
 from pydui.core.window_client_interface import PyDuiWindowClientInterface
@@ -71,8 +70,22 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     def init_window(self, config: PyDuiWindowConfig, ondraw: Callable[[Any, float, float], None]):
         self.get_window_provider().init_window(config, ondraw)
 
+    def get_window_size(self) -> Tuple[float, float]:
+        return self.get_window_provider().get_window_size()
+
     def set_window_size(self, w: float, h: float):
         self.get_window_provider().set_window_size(w, h)
+
+    def get_customize_titlebar(self) -> bool:
+        return self.__appearance_manager.customize_titlebar
+
+    def get_caption_area(self) -> Tuple[int, int, int, int]:
+        caption_height = self.__appearance_manager.caption_height
+        w, _ = self.get_window_size()
+        return (0, 0, int(w), caption_height)
+
+    def get_box_size(self) -> Tuple[int, int, int, int]:
+        return self.__appearance_manager.box_size
 
     def get_render_context(self) -> cairo.Context:
         return self.get_window_provider().get_render_context()
@@ -152,6 +165,9 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         if config.default_fontbold:
             self.__appearance_manager.default_fontfamily = self.__appearance_manager.default_fontfamily + " bold"
         self.__appearance_manager.default_fontsize = config.default_fontsize
+        self.__appearance_manager.customize_titlebar = config.customize_titlebar
+        self.__appearance_manager.box_size = config.box_size
+        self.__appearance_manager.caption_height = config.caption_height
         self.set_window_size(config.size[0], config.size[1])
         self.__event_dispatcher.init_events()
 

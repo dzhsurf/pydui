@@ -1,6 +1,21 @@
 # -*- coding: utf-8 -*-
 from dataclasses import dataclass
 from enum import Enum
+from tkinter import UNDERLINE
+
+
+class NCAreaType(Enum):
+    UNDEFINED = 0
+    CAPTION = 1
+    LEFT = 2
+    TOP = 3
+    RIGHT = 4
+    BOTTOM = 5
+    LEFT_TOP = 6
+    RIGHT_TOP = 7
+    LEFT_BOTTOM = 8
+    RIGHT_BOTTOM = 9
+    CLIENT = 10
 
 
 class ButtonType(Enum):
