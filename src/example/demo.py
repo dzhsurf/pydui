@@ -6,6 +6,14 @@ import threading
 from poga.libpoga_capi import poga_version
 from pynoticenter import PyNotiCenter
 
+import platform
+if platform.system() == "Windows":
+    try:
+        from pygobject_prebuilt_deps import import_pygobject_dll_module
+        import_pygobject_dll_module()
+    except ImportError:
+        pass
+
 import pydui
 from pydui import *
 from pydui.common.import_gtk import *

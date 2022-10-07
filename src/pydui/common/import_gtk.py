@@ -1,12 +1,4 @@
 # -*- coding: utf-8 -*-
-import platform
-if platform.system() == "Windows":
-    try:
-        from pygobject_prebuilt_deps import import_pygobject_dll_module
-        import_pygobject_dll_module()
-    except ImportError:
-        pass 
-
 import cairo
 import gi
 

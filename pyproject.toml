@@ -16,9 +16,8 @@ exclude = [ "**/*.pyc", "**/*.pyi" ]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pycairo = {version = "^1.21.0", platform = "linux;darwin"}
-pygobject = {version = "^3.42.2", platform = "linux;darwin"}
-pygobject-pycairo-prebuilt-libraries-vs2019 = { version="^0.1.1a6", platform = "windows" }
+pycairo = "^1.21.0"
+pygobject = "^3.42.2"
 asyncio = "^3.4.3"
 pynoticenter = "^0.1.8"
 poga = "^0.1.14a3"
@@ -30,8 +29,6 @@ sphinx-intl = "^2.0.1"
 piccolo-theme = "^0.12.0"
 myst_parser = "^0.18.0"
 recommonmark = "^0.7.1"
-meson = "^0.63.2"
-ninja= "^1.10.2.3"
 
 [tool.poetry.scripts]
 demo = "src.example.demo:main"
