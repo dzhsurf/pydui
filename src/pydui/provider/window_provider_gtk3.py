@@ -73,7 +73,6 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
 
         self.__layer = Gtk.Fixed()
-        self.__layer.set_border_width(0)
         self.__layer.set_has_window(True)
 
         viewport = Gtk.Viewport()
