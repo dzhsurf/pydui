@@ -116,12 +116,6 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
         if not apply_poga_attributes(self.__layout, k, v):
             super().parse_attrib(k, v)
 
-    # def add_child(self, child: PyDuiWidget):
-    #     super().add_child(child)
-
-    # def remove_child(self, widget_id: str):
-    #     super().remove_child(widget_id)
-
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
     ) -> Tuple[float, float]:

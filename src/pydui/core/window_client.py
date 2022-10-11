@@ -3,7 +3,7 @@ import weakref
 from typing import Any, Callable, Tuple, Type
 from weakref import ReferenceType
 
-from pynoticenter import PyNotiCenter, PyNotiTaskQueue
+from pynoticenter import PyNotiCenter, PyNotiOptions, PyNotiTaskQueue
 
 from pydui.common.base import PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
@@ -45,7 +45,9 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         self.__window = weakref.ref(window)  # weakref
         self.__appearance_manager = PyDuiAppearanceManager()
         self.__loader = loader
-        self.__task_queue = PyNotiCenter.default().create_task_queue("pydui-client-queue")
+        self.__task_queue = PyNotiCenter.default().create_task_queue(
+            options=PyNotiOptions(queue="pydui-client-queue", fn_with_task_id=True)
+        )
         self.__task_queue.set_preprocessor(self.__post_task_to_gtk_thread__)
         self.__rootview = rootview
         # self.__rootview.set_window_client(self)  # weakref
@@ -90,13 +92,19 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     def get_render_context(self) -> cairo.Context:
         return self.get_window_provider().get_render_context()
 
+    def add_event_observer(self, key: str, fn: Callable):
+        self.__event_dispatcher.add_event_observer(key, fn)
+
+    def remove_event_observer(self, key: str, fn: Callable):
+        self.__event_dispatcher.remove_event_observer(key, fn)
+
     def cancel_task(self, task_id: str):
         self.__task_queue.cancel_task(task_id)
 
-    def post_task(self, fn: callable, *args: Any, **kwargs: Any) -> str:
+    def post_task(self, fn: Callable, *args: Any, **kwargs: Any) -> str:
         return self.post_task_with_delay(0.0, fn, *args, **kwargs)
 
-    def post_task_with_delay(self, delay: float, fn: callable, *args: Any, **kwargs: Any) -> str:
+    def post_task_with_delay(self, delay: float, fn: Callable, *args: Any, **kwargs: Any) -> str:
         if self.__task_queue.is_terminated:
             return ""
         if fn is None:
@@ -183,8 +191,8 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         self.__rootview.layout(0, 0, width, height, constraint)
         self.__rootview.draw(ctx, 0, 0, width, height)
 
-    def __post_task_to_gtk_thread__(self, fn: callable, *args: Any, **kwargs: Any) -> bool:
+    def __post_task_to_gtk_thread__(self, fn: Callable, task_id: str, *args: Any, **kwargs: Any) -> bool:
         if self.__task_queue.is_terminated:
             return True
-        GLib.idle_add(fn, *args, **kwargs)
+        GLib.idle_add(fn, task_id, *args, **kwargs)
         return True

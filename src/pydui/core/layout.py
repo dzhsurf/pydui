@@ -148,7 +148,15 @@ class PyDuiLayout(PyDuiWidget):
         if self.get_window_client() is not None:
             child.__do_post_init__(self.get_window_client())
 
-    def remove_child(self, widget_id: str):
+    def remove_child(self, child: PyDuiWidget):
+        """Remove child widget.
+
+        Args:
+            widget (PyDuiWidget): widget object
+        """
+        self.__children.remove(child)
+
+    def remove_child_by_id(self, widget_id: str):
         """Remove child widget by widget_id
 
         Args:
@@ -158,7 +166,7 @@ class PyDuiLayout(PyDuiWidget):
         child = self.get_child(widget_id)
         if child is None:
             return
-        self.__children.remove(child)
+        self.remove_child(child)
 
     def remove_child_at(self, index: int):
         """Remove child widget at index
@@ -172,7 +180,7 @@ class PyDuiLayout(PyDuiWidget):
         child = self.get_child_at(index)
         if child is None:
             return
-        self.__children.pop(index)
+        self.remove_child(child)
 
     @property
     def child_count(self) -> int:

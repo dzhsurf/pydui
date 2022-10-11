@@ -6,6 +6,10 @@ from typing import Tuple
 from pydui.common.import_gtk import *
 
 
+def Str2Bool(text: str) -> bool:
+    return text.lower() == "true"
+
+
 def Str2Size(text: str) -> Tuple[float, float]:
     """Convert text to Tuple[float, float]
 

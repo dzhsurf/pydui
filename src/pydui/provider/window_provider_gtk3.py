@@ -33,7 +33,7 @@ def __to_event_type__(type: Gdk.EventType) -> ButtonEventType:
 
 def __to_button_event__(event: Gdk.EventButton) -> ButtonEvent:
     screen_x, screen_y = event.window.get_root_coords(event.x, event.y)
-    base_x, base_y = event.window.get_root_origin()
+    base_x, base_y = event.window.get_root_coords(0, 0)
     return ButtonEvent(
         x=int(screen_x - base_x),
         y=int(screen_y - base_y),
@@ -96,6 +96,9 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         # init window events
         gtk_window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
         gtk_window.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
+        gtk_window.add_events(Gdk.EventMask.POINTER_MOTION_HINT_MASK)
+        self.__layer.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
+        self.__layer.add_events(Gdk.EventMask.POINTER_MOTION_HINT_MASK)
         self.__layer.add_events(Gdk.EventMask.BUTTON_PRESS_MASK)
         self.__layer.add_events(Gdk.EventMask.BUTTON_RELEASE_MASK)
         gtk_window.connect("configure-event", self.on_configure_event)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Window size="664,600" title='Quickstart Demo' min_size="600,400"
+<Window size="800,600" title='Quickstart Demo' min_size="400,300"
     default_font="Helvetica" default_fontsize="16">
     <HLayout bkcolor="#FFFFFFFF">
         <!-- left panel -->
-        <VLayout bkcolor="#FFC8C8C8" width="200">
+        <VLayout bkcolor="#FFC8C8C8" width="120">
         </VLayout>
         <VLayout halign="center" bkcolor="#FFE8E8E8">
             <!-- head -->
@@ -15,36 +15,47 @@
                 </VLayout>
             </HLayout>
             <!-- body -->
-            <VLayout padding="8,8,8,8">
+            <ScrolledLayout>
+                <VLayout autofit="true" fitrule="v">
+                    <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
+                        <Picture width="40" height="40" image="res/images/avatar-2.jpeg" />
+                        <VLayout halign="start" margin="12,0,122,0" autofit="true" fitrule="h" >
+                            <Label text="Angela:" autofit="true"
+                                fontsize="14" fontcolor="#FF8A8A8A" valign="start" halign="start" />
+                            <Label text="I'd like to know more about the pydui-gtk and discuss how we can use it in our product." margin="0,8,0,0"
+                                autofit="true" autofit_padding="12,8,12,8"
+                                corner="12,12,12,12"
+                                bkimage="res/images/common_button_disable.png"
+                            />
+                        </VLayout>
+                    </HLayout>
 
-                <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
-                    <Picture width="40" height="40" image="res/images/avatar-2.jpeg" />
-                    <VLayout halign="start" margin="12,0,122,0" autofit="true" fitrule="h" >
-                        <Label text="Angela:" autofit="true"
-                            fontsize="14" fontcolor="#FF8A8A8A" valign="start" halign="start" />
-                        <Label text="I'd like to know more about the pydui-gtk and discuss how we can use it in our product." margin="0,8,0,0"
+                    <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
+                        <Control />
+                        <Label text="Sure, you can use pydui-gtk to create desktop app. You should try it."
+                            margin="122,0,12,0"
                             autofit="true" autofit_padding="12,8,12,8"
                             corner="12,12,12,12"
-                            bkimage="res/images/common_button_disable.png"
+                            bkimage="res/images/common_button_normal.png"
                         />
-                    </VLayout>
-                </HLayout>
+                        <Picture width="40" height="40" image="res/images/avatar-1.jpeg" />
+                    </HLayout>
 
-                <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
+                    <!-- bottom bar -->
                     <Control />
-                    <Label text="Sure, you can use pydui-gtk to create desktop app. You should try it."
-                        margin="122,0,12,0"
-                        autofit="true" autofit_padding="12,8,12,8"
-                        corner="12,12,12,12"
+                    <Control height="300" />
+                    <Button width="120" height="80" corner="12,12,12,12"
                         bkimage="res/images/common_button_normal.png"
+                        bkimage_hover="res/images/common_button_hover.png"
+                        bkimage_press="res/images/common_button_press.png"
                     />
-                    <Picture width="40" height="40" image="res/images/avatar-1.jpeg" />
-                </HLayout>
 
-                <!-- bottom bar -->
-                <Control />
-                <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2" />
-            </VLayout>
+                    <!-- <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2"
+                        text="Hello World!" corner="12,12,12,12"
+                        text_padding="8,8,8,8"
+                    /> -->
+                </VLayout>
+            </ScrolledLayout>
         </VLayout>
     </HLayout>
 </Window>

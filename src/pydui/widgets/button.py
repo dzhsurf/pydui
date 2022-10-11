@@ -75,16 +75,45 @@ class PyDuiButton(PyDuiLabel):
             corner=self.corner,
         )
 
+    @property
+    def bkimage_hover(self) -> str:
+        return self.__bkimage_hover
+
+    @bkimage_hover.setter
+    def bkimage_hover(self, image: str):
+        self.__bkimage_hover = image
+
+    @property
+    def bkimage_press(self) -> str:
+        return self.__bkimage_press
+
+    @bkimage_press.setter
+    def bkimage_press(self, image: str):
+        self.__bkimage_press = image
+
+    @property
+    def bkimage_disable(self) -> str:
+        return self.__bkimage_disable
+
+    @bkimage_disable.setter
+    def bkimage_disable(self, image: str):
+        self.__bkimage_disable = image
+
+    def get_bindevents(self) -> List[str]:
+        events = super().get_bindevents()
+        events.extend(["lbutton-press", "lbutton-release"])
+        return events
+
     def get_signals(self) -> List[str]:
         signals = super().get_signals()
         signals.extend(
             [
-                "lclick",
-                "rclick",
-                "l2click",
-                "r2click",
-                "l3click",
-                "r3click",
+                "lbutton-click",
+                "rbutton-click",
+                "lbutton-dbclick",
+                "rbutton-dbclick",
+                "lbutton-tripleclick",
+                "rbutton-tripleclick",
             ]
         )
         return signals
@@ -99,23 +128,33 @@ class PyDuiButton(PyDuiLabel):
         self.__button_state = PyDuiButtonState.NORMAL
         self.get_window_client().notify_redraw()
 
+    def on_lbutton_press(self, x: float, y: float):
+        if self.do_bind_event("lbutton-press", self, x, y):
+            return True
+        return super().on_lbutton_press(x, y)
+
+    def on_lbutton_release(self, x: float, y: float):
+        if self.do_bind_event("lbutton-release", self, x, y):
+            return True
+        return super().on_lbutton_release(x, y)
+
     def on_lbutton_click(self, x: float, y: float):
-        self.emit("lclick", self, x, y)
+        self.emit("lbutton-click", self, x, y)
 
     def on_rbutton_click(self, x: float, y: float):
-        self.emit("rclick", self, x, y)
+        self.emit("rbutton-click", self, x, y)
 
     def on_l2button_click(self, x: float, y: float):
-        self.emit("l2click", self, x, y)
+        self.emit("lbutton-dblick", self, x, y)
 
     def on_r2button_click(self, x: float, y: float):
-        self.emit("r2click", self, x, y)
+        self.emit("rbutton-dbclick", self, x, y)
 
     def on_l3button_click(self, x: float, y: float):
-        self.emit("l3click", self, x, y)
+        self.emit("lbutton-tripleclick", self, x, y)
 
     def on_r3button_click(self, x: float, y: float):
-        self.emit("r3click", self, x, y)
+        self.emit("rbutton-tripleclick", self, x, y)
 
     def __get_drawimage_by_state(self):
         if not self.enabled:

@@ -24,6 +24,7 @@ from pydui.core.window import *
 from pydui.layout.fixed_layout import PyDuiFixedLayout
 from pydui.layout.hlayout import PyDuiHLayout
 from pydui.layout.pglayout import PyDuiPGLayout
+from pydui.layout.scrolled_layout import PyDuiFitLayout, PyDuiScrolledLayout
 from pydui.layout.vlayout import PyDuiVLayout
 from pydui.widgets.button import PyDuiButton
 from pydui.widgets.edit import PyDuiEdit
@@ -38,6 +39,8 @@ INTERNAL_WIDGET_LIST = [
     PyDuiVLayout,
     PyDuiPGLayout,
     PyDuiFixedLayout,
+    PyDuiScrolledLayout,
+    PyDuiFitLayout,
     PyDuiLabel,
     PyDuiButton,
     PyDuiPicture,

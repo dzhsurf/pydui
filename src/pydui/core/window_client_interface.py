@@ -68,6 +68,14 @@ class PyDuiWindowClientInterface(ABC):
         pass
 
     @abstractmethod
+    def add_event_observer(self, key: str, fn: Callable):
+        pass
+
+    @abstractmethod
+    def remove_event_observer(self, key: str, fn: Callable):
+        pass
+
+    @abstractmethod
     def cancel_task(self, task_id: str):
         pass
 

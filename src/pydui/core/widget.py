@@ -3,7 +3,7 @@ import logging
 import sys
 import weakref
 from dataclasses import dataclass
-from typing import Any, List, Tuple
+from typing import Any, Callable, Dict, List, Tuple
 from weakref import ReferenceType
 
 from pydui import utils
@@ -55,7 +55,8 @@ class PyDuiWidget(PyDuiObject):
     __corner: Tuple[float, float, float, float] = (0, 0, 0, 0)
     __bkimage: str = ""
     # event
-    __signals: dict[str, list[callable]] = None
+    __bind_events: Dict[str, List[Callable]] = None
+    __signals: Dict[str, List[Callable]] = None
     __enable_mouse_event: bool = False
 
     @staticmethod
@@ -75,7 +76,8 @@ class PyDuiWidget(PyDuiObject):
     def __init__(self, parent: PyDuiObject):
         super().__init__()
         self.__parent = parent
-        self.__signals = dict[str, list[callable]]()
+        self.__bind_events = {}
+        self.__signals = {}
 
     def set_window_client(self, window_client: PyDuiWindowClientInterface):
         """Set the window client
@@ -256,14 +258,42 @@ class PyDuiWidget(PyDuiObject):
     def get_signals(self) -> List[str]:
         return []
 
-    def connect(self, signal_name: str, callback: callable):
+    def get_bindevents(self) -> List[str]:
+        return []
+
+    def bind_event(self, event_name: str, callback: Callable):
+        if event_name in self.__bind_events:
+            self.__bind_events[event_name].append(callback)
+        else:
+            self.__bind_events[event_name] = list([callback])
+
+    def unbind_event(self, event_name: str, callback: Callable):
+        def remove_fn(item: Callable):
+            if item == callback:
+                return True
+            return False
+
+        if event_name in self.__bind_events:
+            self.__bind_events[event_name] = list(filter(remove_fn, self.__bind_events[event_name]))
+
+    def do_bind_event(self, event_name: str, *args, **kwargs) -> bool:
+        fn_list: List[Callable] = []
+        if event_name in self.__bind_events:
+            fn_list = self.__bind_events[event_name].copy()
+        for fn in fn_list:
+            ret = fn(*args, **kwargs)
+            if ret:
+                return ret
+        return False
+
+    def connect(self, signal_name: str, callback: Callable):
         if signal_name in self.__signals:
             self.__signals[signal_name].append(callback)
         else:
             self.__signals[signal_name] = list([callback])
 
-    def disconnect(self, signal_name: str, callback: callable):
-        def remove_fn(item: callable):
+    def disconnect(self, signal_name: str, callback: Callable):
+        def remove_fn(item: Callable):
             if item == callback:
                 return True
             return False
@@ -279,7 +309,7 @@ class PyDuiWidget(PyDuiObject):
         if signal_name in self.__signals:
             fn_list = self.__signals[signal_name].copy()
 
-            def run_all_fn(*args: Any, **kwargs: Any):
+            def run_all_fn(task_id: str, *args: Any, **kwargs: Any):
                 for fn in fn_list:
                     if fn(*args, **kwargs):
                         break

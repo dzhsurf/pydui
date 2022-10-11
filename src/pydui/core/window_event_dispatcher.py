@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import weakref
-from typing import Any, Callable, Tuple, Type
+from typing import Any, Callable, Dict, List, Tuple, Type
 from weakref import ReferenceType
 
 from pydui import utils
@@ -38,6 +38,9 @@ class PyDuiWindowEventDispatcher:
     __last_press_time: int = 0
     __last_click_type: PyDuiClickType = PyDuiClickType.NONE
 
+    # event observer
+    __event_observers: Dict[str, List[Callable]] = None
+
     def __init__(
         self,
         window: PyDuiWindowInterface,
@@ -49,6 +52,7 @@ class PyDuiWindowEventDispatcher:
         self.__client = weakref.ref(client)
         self.__handler = PyDuiWindowHandler()
         self.__on_init = on_init
+        self.__event_observers = {"mouse-move": []}
         if handler is not None:
             self.__handler = handler()
 
@@ -70,6 +74,17 @@ class PyDuiWindowEventDispatcher:
         # init finish, callback
         if self.__on_init is not None:
             self.__on_init()
+
+    def add_event_observer(self, key: str, fn: Callable):
+        if key not in self.__event_observers:
+            return
+        self.__event_observers[key].append(fn)
+
+    def remove_event_observer(self, key: str, fn: Callable):
+        if key not in self.__event_observers:
+            return
+        fn_list = list(filter(lambda x: x != fn, self.__event_observers[key]))
+        self.__event_observers[key] = fn_list
 
     @property
     def handler(self) -> PyDuiWindowHandler:
@@ -141,6 +156,10 @@ class PyDuiWindowEventDispatcher:
 
         x, y = event.x, event.y
 
+        if self.__last_press_widget is not None:
+            self.__dispatch_button_release__(self.__last_press_widget, event)
+            return True
+
         widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
             return False
@@ -150,6 +169,14 @@ class PyDuiWindowEventDispatcher:
 
     def __dispatch_mouse_move__(self, x: int, y: int):
         self.__mouse_x, self.__mouse_y = x, y
+
+        fn_list = self.__event_observers["mouse-move"].copy()
+        for fn in fn_list:
+            fn(x, y)
+
+        if self.__last_press_widget is not None:
+            self.__last_press_widget.on_mouse_move(x, y)
+            return
 
         widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
 
@@ -172,15 +199,22 @@ class PyDuiWindowEventDispatcher:
         if widget.on_lbutton_press(event.x, event.y):
             return
         button, time = event.button, event.time
+        if time != self.__last_press_time:
+            # it is another click press event, reset click task.
+            self.__last_click_task = ""
         self.__last_press_widget = widget
         self.__last_press_button = button
         self.__last_press_time = time
 
     def __dispatch_button_release__(self, widget: PyDuiWidget, event: ButtonEvent):
         if widget is None:
-            return True
-        if not widget.enabled:
-            return True
+            return False
+
+        if widget.enabled:
+            if widget.on_lbutton_release(event.x, event.y):
+                return True
+        else:
+            widget = None
 
         click = True
         if widget != self.__last_press_widget or event.button != self.__last_press_button:
@@ -203,6 +237,7 @@ class PyDuiWindowEventDispatcher:
             if self.__last_click_task != "":
                 self.__client().cancel_task(self.__last_click_task)
             self.__reset_button_click_state__()
+            self.__dispatch_mouse_move__(event.x, event.y)
 
     def __reset_button_click_state__(self):
         self.__last_click_type = PyDuiClickType.NONE
@@ -211,7 +246,10 @@ class PyDuiWindowEventDispatcher:
         self.__last_press_button = ButtonType.UNDEFINED
         self.__last_press_time = 0
 
-    def __dispatch_button_click__(self, widget: PyDuiWidget, event: ButtonEvent):
+    def __dispatch_button_click__(self, task_id: str, widget: PyDuiWidget, event: ButtonEvent):
+        if task_id != self.__last_click_task:
+            return
+
         last_press_widget = self.__last_press_widget
         last_press_button = self.__last_press_button
         last_press_time = self.__last_press_time
@@ -231,7 +269,10 @@ class PyDuiWindowEventDispatcher:
         else:
             widget.on_lbutton_click(event.x, event.y)
 
-    def __dispatch_button_dbclick__(self, widget: PyDuiWidget, event: ButtonEvent):
+    def __dispatch_button_dbclick__(self, task_id: str, widget: PyDuiWidget, event: ButtonEvent):
+        if task_id != self.__last_click_task:
+            return
+
         last_press_widget = self.__last_press_widget
         last_press_button = self.__last_press_button
         last_press_time = self.__last_press_time
