@@ -334,7 +334,7 @@ In the early stage, performance optimization, resource leakage issue, text rende
 * Core
   * Builder, Render, ResourceLoader, EventDispatcher
 * Layout
-  * HLayout, VLayout, FixedLayout, PGLayout
+  * HLayout, VLayout, PGLayout, ScrolledLayout
 * Widgets
   * Label, Button, Picture, Edit, TableView, FlowListView, Menu, Toast
 * Deployment
@@ -387,8 +387,8 @@ Layout:
 
 * HLayout - finish
 * VLayout - finish
-* FixedLayout - 0%
 * PGLayout - 90%
+* ScrolledLayout - 30%, processing
 
 Widget:
 
@@ -401,7 +401,6 @@ Widget:
   * Text selection
   * Drag&Drop
 * Picture - 0%, processing
-* Scrollable - 0%, pending
 * TableView - 0%, pending
 * FlowListView - 0%, not started
 * Menu - 0%, not started
