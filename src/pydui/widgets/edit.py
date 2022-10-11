@@ -29,7 +29,6 @@ class PyDuiEdit(PyDuiPGView):
 
     def on_post_init(self):
         pass
-        # self.__init_text_view_if_needed__()
 
     def parse_attrib(self, k: str, v: str):
         if k == "text":
@@ -121,7 +120,7 @@ class PyDuiEdit(PyDuiPGView):
         return signals
 
     # private
-    def __init_text_view_if_needed__(self):
+    def __init_text_view_if_needed__(self, task_id: str):
         client = self.get_window_client()
         if client is None:
             return
