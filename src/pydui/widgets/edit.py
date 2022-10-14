@@ -141,6 +141,6 @@ class PyDuiEdit(PyDuiPGView):
         text_padding_w = self.__text_padding.width
         text_padding_h = self.__text_padding.height
         self.get_window_client().update_embedded_widget_position(
-            self.__text_view, self.x + self.__text_padding[0], self.y + self.__text_padding[1]
+            self.__text_view, self.root_x + self.__text_padding.left, self.root_y + self.__text_padding.top
         )
         self.__text_view.api.set_size_request(max(0, self.width - text_padding_w), max(0, self.height - text_padding_h))

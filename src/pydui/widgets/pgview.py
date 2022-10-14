@@ -56,9 +56,6 @@ class PyDuiPGView(PyDuiWidget, PogaView):
     def set_frame_position_and_size(self, x: float, y: float, width: float, height: float):
         # print(self, "set_frame_position_and_size", "x", x, "y", y, "w", width, "h", height)
         layout_x, layout_y = x, y
-        if self.parent is not None:
-            layout_x += self.parent.x
-            layout_y += self.parent.y
 
         constraint = PyDuiLayoutConstraint()
         if YGFloatIsUndefined(width):

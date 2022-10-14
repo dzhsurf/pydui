@@ -144,9 +144,6 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
     def set_frame_position_and_size(self, x: float, y: float, width: float, height: float):
         # print(self, "set_frame_origin", "x", x, "y", y)
         layout_x, layout_y = x, y
-        if self.parent is not None:
-            layout_x += self.parent.x
-            layout_y += self.parent.y
         super().layout(layout_x, layout_y, width, height, constraint=PyDuiLayoutConstraint())
 
     def bounds_size(self) -> Tuple[float, float]:
