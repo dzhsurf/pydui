@@ -98,31 +98,26 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
         self.__body.remove_child_at(index)
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        # super().draw(ctx, x, y, width, height)
-        super(PyDuiLayout, self).draw(ctx, x, y, width, height)
-        # TODO, draw particial region
-        self.__body.draw(ctx, x, y, width, height)
-        if self.__vscrollbar is not None:
-            self.__vscrollbar.draw(
-                ctx, self.__vscrollbar.x, self.__vscrollbar.y, self.__vscrollbar.width, self.__vscrollbar.height
-            )
-        if self.__hscrollbar is not None:
-            pass
+        super().draw(ctx, x, y, width, height)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         super(PyDuiLayout, self).layout(x, y, width, height, constraint)
 
         body_size = self.__body.estimate_size(width, height, constraint=PyDuiLayoutConstraint())
-        self.__body.layout(0, 0, body_size[0], body_size[1], constraint=PyDuiLayoutConstraint())
+        self.__body.layout(
+            -self.__body.fixed_x, -self.__body.fixed_y, body_size[0], body_size[1], constraint=PyDuiLayoutConstraint()
+        )
         self.__init_scrollbar_if_needed__()
         self.__update_scrollbar__()
         if self.__vscrollbar is not None:
+            self.__vscrollbar.fixed_x = width - self.__vscrollbar.fixed_width
+            self.__vscrollbar.fixed_y = 0
             self.__vscrollbar.fixed_height = height
             self.__vscrollbar.layout(
-                x + width - self.__vscrollbar.fixed_width,
-                y,
+                self.__vscrollbar.fixed_x,
+                self.__vscrollbar.fixed_y,
                 self.__vscrollbar.fixed_width,
-                height,
+                self.__vscrollbar.fixed_height,
                 constraint=PyDuiLayoutConstraint(),
             )
 
@@ -142,7 +137,7 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
         if has_vscrollbar:
             if self.__vscrollbar is None:
                 self.__vscrollbar = PyDuiScrollbar()
-                self.__vscrollbar.connect("vscroll-changed", self.__on_vscroll_changed__)
+                self.__vscrollbar.bind_event("vscroll-changed", self.__on_vscroll_changed__)
                 super().add_child(self.__vscrollbar)
 
     def __update_scrollbar__(self):
@@ -158,4 +153,6 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
                 self.__vscrollbar = None
 
     def __on_vscroll_changed__(self, pos: float):
-        pass
+        if self.__body is None:
+            return
+        self.__body.fixed_y = pos

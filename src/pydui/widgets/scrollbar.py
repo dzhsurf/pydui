@@ -44,14 +44,13 @@ class PyDuiScrollbar(PyDuiLayout):
         self.__scroller.fixed_height = height
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        super(PyDuiLayout, self).draw(ctx, x, y, width, height)
-        self.__scroller.draw(ctx, self.__scroller.x, self.__scroller.y, self.__scroller.width, self.__scroller.height)
+        super().draw(ctx, x, y, width, height)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
-        super().layout(x, y, width, height, constraint)
+        super(PyDuiLayout, self).layout(x, y, width, height, constraint)
         self.__scroller.layout(
-            self.x + self.__scroller.fixed_x,
-            self.y + self.__scroller.fixed_y,
+            self.__scroller.fixed_x,
+            self.__scroller.fixed_y,
             self.__scroller.fixed_width,
             self.__scroller.fixed_height,
             constraint=PyDuiLayoutConstraint(),
@@ -90,8 +89,9 @@ class PyDuiScrollbar(PyDuiLayout):
     def __scroll_to__(self, dx: float, dy: float):
         self.__scroller_y += dy
         self.__scroller_y = max(0, self.__scroller_y)
-        self.__scroller_y = min(self.height - self.__scroller.height, self.__scroller_y)
+        self.__scroller_y = min(self.height - self.__scroller.fixed_height, self.__scroller_y)
         self.__scroller.fixed_y = self.__scroller_y + 2
-        self.emit("vscroll-changed", self.scroll_position)
+        self.do_bind_event("vscroll-changed", self.scroll_position)
+        # self.emit("vscroll-changed", self.scroll_position)
         # TODO, set needupdate, invalidrect
         self.get_window_client().notify_redraw()
