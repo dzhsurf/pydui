@@ -1,3 +1,5 @@
+from ctypes import sizeof
+from enum import Enum
 from typing import List
 
 from pydui import utils
@@ -8,6 +10,11 @@ from pydui.core.widget import PyDuiWidget
 from pydui.widgets.button import PyDuiButton
 
 
+class PyDuiScrollbarType(Enum):
+    VScrollbar = 0
+    HScrollbar = 1
+
+
 class PyDuiScrollbar(PyDuiLayout):
     """PyDuiScrollbar"""
 
@@ -16,6 +23,7 @@ class PyDuiScrollbar(PyDuiLayout):
     __press_y: float = 0
     __scroller_x: float = 0
     __scroller_y: float = 0
+    __type: PyDuiScrollbarType = PyDuiScrollbarType.VScrollbar
 
     @staticmethod
     def build_name() -> str:
@@ -24,24 +32,27 @@ class PyDuiScrollbar(PyDuiLayout):
     def __init__(self):
         super().__init__()
         self.__scroller = PyDuiButton()
-        self.__scroller.bkimage = "res/images/vscroller.png"
-        self.__scroller.bkimage_hover = "res/images/vscroller_hover.png"
-        self.__scroller.bkimage_press = "res/images/vscroller_press.png"
-        self.__scroller.corner = PyDuiEdge.from_value(3)
-        self.__scroller.fixed_width = 7
         self.add_child(self.__scroller)
-        self.fixed_width = self.__scroller.fixed_width + 4
         self.__scroller.bind_event("lbutton-press", self.__on_lbutton_press__)
         self.__scroller.bind_event("lbutton-release", self.__on_lbutton_release__)
+
+    def set_scrollbar_type(self, type: PyDuiScrollbarType):
+        self.__type = type
+        self.__update_scrollbar_style__()
 
     def on_post_init(self):
         super().on_post_init()
 
-    def update_scroller(self, width: float, height: float):
-        # vscroller
+    def parse_attrib(self, k: str, v: str):
+        return super().parse_attrib(k, v)
+
+    def update_scroller(self, size: float):
         self.__scroller.fixed_x = self.__scroller_x + 2
         self.__scroller.fixed_y = self.__scroller_y + 2
-        self.__scroller.fixed_height = height
+        if self.__type == PyDuiScrollbarType.VScrollbar:
+            self.__scroller.fixed_height = size
+        else:
+            self.__scroller.fixed_width = size
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
         super().draw(ctx, x, y, width, height)
@@ -68,6 +79,25 @@ class PyDuiScrollbar(PyDuiLayout):
         return signals
 
     # private
+    def __update_scrollbar_style__(self):
+        scroller_size = 7
+        scroller_corner = PyDuiEdge.from_value(3)
+        edge = PyDuiEdge.from_value(2)
+        if self.__type == PyDuiScrollbarType.VScrollbar:
+            self.__scroller.bkimage = "res/images/vscroller.png"
+            self.__scroller.bkimage_hover = "res/images/vscroller_hover.png"
+            self.__scroller.bkimage_press = "res/images/vscroller_press.png"
+            self.__scroller.corner = scroller_corner
+            self.__scroller.fixed_width = scroller_size
+            self.fixed_width = self.__scroller.fixed_width + edge.width
+        else:
+            self.__scroller.bkimage = "res/images/hscroller.png"
+            self.__scroller.bkimage_hover = "res/images/hscroller_hover.png"
+            self.__scroller.bkimage_press = "res/images/hscroller_press.png"
+            self.__scroller.corner = scroller_corner
+            self.__scroller.fixed_height = scroller_size
+            self.fixed_height = self.__scroller.fixed_height + edge.height
+
     def __on_lbutton_press__(self, widget: PyDuiWidget, x: float, y: float) -> bool:
         self.__press_x = x
         self.__press_y = y

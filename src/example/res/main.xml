@@ -15,7 +15,7 @@
                 </VLayout>
             </HLayout>
             <!-- body -->
-            <ScrolledLayout>
+            <ScrolledLayout vscroll="true">
                 <VLayout autofit="true" fitrule="v">
                     <HLayout valign="start" margin="12,0,12,0" autofit="true" fitrule="h">
                         <Picture width="40" height="40" image="res/images/avatar-2.jpeg" />
