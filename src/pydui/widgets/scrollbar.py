@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from ctypes import sizeof
 from enum import Enum
 from typing import List

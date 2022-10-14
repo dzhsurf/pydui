@@ -31,6 +31,7 @@ from pydui.widgets.icon import PyDuiIcon
 from pydui.widgets.label import PyDuiLabel
 from pydui.widgets.pgview import PyDuiPGView
 from pydui.widgets.picture import PyDuiPicture
+from pydui.widgets.listview import PyDuiListView
 
 INTERNAL_WIDGET_LIST = [
     PyDuiPGView,
@@ -43,6 +44,7 @@ INTERNAL_WIDGET_LIST = [
     PyDuiButton,
     PyDuiPicture,
     PyDuiEdit,
+    PyDuiListView,
 ]
 INTERNAL_WIDGET_TABLE = dict[str, Any]()
 INTERNAL_WIDGET_INIT = False
