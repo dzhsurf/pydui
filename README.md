@@ -364,7 +364,7 @@ There's much work to do...
 
 Builder:
 
-* [ Window, Control, Label, Button, Edit, Picture, HLayout, VLayout, PGLayout ] - finish
+* [ Window, Label, Button, Edit, Picture, HLayout, VLayout, PGLayout, ScrolledLayout, ... ] - finish
 * StyleManager - planning
 
 ResourceLoader:
@@ -389,6 +389,7 @@ Layout:
 * VLayout - finish
 * PGLayout - finish
 * ScrolledLayout - finish
+* Fixed widget - 0%, processing
 
 Widget:
 
