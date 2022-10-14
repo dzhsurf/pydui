@@ -7,6 +7,7 @@ from poga import *
 from pydui import utils
 from pydui.common.base import PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
+from pydui.core.event import ScrollDirection, ScrollEvent
 from pydui.core.layout import PyDuiLayout
 from pydui.core.widget import PyDuiWidget
 from pydui.layout.pglayout import PyDuiLayoutWithPogaSupport
@@ -64,6 +65,7 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
 
     def __init__(self):
         super().__init__()
+        self.enable_mouse_wheel_event = True
         self.__body = PyDuiFitLayout()
         super().add_child(self.__body)
 
@@ -116,6 +118,18 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
 
     def enable_hscroll(self, enabled: bool):
         self.__enable_hscroll = enabled
+
+    def scroll_to(self, dx: float, dy: float):
+        if self.__vscrollbar is not None and dy != 0:
+            self.__vscrollbar.__scroll_to__(0, dy * 15)
+
+    # event
+    def on_scroll_event(self, event: ScrollEvent) -> bool:
+        if event.direction == ScrollDirection.UP:
+            self.scroll_to(0, -event.delta_y)
+        elif event.direction == ScrollDirection.DOWN:
+            self.scroll_to(0, event.delta_y)
+        return False
 
     # private
     def __update_scrollbar__(self):

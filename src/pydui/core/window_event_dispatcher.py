@@ -6,7 +6,7 @@ from weakref import ReferenceType
 
 from pydui import utils
 from pydui.common.base import PyDuiClickType, PyDuiEdge, PyDuiRect
-from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType
+from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType, ScrollEvent
 from pydui.core.widget import PyDuiWidget
 from pydui.core.window_client import PyDuiWindowClientInterface
 from pydui.core.window_handler import PyDuiWindowHandler
@@ -70,6 +70,7 @@ class PyDuiWindowEventDispatcher:
         provider.connect("motion-notify-event", self.on_motion_notify)
         provider.connect("button-press-event", self.on_button_press)
         provider.connect("button-release-event", self.on_button_release)
+        provider.connect("scroll-event", self.on_scroll_event)
 
         # init finish, callback
         if self.__on_init is not None:
@@ -166,6 +167,15 @@ class PyDuiWindowEventDispatcher:
 
         self.__dispatch_button_release__(widget, event)
         return True
+
+    def on_scroll_event(self, event: ScrollEvent) -> bool:
+        x, y = event.x, event.y
+
+        widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_wheel_event_filter)
+        if widget is None:
+            return False
+
+        return widget.on_scroll_event(event)
 
     def __dispatch_mouse_move__(self, x: int, y: int):
         self.__mouse_x, self.__mouse_y = x, y

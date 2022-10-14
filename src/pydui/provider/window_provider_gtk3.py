@@ -6,7 +6,7 @@ from typing import Any, Callable, Dict, List, Tuple
 
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetProvider
-from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType
+from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType, ScrollDirection, ScrollEvent
 from pydui.core.render_canvas import PyDuiRenderCanvas
 from pydui.core.window_config import PyDuiWindowConfig
 from pydui.core.window_interface import PyDuiWindowProvider
@@ -41,6 +41,34 @@ def __to_button_event__(event: Gdk.EventButton) -> ButtonEvent:
         event=__to_event_type__(event.type),
         time=int(event.time),
     )
+
+
+def __to_scroll_direction__(direction: Gdk.ScrollDirection) -> ScrollDirection:
+    if direction == Gdk.ScrollDirection.UP:
+        return ScrollDirection.UP
+    if direction == Gdk.ScrollDirection.DOWN:
+        return ScrollDirection.DOWN
+    if direction == Gdk.ScrollDirection.LEFT:
+        return ScrollDirection.LEFT
+    if direction == Gdk.ScrollDirection.RIGHT:
+        return ScrollDirection.RIGHT
+    if direction == Gdk.ScrollDirection.SMOOTH:
+        return ScrollDirection.SMOOTH
+    return None
+
+
+def __to_scroll_event__(event: Gdk.EventScroll) -> ScrollEvent:
+    screen_x, screen_y = event.window.get_root_coords(event.x, event.y)
+    base_x, base_y = event.window.get_root_coords(0, 0)
+    return ScrollEvent(
+        x=int(screen_x - base_x),
+        y=int(screen_y - base_y),
+        delta_x=event.delta_x,
+        delta_y=event.delta_y,
+        direction=__to_scroll_direction__(event.direction),
+        time=event.time,
+    )
+    return None
 
 
 class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
@@ -97,10 +125,12 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         gtk_window.add_events(Gdk.EventMask.SUBSTRUCTURE_MASK)
         gtk_window.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
         gtk_window.add_events(Gdk.EventMask.POINTER_MOTION_HINT_MASK)
+        gtk_window.add_events(Gdk.EventMask.SCROLL_MASK)
         self.__layer.add_events(Gdk.EventMask.POINTER_MOTION_MASK)
         self.__layer.add_events(Gdk.EventMask.POINTER_MOTION_HINT_MASK)
         self.__layer.add_events(Gdk.EventMask.BUTTON_PRESS_MASK)
         self.__layer.add_events(Gdk.EventMask.BUTTON_RELEASE_MASK)
+        self.__layer.add_events(Gdk.EventMask.SCROLL_MASK)
         gtk_window.connect("configure-event", self.on_configure_event)
         gtk_window.connect("destroy", self.on_window_destroy)
         gtk_window.connect("window-state-event", self.on_window_state_event)
@@ -113,6 +143,7 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         # scrolled_window.connect("button-release-event", self.on_button_release)
         self.__layer.connect("button-press-event", self.on_button_press)
         self.__layer.connect("button-release-event", self.on_button_release)
+        self.__layer.connect("scroll-event", self.on_scroll_event)
 
     def set_render_context(self, context: Any):
         self.__ctx = context
@@ -198,6 +229,9 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
 
     def on_button_release(self, object: Gtk.Widget, event: Gdk.EventButton) -> bool:
         return self.__notify_signals__("button-release-event", __to_button_event__(event))
+
+    def on_scroll_event(self, object: Gtk.Widget, event: Gdk.EventScroll) -> bool:
+        return self.__notify_signals__("scroll-event", __to_scroll_event__(event))
 
     def begin_move_drag(self, x: float, y: float):
         timestamp = int(time())

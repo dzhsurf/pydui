@@ -9,6 +9,7 @@ from weakref import ReferenceType
 from pydui import utils
 from pydui.common.base import *
 from pydui.common.import_gtk import *
+from pydui.core.event import ScrollEvent
 from pydui.core.render import PyDuiRender
 from pydui.core.window_client_interface import PyDuiWindowClientInterface
 
@@ -57,20 +58,27 @@ class PyDuiWidget(PyDuiObject):
     __bind_events: Dict[str, List[Callable]] = None
     __signals: Dict[str, List[Callable]] = None
     __enable_mouse_event: bool = False
+    __enable_mouse_wheel_event: bool = False
 
     @staticmethod
     def build_name() -> str:
         return "__Control"
 
     @staticmethod
-    def find_widget_default_filter(widget: PyDuiObject) -> bool:
+    def find_widget_default_filter(widget: "PyDuiWidget") -> bool:
         return widget is not None
 
     @staticmethod
-    def find_widget_mouse_event_filter(widget: PyDuiObject) -> bool:
+    def find_widget_mouse_event_filter(widget: "PyDuiWidget") -> bool:
         if widget is None:
             return False
         return widget.enable_mouse_event
+
+    @staticmethod
+    def find_widget_mouse_wheel_event_filter(widget: "PyDuiWidget") -> bool:
+        if widget is None:
+            return False
+        return widget.enable_mouse_wheel_event and widget.enabled
 
     def __init__(self):
         super().__init__()
@@ -207,6 +215,14 @@ class PyDuiWidget(PyDuiObject):
     def enable_mouse_event(self, enable: bool):
         self.__enable_mouse_event = enable
 
+    @property
+    def enable_mouse_wheel_event(self) -> bool:
+        return self.__enable_mouse_wheel_event
+
+    @enable_mouse_wheel_event.setter
+    def enable_mouse_wheel_event(self, enable: bool):
+        self.__enable_mouse_wheel_event = enable
+
     def on_post_init(self):
         pass
 
@@ -248,6 +264,9 @@ class PyDuiWidget(PyDuiObject):
 
     def on_r3button_click(self, x: float, y: float):
         pass
+
+    def on_scroll_event(self, event: ScrollEvent) -> bool:
+        return False
 
     # method
     def get_signals(self) -> List[str]:

@@ -44,3 +44,27 @@ class ButtonEvent(EventObject):
     button: ButtonType
     event: ButtonEventType
     time: int
+
+
+class ScrollDirection(Enum):
+    UP = 0
+    DOWN = 1
+    LEFT = 2
+    RIGHT = 3
+    SMOOTH = 4
+
+
+# class ModifierType(Enum):
+#     SHIFT_MASK = 1
+#     CONTROL_MASK = 4
+
+
+@dataclass(frozen=True)
+class ScrollEvent(EventObject):
+    x: int
+    y: int
+    delta_x: float
+    delta_y: float
+    direction: ScrollDirection
+    # state: ModifierType
+    time: int
