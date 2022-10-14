@@ -32,8 +32,8 @@ class PyDuiButton(PyDuiLabel):
     def build_name() -> str:
         return "Button"
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.can_focus = True
         self.enable_mouse_event = True
 
@@ -71,7 +71,7 @@ class PyDuiButton(PyDuiLabel):
             loader=self.get_window_client().get_resource_loader(),
             path=path,
             xy=(x, y),
-            wh=(width, height),
+            wh=(self.width, self.height),
             corner=self.corner,
         )
 

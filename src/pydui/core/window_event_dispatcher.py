@@ -5,7 +5,7 @@ from typing import Any, Callable, Dict, List, Tuple, Type
 from weakref import ReferenceType
 
 from pydui import utils
-from pydui.common.base import PyDuiClickType
+from pydui.common.base import PyDuiClickType, PyDuiEdge, PyDuiRect
 from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType
 from pydui.core.widget import PyDuiWidget
 from pydui.core.window_client import PyDuiWindowClientInterface
@@ -179,7 +179,6 @@ class PyDuiWindowEventDispatcher:
             return
 
         widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
-
         hover_change = widget != self.__last_hover_widget
         old_widget = self.__last_hover_widget
         self.__last_hover_widget = widget
@@ -307,27 +306,27 @@ class PyDuiWindowEventDispatcher:
             w, h = client.get_window_size()
             box_size = client.get_box_size()
 
-            if utils.IsPointInIntRect(x, y, (0, 0, box_size[0], box_size[1])):
+            if PyDuiRect.from_ltrb(0, 0, box_size.left, box_size.top).contain_point((x, y)):
                 return NCAreaType.LEFT_TOP
-            if utils.IsPointInIntRect(x, y, (box_size[0], 0, w - box_size[2], box_size[1])):
+            if PyDuiRect.from_ltrb(box_size.left, 0, w - box_size.right, box_size.top).contain_point((x, y)):
                 return NCAreaType.TOP
-            if utils.IsPointInIntRect(x, y, (w - box_size[2], 0, w, box_size[1])):
+            if PyDuiRect.from_ltrb(w - box_size.right, 0, w, box_size.top).contain_point((x, y)):
                 return NCAreaType.RIGHT_TOP
 
-            if utils.IsPointInIntRect(x, y, (0, box_size[1], box_size[0], h - box_size[3])):
+            if PyDuiRect.from_ltrb(0, box_size.top, box_size.left, h - box_size.bottom).contain_point((x, y)):
                 return NCAreaType.LEFT
-            if utils.IsPointInIntRect(x, y, (w - box_size[2], box_size[1], w, h - box_size[3])):
+            if PyDuiRect.from_ltrb(w - box_size.right, box_size.top, w, h - box_size.bottom).contain_point((x, y)):
                 return NCAreaType.RIGHT
 
-            if utils.IsPointInIntRect(x, y, (0, h - box_size[3], box_size[0], h)):
+            if PyDuiRect.from_ltrb(0, h - box_size.bottom, box_size.left, h).contain_point((x, y)):
                 return NCAreaType.LEFT_BOTTOM
-            if utils.IsPointInIntRect(x, y, (box_size[0], h - box_size[3], w - box_size[2], h)):
+            if PyDuiRect.from_ltrb(box_size.left, h - box_size.bottom, w - box_size.right, h).contain_point((x, y)):
                 return NCAreaType.BOTTOM
-            if utils.IsPointInIntRect(x, y, (w - box_size[2], h - box_size[3], w, h)):
+            if PyDuiRect.from_ltrb(w - box_size.right, h - box_size.bottom, w, h).contain_point((x, y)):
                 return NCAreaType.RIGHT_BOTTOM
 
             caption_area = client.get_caption_area()
-            if utils.IsPointInIntRect(x, y, caption_area):
+            if caption_area.contain_point((x, y)):
                 return NCAreaType.CAPTION
 
             return NCAreaType.CLIENT

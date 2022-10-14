@@ -7,6 +7,7 @@ from poga import *
 from pydui import utils
 from pydui.common.base import PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
+from pydui.core.layout import PyDuiLayout
 from pydui.core.widget import PyDuiWidget
 from pydui.layout.pglayout import PyDuiLayoutWithPogaSupport
 from pydui.utils.poga_utils import *
@@ -20,14 +21,11 @@ class PyDuiFitLayout(PyDuiLayoutWithPogaSupport):
     def build_name() -> str:
         return "FitLayout"
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
         super().draw(ctx, x, y, width, height)
-        for i in range(self.child_count):
-            child = self.get_child_at(i)
-            child.draw(ctx, child.x, child.y, child.width, child.height)
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
@@ -45,10 +43,10 @@ class PyDuiFitLayout(PyDuiLayoutWithPogaSupport):
         return (parent_width, parent_height)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
-        super().layout(x, y, width, height, constraint)
-        if self.child_count >= 1:
-            child = self.get_child_at(0)
-            child.layout(x, y, width, height, constraint)
+        super(PyDuiLayout, self).layout(x, y, width, height, constraint)
+        for i in range(self.child_count):
+            child = self.get_child_at(i)
+            child.layout(0, 0, width, height, constraint)
 
 
 class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
@@ -64,9 +62,9 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
     def build_name() -> str:
         return "ScrolledLayout"
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
-        self.__body = PyDuiFitLayout(parent)
+    def __init__(self):
+        super().__init__()
+        self.__body = PyDuiFitLayout()
         super().add_child(self.__body)
 
     def parse_attrib(self, k: str, v: str):
@@ -100,7 +98,8 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
         self.__body.remove_child_at(index)
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        super().draw(ctx, x, y, width, height)
+        # super().draw(ctx, x, y, width, height)
+        super(PyDuiLayout, self).draw(ctx, x, y, width, height)
         # TODO, draw particial region
         self.__body.draw(ctx, x, y, width, height)
         if self.__vscrollbar is not None:
@@ -111,9 +110,10 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
             pass
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
-        super().layout(x, y, width, height, constraint)
+        super(PyDuiLayout, self).layout(x, y, width, height, constraint)
+
         body_size = self.__body.estimate_size(width, height, constraint=PyDuiLayoutConstraint())
-        self.__body.layout(x, y, body_size[0], body_size[1], constraint=PyDuiLayoutConstraint())
+        self.__body.layout(0, 0, body_size[0], body_size[1], constraint=PyDuiLayoutConstraint())
         self.__init_scrollbar_if_needed__()
         self.__update_scrollbar__()
         if self.__vscrollbar is not None:
@@ -141,8 +141,8 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
         has_vscrollbar = self.__body.height > self.height
         if has_vscrollbar:
             if self.__vscrollbar is None:
-                self.__vscrollbar = PyDuiScrollbar(self)
-                self.__vscrollbar.connect('vscroll-changed', self.__on_vscroll_changed__)
+                self.__vscrollbar = PyDuiScrollbar()
+                self.__vscrollbar.connect("vscroll-changed", self.__on_vscroll_changed__)
                 super().add_child(self.__vscrollbar)
 
     def __update_scrollbar__(self):

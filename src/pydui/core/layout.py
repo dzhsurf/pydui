@@ -11,19 +11,20 @@ class PyDuiLayout(PyDuiWidget):
 
     """Layout base class, all layouts inherit from PyDuiLayout"""
 
-    __children: list[PyDuiWidget] = None
-    __padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
+    __children: List[PyDuiWidget] = None
+    __padding: PyDuiEdge = None
     __childHVAlign: Tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.START, PyDuiAlign.START)
-    __fitrule: list[str] = None
+    __fitrule: List[str] = None
 
-    def __init__(self, parent: PyDuiWidget, custom_gtk_widget: Gtk.Widget = None):
-        super().__init__(parent)
-        self.__children = list[PyDuiWidget]()
-        self.__fitrule = list[str]()
+    def __init__(self):
+        super().__init__()
+        self.__padding = PyDuiEdge()
+        self.__children = []
+        self.__fitrule = []
 
     def parse_attrib(self, k: str, v: str):
         if k == "padding":
-            self.padding = utils.Str2Rect(v)
+            self.padding = utils.Str2Edge(v)
         elif k == "halign":
             self.__childHVAlign = (Text2PyDuiAlign(v), self.valign)
         elif k == "valign":
@@ -42,8 +43,29 @@ class PyDuiLayout(PyDuiWidget):
         height: float,
     ):
         super().draw(ctx, x, y, width, height)
+        rc1 = PyDuiRect.from_size((x, y), (width, height))
+        for i in range(self.child_count):
+            child = self.get_child_at(i)
+            ctx.save()
+            # clip region
+            rc2 = PyDuiRect.from_size((child.x, child.y), (child.width, child.height))
+            draw_rc = utils.intersect_rect(rc1, rc2)
+            ctx.rectangle(draw_rc.left, draw_rc.top, draw_rc.width, draw_rc.height)
+            ctx.clip()
+            ctx.translate(child.x, child.y)
+            child.draw(ctx, 0, 0, draw_rc.width, draw_rc.height)
+            ctx.restore()
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
+        """layout
+
+        Args:
+            x (float): x offset relative to parent
+            y (float): y offset relative to parent
+            width (float): widget width
+            height (float): widget height
+            constraint (PyDuiLayoutConstraint): layout constraint
+        """
         super().layout(x, y, width, height, constraint)
 
     def get_children_range_fixed_width(self, start, stop) -> float:
@@ -51,7 +73,7 @@ class PyDuiLayout(PyDuiWidget):
         for i in range(start, stop):
             child = self.get_child_at(i)
             margin = child.margin
-            w = w + child.fixed_width + utils.RectW(margin)
+            w = w + child.fixed_width + margin.width
         return w
 
     def get_children_range_fixed_height(self, start, stop) -> float:
@@ -59,7 +81,7 @@ class PyDuiLayout(PyDuiWidget):
         for i in range(start, stop):
             child = self.get_child_at(i)
             margin = child.margin
-            h = h + child.fixed_height + utils.RectH(margin)
+            h = h + child.fixed_height + margin.height
         return h
 
     def get_child(self, widget_id: str) -> PyDuiWidget:
@@ -126,6 +148,7 @@ class PyDuiLayout(PyDuiWidget):
         """
         if child is None:
             return
+        child.set_parent(self)
         self.__children.append(child)
         if self.get_window_client() is not None:
             child.__do_post_init__(self.get_window_client())
@@ -144,6 +167,7 @@ class PyDuiLayout(PyDuiWidget):
         """
         if child is None:
             return
+        child.set_parent(self)
         self.__children.insert(index, child)
         if self.get_window_client() is not None:
             child.__do_post_init__(self.get_window_client())
@@ -184,32 +208,14 @@ class PyDuiLayout(PyDuiWidget):
 
     @property
     def child_count(self) -> int:
-        """Return child count
-
-        Returns:
-            int: return child widget count.
-        """
         return len(self.__children)
 
     @property
-    def padding(self) -> Tuple[float, float, float, float]:
-        """Return widget padding
-
-        The value in tuple means [left, top, right, bottom]
-
-        Returns:
-            Tuple[float, float, float, float]: return padding.
-        """
+    def padding(self) -> PyDuiEdge:
         return self.__padding
 
     @padding.setter
-    def padding(self, padding: Tuple[float, float, float, float]):
-        """Set the widget padding
-
-        Args:
-            padding (Tuple[float, float, float, float]): widget padding
-
-        """
+    def padding(self, padding: PyDuiEdge):
         self.__padding = padding
 
     @property

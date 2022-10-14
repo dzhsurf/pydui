@@ -21,7 +21,6 @@ from pydui.core.layout import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
 from pydui.core.window import *
-from pydui.layout.fixed_layout import PyDuiFixedLayout
 from pydui.layout.hlayout import PyDuiHLayout
 from pydui.layout.pglayout import PyDuiPGLayout
 from pydui.layout.scrolled_layout import PyDuiFitLayout, PyDuiScrolledLayout
@@ -38,7 +37,6 @@ INTERNAL_WIDGET_LIST = [
     PyDuiHLayout,
     PyDuiVLayout,
     PyDuiPGLayout,
-    PyDuiFixedLayout,
     PyDuiScrolledLayout,
     PyDuiFitLayout,
     PyDuiLabel,
@@ -162,7 +160,7 @@ class PyDuiBuilder:
         # root = tree.getroot()
         root = ET.fromstring(xml_content)
         config = self.__process_root_node__(root)
-        root_widget = PyDuiVLayout(None)
+        root_widget = PyDuiVLayout()
         # root_widget.bkcolor = utils.Str2Color("#00FFFFFF")
         for child in root:
             self.__recursive_tree_node__(
@@ -187,7 +185,7 @@ class PyDuiBuilder:
             default_fontbold=node.attrib.get("default_fontbold", "false") == "true",
             customize_titlebar=node.attrib.get("customize_titlebar", "false") == "true",
             caption_height=int(node.attrib.get("caption_height", "24")),
-            box_size=utils.Str2IntRect(node.attrib.get("box_size", "4,4,4,4")),
+            box_size=utils.Str2Edge(node.attrib.get("box_size", "4,4,4,4")),
         )
 
     def __process_tree_node__(self, node: ET.Element, parent_widget: PyDuiLayout) -> PyDuiWidget:
@@ -205,9 +203,9 @@ class PyDuiBuilder:
                 logging.info(f"Initial internal widget classes. count = {len(INTERNAL_WIDGET_TABLE)}")
                 logging.info(f"Internal widget classes: {INTERNAL_WIDGET_TABLE.keys()}")
             if tag in INTERNAL_WIDGET_TABLE:
-                return INTERNAL_WIDGET_TABLE[tag](parent_widget)
+                return INTERNAL_WIDGET_TABLE[tag]()
             # TODO: handle custom user define widget
-            return PyDuiWidget(parent_widget)
+            return PyDuiWidget()
 
         result = build_gtk_widget()
         if parent_widget is not None:

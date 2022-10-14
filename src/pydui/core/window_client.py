@@ -5,7 +5,7 @@ from weakref import ReferenceType
 
 from pynoticenter import PyNotiCenter, PyNotiOptions, PyNotiTaskQueue
 
-from pydui.common.base import PyDuiLayoutConstraint
+from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost, PyDuiEmbeddedWidgetProvider
 from pydui.core.appearance_manager import PyDuiAppearanceManager
@@ -81,12 +81,12 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     def get_customize_titlebar(self) -> bool:
         return self.__appearance_manager.customize_titlebar
 
-    def get_caption_area(self) -> Tuple[int, int, int, int]:
+    def get_caption_area(self) -> PyDuiRect:
         caption_height = self.__appearance_manager.caption_height
         w, _ = self.get_window_size()
-        return (0, 0, int(w), caption_height)
+        return PyDuiRect.from_ltrb(0, 0, w, caption_height)
 
-    def get_box_size(self) -> Tuple[int, int, int, int]:
+    def get_box_size(self) -> PyDuiEdge:
         return self.__appearance_manager.box_size
 
     def get_render_context(self) -> cairo.Context:

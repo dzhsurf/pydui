@@ -25,21 +25,20 @@ class PyDuiConstraint:
 
 
 class PyDuiObject:
-    """PyDuiObject, base object"""
-
     pass
 
 
 class PyDuiWidget(PyDuiObject):
-
     """Widget base class"""
 
     __window_client: ReferenceType[PyDuiWindowClientInterface] = None
 
     __id: str = ""
-    __parent: PyDuiObject
+    __parent: "PyDuiWidget" = None
     __x: float = 0
     __y: float = 0
+    __root_x: float = 0
+    __root_y: float = 0
     __width: float = 0
     __height: float = 0
     __fixed_x: float = 0
@@ -51,8 +50,8 @@ class PyDuiWidget(PyDuiObject):
     __can_focus: bool = False
     # attrib
     __bkcolor: Gdk.RGBA = None
-    __margin: Tuple[float, float, float, float] = (0, 0, 0, 0)
-    __corner: Tuple[float, float, float, float] = (0, 0, 0, 0)
+    __margin: PyDuiEdge = None
+    __corner: PyDuiEdge = None
     __bkimage: str = ""
     # event
     __bind_events: Dict[str, List[Callable]] = None
@@ -73,11 +72,15 @@ class PyDuiWidget(PyDuiObject):
             return False
         return widget.enable_mouse_event
 
-    def __init__(self, parent: PyDuiObject):
+    def __init__(self):
         super().__init__()
-        self.__parent = parent
+        self.margin = PyDuiEdge()
+        self.corner = PyDuiEdge()
         self.__bind_events = {}
         self.__signals = {}
+
+    def set_parent(self, parent: "PyDuiWidget"):
+        self.__parent = parent
 
     def set_window_client(self, window_client: PyDuiWindowClientInterface):
         """Set the window client
@@ -104,29 +107,15 @@ class PyDuiWidget(PyDuiObject):
         """
         return self.__id
 
-    def draw(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-    ):
+    def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
         self.draw_bkcolor(ctx, x, y, width, height)
         self.draw_bkimage(ctx, x, y, width, height)
 
-    def draw_bkcolor(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-    ):
+    def draw_bkcolor(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
         if self.bkcolor is None:
             return
 
-        PyDuiRender.Rectangle(ctx, self.bkcolor, x, y, width, height)
+        PyDuiRender.Rectangle(ctx, self.bkcolor, x, y, self.width, self.height)
 
     def draw_bkimage(
         self,
@@ -144,14 +133,20 @@ class PyDuiWidget(PyDuiObject):
             loader=self.get_window_client().get_resource_loader(),
             path=self.bkimage,
             xy=(x, y),
-            wh=(width, height),
+            wh=(self.width, self.height),
             corner=self.corner,
         )
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
-        logging.debug(f"Layout: {self.build_name()} => ({x}, {y}, {width}, {height})")
+        p = self.parent
+        self.__root_x = self.__x
+        self.__root_y = self.__y
+        if p is not None:
+            self.__root_x = p.root_x + x
+            self.__root_y = p.root_y + y
+        logging.debug(f"Layout: {self.build_name()} => ({self.root_x}, {self.root_y}, {width}, {height})")
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
@@ -191,13 +186,13 @@ class PyDuiWidget(PyDuiObject):
         elif k == "xy":
             self.fixed_xy = tuple(float(a) for a in v.split(","))
         elif k == "margin":
-            self.margin = utils.Str2Rect(v)
+            self.margin = utils.Str2Edge(v)
         elif k == "bkcolor":
             self.bkcolor = utils.Str2Color(v)
         elif k == "bkimage":
             self.bkimage = v
         elif k == "corner":
-            self.corner = utils.Str2Rect(v)
+            self.corner = utils.Str2Edge(v)
         elif k == "enable":
             self.enabled = v == "true"
         elif k == "autofit":
@@ -319,8 +314,21 @@ class PyDuiWidget(PyDuiObject):
     def set_focus(self):
         pass
 
+    def translate_to_relative_pos(self, x: float, y: float) -> Tuple[float, float]:
+        result = (x, y)
+        p: PyDuiWidget = self.parent
+        while p is not None:
+            result = (result[0] + p.x, result[1] + p.y)
+            p = p.parent
+        return result
+
     def contain_pos(self, x: float, y: float) -> bool:
-        if (x >= self.x) and (x <= (self.x + self.width)) and (y >= self.y) and (y <= (self.y + self.height)):
+        if (
+            (x >= self.root_x)
+            and (x <= (self.root_x + self.width))
+            and (y >= self.root_y)
+            and (y <= (self.root_y + self.height))
+        ):
             return True
         return False
 
@@ -328,7 +336,7 @@ class PyDuiWidget(PyDuiObject):
     # position & size
 
     @property
-    def parent(self) -> PyDuiObject:
+    def parent(self) -> "PyDuiWidget":
         return self.__parent
 
     @property
@@ -342,15 +350,6 @@ class PyDuiWidget(PyDuiObject):
     @property
     def height(self) -> float:
         return self.__height
-
-    @property
-    def layout_rect(self) -> Tuple[float, float, float, float]:
-        return (
-            self.x,
-            self.y,
-            self.x + self.width + utils.RectW(self.margin),
-            self.y + self.height + utils.RectH(self.margin),
-        )
 
     @property
     def fixed_size(self) -> Tuple[float, float]:
@@ -390,6 +389,14 @@ class PyDuiWidget(PyDuiObject):
         return self.__y
 
     @property
+    def root_x(self) -> float:
+        return self.__root_x
+
+    @property
+    def root_y(self) -> float:
+        return self.__root_y
+
+    @property
     def is_float(self) -> bool:
         pass
 
@@ -423,24 +430,11 @@ class PyDuiWidget(PyDuiObject):
         pass
 
     @property
-    def margin(self) -> Tuple[float, float, float, float]:
-        """Return widget margin
-
-        The value in tuple means [left, top, right, bottom]
-
-        Returns:
-            Tuple[float, float, float, float]: return margin.
-        """
+    def margin(self) -> PyDuiEdge:
         return self.__margin
 
     @margin.setter
-    def margin(self, margin: Tuple[float, float, float, float]):
-        """Set the widget margin
-
-        Args:
-            margin (Tuple[float, float, float, float]): widget margin
-
-        """
+    def margin(self, margin: PyDuiEdge):
         self.__margin = margin
 
     # constraint
@@ -508,11 +502,11 @@ class PyDuiWidget(PyDuiObject):
         self.__bkimage = image
 
     @property
-    def corner(self) -> Tuple[float, float, float, float]:
+    def corner(self) -> PyDuiEdge:
         return self.__corner
 
     @corner.setter
-    def corner(self, corner: Tuple[float, float, float, float]):
+    def corner(self, corner: PyDuiEdge):
         self.__corner = corner
 
     # private function

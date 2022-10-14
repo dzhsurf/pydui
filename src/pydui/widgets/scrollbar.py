@@ -1,6 +1,7 @@
 from typing import List
+
 from pydui import utils
-from pydui.common.base import PyDuiLayoutConstraint
+from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
 from pydui.core.layout import PyDuiLayout
 from pydui.core.widget import PyDuiWidget
@@ -20,13 +21,13 @@ class PyDuiScrollbar(PyDuiLayout):
     def build_name() -> str:
         return "Scrollbar"
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
-        self.__scroller = PyDuiButton(parent)
+    def __init__(self):
+        super().__init__()
+        self.__scroller = PyDuiButton()
         self.__scroller.bkimage = "res/images/vscroller.png"
         self.__scroller.bkimage_hover = "res/images/vscroller_hover.png"
         self.__scroller.bkimage_press = "res/images/vscroller_press.png"
-        self.__scroller.corner = (3, 3, 3, 3)
+        self.__scroller.corner = PyDuiEdge.from_value(3)
         self.__scroller.fixed_width = 7
         self.add_child(self.__scroller)
         self.fixed_width = self.__scroller.fixed_width + 4
@@ -43,7 +44,7 @@ class PyDuiScrollbar(PyDuiLayout):
         self.__scroller.fixed_height = height
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        super().draw(ctx, x, y, width, height)
+        super(PyDuiLayout, self).draw(ctx, x, y, width, height)
         self.__scroller.draw(ctx, self.__scroller.x, self.__scroller.y, self.__scroller.width, self.__scroller.height)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
@@ -64,7 +65,7 @@ class PyDuiScrollbar(PyDuiLayout):
     # events
     def get_signals(self) -> List[str]:
         signals = super().get_signals()
-        signals.extend['vscroll-changed', 'hscroll-changed']
+        signals.extend["vscroll-changed", "hscroll-changed"]
         return signals
 
     # private
@@ -91,6 +92,6 @@ class PyDuiScrollbar(PyDuiLayout):
         self.__scroller_y = max(0, self.__scroller_y)
         self.__scroller_y = min(self.height - self.__scroller.height, self.__scroller_y)
         self.__scroller.fixed_y = self.__scroller_y + 2
-        self.emit('vscroll-changed', self.scroll_position)
+        self.emit("vscroll-changed", self.scroll_position)
         # TODO, set needupdate, invalidrect
         self.get_window_client().notify_redraw()

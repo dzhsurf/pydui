@@ -2,6 +2,7 @@
 from abc import ABC, abstractmethod
 from typing import Any, Callable, Tuple
 
+from pydui.common.base import PyDuiEdge, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
 from pydui.core.event import NCAreaType
@@ -52,11 +53,11 @@ class PyDuiWindowClientInterface(ABC):
         pass
 
     @abstractmethod
-    def get_caption_area(self) -> Tuple[int, int, int, int]:
+    def get_caption_area(self) -> PyDuiRect:
         pass
 
     @abstractmethod
-    def get_box_size(self) -> Tuple[int, int, int, int]:
+    def get_box_size(self) -> PyDuiEdge:
         pass
 
     @abstractmethod

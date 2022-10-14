@@ -38,15 +38,17 @@ class PyDuiLabel(PyDuiPGView):
     __halign: str = "CENTER"
     __valign: str = "CENTER"
     __line_spacing: float = 1.25
-    __autofit_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
-    __text_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
+    __autofit_padding: PyDuiEdge = None
+    __text_padding: PyDuiEdge = None
 
     @staticmethod
     def build_name() -> str:
         return "Label"
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
+        self.__autofit_padding = PyDuiEdge()
+        self.__text_padding = PyDuiEdge()
 
     def parse_attrib(self, k: str, v: str):
         if k == "text":
@@ -68,9 +70,9 @@ class PyDuiLabel(PyDuiPGView):
         elif k == "line_spacing":
             self.__line_spacing = float(v)
         elif k == "autofit_padding":
-            self.__autofit_padding = utils.Str2Rect(v)
+            self.__autofit_padding = utils.Str2Edge(v)
         elif k == "text_padding":
-            self.__text_padding = utils.Str2Rect(v)
+            self.__text_padding = utils.Str2Edge(v)
 
         super().parse_attrib(k, v)
 
@@ -80,17 +82,17 @@ class PyDuiLabel(PyDuiPGView):
         if self.autofit:
             size = (0, 0)
             pw, ph = parent_width, parent_height
-            pw = max(0, pw - utils.RectW(self.__autofit_padding))
-            ph = max(0, ph - utils.RectH(self.__autofit_padding))
+            pw = max(0, pw - self.__autofit_padding.width)
+            ph = max(0, ph - self.__autofit_padding.height)
             if len(self.text) > 0:
-                pw = max(0, pw - utils.RectW(self.__text_padding))
-                ph = max(0, ph - utils.RectH(self.__text_padding))
+                pw = max(0, pw - self.__text_padding.width)
+                ph = max(0, ph - self.__text_padding.height)
                 if constraint.width == -1:
                     pw = -1
                 if constraint.height == -1:
                     ph = -1
                 size = self.__estimate_text_size__(pw, ph)
-                size = (size[0] + utils.RectW(self.__text_padding), size[1] + utils.RectH(self.__text_padding))
+                size = (size[0] + self.__text_padding.width, size[1] + self.__text_padding.height)
             elif len(self.bkimage) > 0:
                 if constraint.width == -1:
                     pw = -1
@@ -99,8 +101,8 @@ class PyDuiLabel(PyDuiPGView):
                 size = self.__estimate_image_size__(pw, ph)
             if size[0] > 0 and size[1] > 0:
                 size = (
-                    size[0] + utils.RectW(self.__autofit_padding),
-                    size[1] + utils.RectH(self.__autofit_padding),
+                    size[0] + self.__autofit_padding.width,
+                    size[1] + self.__autofit_padding.height,
                 )
                 return size
             return super().estimate_size(parent_width, parent_height, constraint)
@@ -114,16 +116,22 @@ class PyDuiLabel(PyDuiPGView):
         width: float,
         height: float,
     ):
+        draw_x = x
+        draw_y = y
+        draw_width = self.width
+        draw_height = self.height
+
         fontfamily, fontsize, fontcolor = self.__get_font_info__()
 
-        draw_xy = (x + self.__text_padding[0], y + self.__text_padding[1])
-        draw_wh = (width - utils.RectW(self.__text_padding), height - utils.RectH(self.__text_padding))
+        draw_xy = (draw_x + self.__text_padding.left, draw_y + self.__text_padding.top)
+        draw_wh = (draw_width - self.__text_padding.width, draw_height - self.__text_padding.height)
         if self.autofit:
-            draw_xy = (x + self.__autofit_padding[0], y + self.__autofit_padding[1])
-            draw_wh = (width - utils.RectW(self.__autofit_padding), height - utils.RectH(self.__autofit_padding))
+            draw_xy = (draw_x + self.__autofit_padding.left, draw_y + self.__autofit_padding.top)
+            draw_wh = (draw_width - self.__autofit_padding.width, draw_height - self.__autofit_padding.height)
         draw_wh = (max(0, draw_wh[0]), max(0, draw_wh[1]))
         if draw_wh[0] == 0 or draw_wh[1] == 0:
             return
+
         # draw text
         PyDuiRender.DrawText(
             ctx,

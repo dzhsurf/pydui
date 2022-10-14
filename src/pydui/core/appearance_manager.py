@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from typing import Tuple
 
+from pydui.common.base import PyDuiEdge
 from pydui.common.import_gtk import *
 
 
@@ -11,11 +12,11 @@ class PyDuiAppearanceManager:
     __default_fontsize: int = 16
     __default_fontcolor: Gdk.RGBA = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
     __customize_titlebar: bool = False
-    __box_size: Tuple[int, int, int, int] = (0, 0, 0, 0)
+    __box_size: PyDuiEdge = None
     __caption_height: int = 0
 
     def __init__(self) -> None:
-        pass
+        self.__box_size = PyDuiEdge()
 
     @property
     def default_fontcolor(self) -> Gdk.RGBA:
@@ -54,11 +55,11 @@ class PyDuiAppearanceManager:
         self.__customize_titlebar = customize_title
 
     @property
-    def box_size(self) -> Tuple[int, int, int, int]:
+    def box_size(self) -> PyDuiEdge:
         return self.__box_size
 
     @box_size.setter
-    def box_size(self, box_size: Tuple[int, int, int, int]):
+    def box_size(self, box_size: PyDuiEdge):
         self.__box_size = box_size
 
     @property

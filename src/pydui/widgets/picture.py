@@ -8,8 +8,8 @@ class PyDuiPicture(PyDuiLabel):
     def build_name() -> str:
         return "Picture"
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
 
     def parse_attrib(self, k: str, v: str):
         if k == "image":

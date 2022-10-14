@@ -145,7 +145,7 @@ class PyDuiRender:
         path: str,
         xy: Tuple[float, float],
         wh: Tuple[float, float],
-        corner: Tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0),
+        corner: PyDuiEdge = PyDuiEdge(),
     ):
         img_path = path
         img_attrib = dict[str, Any]()
@@ -174,72 +174,70 @@ class PyDuiRender:
         im_w, im_h = pixbuf.get_width(), pixbuf.get_height()
         x, y = xy[0] * factor, xy[1] * factor
         w, h = wh[0] * factor, wh[1] * factor
-        pixed_corner = tuple(n * factor for n in corner)
-        if pixed_corner[0] < 0 or pixed_corner[0] > im_w or pixed_corner[2] < 0 or pixed_corner[2] > im_w:
-            pixed_corner = tuple(int(im_w / 2), pixed_corner[1], int(im_w / 2), pixed_corner[3])
-        if pixed_corner[1] < 0 or pixed_corner[1] > im_w or pixed_corner[3] < 0 or pixed_corner[3] > im_w:
-            pixed_corner = tuple(pixed_corner[0], int(im_h / 2), pixed_corner[2], int(im_h / 2))
+        pixed_corner = corner.copy_with_factor(factor)
+        if pixed_corner.left < 0 or pixed_corner.left > im_w or pixed_corner.right < 0 or pixed_corner.right > im_w:
+            pixed_corner = PyDuiEdge.from_ltrb(int(im_w / 2), pixed_corner.top, int(im_w / 2), pixed_corner.bottom)
+        if pixed_corner.top < 0 or pixed_corner.top > im_w or pixed_corner.bottom < 0 or pixed_corner.bottom > im_w:
+            pixed_corner = PyDuiEdge.from_ltrb(pixed_corner.left, int(im_h / 2), pixed_corner.right, int(im_h / 2))
 
-        has_corner = utils.IsNoneZeroRect(corner)
+        has_corner = not corner.is_empty()
         if has_corner:
-            middle_w = max(0, w - pixed_corner[0] - pixed_corner[2])
-            middle_h = max(0, h - pixed_corner[1] - pixed_corner[3])
+            middle_w = max(0, w - pixed_corner.width)
+            middle_h = max(0, h - pixed_corner.height)
             # left top
-            pix = pixbuf.new_subpixbuf(0, 0, pixed_corner[0], pixed_corner[1])
+            pix = pixbuf.new_subpixbuf(0, 0, pixed_corner.left, pixed_corner.top)
             Gdk.cairo_set_source_pixbuf(ctx, pix, x, y)
             ctx.paint()
             # right top
-            pix = pixbuf.new_subpixbuf(im_w - pixed_corner[2], 0, pixed_corner[2], pixed_corner[1])
-            Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - pixed_corner[2], y)
+            pix = pixbuf.new_subpixbuf(im_w - pixed_corner.right, 0, pixed_corner.right, pixed_corner.top)
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - pixed_corner.right, y)
             ctx.paint()
             if middle_w > 0:
                 # middle top
-                pix = pixbuf.new_subpixbuf(
-                    pixed_corner[0], 0, im_w - (pixed_corner[0] + pixed_corner[2]), pixed_corner[1]
-                )
-                pix = pix.scale_simple(middle_w, pixed_corner[1], GdkPixbuf.InterpType.NEAREST)
-                Gdk.cairo_set_source_pixbuf(ctx, pix, x + pixed_corner[0], y)
+                pix = pixbuf.new_subpixbuf(pixed_corner.left, 0, im_w - pixed_corner.width, pixed_corner.top)
+                pix = pix.scale_simple(middle_w, pixed_corner.top, GdkPixbuf.InterpType.NEAREST)
+                Gdk.cairo_set_source_pixbuf(ctx, pix, x + pixed_corner.left, y)
                 ctx.paint()
             if middle_w > 0 and middle_h > 0:
                 # left middle
-                pix = pixbuf.new_subpixbuf(
-                    0, pixed_corner[1], pixed_corner[0], im_h - pixed_corner[1] - pixed_corner[3]
-                )
-                pix = pix.scale_simple(pixed_corner[0], middle_h, GdkPixbuf.InterpType.NEAREST)
-                Gdk.cairo_set_source_pixbuf(ctx, pix, x, y + pixed_corner[1])
+                pix = pixbuf.new_subpixbuf(0, pixed_corner.top, pixed_corner.left, im_h - pixed_corner.height)
+                pix = pix.scale_simple(pixed_corner.left, middle_h, GdkPixbuf.InterpType.NEAREST)
+                Gdk.cairo_set_source_pixbuf(ctx, pix, x, y + pixed_corner.top)
                 ctx.paint()
                 # middle middle
                 pix = pixbuf.new_subpixbuf(
-                    pixed_corner[0],
-                    pixed_corner[1],
-                    im_w - pixed_corner[0] - pixed_corner[2],
-                    im_h - pixed_corner[1] - pixed_corner[3],
+                    pixed_corner.left,
+                    pixed_corner.top,
+                    im_w - pixed_corner.width,
+                    im_h - pixed_corner.height,
                 )
                 pix = pix.scale_simple(middle_w, middle_h, GdkPixbuf.InterpType.NEAREST)
-                Gdk.cairo_set_source_pixbuf(ctx, pix, x + pixed_corner[0], y + pixed_corner[1])
+                Gdk.cairo_set_source_pixbuf(ctx, pix, x + pixed_corner.left, y + pixed_corner.top)
                 ctx.paint()
                 # right middle
                 pix = pixbuf.new_subpixbuf(
-                    im_w - pixed_corner[2], pixed_corner[1], pixed_corner[2], im_h - pixed_corner[1] - pixed_corner[3]
+                    im_w - pixed_corner.right, pixed_corner.top, pixed_corner.right, im_h - pixed_corner.height
                 )
-                pix = pix.scale_simple(pixed_corner[2], middle_h, GdkPixbuf.InterpType.NEAREST)
-                Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - pixed_corner[2], y + pixed_corner[1])
+                pix = pix.scale_simple(pixed_corner.right, middle_h, GdkPixbuf.InterpType.NEAREST)
+                Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - pixed_corner.right, y + pixed_corner.top)
                 ctx.paint()
             # left bottom
-            pix = pixbuf.new_subpixbuf(0, im_h - pixed_corner[3], pixed_corner[0], pixed_corner[3])
-            Gdk.cairo_set_source_pixbuf(ctx, pix, x, y + h - pixed_corner[3])
+            pix = pixbuf.new_subpixbuf(0, im_h - pixed_corner.bottom, pixed_corner.left, pixed_corner.bottom)
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x, y + h - pixed_corner.bottom)
             ctx.paint()
             if middle_w > 0:
                 # middle bottom
                 pix = pixbuf.new_subpixbuf(
-                    pixed_corner[0], im_h - pixed_corner[3], im_w - pixed_corner[0] - pixed_corner[2], pixed_corner[3]
+                    pixed_corner.left, im_h - pixed_corner.bottom, im_w - pixed_corner.width, pixed_corner.bottom
                 )
-                pix = pix.scale_simple(middle_w, pixed_corner[3], GdkPixbuf.InterpType.NEAREST)
-                Gdk.cairo_set_source_pixbuf(ctx, pix, x + pixed_corner[0], y + h - pixed_corner[3])
+                pix = pix.scale_simple(middle_w, pixed_corner.bottom, GdkPixbuf.InterpType.NEAREST)
+                Gdk.cairo_set_source_pixbuf(ctx, pix, x + pixed_corner.left, y + h - pixed_corner.bottom)
                 ctx.paint()
             # right bottom
-            pix = pixbuf.new_subpixbuf(im_w - pixed_corner[2], im_h - pixed_corner[3], pixed_corner[2], pixed_corner[3])
-            Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - pixed_corner[2], y + h - pixed_corner[3])
+            pix = pixbuf.new_subpixbuf(
+                im_w - pixed_corner.right, im_h - pixed_corner.bottom, pixed_corner.right, pixed_corner.bottom
+            )
+            Gdk.cairo_set_source_pixbuf(ctx, pix, x + w - pixed_corner.right, y + h - pixed_corner.bottom)
             ctx.paint()
         else:
             pixbuf = pixbuf.scale_simple(w, h, GdkPixbuf.InterpType.BILINEAR)

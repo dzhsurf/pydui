@@ -19,8 +19,8 @@ class PyDuiPGView(PyDuiWidget, PogaView):
         return "Control"
 
     # PyDuiWidget interface
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.__layout = PogaLayout(self)
 
     def parse_attrib(self, k: str, v: str):

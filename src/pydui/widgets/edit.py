@@ -2,7 +2,7 @@
 from typing import List, Tuple
 
 from pydui import utils
-from pydui.common.base import PyDuiLayoutConstraint
+from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
 from pydui.component.text_view.text_view_protocol import PyDuiTextViewProtocol
@@ -17,15 +17,16 @@ class PyDuiEdit(PyDuiPGView):
     __editable: bool = True  # Default is can edit
     __font: str = ""
     __fontsize: int = 0
-    __text_padding: Tuple[float, float, float, float] = (0, 0, 0, 0)
+    __text_padding: PyDuiEdge = None
 
     @staticmethod
     def build_name() -> str:
         return "Edit"
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.can_focus = True
+        self.__text_padding = PyDuiEdge()
 
     def on_post_init(self):
         pass
@@ -40,7 +41,7 @@ class PyDuiEdit(PyDuiPGView):
         elif k == "fontsize":
             self.set_fontsize(int(v))
         elif k == "text_padding":
-            self.set_textpadding(utils.Str2Rect(v))
+            self.set_textpadding(utils.Str2Edge(v))
         super().parse_attrib(k, v)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
@@ -98,14 +99,14 @@ class PyDuiEdit(PyDuiPGView):
             return
         self.__text_view.api.set_font(self.get_font(), self.get_fontsize())
 
-    def set_textpadding(self, text_padding: Tuple[float, float, float, float]):
+    def set_textpadding(self, text_padding: PyDuiEdge):
         self.__text_padding = text_padding
         if self.__text_view is None:
             return
         self.poga_layout().mark_dirty()
         self.get_window_client().notify_redraw()
 
-    def get_textpadding(self) -> Tuple[float, float, float, float]:
+    def get_textpadding(self) -> PyDuiEdge:
         return self.__text_padding
 
     def get_signals(self) -> List[str]:
@@ -137,8 +138,8 @@ class PyDuiEdit(PyDuiPGView):
         self.__update_text_view_position_and_size__()
 
     def __update_text_view_position_and_size__(self):
-        text_padding_w = utils.RectW(self.__text_padding)
-        text_padding_h = utils.RectH(self.__text_padding)
+        text_padding_w = self.__text_padding.width
+        text_padding_h = self.__text_padding.height
         self.get_window_client().update_embedded_widget_position(
             self.__text_view, self.x + self.__text_padding[0], self.y + self.__text_padding[1]
         )

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Conversion function
-"""
+"""Conversion function"""
 from typing import Tuple
 
+from pydui.common.base import PyDuiEdge, PyDuiRect
 from pydui.common.import_gtk import *
 
 
@@ -60,43 +60,34 @@ def Str2Color(text: str) -> Gdk.RGBA:
     return Gdk.RGBA(color[1] / 255, color[2] / 255, color[3] / 255, color[0] / 255)
 
 
-def Str2IntRect(text: str) -> Tuple[int, int, int, int]:
+def Str2Edge(text: str) -> PyDuiEdge:
     arr = text.split(",")
     if len(arr) != 4:
-        return (0, 0, 0, 0)
+        return PyDuiEdge()
 
-    return tuple(int(n) for n in arr)
+    return PyDuiEdge.from_ltrb(float(arr[0]), float(arr[1]), float(arr[2]), float(arr[3]))
 
 
-def Str2Rect(text: str) -> Tuple[float, float, float, float]:
+def Str2Rect(text: str) -> PyDuiRect:
     arr = text.split(",")
     if len(arr) != 4:
-        return (0, 0, 0, 0)
+        return PyDuiRect()
 
-    return tuple(float(n) for n in arr)
-
-
-def IsNoneZeroRect(rect: Tuple[float, float, float, float]) -> bool:
-    for r in rect:
-        if int(r) == 0:
-            return False
-    return True
+    return PyDuiRect.from_ltrb(float(arr[0]), float(arr[1]), float(arr[2]), float(arr[3]))
 
 
-def IsPointInRect(x: float, y: float, rect: Tuple[float, float, float, float]) -> bool:
-    if x >= rect[0] and x <= rect[2] and y >= rect[1] and y <= rect[3]:
-        return True
-    return False
+def intersect_rect(rect1: PyDuiRect, rect2: PyDuiRect) -> PyDuiRect:
+    rect = PyDuiRect()
+    rect.left = max(rect1.left, rect2.left)
+    rect.top = max(rect1.top, rect2.top)
+    rect.right = min(rect1.right, rect2.right)
+    rect.bottom = min(rect1.bottom, rect2.bottom)
+    if rect.left > rect.right:
+        rect.left, rect.right = 0, 0
+    if rect.top > rect.bottom:
+        rect.top, rect.bottom = 0, 0
+    return rect
 
 
-def IsPointInIntRect(x: float, y: float, rect: Tuple[int, int, int, int]) -> bool:
-    float_rect = tuple(float(n) for n in rect)
-    return IsPointInRect(x, y, float_rect)
-
-
-def RectH(rect: Tuple[float, float, float, float]) -> float:
-    return rect[1] + rect[3]
-
-
-def RectW(rect: Tuple[float, float, float, float]) -> float:
-    return rect[0] + rect[2]
+def merge_rect(rect1: PyDuiRect, rect2: PyDuiRect) -> PyDuiRect:
+    return rect1

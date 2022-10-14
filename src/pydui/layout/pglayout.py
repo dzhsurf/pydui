@@ -18,8 +18,8 @@ class PyDuiLayoutWithPogaSupport(PyDuiLayout, PogaView):
     PyDui-GTK internal layout engine, with poga layout support.
     """
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.__layout = PogaLayout(self)
 
     def parse_attrib(self, k: str, v: str):
@@ -99,8 +99,8 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
         """PyDuiPGLayout build name: PGLayout"""
         return "PGLayout"
 
-    def __init__(self, parent: PyDuiWidget):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.__global_init_poga_layout__()
         self.__layout = PogaLayout(self)
 
@@ -127,10 +127,6 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
 
     def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
         super().draw(ctx, x, y, width, height)
-
-        for i in range(self.child_count):
-            child = self.get_child_at(i)
-            child.draw(ctx, child.x, child.y, child.width, child.height)
 
     # PogaView interface
     def size_that_fits(self, width: float, height: float) -> Tuple[float, float]:
