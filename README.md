@@ -381,14 +381,14 @@ Render:
 * DrawImage - finish
 * DrawText - finish
 * Hi-DPI support - almost done
-* Draw area boundary protection - 0%, processing
+* Draw area boundary protection - finish
 
 Layout:
 
 * HLayout - finish
 * VLayout - finish
-* PGLayout - 90%
-* ScrolledLayout - 30%, processing
+* PGLayout - finish
+* ScrolledLayout - finish
 
 Widget:
 
