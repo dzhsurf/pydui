@@ -132,7 +132,7 @@ class PyDuiWidget(PyDuiObject):
             ctx,
             loader=self.get_window_client().get_resource_loader(),
             path=self.bkimage,
-            xy=(x, y),
+            xy=(0, 0),
             wh=(self.width, self.height),
             corner=self.corner,
         )

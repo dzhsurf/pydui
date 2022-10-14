@@ -42,8 +42,10 @@ class PyDuiLayout(PyDuiWidget):
         width: float,
         height: float,
     ):
+        # TODO, detect draw region is contain widget or not.
+        # then you can use this draw region to draw the dirty region only.
         super().draw(ctx, x, y, width, height)
-        rc1 = PyDuiRect.from_size((x, y), (width, height))
+        rc1 = PyDuiRect.from_size((0, 0), (self.width, self.height))
         for i in range(self.child_count):
             child = self.get_child_at(i)
             ctx.save()

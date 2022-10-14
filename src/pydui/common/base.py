@@ -77,6 +77,9 @@ class PyDuiEdge:
     def __init__(self) -> None:
         pass
 
+    def __str__(self) -> str:
+        return f"({self.left}, {self.top}, {self.right}, {self.bottom}) size:{self.width},{self.height}"
+
     def copy(self):
         return PyDuiEdge.from_ltrb(self.left, self.top, self.right, self.bottom)
 
@@ -129,6 +132,9 @@ class PyDuiRect:
     top: float = 0
     right: float = 0
     bottom: float = 0
+
+    def __str__(self) -> str:
+        return f"({self.left}, {self.top}, {self.right}, {self.bottom}) size:{self.width},{self.height}"
 
     @property
     def width(self) -> float:

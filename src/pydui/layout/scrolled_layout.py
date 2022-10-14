@@ -105,8 +105,9 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
 
         body_size = self.__body.estimate_size(width, height, constraint=PyDuiLayoutConstraint())
         self.__body.layout(
-            -self.__body.fixed_x, -self.__body.fixed_y, body_size[0], body_size[1], constraint=PyDuiLayoutConstraint()
+            self.__body.fixed_x, self.__body.fixed_y, body_size[0], body_size[1], constraint=PyDuiLayoutConstraint()
         )
+        print('estimate size', body_size)
         self.__init_scrollbar_if_needed__()
         self.__update_scrollbar__()
         if self.__vscrollbar is not None:
@@ -147,6 +148,7 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
                 return
             scroller_height = max(32, round(self.height / self.__body.height * self.height))
             self.__vscrollbar.update_scroller(0, scroller_height)
+            print('scrollbar height', self.height, 'body height', self.__body.height, ' scroller', scroller_height)
         else:
             if self.__vscrollbar is not None:
                 super().remove_child(self.__vscrollbar)
@@ -155,4 +157,5 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
     def __on_vscroll_changed__(self, pos: float):
         if self.__body is None:
             return
-        self.__body.fixed_y = pos
+        factor = self.__body.height / self.height
+        self.__body.fixed_y = -(pos * factor)

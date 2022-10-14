@@ -116,8 +116,8 @@ class PyDuiLabel(PyDuiPGView):
         width: float,
         height: float,
     ):
-        draw_x = x
-        draw_y = y
+        draw_x = 0
+        draw_y = 0
         draw_width = self.width
         draw_height = self.height
 

@@ -70,7 +70,7 @@ class PyDuiButton(PyDuiLabel):
             ctx,
             loader=self.get_window_client().get_resource_loader(),
             path=path,
-            xy=(x, y),
+            xy=(0, 0),
             wh=(self.width, self.height),
             corner=self.corner,
         )
