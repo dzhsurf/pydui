@@ -189,27 +189,11 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="module-pydui.layout.fixed_layout">
-<span id="pydui-layout-fixed-layout-module"></span><h2>pydui.layout.fixed_layout module<a class="headerlink" href="#module-pydui.layout.fixed_layout" title="Permalink to this heading">¶</a></h2>
-<p>FixedLayout unit</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="pydui.layout.fixed_layout.PyDuiFixedLayout">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.fixed_layout.</span></span><span class="sig-name descname"><span class="pre">PyDuiFixedLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.fixed_layout.PyDuiFixedLayout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a></p>
-<p>FixedLayout implement</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="pydui.layout.fixed_layout.PyDuiFixedLayout.build_name">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.layout.fixed_layout.PyDuiFixedLayout.build_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
 <section id="module-pydui.layout.hlayout">
 <span id="pydui-layout-hlayout-module"></span><h2>pydui.layout.hlayout module<a class="headerlink" href="#module-pydui.layout.hlayout" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.layout.hlayout.PyDuiHLayout">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.hlayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiHLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.hlayout.PyDuiHLayout" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.hlayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiHLayout</span></span><a class="headerlink" href="#pydui.layout.hlayout.PyDuiHLayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a></p>
 <p>Horizontal layout</p>
 <dl class="py method">
@@ -230,7 +214,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.hlayout.PyDuiHLayout.layout">
 <span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.hlayout.PyDuiHLayout.layout" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – x offset relative to parent</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y offset relative to parent</p></li>
+<li><p><strong>width</strong> (<em>float</em>) – widget width</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – widget height</p></li>
+<li><p><strong>constraint</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><em>PyDuiLayoutConstraint</em></a>) – layout constraint</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -239,7 +234,7 @@
 <span id="pydui-layout-pglayout-module"></span><h2>pydui.layout.pglayout module<a class="headerlink" href="#module-pydui.layout.pglayout" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.pglayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayoutWithPogaSupport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.pglayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiLayoutWithPogaSupport</span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PogaView</span></code></p>
 <p>PyDui-GTK internal layout engine, with poga layout support.</p>
 <dl class="py method">
@@ -377,7 +372,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.pglayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiPGLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.pglayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiPGLayout</span></span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PogaView</span></code></p>
 <p>YogaLayout on PyDui-GTK</p>
 <dl class="py method">
@@ -441,7 +436,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.layout">
 <span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.layout" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – x offset relative to parent</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y offset relative to parent</p></li>
+<li><p><strong>width</strong> (<em>float</em>) – widget width</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – widget height</p></li>
+<li><p><strong>constraint</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><em>PyDuiLayoutConstraint</em></a>) – layout constraint</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.parse_attrib">
@@ -539,7 +545,7 @@
 <span id="pydui-layout-vlayout-module"></span><h2>pydui.layout.vlayout module<a class="headerlink" href="#module-pydui.layout.vlayout" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.layout.vlayout.PyDuiVLayout">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.vlayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiVLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.vlayout.PyDuiVLayout" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.vlayout.</span></span><span class="sig-name descname"><span class="pre">PyDuiVLayout</span></span><a class="headerlink" href="#pydui.layout.vlayout.PyDuiVLayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a></p>
 <p>Vertical layout</p>
 <dl class="py method">
@@ -560,7 +566,183 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.vlayout.PyDuiVLayout.layout">
 <span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.vlayout.PyDuiVLayout.layout" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – x offset relative to parent</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y offset relative to parent</p></li>
+<li><p><strong>width</strong> (<em>float</em>) – widget width</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – widget height</p></li>
+<li><p><strong>constraint</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><em>PyDuiLayoutConstraint</em></a>) – layout constraint</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pydui.layout.scrolled_layout">
+<span id="pydui-layout-scrolled-layout-module"></span><h2>pydui.layout.scrolled_layout module<a class="headerlink" href="#module-pydui.layout.scrolled_layout" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiFitLayout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.scrolled_layout.</span></span><span class="sig-name descname"><span class="pre">PyDuiFitLayout</span></span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiFitLayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiFitLayout.build_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.build_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiFitLayout.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiFitLayout.estimate_size">
+<span class="sig-name descname"><span class="pre">estimate_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.estimate_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiFitLayout.layout">
+<span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.layout" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – x offset relative to parent</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y offset relative to parent</p></li>
+<li><p><strong>width</strong> (<em>float</em>) – widget width</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – widget height</p></li>
+<li><p><strong>constraint</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><em>PyDuiLayoutConstraint</em></a>) – layout constraint</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.layout.scrolled_layout.</span></span><span class="sig-name descname"><span class="pre">PyDuiScrolledLayout</span></span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add child widget.</p>
+<p>if child has been added, ignore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – child widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.add_child_at">
+<span class="sig-name descname"><span class="pre">add_child_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.add_child_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add child widget at index</p>
+<p>if the index overbound, it will add widget to last position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>child</strong> (<a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – child widget</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – target index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return widget object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget">PyDuiWidget</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.build_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.build_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.enable_hscroll">
+<span class="sig-name descname"><span class="pre">enable_hscroll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.enable_hscroll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.enable_vscroll">
+<span class="sig-name descname"><span class="pre">enable_vscroll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.enable_vscroll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.estimate_size">
+<span class="sig-name descname"><span class="pre">estimate_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.estimate_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.layout">
+<span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.layout" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – x offset relative to parent</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y offset relative to parent</p></li>
+<li><p><strong>width</strong> (<em>float</em>) – widget width</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – widget height</p></li>
+<li><p><strong>constraint</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><em>PyDuiLayoutConstraint</em></a>) – layout constraint</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.parse_attrib">
+<span class="sig-name descname"><span class="pre">parse_attrib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.parse_attrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse single attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attrib</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – attributes dict key=value …</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child">
+<span class="sig-name descname"><span class="pre">remove_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget</strong> (<a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – widget object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child_at">
+<span class="sig-name descname"><span class="pre">remove_child_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child widget at index</p>
+<p>if the index overbound, do nothing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – widget index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child_by_id">
+<span class="sig-name descname"><span class="pre">remove_child_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child widget by widget_id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget_id</strong> (<em>str</em>) – widget id</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -587,13 +769,6 @@
                 <ul>
 <li><a class="reference internal" href="#">pydui.layout package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-pydui.layout.fixed_layout">pydui.layout.fixed_layout module</a><ul>
-<li><a class="reference internal" href="#pydui.layout.fixed_layout.PyDuiFixedLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiFixedLayout</span></code></a><ul>
-<li><a class="reference internal" href="#pydui.layout.fixed_layout.PyDuiFixedLayout.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiFixedLayout.build_name()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a class="reference internal" href="#module-pydui.layout.hlayout">pydui.layout.hlayout module</a><ul>
 <li><a class="reference internal" href="#pydui.layout.hlayout.PyDuiHLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiHLayout</span></code></a><ul>
 <li><a class="reference internal" href="#pydui.layout.hlayout.PyDuiHLayout.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiHLayout.build_name()</span></code></a></li>
@@ -641,6 +816,31 @@
 <li><a class="reference internal" href="#pydui.layout.vlayout.PyDuiVLayout.draw"><code class="docutils literal notranslate"><span class="pre">PyDuiVLayout.draw()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.vlayout.PyDuiVLayout.estimate_size"><code class="docutils literal notranslate"><span class="pre">PyDuiVLayout.estimate_size()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.vlayout.PyDuiVLayout.layout"><code class="docutils literal notranslate"><span class="pre">PyDuiVLayout.layout()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.layout.scrolled_layout">pydui.layout.scrolled_layout module</a><ul>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiFitLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiFitLayout</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiFitLayout.build_name()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.draw"><code class="docutils literal notranslate"><span class="pre">PyDuiFitLayout.draw()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.estimate_size"><code class="docutils literal notranslate"><span class="pre">PyDuiFitLayout.estimate_size()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.layout"><code class="docutils literal notranslate"><span class="pre">PyDuiFitLayout.layout()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.add_child"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.add_child()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.add_child_at"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.add_child_at()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.build_name()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.draw"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.draw()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.enable_hscroll"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.enable_hscroll()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.enable_vscroll"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.enable_vscroll()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.estimate_size"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.estimate_size()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.layout"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.layout()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.parse_attrib()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.remove_child()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child_at"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.remove_child_at()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child_by_id"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.remove_child_by_id()</span></code></a></li>
 </ul>
 </li>
 </ul>

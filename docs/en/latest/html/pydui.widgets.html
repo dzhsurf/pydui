@@ -193,9 +193,24 @@
 <span id="pydui-widgets-button-module"></span><h2>pydui.widgets.button module<a class="headerlink" href="#module-pydui.widgets.button" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.button.</span></span><span class="sig-name descname"><span class="pre">PyDuiButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.button.PyDuiButton" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.button.</span></span><span class="sig-name descname"><span class="pre">PyDuiButton</span></span><a class="headerlink" href="#pydui.widgets.button.PyDuiButton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pydui.widgets.label.PyDuiLabel" title="pydui.widgets.label.PyDuiLabel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLabel</span></code></a></p>
 <p>Button widget</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.bkimage_disable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bkimage_disable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.bkimage_disable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.bkimage_hover">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bkimage_hover</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.bkimage_hover" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.bkimage_press">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bkimage_press</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.bkimage_press" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.build_name">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.build_name" title="Permalink to this definition">¶</a></dt>
@@ -204,6 +219,11 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.draw_bkimage">
 <span class="sig-name descname"><span class="pre">draw_bkimage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.draw_bkimage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.get_bindevents">
+<span class="sig-name descname"><span class="pre">get_bindevents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.get_bindevents" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -224,6 +244,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.on_lbutton_click">
 <span class="sig-name descname"><span class="pre">on_lbutton_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.on_lbutton_click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.on_lbutton_press">
+<span class="sig-name descname"><span class="pre">on_lbutton_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.on_lbutton_press" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.button.PyDuiButton.on_lbutton_release">
+<span class="sig-name descname"><span class="pre">on_lbutton_release</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.button.PyDuiButton.on_lbutton_release" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -291,7 +321,7 @@
 <span id="pydui-widgets-edit-module"></span><h2>pydui.widgets.edit module<a class="headerlink" href="#module-pydui.widgets.edit" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.widgets.edit.PyDuiEdit">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.edit.</span></span><span class="sig-name descname"><span class="pre">PyDuiEdit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.edit.</span></span><span class="sig-name descname"><span class="pre">PyDuiEdit</span></span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pydui.widgets.pgview.PyDuiPGView" title="pydui.widgets.pgview.PyDuiPGView"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiPGView</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.edit.PyDuiEdit.build_name">
@@ -320,7 +350,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.edit.PyDuiEdit.get_textpadding">
-<span class="sig-name descname"><span class="pre">get_textpadding</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit.get_textpadding" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_textpadding</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiEdge" title="pydui.common.base.PyDuiEdge"><span class="pre">PyDuiEdge</span></a></span></span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit.get_textpadding" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -356,7 +386,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.edit.PyDuiEdit.set_textpadding">
-<span class="sig-name descname"><span class="pre">set_textpadding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_padding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit.set_textpadding" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_textpadding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_padding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiEdge" title="pydui.common.base.PyDuiEdge"><span class="pre">PyDuiEdge</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.edit.PyDuiEdit.set_textpadding" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -371,7 +401,7 @@
 <span id="pydui-widgets-icon-module"></span><h2>pydui.widgets.icon module<a class="headerlink" href="#module-pydui.widgets.icon" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.widgets.icon.PyDuiIcon">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.icon.</span></span><span class="sig-name descname"><span class="pre">PyDuiIcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.icon.PyDuiIcon" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.icon.</span></span><span class="sig-name descname"><span class="pre">PyDuiIcon</span></span><a class="headerlink" href="#pydui.widgets.icon.PyDuiIcon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pydui.widgets.label.PyDuiLabel" title="pydui.widgets.label.PyDuiLabel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLabel</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.icon.PyDuiIcon.build_name">
@@ -396,7 +426,7 @@
 <span id="pydui-widgets-label-module"></span><h2>pydui.widgets.label module<a class="headerlink" href="#module-pydui.widgets.label" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.widgets.label.PyDuiLabel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.label.</span></span><span class="sig-name descname"><span class="pre">PyDuiLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.label.PyDuiLabel" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.label.</span></span><span class="sig-name descname"><span class="pre">PyDuiLabel</span></span><a class="headerlink" href="#pydui.widgets.label.PyDuiLabel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pydui.widgets.pgview.PyDuiPGView" title="pydui.widgets.pgview.PyDuiPGView"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiPGView</span></code></a></p>
 <p>Label widget</p>
 <dl class="py attribute">
@@ -563,7 +593,7 @@
 <span id="pydui-widgets-pgview-module"></span><h2>pydui.widgets.pgview module<a class="headerlink" href="#module-pydui.widgets.pgview" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.widgets.pgview.PyDuiPGView">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.pgview.</span></span><span class="sig-name descname"><span class="pre">PyDuiPGView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.pgview.PyDuiPGView" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.pgview.</span></span><span class="sig-name descname"><span class="pre">PyDuiPGView</span></span><a class="headerlink" href="#pydui.widgets.pgview.PyDuiPGView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiWidget</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PogaView</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.pgview.PyDuiPGView.bounds_size">
@@ -713,7 +743,7 @@
 <span id="pydui-widgets-picture-module"></span><h2>pydui.widgets.picture module<a class="headerlink" href="#module-pydui.widgets.picture" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pydui.widgets.picture.PyDuiPicture">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.picture.</span></span><span class="sig-name descname"><span class="pre">PyDuiPicture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.picture.PyDuiPicture" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.picture.</span></span><span class="sig-name descname"><span class="pre">PyDuiPicture</span></span><a class="headerlink" href="#pydui.widgets.picture.PyDuiPicture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pydui.widgets.label.PyDuiLabel" title="pydui.widgets.label.PyDuiLabel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLabel</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.widgets.picture.PyDuiPicture.build_name">
@@ -758,12 +788,18 @@
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-pydui.widgets.button">pydui.widgets.button module</a><ul>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton"><code class="docutils literal notranslate"><span class="pre">PyDuiButton</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.bkimage_disable"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.bkimage_disable</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.bkimage_hover"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.bkimage_hover</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.bkimage_press"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.bkimage_press</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.build_name()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.draw_bkimage"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.draw_bkimage()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.get_bindevents"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.get_bindevents()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.get_signals"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.get_signals()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.on_l2button_click"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.on_l2button_click()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.on_l3button_click"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.on_l3button_click()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.on_lbutton_click"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.on_lbutton_click()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.on_lbutton_press"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.on_lbutton_press()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.on_lbutton_release"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.on_lbutton_release()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.on_mouse_enter"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.on_mouse_enter()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.on_mouse_leave"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.on_mouse_leave()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.button.PyDuiButton.on_r2button_click"><code class="docutils literal notranslate"><span class="pre">PyDuiButton.on_r2button_click()</span></code></a></li>
