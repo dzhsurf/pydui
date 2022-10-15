@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Window size="800,600" title='Quickstart Demo' min_size="400,300"
-    default_font="Helvetica" default_fontsize="16">
+    default_font="Helvetica" default_fontsize="16"
+    >
     <HLayout bkcolor="#FFFFFFFF">
         <!-- left panel -->
         <VLayout bkcolor="#FFC8C8C8" width="120">
@@ -53,6 +54,7 @@
                         text="Hello World!" corner="12,12,12,12"
                         text_padding="8,8,8,8"
                     />
+                    <Control height="900" />
                 </VLayout>
             </ScrolledLayout>
         </VLayout>

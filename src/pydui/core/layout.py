@@ -34,41 +34,38 @@ class PyDuiLayout(PyDuiWidget):
 
         super().parse_attrib(k, v)
 
-    def draw(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-    ):
+    def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
         """draw
 
         Draw layout and children widgets.
 
         Args:
             ctx (cairo.Context): draw context, replace cairo.Context to DrawContext later.
-            x (float): dirty rect, x offset relative to parent view
-            y (float): dirty rect, y offset relative to parent view
-            width (float): dirty rect, rect width
-            height (float): dirty rect, rect height
-            # dirty_rect (PyDuiRect): dirty rect
-            # clip_rect (PyDuiRect): clip rect
+            dirty_rect (PyDuiRect): dirty rect, relative to root
+            clip_rect (PyDuiRect): clip rect, relative to root
         """
         # TODO, detect draw region is contain widget or not.
         # then you can use this draw region to draw the dirty region only.
-        super().draw(ctx, x, y, width, height)
+        if clip_rect.width == 0 or clip_rect.height == 0:
+            return
+        super().draw(ctx, dirty_rect, clip_rect)
         rc1 = PyDuiRect.from_size((0, 0), (self.width, self.height))
         for i in range(self.child_count):
             child = self.get_child_at(i)
             ctx.save()
+
             # clip region
             rc2 = PyDuiRect.from_size((child.x, child.y), (child.width, child.height))
             draw_rc = utils.intersect_rect(rc1, rc2)
             ctx.rectangle(draw_rc.left, draw_rc.top, draw_rc.width, draw_rc.height)
             ctx.clip()
+            # translate child coordinate
             ctx.translate(child.x, child.y)
-            child.draw(ctx, 0, 0, draw_rc.width, draw_rc.height)
+
+            child_rc = PyDuiRect.from_size((child.root_x, child.root_y), (child.width, child.height))
+            child_clip_rect = utils.intersect_rect(child_rc, clip_rect)
+            child.draw(ctx, dirty_rect, child_clip_rect)
+
             ctx.restore()
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):

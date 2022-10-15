@@ -2,6 +2,7 @@
 from abc import abstractmethod
 from typing import Generic, Protocol, TypeVar
 
+from pydui.common.base import PyDuiRect
 from pydui.common.import_gtk import *
 
 T = TypeVar("T")
@@ -38,4 +39,8 @@ class PyDuiEmbeddedWidgetProvider(Protocol[T]):
 
     @abstractmethod
     def update_embedded_widget_position(self, widget: PyDuiEmbeddedWidgetHost, x: float, y: float):
+        pass
+
+    @abstractmethod
+    def update_embedded_widget_viewport(self, widget: PyDuiEmbeddedWidgetHost, rect: PyDuiRect):
         pass

@@ -8,6 +8,9 @@ from pydui.provider.embedded_widget_host_gtk3 import PyDuiEmbeddedWidgetHostGTK3
 class PyDuiEmbeddedTextViewGTK3(PyDuiEmbeddedWidgetHostGTK3[PyDuiTextViewProtocol], PyDuiTextViewProtocol):
     """PyDuiEmbeddedTextViewGTK3"""
 
+    __viewport: Gtk.Overlay = None
+    __fixed_layer: Gtk.Fixed = None
+
     __gtk_text_view: Gtk.TextView = None
     __gtk_scrolled_window: Gtk.ScrolledWindow = None
     __text_buffer: Gtk.TextBuffer = None
@@ -53,8 +56,6 @@ class PyDuiEmbeddedTextViewGTK3(PyDuiEmbeddedWidgetHostGTK3[PyDuiTextViewProtoco
         return self.__gtk_text_view.get_editable()
 
     def set_size_request(self, width: float, height: float):
-        # TODO: __gtk_scrolled_window set to visible area
-        # __textview are the true size
         self.__gtk_scrolled_window.set_size_request(width, height)
 
     def __on_changed__(self, text_buffer: Gtk.TextBuffer):

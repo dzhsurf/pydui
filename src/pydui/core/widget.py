@@ -138,24 +138,20 @@ class PyDuiWidget(PyDuiObject):
         """
         return self.__id
 
-    def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        self.draw_bkcolor(ctx, x, y, width, height)
-        self.draw_bkimage(ctx, x, y, width, height)
+    def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
+        if clip_rect.width == 0 or clip_rect.height == 0:
+            return
 
-    def draw_bkcolor(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
+        self.draw_bkcolor(ctx, dirty_rect, clip_rect)
+        self.draw_bkimage(ctx, dirty_rect, clip_rect)
+
+    def draw_bkcolor(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
         if self.bkcolor is None:
             return
 
-        PyDuiRender.Rectangle(ctx, self.bkcolor, x, y, self.width, self.height)
+        PyDuiRender.Rectangle(ctx, self.bkcolor, 0, 0, self.width, self.height)
 
-    def draw_bkimage(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-    ):
+    def draw_bkimage(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
         if self.bkimage == "":
             return
 
@@ -371,6 +367,16 @@ class PyDuiWidget(PyDuiObject):
             result = (result[0] + p.x, result[1] + p.y)
             p = p.parent
         return result
+
+    def contain_rect(self, rect: PyDuiRect) -> bool:
+        if (
+            self.contain_pos(rect.left, rect.top)
+            or self.contain_pos(rect.right, rect.top)
+            or self.contain_pos(rect.left, rect.bottom)
+            or self.contain_pos(rect.right, rect.bottom)
+        ):
+            return True
+        return False
 
     def contain_pos(self, x: float, y: float) -> bool:
         if (

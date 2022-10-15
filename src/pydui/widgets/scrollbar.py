@@ -4,7 +4,7 @@ from enum import Enum
 from typing import List
 
 from pydui import utils
-from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint
+from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.core.layout import PyDuiLayout
 from pydui.core.widget import PyDuiWidget
@@ -55,8 +55,8 @@ class PyDuiScrollbar(PyDuiLayout):
         else:
             self.__scroller.fixed_width = size
 
-    def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        super().draw(ctx, x, y, width, height)
+    def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
+        super().draw(ctx, dirty_rect, clip_rect)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         super(PyDuiLayout, self).layout(x, y, width, height, constraint)

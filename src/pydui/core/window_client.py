@@ -132,6 +132,9 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     def update_embedded_widget_position(self, widget: PyDuiEmbeddedWidgetHost, x: float, y: float):
         self.get_window_provider().get_embedded_widget_provider().update_embedded_widget_position(widget, x, y)
 
+    def update_embedded_widget_viewport(self, widget: PyDuiEmbeddedWidgetHost, rect: PyDuiRect):
+        self.get_window_provider().get_embedded_widget_provider().update_embedded_widget_viewport(widget, rect)
+
     def get_appearance(self) -> PyDuiAppearanceManager:
         return self.__appearance_manager
 
@@ -189,7 +192,9 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         self.get_window_provider().set_render_context(ctx)
         constraint = PyDuiLayoutConstraint(width, height)
         self.__rootview.layout(0, 0, width, height, constraint)
-        self.__rootview.draw(ctx, 0, 0, width, height)
+        dirty_rect = PyDuiRect.from_ltrb(0, 0, width, height)
+        clip_rect = dirty_rect.copy()
+        self.__rootview.draw(ctx, dirty_rect, clip_rect)
 
     def __post_task_to_gtk_thread__(self, fn: Callable, task_id: str, *args: Any, **kwargs: Any) -> bool:
         if self.__task_queue.is_terminated:

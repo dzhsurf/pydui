@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from dataclasses import dataclass
 from enum import Enum
+from turtle import right
 from typing import Tuple
 
 from pydui.common.import_gtk import *
@@ -144,7 +145,7 @@ class PyDuiRect:
     def height(self) -> float:
         return self.bottom - self.top
 
-    def copy(self):
+    def copy(self) -> "PyDuiRect":
         return PyDuiRect.from_ltrb(self.left, self.top, self.right, self.bottom)
 
     @staticmethod
@@ -164,6 +165,11 @@ class PyDuiRect:
         edge.right = right
         edge.bottom = bottom
         return edge
+
+    def is_same(self, rect: "PyDuiRect") -> bool:
+        return (
+            self.left == rect.left and self.right == rect.right and self.top == rect.top and self.bottom == rect.bottom
+        )
 
     def is_empty(self):
         if self.left == 0 and self.right == 0 and self.top == 0 and self.bottom == 0:

@@ -19,8 +19,8 @@ class PyDuiVLayout(PyDuiLayoutWithPogaSupport):
     def __init__(self):
         super().__init__()
 
-    def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        super().draw(ctx, x, y, width, height)
+    def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
+        super().draw(ctx, dirty_rect, clip_rect)
 
     def __get_fitrule__(self) -> Tuple[bool, bool]:
         fit_v, fit_h = False, False

@@ -51,14 +51,7 @@ class PyDuiButton(PyDuiLabel):
 
         super().parse_attrib(k, v)
 
-    def draw_bkimage(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-    ):
+    def draw_bkimage(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
         path = self.__get_drawimage_by_state()
         if path == "":
             path = self.bkimage

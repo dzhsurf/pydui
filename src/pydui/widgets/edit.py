@@ -2,7 +2,7 @@
 from typing import List, Tuple
 
 from pydui import utils
-from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint
+from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
 from pydui.component.text_view.text_view_protocol import PyDuiTextViewProtocol
@@ -43,6 +43,17 @@ class PyDuiEdit(PyDuiPGView):
         elif k == "text_padding":
             self.set_textpadding(utils.Str2Edge(v))
         super().parse_attrib(k, v)
+
+    def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
+        if self.__text_view is not None:
+            viewport = PyDuiRect.from_ltrb(
+                clip_rect.left + self.__text_padding.left,
+                clip_rect.top + self.__text_padding.top,
+                clip_rect.right - self.__text_padding.right,
+                clip_rect.bottom - self.__text_padding.bottom,
+            )
+            self.get_window_client().update_embedded_widget_viewport(self.__text_view, viewport)
+        return super().draw(ctx, dirty_rect, clip_rect)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         super().layout(x, y, width, height, constraint)

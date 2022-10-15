@@ -5,7 +5,7 @@ from typing import Tuple
 from poga import *
 
 from pydui import utils
-from pydui.common.base import PyDuiLayoutConstraint
+from pydui.common.base import PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.core.event import ScrollDirection, ScrollEvent
 from pydui.core.layout import PyDuiLayout
@@ -25,8 +25,8 @@ class PyDuiFitLayout(PyDuiLayoutWithPogaSupport):
     def __init__(self):
         super().__init__()
 
-    def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        super().draw(ctx, x, y, width, height)
+    def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
+        super().draw(ctx, dirty_rect, clip_rect)
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
@@ -58,6 +58,7 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
     __enable_hscroll: bool = False
     __vscrollbar: PyDuiScrollbar = None
     __hscrollbar: PyDuiScrollbar = None
+    __mouse_enter: bool = False
 
     @staticmethod
     def build_name() -> str:
@@ -99,8 +100,8 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
     def remove_child_at(self, index: int):
         self.__body.remove_child_at(index)
 
-    def draw(self, ctx: cairo.Context, x: float, y: float, width: float, height: float):
-        super().draw(ctx, x, y, width, height)
+    def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
+        super().draw(ctx, dirty_rect, clip_rect)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         super(PyDuiLayout, self).layout(x, y, width, height, constraint)
@@ -121,9 +122,15 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
 
     def scroll_to(self, dx: float, dy: float):
         if self.__vscrollbar is not None and dy != 0:
-            self.__vscrollbar.__scroll_to__(0, dy * 15)
+            self.__vscrollbar.__scroll_to__(0, round(dy * 15))
 
     # event
+    def on_mouse_enter(self):
+        return super().on_mouse_enter()
+
+    def on_mouse_leave(self, next_widget: PyDuiWidget):
+        return super().on_mouse_leave(next_widget)
+
     def on_scroll_event(self, event: ScrollEvent) -> bool:
         if event.direction == ScrollDirection.UP:
             self.scroll_to(0, -event.delta_y)
@@ -196,4 +203,4 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
         if self.__body is None:
             return
         factor = self.__body.height / self.height
-        self.__body.fixed_y = -(pos * factor)
+        self.__body.fixed_y = -round(pos * factor)

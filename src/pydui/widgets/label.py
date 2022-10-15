@@ -108,14 +108,7 @@ class PyDuiLabel(PyDuiPGView):
             return super().estimate_size(parent_width, parent_height, constraint)
         return super().estimate_size(parent_width, parent_height, constraint)
 
-    def draw_text(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-    ):
+    def draw_text(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
         draw_x = 0
         draw_y = 0
         draw_width = self.width
@@ -147,22 +140,15 @@ class PyDuiLabel(PyDuiPGView):
             line_spacing=self.__line_spacing,
         )
 
-    def draw(
-        self,
-        ctx: cairo.Context,
-        x: float,
-        y: float,
-        width: float,
-        height: float,
-    ):
+    def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
         # draw bkcolor
-        super().draw(ctx, x, y, width, height)
+        super().draw(ctx, dirty_rect, clip_rect)
         # families = PangoCairo.font_map_get_default().list_families()
         # for f in families:
         #     print(f.get_name())
 
         # draw text
-        self.draw_text(ctx, x, y, width, height)
+        self.draw_text(ctx, dirty_rect, clip_rect)
 
     @property
     def text(self) -> str:

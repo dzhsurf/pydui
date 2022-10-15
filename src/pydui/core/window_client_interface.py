@@ -37,6 +37,10 @@ class PyDuiWindowClientInterface(ABC):
         pass
 
     @abstractmethod
+    def update_embedded_widget_viewport(self, widget: PyDuiEmbeddedWidgetHost, rect: PyDuiRect):
+        pass
+
+    @abstractmethod
     def init_window(self, config: PyDuiWindowConfig, ondraw: Callable[[Any, float, float], None]):
         pass
 
