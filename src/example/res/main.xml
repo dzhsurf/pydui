@@ -42,7 +42,6 @@
                     </HLayout>
 
                     <!-- bottom bar -->
-                    <Control />
                     <Control height="300" />
                     <Button width="120" height="80" corner="12,12,12,12"
                         bkimage="res/images/common_button_normal.png"
@@ -50,10 +49,10 @@
                         bkimage_press="res/images/common_button_press.png"
                     />
 
-                    <!-- <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2"
+                    <Edit name="input_edit" bkcolor="#FFFFFFFF" height="120" margin="2,2,2,2"
                         text="Hello World!" corner="12,12,12,12"
                         text_padding="8,8,8,8"
-                    /> -->
+                    />
                 </VLayout>
             </ScrolledLayout>
         </VLayout>

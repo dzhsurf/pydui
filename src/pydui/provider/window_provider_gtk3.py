@@ -92,26 +92,15 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         super().init_window(config, ondraw)
         self.__canvas = PyDuiRenderCanvas(ondraw)
 
-        # create window
-        scrolled_window = Gtk.ScrolledWindow()
-        scrolled_window.set_hexpand(True)
-        scrolled_window.set_vexpand(True)
-        scrolled_window.set_border_width(0)
-        scrolled_window.set_shadow_type(Gtk.ShadowType.NONE)
-        scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+        overlay = Gtk.Overlay()
+        overlay.add(self.__canvas)
 
         self.__layer = Gtk.Fixed()
         self.__layer.set_has_window(True)
-
-        viewport = Gtk.Viewport()
-        viewport.set_shadow_type(Gtk.ShadowType.NONE)
-        viewport.add(self.__layer)
-
-        self.__layer.put(self.__canvas, 0, 0)
-        scrolled_window.add(viewport)
+        overlay.add_overlay(self.__layer)
 
         gtk_window = self.__gtk_window
-        gtk_window.add(scrolled_window)
+        gtk_window.add(overlay)
 
         # init window attributes
         gtk_window.set_title(config.title)
@@ -164,7 +153,8 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         return (float(w), float(h))
 
     def set_window_size(self, width: float, height: float):
-        self.__canvas.set_size_request(width, height)
+        # self.__canvas.set_size_request(width, height)
+        pass
 
     def get_embedded_widget_provider(self) -> PyDuiEmbeddedWidgetProvider:
         if self.__embedded_widget_provider is None:
