@@ -120,8 +120,8 @@ class PyDuiWindowEventDispatcher:
         pass
 
     def on_motion_notify(self, x: int, y: int, x_root: int, y_root: int) -> bool:
-        if x != self.__mouse_x or y != self.__mouse_y:
-            self.__dispatch_mouse_move__(x, y)
+        if x_root != self.__mouse_x or y_root != self.__mouse_y:
+            self.__dispatch_mouse_move__(x_root, y_root)
         return False
 
     def on_button_press(self, event: ButtonEvent) -> bool:

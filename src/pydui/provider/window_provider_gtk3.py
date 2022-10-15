@@ -204,8 +204,9 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         return self.__notify_signals__("hide")
 
     def on_motion_notify(self, object: Gtk.Widget, event: Gdk.EventMotion) -> bool:
-        x, y, x_root, y_root = int(event.x), int(event.y), int(event.x_root), int(event.y_root)
-
+        x, y = int(event.x), int(event.y)
+        root_base_x, root_base_y = self.__gtk_window.get_window().get_root_coords(0, 0)
+        x_root, y_root = int(event.x_root - root_base_x), int(event.y_root - root_base_y)
         return self.__notify_signals__("motion-notify-event", x, y, x_root, y_root)
 
     def on_drag_begin(self, object: Gtk.Widget, context: Gdk.DragContext):

@@ -71,6 +71,8 @@ class PyDuiWidget(PyDuiObject):
     __signals: Dict[str, List[Callable]] = None
     __enable_mouse_event: bool = False
     __enable_mouse_wheel_event: bool = False
+    # render state
+    __last_render_clip_rect: PyDuiRect = None
 
     @staticmethod
     def build_name() -> str:
@@ -139,6 +141,7 @@ class PyDuiWidget(PyDuiObject):
         return self.__id
 
     def draw(self, ctx: cairo.Context, dirty_rect: PyDuiRect, clip_rect: PyDuiRect):
+        self.__last_render_clip_rect = clip_rect
         if clip_rect.width == 0 or clip_rect.height == 0:
             return
 
@@ -165,6 +168,7 @@ class PyDuiWidget(PyDuiObject):
         )
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
+        self.__last_render_clip_rect = None
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
         self.__root_x = self.__x
@@ -379,11 +383,13 @@ class PyDuiWidget(PyDuiObject):
         return False
 
     def contain_pos(self, x: float, y: float) -> bool:
+        if self.__last_render_clip_rect is None:
+            return False
         if (
-            (x >= self.root_x)
-            and (x <= (self.root_x + self.width))
-            and (y >= self.root_y)
-            and (y <= (self.root_y + self.height))
+            (x >= self.__last_render_clip_rect.left)
+            and (x <= self.__last_render_clip_rect.right)
+            and (y >= self.__last_render_clip_rect.top)
+            and (y <= self.__last_render_clip_rect.bottom)
         ):
             return True
         return False
