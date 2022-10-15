@@ -203,8 +203,18 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.hlayout.PyDuiHLayout.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.hlayout.PyDuiHLayout.draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.hlayout.PyDuiHLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw layout and children widgets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctx</strong> (<em>cairo.Context</em>) – draw context, replace cairo.Context to DrawContext later.</p></li>
+<li><p><strong>dirty_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – dirty rect, relative to root</p></li>
+<li><p><strong>clip_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – clip rect, relative to root</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.hlayout.PyDuiHLayout.estimate_size">
@@ -397,8 +407,18 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.pglayout.PyDuiPGLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw layout and children widgets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctx</strong> (<em>cairo.Context</em>) – draw context, replace cairo.Context to DrawContext later.</p></li>
+<li><p><strong>dirty_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – dirty rect, relative to root</p></li>
+<li><p><strong>clip_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – clip rect, relative to root</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.pglayout.PyDuiPGLayout.estimate_size">
@@ -555,8 +575,18 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.vlayout.PyDuiVLayout.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.vlayout.PyDuiVLayout.draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.vlayout.PyDuiVLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw layout and children widgets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctx</strong> (<em>cairo.Context</em>) – draw context, replace cairo.Context to DrawContext later.</p></li>
+<li><p><strong>dirty_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – dirty rect, relative to root</p></li>
+<li><p><strong>clip_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – clip rect, relative to root</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.vlayout.PyDuiVLayout.estimate_size">
@@ -595,8 +625,18 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiFitLayout.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiFitLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw layout and children widgets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctx</strong> (<em>cairo.Context</em>) – draw context, replace cairo.Context to DrawContext later.</p></li>
+<li><p><strong>dirty_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – dirty rect, relative to root</p></li>
+<li><p><strong>clip_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – clip rect, relative to root</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiFitLayout.estimate_size">
@@ -665,8 +705,18 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw layout and children widgets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctx</strong> (<em>cairo.Context</em>) – draw context, replace cairo.Context to DrawContext later.</p></li>
+<li><p><strong>dirty_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – dirty rect, relative to root</p></li>
+<li><p><strong>clip_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – clip rect, relative to root</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.enable_hscroll">
@@ -698,6 +748,21 @@
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_mouse_enter">
+<span class="sig-name descname"><span class="pre">on_mouse_enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_mouse_enter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_mouse_leave">
+<span class="sig-name descname"><span class="pre">on_mouse_leave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">next_widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_mouse_leave" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_scroll_event">
+<span class="sig-name descname"><span class="pre">on_scroll_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.event.ScrollEvent" title="pydui.core.event.ScrollEvent"><span class="pre">ScrollEvent</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_scroll_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.parse_attrib">
@@ -743,6 +808,11 @@
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.layout.scrolled_layout.PyDuiScrolledLayout.scroll_to">
+<span class="sig-name descname"><span class="pre">scroll_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.scroll_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -837,10 +907,14 @@
 <li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.enable_vscroll"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.enable_vscroll()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.estimate_size"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.estimate_size()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.layout"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.layout()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_mouse_enter"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.on_mouse_enter()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_mouse_leave"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.on_mouse_leave()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.on_scroll_event"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.on_scroll_event()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.parse_attrib()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.remove_child()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child_at"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.remove_child_at()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.remove_child_by_id"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.remove_child_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.layout.scrolled_layout.PyDuiScrolledLayout.scroll_to"><code class="docutils literal notranslate"><span class="pre">PyDuiScrolledLayout.scroll_to()</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -480,6 +480,74 @@ But you can custom the resource provider to compose the ui resources.</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollDirection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.event.</span></span><span class="sig-name descname"><span class="pre">ScrollDirection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event.ScrollDirection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollDirection.DOWN">
+<span class="sig-name descname"><span class="pre">DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pydui.core.event.ScrollDirection.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollDirection.LEFT">
+<span class="sig-name descname"><span class="pre">LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pydui.core.event.ScrollDirection.LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollDirection.RIGHT">
+<span class="sig-name descname"><span class="pre">RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#pydui.core.event.ScrollDirection.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollDirection.SMOOTH">
+<span class="sig-name descname"><span class="pre">SMOOTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pydui.core.event.ScrollDirection.SMOOTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollDirection.UP">
+<span class="sig-name descname"><span class="pre">UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pydui.core.event.ScrollDirection.UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollEvent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.event.</span></span><span class="sig-name descname"><span class="pre">ScrollEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.event.ScrollDirection" title="pydui.core.event.ScrollDirection"><span class="pre">pydui.core.event.ScrollDirection</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.event.ScrollEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pydui.core.event.EventObject" title="pydui.core.event.EventObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventObject</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollEvent.delta_x">
+<span class="sig-name descname"><span class="pre">delta_x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#pydui.core.event.ScrollEvent.delta_x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollEvent.delta_y">
+<span class="sig-name descname"><span class="pre">delta_y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#pydui.core.event.ScrollEvent.delta_y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollEvent.direction">
+<span class="sig-name descname"><span class="pre">direction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pydui.core.event.ScrollDirection" title="pydui.core.event.ScrollDirection"><span class="pre">ScrollDirection</span></a></em><a class="headerlink" href="#pydui.core.event.ScrollEvent.direction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollEvent.time">
+<span class="sig-name descname"><span class="pre">time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#pydui.core.event.ScrollEvent.time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollEvent.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#pydui.core.event.ScrollEvent.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.core.event.ScrollEvent.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#pydui.core.event.ScrollEvent.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-pydui.core.layout">
 <span id="pydui-core-layout-module"></span><h2>pydui.core.layout module<a class="headerlink" href="#module-pydui.core.layout" title="Permalink to this heading">¶</a></h2>
@@ -528,8 +596,18 @@ But you can custom the resource provider to compose the ui resources.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.layout.PyDuiLayout.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw layout and children widgets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctx</strong> (<em>cairo.Context</em>) – draw context, replace cairo.Context to DrawContext later.</p></li>
+<li><p><strong>dirty_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – dirty rect, relative to root</p></li>
+<li><p><strong>clip_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – clip rect, relative to root</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.layout.PyDuiLayout.find_widget_by_pos">
@@ -791,6 +869,12 @@ But you can custom the resource provider to compose the ui resources.</p>
 <section id="module-pydui.core.widget">
 <span id="pydui-core-widget-module"></span><h2>pydui.core.widget module<a class="headerlink" href="#module-pydui.core.widget" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
+<dt class="sig sig-object py" id="pydui.core.widget.LazyStr">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.widget.</span></span><span class="sig-name descname"><span class="pre">LazyStr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.LazyStr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiConstraint">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.core.widget.</span></span><span class="sig-name descname"><span class="pre">PyDuiConstraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">9223372036854775807</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">9223372036854775807</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiConstraint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -873,9 +957,19 @@ But you can custom the resource provider to compose the ui resources.</p>
 <span class="sig-name descname"><span class="pre">contain_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.contain_pos" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.contain_rect">
+<span class="sig-name descname"><span class="pre">contain_rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.contain_rect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.corner">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">corner</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiEdge" title="pydui.common.base.PyDuiEdge"><span class="pre">PyDuiEdge</span></a></em><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.corner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.debug_display_layout_level_strtree">
+<span class="sig-name descname"><span class="pre">debug_display_layout_level_strtree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.core.widget.LazyStr" title="pydui.core.widget.LazyStr"><span class="pre">LazyStr</span></a></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.debug_display_layout_level_strtree" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -895,17 +989,17 @@ But you can custom the resource provider to compose the ui resources.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.draw" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.draw" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.draw_bkcolor">
-<span class="sig-name descname"><span class="pre">draw_bkcolor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.draw_bkcolor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">draw_bkcolor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.draw_bkcolor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.draw_bkimage">
-<span class="sig-name descname"><span class="pre">draw_bkimage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.draw_bkimage" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">draw_bkimage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.draw_bkimage" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -916,6 +1010,11 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.enable_mouse_event">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable_mouse_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.enable_mouse_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.enable_mouse_wheel_event">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable_mouse_wheel_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.enable_mouse_wheel_event" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -930,12 +1029,17 @@ But you can custom the resource provider to compose the ui resources.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.find_widget_default_filter">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_widget_default_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiObject" title="pydui.core.widget.PyDuiObject"><span class="pre">PyDuiObject</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.find_widget_default_filter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_widget_default_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.find_widget_default_filter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.find_widget_mouse_event_filter">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_widget_mouse_event_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiObject" title="pydui.core.widget.PyDuiObject"><span class="pre">PyDuiObject</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.find_widget_mouse_event_filter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_widget_mouse_event_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.find_widget_mouse_event_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.find_widget_mouse_wheel_event_filter">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_widget_mouse_wheel_event_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.find_widget_mouse_wheel_event_filter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1025,18 +1129,13 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_l2button_click">
-<span class="sig-name descname"><span class="pre">on_l2button_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_l2button_click" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_l3button_click">
-<span class="sig-name descname"><span class="pre">on_l3button_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_l3button_click" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_lbutton_click">
 <span class="sig-name descname"><span class="pre">on_lbutton_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_lbutton_click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_lbutton_dbclick">
+<span class="sig-name descname"><span class="pre">on_lbutton_dbclick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_lbutton_dbclick" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1050,13 +1149,18 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_lbutton_tripleclick">
+<span class="sig-name descname"><span class="pre">on_lbutton_tripleclick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_lbutton_tripleclick" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_mouse_enter">
 <span class="sig-name descname"><span class="pre">on_mouse_enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_mouse_enter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_mouse_leave">
-<span class="sig-name descname"><span class="pre">on_mouse_leave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">next_widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiObject" title="pydui.core.widget.PyDuiObject"><span class="pre">PyDuiObject</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_mouse_leave" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_mouse_leave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">next_widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_mouse_leave" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1070,18 +1174,13 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_r2button_click">
-<span class="sig-name descname"><span class="pre">on_r2button_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_r2button_click" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_r3button_click">
-<span class="sig-name descname"><span class="pre">on_r3button_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_r3button_click" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_rbutton_click">
 <span class="sig-name descname"><span class="pre">on_rbutton_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_rbutton_click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_rbutton_dbclick">
+<span class="sig-name descname"><span class="pre">on_rbutton_dbclick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_rbutton_dbclick" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1092,6 +1191,16 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_rbutton_release">
 <span class="sig-name descname"><span class="pre">on_rbutton_release</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_rbutton_release" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_rbutton_tripleclick">
+<span class="sig-name descname"><span class="pre">on_rbutton_tripleclick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_rbutton_tripleclick" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.widget.PyDuiWidget.on_scroll_event">
+<span class="sig-name descname"><span class="pre">on_scroll_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.event.ScrollEvent" title="pydui.core.event.ScrollEvent"><span class="pre">ScrollEvent</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.widget.PyDuiWidget.on_scroll_event" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1367,6 +1476,11 @@ But you can custom the resource provider to compose the ui resources.</p>
 <span class="sig-name descname"><span class="pre">update_embedded_widget_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.component.html#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><span class="pre">PyDuiEmbeddedWidgetHost</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_client.PyDuiWindowClient.update_embedded_widget_position" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_client.PyDuiWindowClient.update_embedded_widget_viewport">
+<span class="sig-name descname"><span class="pre">update_embedded_widget_viewport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.component.html#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><span class="pre">PyDuiEmbeddedWidgetHost</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_client.PyDuiWindowClient.update_embedded_widget_viewport" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -1469,6 +1583,11 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_client_interface.PyDuiWindowClientInterface.update_embedded_widget_position">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_embedded_widget_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.component.html#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><span class="pre">PyDuiEmbeddedWidgetHost</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface.update_embedded_widget_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_client_interface.PyDuiWindowClientInterface.update_embedded_widget_viewport">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_embedded_widget_viewport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.component.html#pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost" title="pydui.component.embedded_widget.PyDuiEmbeddedWidgetHost"><span class="pre">PyDuiEmbeddedWidgetHost</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface.update_embedded_widget_viewport" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1579,6 +1698,11 @@ But you can custom the resource provider to compose the ui resources.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_motion_notify">
 <span class="sig-name descname"><span class="pre">on_motion_notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_motion_notify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_scroll_event">
+<span class="sig-name descname"><span class="pre">on_scroll_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.core.event.ScrollEvent" title="pydui.core.event.ScrollEvent"><span class="pre">ScrollEvent</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_scroll_event" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1874,6 +1998,23 @@ But you can custom the resource provider to compose the ui resources.</p>
 <li><a class="reference internal" href="#pydui.core.event.NCAreaType.UNDEFINED"><code class="docutils literal notranslate"><span class="pre">NCAreaType.UNDEFINED</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollDirection"><code class="docutils literal notranslate"><span class="pre">ScrollDirection</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.event.ScrollDirection.DOWN"><code class="docutils literal notranslate"><span class="pre">ScrollDirection.DOWN</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollDirection.LEFT"><code class="docutils literal notranslate"><span class="pre">ScrollDirection.LEFT</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollDirection.RIGHT"><code class="docutils literal notranslate"><span class="pre">ScrollDirection.RIGHT</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollDirection.SMOOTH"><code class="docutils literal notranslate"><span class="pre">ScrollDirection.SMOOTH</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollDirection.UP"><code class="docutils literal notranslate"><span class="pre">ScrollDirection.UP</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollEvent"><code class="docutils literal notranslate"><span class="pre">ScrollEvent</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.core.event.ScrollEvent.delta_x"><code class="docutils literal notranslate"><span class="pre">ScrollEvent.delta_x</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollEvent.delta_y"><code class="docutils literal notranslate"><span class="pre">ScrollEvent.delta_y</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollEvent.direction"><code class="docutils literal notranslate"><span class="pre">ScrollEvent.direction</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollEvent.time"><code class="docutils literal notranslate"><span class="pre">ScrollEvent.time</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollEvent.x"><code class="docutils literal notranslate"><span class="pre">ScrollEvent.x</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.event.ScrollEvent.y"><code class="docutils literal notranslate"><span class="pre">ScrollEvent.y</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.core.layout">pydui.core.layout module</a><ul>
@@ -1940,6 +2081,7 @@ But you can custom the resource provider to compose the ui resources.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pydui.core.widget">pydui.core.widget module</a><ul>
+<li><a class="reference internal" href="#pydui.core.widget.LazyStr"><code class="docutils literal notranslate"><span class="pre">LazyStr</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiConstraint"><code class="docutils literal notranslate"><span class="pre">PyDuiConstraint</span></code></a><ul>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiConstraint.max_height"><code class="docutils literal notranslate"><span class="pre">PyDuiConstraint.max_height</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiConstraint.max_width"><code class="docutils literal notranslate"><span class="pre">PyDuiConstraint.max_width</span></code></a></li>
@@ -1958,7 +2100,9 @@ But you can custom the resource provider to compose the ui resources.</p>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.connect"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.connect()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.constraint"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.constraint</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.contain_pos"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.contain_pos()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.contain_rect"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.contain_rect()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.corner"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.corner</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.debug_display_layout_level_strtree"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.debug_display_layout_level_strtree()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.disconnect"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.disconnect()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.disconnect_signal"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.disconnect_signal()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.do_bind_event"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.do_bind_event()</span></code></a></li>
@@ -1967,10 +2111,12 @@ But you can custom the resource provider to compose the ui resources.</p>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.draw_bkimage"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.draw_bkimage()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.emit"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.emit()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.enable_mouse_event"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.enable_mouse_event</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.enable_mouse_wheel_event"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.enable_mouse_wheel_event</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.enabled"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.enabled</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.estimate_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.estimate_size()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.find_widget_default_filter"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.find_widget_default_filter()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.find_widget_mouse_event_filter"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.find_widget_mouse_event_filter()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.find_widget_mouse_wheel_event_filter"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.find_widget_mouse_wheel_event_filter()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.fixed_height"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.fixed_height</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.fixed_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.fixed_size</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.fixed_width"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.fixed_width</span></code></a></li>
@@ -1986,20 +2132,21 @@ But you can custom the resource provider to compose the ui resources.</p>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.is_focused"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.is_focused</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.layout"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.layout()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.margin"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.margin</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_l2button_click"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_l2button_click()</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_l3button_click"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_l3button_click()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_lbutton_click"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_lbutton_click()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_lbutton_dbclick"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_lbutton_dbclick()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_lbutton_press"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_lbutton_press()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_lbutton_release"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_lbutton_release()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_lbutton_tripleclick"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_lbutton_tripleclick()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_mouse_enter"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_mouse_enter()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_mouse_leave"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_mouse_leave()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_mouse_move"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_mouse_move()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_post_init"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_post_init()</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_r2button_click"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_r2button_click()</span></code></a></li>
-<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_r3button_click"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_r3button_click()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_rbutton_click"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_rbutton_click()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_rbutton_dbclick"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_rbutton_dbclick()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_rbutton_press"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_rbutton_press()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_rbutton_release"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_rbutton_release()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_rbutton_tripleclick"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_rbutton_tripleclick()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.on_scroll_event"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.on_scroll_event()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.parent"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parent</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parse_attrib()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.widget.PyDuiWidget.parse_attributes"><code class="docutils literal notranslate"><span class="pre">PyDuiWidget.parse_attributes()</span></code></a></li>
@@ -2057,6 +2204,7 @@ But you can custom the resource provider to compose the ui resources.</p>
 <li><a class="reference internal" href="#pydui.core.window_client.PyDuiWindowClient.remove_event_observer"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient.remove_event_observer()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_client.PyDuiWindowClient.set_window_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient.set_window_size()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_client.PyDuiWindowClient.update_embedded_widget_position"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient.update_embedded_widget_position()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_client.PyDuiWindowClient.update_embedded_widget_viewport"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClient.update_embedded_widget_viewport()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -2082,6 +2230,7 @@ But you can custom the resource provider to compose the ui resources.</p>
 <li><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface.remove_event_observer"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClientInterface.remove_event_observer()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface.set_window_size"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClientInterface.set_window_size()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface.update_embedded_widget_position"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClientInterface.update_embedded_widget_position()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_client_interface.PyDuiWindowClientInterface.update_embedded_widget_viewport"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowClientInterface.update_embedded_widget_viewport()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -2112,6 +2261,7 @@ But you can custom the resource provider to compose the ui resources.</p>
 <li><a class="reference internal" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_button_release"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher.on_button_release()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_configure_event"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher.on_configure_event()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_motion_notify"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher.on_motion_notify()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_scroll_event"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher.on_scroll_event()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_destroy"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher.on_window_destroy()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_hide"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher.on_window_hide()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.core.window_event_dispatcher.PyDuiWindowEventDispatcher.on_window_show"><code class="docutils literal notranslate"><span class="pre">PyDuiWindowEventDispatcher.on_window_show()</span></code></a></li>

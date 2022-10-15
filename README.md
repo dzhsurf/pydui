@@ -397,12 +397,13 @@ Widget:
 * Label - finish
 * Button - finish
 * Edit - 30%, processing
-  * Focus event suppose
+  * Input limit (num, length...)
+  * Focus event (Widget focus manager)
   * Key Event
-  * Text selection
+  * Text selection (Label)
   * Drag&Drop
-* Picture - 0%, processing
-* TableView - 0%, pending
+* Picture - 0%, pending
+* ListView - 0%, pending
 * FlowListView - 0%, not started
 * Menu - 0%, not started
 
