@@ -29,9 +29,9 @@ from pydui.widgets.button import PyDuiButton
 from pydui.widgets.edit import PyDuiEdit
 from pydui.widgets.icon import PyDuiIcon
 from pydui.widgets.label import PyDuiLabel
+from pydui.widgets.listview import PyDuiListView
 from pydui.widgets.pgview import PyDuiPGView
 from pydui.widgets.picture import PyDuiPicture
-from pydui.widgets.listview import PyDuiListView
 
 INTERNAL_WIDGET_LIST = [
     PyDuiPGView,

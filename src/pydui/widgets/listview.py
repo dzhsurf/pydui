@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+import weakref
 from abc import abstractmethod
 from typing import Protocol
 from weakref import ReferenceType
-import weakref
+
 from pydui.core.widget import PyDuiWidget
 from pydui.layout.pglayout import PyDuiLayoutWithPogaSupport
 from pydui.layout.scrolled_layout import PyDuiScrolledLayout
@@ -10,6 +11,7 @@ from pydui.layout.scrolled_layout import PyDuiScrolledLayout
 
 class PyDuiListNode:
     pass
+
 
 class PyDuiListViewDataSource(Protocol):
     @abstractmethod
@@ -20,6 +22,7 @@ class PyDuiListViewDataSource(Protocol):
     def item_node(self, index: int) -> PyDuiListNode:
         pass
 
+
 class PyDuiListViewDelegate(Protocol):
     @abstractmethod
     def item_height(self, index: int) -> float:
@@ -28,6 +31,7 @@ class PyDuiListViewDelegate(Protocol):
     @abstractmethod
     def create_item_by_node(self, index: int, node: PyDuiListNode) -> PyDuiWidget:
         pass
+
 
 class PyDuiListView(PyDuiLayoutWithPogaSupport):
     """PyDuiListView"""

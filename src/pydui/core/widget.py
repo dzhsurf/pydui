@@ -16,6 +16,7 @@ from pydui.core.window_client_interface import PyDuiWindowClientInterface
 
 class LazyStr:
     __fn: Callable = None
+
     def __init__(self, fn: Callable) -> None:
         self.__fn = fn
 
@@ -23,6 +24,7 @@ class LazyStr:
         if self.__fn is not None:
             return self.__fn()
         return ""
+
 
 @dataclass(frozen=True)
 class PyDuiConstraint:
@@ -105,6 +107,7 @@ class PyDuiWidget(PyDuiObject):
                 arr.append("|--")
                 p = p.parent
             return "".join(arr)
+
         return LazyStr(fn=__fn__)
 
     def set_parent(self, parent: "PyDuiWidget"):
@@ -173,11 +176,15 @@ class PyDuiWidget(PyDuiObject):
         if self.parent is not None:
             self.__root_x = self.parent.root_x + x
             self.__root_y = self.parent.root_y + y
-        logging.debug("Layout: %s%s => (%.2f, %.2f, %.2f, %.2f)",
+        logging.debug(
+            "Layout: %s%s => (%.2f, %.2f, %.2f, %.2f)",
             # lazyjoin(' ', (str(i) for i in range(20))),
             self.debug_display_layout_level_strtree(),
             self.build_name(),
-            self.root_x, self.root_y, self.width, self.height,
+            self.root_x,
+            self.root_y,
+            self.width,
+            self.height,
         )
 
     def estimate_size(
