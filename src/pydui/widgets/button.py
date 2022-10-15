@@ -144,16 +144,16 @@ class PyDuiButton(PyDuiLabel):
     def on_rbutton_click(self, x: float, y: float):
         self.emit("rbutton-click", self, x, y)
 
-    def on_l2button_click(self, x: float, y: float):
+    def on_lbutton_dbclick(self, x: float, y: float):
         self.emit("lbutton-dblick", self, x, y)
 
-    def on_r2button_click(self, x: float, y: float):
+    def on_rbutton_dbclick(self, x: float, y: float):
         self.emit("rbutton-dbclick", self, x, y)
 
-    def on_l3button_click(self, x: float, y: float):
+    def on_lbutton_tripleclick(self, x: float, y: float):
         self.emit("lbutton-tripleclick", self, x, y)
 
-    def on_r3button_click(self, x: float, y: float):
+    def on_rbutton_tripleclick(self, x: float, y: float):
         self.emit("rbutton-tripleclick", self, x, y)
 
     def __get_drawimage_by_state(self):

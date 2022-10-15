@@ -42,6 +42,19 @@ class PyDuiLayout(PyDuiWidget):
         width: float,
         height: float,
     ):
+        """draw
+
+        Draw layout and children widgets.
+
+        Args:
+            ctx (cairo.Context): draw context, replace cairo.Context to DrawContext later.
+            x (float): dirty rect, x offset relative to parent view
+            y (float): dirty rect, y offset relative to parent view
+            width (float): dirty rect, rect width
+            height (float): dirty rect, rect height
+            # dirty_rect (PyDuiRect): dirty rect
+            # clip_rect (PyDuiRect): clip rect
+        """
         # TODO, detect draw region is contain widget or not.
         # then you can use this draw region to draw the dirty region only.
         super().draw(ctx, x, y, width, height)

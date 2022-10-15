@@ -297,9 +297,9 @@ class PyDuiWindowEventDispatcher:
         if last_press_time == 0:
             return
         if event.button == ButtonType.BUTTON_RIGHT:
-            widget.on_r2button_click(event.x, event.y)
+            widget.on_rbutton_dbclick(event.x, event.y)
         else:
-            widget.on_l2button_click(event.x, event.y)
+            widget.on_lbutton_dbclick(event.x, event.y)
 
     def __dispatch_2button_press__(self, widget: PyDuiWidget, event: ButtonEvent):
         # This event is difficult to manage and should be avoided. Use press to simulate.

@@ -14,6 +14,16 @@ from pydui.core.render import PyDuiRender
 from pydui.core.window_client_interface import PyDuiWindowClientInterface
 
 
+class LazyStr:
+    __fn: Callable = None
+    def __init__(self, fn: Callable) -> None:
+        self.__fn = fn
+
+    def __str__(self) -> str:
+        if self.__fn is not None:
+            return self.__fn()
+        return ""
+
 @dataclass(frozen=True)
 class PyDuiConstraint:
 
@@ -87,6 +97,16 @@ class PyDuiWidget(PyDuiObject):
         self.__bind_events = {}
         self.__signals = {}
 
+    def debug_display_layout_level_strtree(self) -> LazyStr:
+        def __fn__():
+            arr = []
+            p = self
+            while p is not None:
+                arr.append("|--")
+                p = p.parent
+            return "".join(arr)
+        return LazyStr(fn=__fn__)
+
     def set_parent(self, parent: "PyDuiWidget"):
         self.__parent = parent
 
@@ -148,13 +168,17 @@ class PyDuiWidget(PyDuiObject):
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
-        p = self.parent
         self.__root_x = self.__x
         self.__root_y = self.__y
-        if p is not None:
-            self.__root_x = p.root_x + x
-            self.__root_y = p.root_y + y
-        logging.debug(f"Layout: {self.build_name()} => ({self.root_x}, {self.root_y}, {width}, {height})")
+        if self.parent is not None:
+            self.__root_x = self.parent.root_x + x
+            self.__root_y = self.parent.root_y + y
+        logging.debug("Layout: %s%s => (%.2f, %.2f, %.2f, %.2f)",
+            # lazyjoin(' ', (str(i) for i in range(20))),
+            self.debug_display_layout_level_strtree(),
+            self.build_name(),
+            self.root_x, self.root_y, self.width, self.height,
+        )
 
     def estimate_size(
         self, parent_width: float, parent_height: float, constraint: PyDuiLayoutConstraint
@@ -229,7 +253,7 @@ class PyDuiWidget(PyDuiObject):
     def on_mouse_enter(self):
         pass
 
-    def on_mouse_leave(self, next_widget: PyDuiObject):
+    def on_mouse_leave(self, next_widget: "PyDuiWidget"):
         pass
 
     def on_mouse_move(self, x: float, y: float):
@@ -253,16 +277,16 @@ class PyDuiWidget(PyDuiObject):
     def on_rbutton_click(self, x: float, y: float):
         pass
 
-    def on_l2button_click(self, x: float, y: float):
+    def on_lbutton_dbclick(self, x: float, y: float):
         pass
 
-    def on_r2button_click(self, x: float, y: float):
+    def on_rbutton_dbclick(self, x: float, y: float):
         pass
 
-    def on_l3button_click(self, x: float, y: float):
+    def on_lbutton_tripleclick(self, x: float, y: float):
         pass
 
-    def on_r3button_click(self, x: float, y: float):
+    def on_rbutton_tripleclick(self, x: float, y: float):
         pass
 
     def on_scroll_event(self, event: ScrollEvent) -> bool:
