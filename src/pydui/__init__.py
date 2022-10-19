@@ -18,7 +18,7 @@ layout: Layout module
 
 """
 
-from typing import List
+from typing import TYPE_CHECKING, List
 
 from . import utils
 from .core.application import PyDuiApplication
@@ -28,10 +28,11 @@ from .core.window_handler import PyDuiWindowHandler
 
 __version__ = "0.1.1"
 
-__all__: List[str] = [
-    "utils",
-    "PyDuiApplication",
-    "PyDuiWindowInterface",
-    "PyDuiWindowHandler",
-    "PyDuiBuilder",
-]
+if TYPE_CHECKING:
+    __all__: List[str] = [
+        "utils",
+        "PyDuiApplication",
+        "PyDuiWindowInterface",
+        "PyDuiWindowHandler",
+        "PyDuiBuilder",
+    ]

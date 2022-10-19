@@ -19,7 +19,9 @@ from pydui.common.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.resource_loader import PyDuiResourceLoader
 from pydui.core.widget import *
-from pydui.core.window import *
+from pydui.core.window import PyDuiWindow
+from pydui.core.window_config import PyDuiWindowConfig
+from pydui.core.window_handler import PyDuiWindowHandler
 from pydui.layout.hlayout import PyDuiHLayout
 from pydui.layout.pglayout import PyDuiPGLayout
 from pydui.layout.scrolled_layout import PyDuiFitLayout, PyDuiScrolledLayout
