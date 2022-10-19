@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-from dataclasses import dataclass
 from enum import Enum
-from turtle import right
-from typing import Tuple
+from typing import Dict, Tuple
 
 from pydui.common.import_gtk import *
 
@@ -52,12 +50,14 @@ def Text2PyDuiAlign(text: str) -> PyDuiAlign:
 
 
 def Text2WrapMode(text: str) -> Pango.WrapMode:
-    return {
-        "NONE": None,
+    table: Dict[str, Pango.WrapMode] = {
         "WORD": Pango.WrapMode.WORD,
         "CHAR": Pango.WrapMode.CHAR,
         "WORD_CHAR": Pango.WrapMode.WORD_CHAR,
-    }[text.upper()]
+    }
+    if text not in table:
+        raise ValueError("")
+    return table[text]
 
 
 def Text2EllipsizeMode(text: str) -> Pango.EllipsizeMode:
@@ -70,25 +70,25 @@ def Text2EllipsizeMode(text: str) -> Pango.EllipsizeMode:
 
 
 class PyDuiEdge:
-    left: float = 0
-    top: float = 0
-    right: float = 0
-    bottom: float = 0
+    """PyDuiEdge"""
 
     def __init__(self) -> None:
-        pass
+        self.left: float = 0
+        self.top: float = 0
+        self.right: float = 0
+        self.bottom: float = 0
 
     def __str__(self) -> str:
         return f"({self.left}, {self.top}, {self.right}, {self.bottom}) size:{self.width},{self.height}"
 
-    def copy(self):
+    def copy(self) -> "PyDuiEdge":
         return PyDuiEdge.from_ltrb(self.left, self.top, self.right, self.bottom)
 
-    def copy_with_factor(self, factor: float):
+    def copy_with_factor(self, factor: float) -> "PyDuiEdge":
         return PyDuiEdge.from_ltrb(self.left * factor, self.top * factor, self.right * factor, self.bottom * factor)
 
     @staticmethod
-    def from_value(v: float):
+    def from_value(v: float) -> "PyDuiEdge":
         edge = PyDuiEdge()
         edge.left = v
         edge.top = v
@@ -97,7 +97,7 @@ class PyDuiEdge:
         return edge
 
     @staticmethod
-    def from_hv(h: float, v: float):
+    def from_hv(h: float, v: float) -> "PyDuiEdge":
         edge = PyDuiEdge()
         edge.left = h
         edge.top = v
@@ -106,7 +106,7 @@ class PyDuiEdge:
         return edge
 
     @staticmethod
-    def from_ltrb(left: float, top: float, right: float, bottom: float):
+    def from_ltrb(left: float, top: float, right: float, bottom: float) -> "PyDuiEdge":
         edge = PyDuiEdge()
         edge.left = left
         edge.top = top
@@ -122,17 +122,20 @@ class PyDuiEdge:
     def height(self) -> float:
         return self.top + self.bottom
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         if self.left == 0 and self.right == 0 and self.top == 0 and self.bottom == 0:
             return True
         return False
 
 
 class PyDuiRect:
-    left: float = 0
-    top: float = 0
-    right: float = 0
-    bottom: float = 0
+    """PyDuiRect"""
+
+    def __init__(self) -> None:
+        self.left: float = 0
+        self.top: float = 0
+        self.right: float = 0
+        self.bottom: float = 0
 
     def __str__(self) -> str:
         return f"({self.left}, {self.top}, {self.right}, {self.bottom}) size:{self.width},{self.height}"
@@ -149,7 +152,7 @@ class PyDuiRect:
         return PyDuiRect.from_ltrb(self.left, self.top, self.right, self.bottom)
 
     @staticmethod
-    def from_size(pos: Tuple[float, float], size: Tuple[float, float]):
+    def from_size(pos: Tuple[float, float], size: Tuple[float, float]) -> "PyDuiRect":
         rect = PyDuiRect()
         rect.left = pos[0]
         rect.top = pos[1]
@@ -158,7 +161,7 @@ class PyDuiRect:
         return rect
 
     @staticmethod
-    def from_ltrb(left: float, top: float, right: float, bottom: float):
+    def from_ltrb(left: float, top: float, right: float, bottom: float) -> "PyDuiRect":
         edge = PyDuiRect()
         edge.left = left
         edge.top = top
@@ -171,7 +174,7 @@ class PyDuiRect:
             self.left == rect.left and self.right == rect.right and self.top == rect.top and self.bottom == rect.bottom
         )
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         if self.left == 0 and self.right == 0 and self.top == 0 and self.bottom == 0:
             return True
         return False

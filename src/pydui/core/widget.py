@@ -3,7 +3,7 @@ import logging
 import sys
 import weakref
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 from weakref import ReferenceType
 
 from pydui import utils
@@ -15,9 +15,7 @@ from pydui.core.window_client_interface import PyDuiWindowClientInterface
 
 
 class LazyStr:
-    __fn: Callable = None
-
-    def __init__(self, fn: Callable) -> None:
+    def __init__(self, fn: Callable[..., str]) -> None:
         self.__fn = fn
 
     def __str__(self) -> str:
@@ -44,35 +42,42 @@ class PyDuiObject:
 class PyDuiWidget(PyDuiObject):
     """Widget base class"""
 
-    __window_client: ReferenceType[PyDuiWindowClientInterface] = None
+    def __init__(self) -> None:
+        super().__init__()
 
-    __id: str = ""
-    __parent: "PyDuiWidget" = None
-    __x: float = 0
-    __y: float = 0
-    __root_x: float = 0
-    __root_y: float = 0
-    __width: float = 0
-    __height: float = 0
-    __fixed_x: float = 0
-    __fixed_y: float = 0
-    __fixed_width: float = 0
-    __fixed_height: float = 0
-    __enabled: bool = True
-    __autofit: bool = False
-    __can_focus: bool = False
-    # attrib
-    __bkcolor: Gdk.RGBA = None
-    __margin: PyDuiEdge = None
-    __corner: PyDuiEdge = None
-    __bkimage: str = ""
-    # event
-    __bind_events: Dict[str, List[Callable]] = None
-    __signals: Dict[str, List[Callable]] = None
-    __enable_mouse_event: bool = False
-    __enable_mouse_wheel_event: bool = False
-    # render state
-    __last_render_clip_rect: PyDuiRect = None
+        self.__window_client: Optional[ReferenceType[PyDuiWindowClientInterface]] = None
+        self.__id: str = ""
+        self.__parent: Optional["PyDuiWidget"] = None
+        self.__x: float = 0
+        self.__y: float = 0
+        self.__root_x: float = 0
+        self.__root_y: float = 0
+        self.__width: float = 0
+        self.__height: float = 0
+        self.__fixed_x: float = 0
+        self.__fixed_y: float = 0
+        self.__fixed_width: float = 0
+        self.__fixed_height: float = 0
+        self.__enabled: bool = True
+        self.__autofit: bool = False
+        self.__can_focus: bool = False
+        self.__is_float: bool = False
+        self.__is_visible: bool = True
+
+        # attrib
+        self.__bkcolor: Optional[Gdk.RGBA] = None
+        self.__margin: PyDuiEdge = PyDuiEdge()
+        self.__corner: PyDuiEdge = PyDuiEdge()
+        self.__bkimage: str = ""
+
+        # event
+        self.__bind_events: Dict[str, List[Callable[..., bool]]] = {}
+        self.__signals: Dict[str, List[Callable[..., bool]]] = {}
+        self.__enable_mouse_event: bool = False
+        self.__enable_mouse_wheel_event: bool = False
+
+        # render state
+        self.__last_render_clip_rect: Optional[PyDuiRect] = None
 
     @staticmethod
     def build_name() -> str:
@@ -94,16 +99,9 @@ class PyDuiWidget(PyDuiObject):
             return False
         return widget.enable_mouse_wheel_event and widget.enabled
 
-    def __init__(self):
-        super().__init__()
-        self.margin = PyDuiEdge()
-        self.corner = PyDuiEdge()
-        self.__bind_events = {}
-        self.__signals = {}
-
     def debug_display_layout_level_strtree(self) -> LazyStr:
         def __fn__():
-            arr = []
+            arr: List[str] = []
             p = self
             while p is not None:
                 arr.append("|--")
@@ -122,15 +120,25 @@ class PyDuiWidget(PyDuiObject):
         """
         self.__window_client = weakref.ref(window_client)
 
-    def get_window_client(self):
+    def has_window_client(self) -> bool:
+        if self.__window_client is None:
+            return False
+        client = self.__window_client()
+        return client is not None
+
+    def get_window_client(self) -> PyDuiWindowClientInterface:
         """Get the widget window client
 
         The widget will setup window client after call do_post_init. before the widget init finish, window client will be empty.
         """
-        if self.__window_client is not None:
-            return self.__window_client()
+        if self.__window_client is None:
+            raise ValueError("window client is None, not initialize.")
 
-        return None
+        result: Optional[PyDuiWindowClientInterface] = self.__window_client()
+        if result is None:
+            raise ValueError("window client is None")
+
+        return result
 
     def get_id(self) -> str:
         """Return widget id
@@ -206,7 +214,7 @@ class PyDuiWidget(PyDuiObject):
         """Parse single attribute
 
         Args:
-            attrib (dict[str, str]): attributes dict key=value ...
+            attrib (Dict[str, str]): attributes dict key=value ...
         """
         # logging.debug(f"{self} parse {k} = {v}")
         if k == "id":
@@ -217,7 +225,7 @@ class PyDuiWidget(PyDuiObject):
             self.fixed_height = float(v)
         elif k == "size":
             size_arr = v.split(",")
-            self.fixed_size(tuple(float(n) for n in size_arr))
+            self.fixed_size = tuple(float(n) for n in size_arr)
         elif k == "x":
             self.fixed_x = float(v)
         elif k == "y":
@@ -254,46 +262,46 @@ class PyDuiWidget(PyDuiObject):
     def enable_mouse_wheel_event(self, enable: bool):
         self.__enable_mouse_wheel_event = enable
 
-    def on_post_init(self):
+    def on_post_init(self) -> None:
         pass
 
-    def on_mouse_enter(self):
+    def on_mouse_enter(self) -> None:
         pass
 
-    def on_mouse_leave(self, next_widget: "PyDuiWidget"):
+    def on_mouse_leave(self, next_widget: Optional["PyDuiWidget"]) -> None:
         pass
 
-    def on_mouse_move(self, x: float, y: float):
+    def on_mouse_move(self, x: float, y: float) -> None:
         pass
 
-    def on_lbutton_press(self, x: float, y: float):
+    def on_lbutton_press(self, x: float, y: float) -> bool:
         return False
 
-    def on_lbutton_release(self, x: float, y: float):
-        pass
-
-    def on_rbutton_press(self, x: float, y: float):
+    def on_lbutton_release(self, x: float, y: float) -> bool:
         return False
 
-    def on_rbutton_release(self, x: float, y: float):
+    def on_rbutton_press(self, x: float, y: float) -> bool:
+        return False
+
+    def on_rbutton_release(self, x: float, y: float) -> bool:
+        return False
+
+    def on_lbutton_click(self, x: float, y: float) -> None:
         pass
 
-    def on_lbutton_click(self, x: float, y: float):
+    def on_rbutton_click(self, x: float, y: float) -> None:
         pass
 
-    def on_rbutton_click(self, x: float, y: float):
+    def on_lbutton_dbclick(self, x: float, y: float) -> None:
         pass
 
-    def on_lbutton_dbclick(self, x: float, y: float):
+    def on_rbutton_dbclick(self, x: float, y: float) -> None:
         pass
 
-    def on_rbutton_dbclick(self, x: float, y: float):
+    def on_lbutton_tripleclick(self, x: float, y: float) -> None:
         pass
 
-    def on_lbutton_tripleclick(self, x: float, y: float):
-        pass
-
-    def on_rbutton_tripleclick(self, x: float, y: float):
+    def on_rbutton_tripleclick(self, x: float, y: float) -> None:
         pass
 
     def on_scroll_event(self, event: ScrollEvent) -> bool:
@@ -306,14 +314,14 @@ class PyDuiWidget(PyDuiObject):
     def get_bindevents(self) -> List[str]:
         return []
 
-    def bind_event(self, event_name: str, callback: Callable):
+    def bind_event(self, event_name: str, callback: Callable[..., bool]):
         if event_name in self.__bind_events:
             self.__bind_events[event_name].append(callback)
         else:
-            self.__bind_events[event_name] = list([callback])
+            self.__bind_events[event_name] = [callback]
 
-    def unbind_event(self, event_name: str, callback: Callable):
-        def remove_fn(item: Callable):
+    def unbind_event(self, event_name: str, callback: Callable[..., bool]):
+        def remove_fn(item: Callable[..., bool]):
             if item == callback:
                 return True
             return False
@@ -321,8 +329,8 @@ class PyDuiWidget(PyDuiObject):
         if event_name in self.__bind_events:
             self.__bind_events[event_name] = list(filter(remove_fn, self.__bind_events[event_name]))
 
-    def do_bind_event(self, event_name: str, *args, **kwargs) -> bool:
-        fn_list: List[Callable] = []
+    def do_bind_event(self, event_name: str, *args: Any, **kwargs: Any) -> bool:
+        fn_list: List[Callable[..., bool]] = []
         if event_name in self.__bind_events:
             fn_list = self.__bind_events[event_name].copy()
         for fn in fn_list:
@@ -331,14 +339,14 @@ class PyDuiWidget(PyDuiObject):
                 return ret
         return False
 
-    def connect(self, signal_name: str, callback: Callable):
+    def connect(self, signal_name: str, callback: Callable[..., bool]):
         if signal_name in self.__signals:
             self.__signals[signal_name].append(callback)
         else:
             self.__signals[signal_name] = list([callback])
 
-    def disconnect(self, signal_name: str, callback: Callable):
-        def remove_fn(item: Callable):
+    def disconnect(self, signal_name: str, callback: Callable[..., bool]):
+        def remove_fn(item: Callable[..., bool]):
             if item == callback:
                 return True
             return False
@@ -366,7 +374,7 @@ class PyDuiWidget(PyDuiObject):
 
     def translate_to_relative_pos(self, x: float, y: float) -> Tuple[float, float]:
         result = (x, y)
-        p: PyDuiWidget = self.parent
+        p: Optional[PyDuiWidget] = self.parent
         while p is not None:
             result = (result[0] + p.x, result[1] + p.y)
             p = p.parent
@@ -398,7 +406,7 @@ class PyDuiWidget(PyDuiObject):
     # position & size
 
     @property
-    def parent(self) -> "PyDuiWidget":
+    def parent(self) -> Optional["PyDuiWidget"]:
         return self.__parent
 
     @property
@@ -460,7 +468,7 @@ class PyDuiWidget(PyDuiObject):
 
     @property
     def is_float(self) -> bool:
-        pass
+        return self.__is_float
 
     @property
     def fixed_x(self) -> float:
@@ -489,7 +497,7 @@ class PyDuiWidget(PyDuiObject):
 
     @is_float.setter
     def is_float(self, is_float: bool):
-        pass
+        self.__is_float = is_float
 
     @property
     def margin(self) -> PyDuiEdge:
@@ -502,7 +510,7 @@ class PyDuiWidget(PyDuiObject):
     # constraint
     @property
     def constraint(self) -> PyDuiConstraint:
-        pass
+        return PyDuiConstraint()
 
     @constraint.setter
     def constraint(self, v: PyDuiConstraint):
@@ -511,11 +519,11 @@ class PyDuiWidget(PyDuiObject):
     # state
     @property
     def visible(self) -> bool:
-        pass
+        return self.__is_visible
 
     @visible.setter
     def visible(self, visible: bool):
-        pass
+        self.__is_visible = visible
 
     @property
     def enabled(self) -> bool:
@@ -548,7 +556,7 @@ class PyDuiWidget(PyDuiObject):
 
     # appearance
     @property
-    def bkcolor(self) -> Gdk.RGBA:
+    def bkcolor(self) -> Optional[Gdk.RGBA]:
         return self.__bkcolor
 
     @bkcolor.setter

@@ -31,7 +31,7 @@ class PyDuiResourceLoader(ABC):
         pass
 
     @abstractmethod
-    def load_string(self, id: str) -> str:
+    def load_string(self, sid: str) -> str:
         """Load intl language text by text id"""
         pass
 
@@ -84,6 +84,7 @@ class __PyDuiDefaultResourceLoader__(PyDuiResourceLoader):
         return (bytes(), 1.0)
 
     def load_data(self, path: str) -> bytes:
+        res_path: str = path
         try:
             res_path = self.resource_path(path)
             with open(res_path, "rb") as f:
@@ -94,7 +95,7 @@ class __PyDuiDefaultResourceLoader__(PyDuiResourceLoader):
             # syslog.syslog(syslog.LOG_ALERT, f"open path fail. path = {res_path}")
         return bytes()
 
-    def load_string(self, id: str) -> str:
+    def load_string(self, sid: str) -> str:
         return ""
 
 

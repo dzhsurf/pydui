@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from abc import ABC, abstractmethod
-from typing import Any, Callable
+from typing import Any, Optional
 
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
@@ -10,15 +10,11 @@ from pydui.core.window_provider import PyDuiWindowProvider
 
 class PyDuiWindowInterface(ABC):
     @abstractmethod
-    def get_widget(self, widget_id: str) -> PyDuiWidget:
+    def get_widget(self, widget_id: str) -> Optional[PyDuiWidget]:
         pass
 
     @abstractmethod
-    def execute_platform_code(self, cb: Callable[[Any], None]):
-        pass
-
-    @abstractmethod
-    def create_embedded_widget(self, widget_typename: str) -> PyDuiEmbeddedWidgetHost:
+    def create_embedded_widget(self, widget_typename: str) -> PyDuiEmbeddedWidgetHost[Any]:
         pass
 
     @abstractmethod

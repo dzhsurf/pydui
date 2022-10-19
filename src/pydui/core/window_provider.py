@@ -41,11 +41,11 @@ class PyDuiWindowProvider(Protocol):
         pass
 
     @abstractmethod
-    def connect(self, signal: str, fn: Callable):
+    def connect(self, signal: str, fn: Callable[..., Any]):
         pass
 
     @abstractmethod
-    def disconnect(self, signal: str, fn: Callable):
+    def disconnect(self, signal: str, fn: Callable[..., Any]):
         pass
 
     @abstractmethod

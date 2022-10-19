@@ -1,24 +1,15 @@
 # -*- coding: utf-8 -*-
-from typing import List, Tuple
+from typing import List, Optional
 
 from pydui import utils
 from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
 from pydui.component.text_view.text_view_protocol import PyDuiTextViewProtocol
-from pydui.core.widget import PyDuiWidget
 from pydui.widgets.pgview import PyDuiPGView
 
 
 class PyDuiEdit(PyDuiPGView):
-
-    __text_view: PyDuiEmbeddedWidgetHost[PyDuiTextViewProtocol] = None
-    __text: str = ""
-    __editable: bool = True  # Default is can edit
-    __font: str = ""
-    __fontsize: int = 0
-    __text_padding: PyDuiEdge = None
-
     @staticmethod
     def build_name() -> str:
         return "Edit"
@@ -27,6 +18,12 @@ class PyDuiEdit(PyDuiPGView):
         super().__init__()
         self.can_focus = True
         self.__text_padding = PyDuiEdge()
+
+        self.__text_view: Optional[PyDuiEmbeddedWidgetHost[PyDuiTextViewProtocol]] = None
+        self.__text: str = ""
+        self.__editable: bool = True  # Default is can edit
+        self.__font: str = ""
+        self.__fontsize: int = 0
 
     def on_post_init(self):
         pass
@@ -149,6 +146,9 @@ class PyDuiEdit(PyDuiPGView):
         self.__update_text_view_position_and_size__()
 
     def __update_text_view_position_and_size__(self):
+        if self.__text_view is None:
+            return
+
         text_padding_w = self.__text_padding.width
         text_padding_h = self.__text_padding.height
         self.get_window_client().update_embedded_widget_position(

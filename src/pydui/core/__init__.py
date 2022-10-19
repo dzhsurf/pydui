@@ -1,3 +1,2 @@
 # -*- coding: utf-8 -*-
-"""Core Module
-"""
+"""Core Module"""

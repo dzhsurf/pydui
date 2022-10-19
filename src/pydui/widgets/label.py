@@ -28,19 +28,6 @@ class PyDuiLabel(PyDuiPGView):
         text_padding (Rect): text padding
     """
 
-    __text: str = ""
-    __font: str = ""
-    __fontsize: int = None
-    __fontcolor: Gdk.RGBA = None
-
-    __ellipsize_mode: str = "END"
-    __wrap_mode: str = "WORD_CHAR"
-    __halign: str = "CENTER"
-    __valign: str = "CENTER"
-    __line_spacing: float = 1.25
-    __autofit_padding: PyDuiEdge = None
-    __text_padding: PyDuiEdge = None
-
     @staticmethod
     def build_name() -> str:
         return "Label"
@@ -49,6 +36,17 @@ class PyDuiLabel(PyDuiPGView):
         super().__init__()
         self.__autofit_padding = PyDuiEdge()
         self.__text_padding = PyDuiEdge()
+
+        self.__text: str = ""
+        self.__font: str = ""
+        self.__fontsize: Optional[int] = None
+        self.__fontcolor: Optional[Gdk.RGBA] = None
+
+        self.__ellipsize_mode: str = "END"
+        self.__wrap_mode: str = "WORD_CHAR"
+        self.__halign: str = "CENTER"
+        self.__valign: str = "CENTER"
+        self.__line_spacing: float = 1.25
 
     def parse_attrib(self, k: str, v: str):
         if k == "text":
@@ -158,9 +156,9 @@ class PyDuiLabel(PyDuiPGView):
     def text(self, text: str):
         self.__text = text
 
-    def __get_font_info__(self) -> Tuple[str, int, str]:
-        window_client = self.get_window_client()
-        fontfamily = self.__font
+    def __get_font_info__(self) -> Tuple[str, int, Gdk.RGBA]:
+        window_client: PyDuiWindowClientInterface = self.get_window_client()
+        fontfamily: str = self.__font
         if fontfamily is None or fontfamily == "":
             fontfamily = window_client.get_appearance().default_fontfamily
 
@@ -174,7 +172,7 @@ class PyDuiLabel(PyDuiPGView):
         return (fontfamily, fontsize, fontcolor)
 
     def __estimate_text_size__(self, limit_width: float, limit_height: float) -> Tuple[float, float]:
-        fontfamily, fontsize, fontcolor = self.__get_font_info__()
+        fontfamily, fontsize, _ = self.__get_font_info__()
         ctx = self.get_window_client().get_render_context()
         return PyDuiRender.EstimateTextSize(
             ctx,

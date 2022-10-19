@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Callable
+from typing import Callable, Optional, cast
 
 from pydui import utils
 from pydui.common.base import *
@@ -8,21 +8,16 @@ from pydui.core.widget import *
 
 
 class PyDuiLayout(PyDuiWidget):
-
     """Layout base class, all layouts inherit from PyDuiLayout"""
 
-    __children: List[PyDuiWidget] = None
-    __padding: PyDuiEdge = None
-    __childHVAlign: Tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.START, PyDuiAlign.START)
-    __fitrule: List[str] = None
-
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.__padding = PyDuiEdge()
-        self.__children = []
-        self.__fitrule = []
+        self.__children: List[PyDuiWidget] = []
+        self.__fitrule: List[str] = []
+        self.__childHVAlign: Tuple[PyDuiAlign, PyDuiAlign] = (PyDuiAlign.START, PyDuiAlign.START)
 
-    def parse_attrib(self, k: str, v: str):
+    def parse_attrib(self, k: str, v: str) -> None:
         if k == "padding":
             self.padding = utils.Str2Edge(v)
         elif k == "halign":
@@ -52,6 +47,8 @@ class PyDuiLayout(PyDuiWidget):
         rc1 = PyDuiRect.from_size((0, 0), (self.width, self.height))
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
             ctx.save()
 
             # clip region
@@ -80,23 +77,27 @@ class PyDuiLayout(PyDuiWidget):
         """
         super().layout(x, y, width, height, constraint)
 
-    def get_children_range_fixed_width(self, start, stop) -> float:
+    def get_children_range_fixed_width(self, start: int, stop: int) -> float:
         w = 0
         for i in range(start, stop):
             child = self.get_child_at(i)
+            if child is None:
+                continue
             margin = child.margin
             w = w + child.fixed_width + margin.width
         return w
 
-    def get_children_range_fixed_height(self, start, stop) -> float:
+    def get_children_range_fixed_height(self, start: int, stop: int) -> float:
         h = 0
         for i in range(start, stop):
             child = self.get_child_at(i)
+            if child is None:
+                continue
             margin = child.margin
             h = h + child.fixed_height + margin.height
         return h
 
-    def get_child(self, widget_id: str) -> PyDuiWidget:
+    def get_child(self, widget_id: str) -> Optional[PyDuiWidget]:
         """Get child widget by widget_id
 
         Args:
@@ -107,10 +108,14 @@ class PyDuiLayout(PyDuiWidget):
         """
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
             if child.get_id() == widget_id:
                 return child
             if issubclass(type(child), PyDuiLayout):
-                target = child.get_child(widget_id)
+                target = cast(PyDuiLayout, child).get_child(widget_id)
+                if target is None:
+                    continue
                 if target is not None:
                     return target
 
@@ -118,15 +123,17 @@ class PyDuiLayout(PyDuiWidget):
 
     def find_widget_by_pos(
         self, x: float, y: float, *, filter: Callable[[PyDuiWidget], bool] = PyDuiWidget.find_widget_default_filter
-    ) -> PyDuiWidget:
+    ) -> Optional[PyDuiWidget]:
         """Get child by position"""
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
             if not child.contain_pos(x, y):
                 continue
 
             if issubclass(type(child), PyDuiLayout):
-                target = child.find_widget_by_pos(x, y, filter=filter)
+                target = cast(PyDuiLayout, child).find_widget_by_pos(x, y, filter=filter)
                 if target is not None and filter(target):
                     return target
 
@@ -134,7 +141,7 @@ class PyDuiLayout(PyDuiWidget):
                 return child
         return None
 
-    def get_child_at(self, index: int) -> PyDuiWidget:
+    def get_child_at(self, index: int) -> Optional[PyDuiWidget]:
         """Get child widget at index
 
         if the index overbound, it will return None.
@@ -162,7 +169,7 @@ class PyDuiLayout(PyDuiWidget):
             return
         child.set_parent(self)
         self.__children.append(child)
-        if self.get_window_client() is not None:
+        if self.has_window_client():
             child.__do_post_init__(self.get_window_client())
 
     def add_child_at(self, child: PyDuiWidget, index: int):
@@ -177,8 +184,10 @@ class PyDuiLayout(PyDuiWidget):
         Returns:
             PyDuiWidget: return widget object.
         """
+
         if child is None:
             return
+
         child.set_parent(self)
         self.__children.insert(index, child)
         if self.get_window_client() is not None:
@@ -239,7 +248,7 @@ class PyDuiLayout(PyDuiWidget):
         return self.__childHVAlign[1]
 
     @property
-    def fitrule(self) -> list[str]:
+    def fitrule(self) -> List[str]:
         return self.__fitrule
 
     # private function
@@ -250,9 +259,11 @@ class PyDuiLayout(PyDuiWidget):
         super().__do_post_init__(window_client)
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
             child.__do_post_init__(window_client)
 
     # private functions
-    def __process_resize_or_move__(self, gtk_widget, gtk_event):
+    def __process_resize_or_move__(self, gtk_widget: Gtk.Widget, gtk_event: Gdk.Event):
         pass
         # logging.debug(f"resize, {object}")

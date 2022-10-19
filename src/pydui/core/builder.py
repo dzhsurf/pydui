@@ -12,8 +12,7 @@ Example::
 
 """
 import xml.etree.ElementTree as ET
-from dataclasses import dataclass
-from typing import Callable, Tuple, Type, Union
+from typing import Callable, Tuple, Type
 
 from pydui import utils
 from pydui.common.import_gtk import *
@@ -27,7 +26,6 @@ from pydui.layout.scrolled_layout import PyDuiFitLayout, PyDuiScrolledLayout
 from pydui.layout.vlayout import PyDuiVLayout
 from pydui.widgets.button import PyDuiButton
 from pydui.widgets.edit import PyDuiEdit
-from pydui.widgets.icon import PyDuiIcon
 from pydui.widgets.label import PyDuiLabel
 from pydui.widgets.listview import PyDuiListView
 from pydui.widgets.pgview import PyDuiPGView
@@ -46,17 +44,14 @@ INTERNAL_WIDGET_LIST = [
     PyDuiEdit,
     PyDuiListView,
 ]
-INTERNAL_WIDGET_TABLE = dict[str, Any]()
-INTERNAL_WIDGET_INIT = False
+INTERNAL_WIDGET_TABLE: Dict[str, Any] = {}
+g_internal_widget_init = False
 
 
 class __PyDuiResourceProvider__(PyDuiResourceLoader):
-
-    __loaders: list[PyDuiResourceLoader] = None
-
     def __init__(self):
         super().__init__()
-        self.__loaders = list()
+        self.__loaders: List[PyDuiResourceLoader] = []
 
     def scheme(self) -> str:
         return "__resource_provider__"
@@ -72,38 +67,36 @@ class __PyDuiResourceProvider__(PyDuiResourceLoader):
             v = loader.load_xml(path)
             if v is not None:
                 return v
-        return None
+        return ""
 
     def load_data(self, path: str) -> bytes:
         for loader in self.__loaders:
             v = loader.load_data(path)
             if v is not None:
                 return v
-        return None
+        return bytes()
 
     def load_image(self, path: str) -> Tuple[bytes, float]:
         for loader in self.__loaders:
             v = loader.load_image(path)
             if v is not None:
                 return v
-        return None
+        return (bytes(), 0)
 
-    def load_string(self, path: str) -> str:
+    def load_string(self, sid: str) -> str:
         for loader in self.__loaders:
-            v = loader.load_string(path)
+            v = loader.load_string(sid)
             if v is not None:
                 return v
-        return None
+        return ""
 
 
 class PyDuiBuilder:
 
     """Build Widget, Window from xml resource"""
 
-    __resource_provider: __PyDuiResourceProvider__ = None
-
     def __init__(self):
-        self.__resource_provider = __PyDuiResourceProvider__()
+        self.__resource_provider: __PyDuiResourceProvider__ = __PyDuiResourceProvider__()
 
     def register_resource_loader(self, loader: PyDuiResourceLoader):
         self.__resource_provider.register_loader(loader)
@@ -143,7 +136,7 @@ class PyDuiBuilder:
         )
         return window
 
-    def __build_window_from_path__(self, path: str) -> Tuple[Union[PyDuiWindowConfig, None], PyDuiWidget]:
+    def __build_window_from_path__(self, path: str) -> Tuple[PyDuiWindowConfig, PyDuiLayout]:
         xml_content = self.__resource_provider.load_xml(path)
         if xml_content is None or len(xml_content) == 0:
             logging.error(f"load xml fail. path not exist. path = {path}")
@@ -155,7 +148,7 @@ class PyDuiBuilder:
                     max_size=(0, 0),
                     position=Gtk.WindowPosition.CENTER,
                 ),
-                PyDuiVLayout(None),
+                PyDuiVLayout(),
             )
         # syslog.syslog(syslog.LOG_ALERT, f"xml len {len(xml_content)}, path = {path}")
         # tree = ET.parse(path)
@@ -178,9 +171,9 @@ class PyDuiBuilder:
     def __process_root_node__(self, node: ET.Element) -> PyDuiWindowConfig:
         return PyDuiWindowConfig(
             title=node.attrib.get("title", ""),
-            size=utils.Str2Size(node.attrib.get("size", "400,300")),
-            min_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
-            max_size=utils.Str2Size(node.attrib.get("min_size", "0,0")),
+            size=utils.Str2SizeInt(node.attrib.get("size", "400,300")),
+            min_size=utils.Str2SizeInt(node.attrib.get("min_size", "0,0")),
+            max_size=utils.Str2SizeInt(node.attrib.get("min_size", "0,0")),
             position=utils.Str2Position(node.attrib.get("position", "CENTER")),
             default_font=node.attrib.get("default_font", "Arial"),
             default_fontsize=int(node.attrib.get("default_fontsize", "16")),
@@ -196,9 +189,9 @@ class PyDuiBuilder:
         attrib = node.attrib
 
         def build_gtk_widget():
-            global INTERNAL_WIDGET_INIT, INTERNAL_WIDGET_TABLE, INTERNAL_WIDGET_LIST
-            if not INTERNAL_WIDGET_INIT:
-                INTERNAL_WIDGET_INIT = True
+            global g_internal_widget_init, INTERNAL_WIDGET_TABLE, INTERNAL_WIDGET_LIST
+            if not g_internal_widget_init:
+                g_internal_widget_init = True
                 for widget_cls in INTERNAL_WIDGET_LIST:
                     name = widget_cls.build_name()
                     INTERNAL_WIDGET_TABLE[name] = widget_cls
@@ -220,4 +213,7 @@ class PyDuiBuilder:
     ):
         child_widget = cb(node, parent_widget)
         for child in node:
-            self.__recursive_tree_node__(child, child_widget, cb)
+            if isinstance(child_widget, PyDuiLayout):
+                self.__recursive_tree_node__(child, child_widget, cb)
+            else:
+                raise ValueError("Widget is not a Layout.")

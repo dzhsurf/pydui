@@ -17,21 +17,18 @@ from pydui.provider.window_provider_gtk3 import PyDuiWindowProviderGTK3
 class PyDuiWindow(PyDuiWindowInterface):
     """PyDuiWindow"""
 
-    __provider: PyDuiWindowProvider = None
-    __client: PyDuiWindowClient = None
-
     def __init__(
         self,
-        loader: Type[PyDuiResourceLoader],
+        loader: PyDuiResourceLoader,
         config: PyDuiWindowConfig,
-        rootview: PyDuiWidget,
-        handler: Type[PyDuiWindowHandler] = None,
+        rootview: PyDuiLayout,
+        handler: Optional[Type[PyDuiWindowHandler]] = None,
     ):
         super().__init__()
-        self.__provider = None
+        self.__provider: Optional[PyDuiWindowProvider] = None
 
         # Init window client
-        self.__client = PyDuiWindowClient(
+        self.__client: PyDuiWindowClient = PyDuiWindowClient(
             window=self,
             config=config,
             loader=loader,
@@ -40,19 +37,13 @@ class PyDuiWindow(PyDuiWindowInterface):
         )
 
     # PyDuiWindowInterface implement
-    def get_widget(self, widget_id: str) -> PyDuiWidget:
-        return self.__client.get_widget(widget_id=widget_id)
+    def get_widget(self, widget_id: str) -> Optional[PyDuiWidget]:
+        return self.__client.get_widget(widget_id)
 
-    def execute_platform_code(self, cb: Callable[[Any], None]):
-        # TODO: remove it later
-        if cb is None:
-            return
-        cb(self.get_window_provider()._PyDuiWindowProviderGTK3__gtk_window)
-
-    def create_embedded_widget(self, widget_typename: str) -> PyDuiEmbeddedWidgetHost:
-        provider = self.get_embedded_widget_provider()
+    def create_embedded_widget(self, widget_typename: str) -> PyDuiEmbeddedWidgetHost[Any]:
+        provider = self.__client.get_window_provider().get_embedded_widget_provider()
         if provider is None:
-            return None
+            raise ValueError(f"widget type not support. {widget_typename}")
         return provider.create_embedded_widget(widget_typename)
 
     def get_window_provider(self) -> PyDuiWindowProvider:

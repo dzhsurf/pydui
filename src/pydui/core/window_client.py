@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 import weakref
-from typing import Any, Callable, Tuple, Type
+from typing import Any, Callable, Optional, Tuple, Type
 from weakref import ReferenceType
 
-from pynoticenter import PyNotiCenter, PyNotiOptions, PyNotiTaskQueue
+from pynoticenter import PyNotiCenter, PyNotiOptions  # type: ignore
 
 from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
-from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost, PyDuiEmbeddedWidgetProvider
+from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
 from pydui.core.appearance_manager import PyDuiAppearanceManager
 from pydui.core.layout import PyDuiLayout
 from pydui.core.resource_loader import PyDuiResourceLoader
@@ -20,18 +20,7 @@ from pydui.core.window_interface import PyDuiWindowInterface, PyDuiWindowProvide
 
 
 class PyDuiWindowClient(PyDuiWindowClientInterface):
-
     """Window client"""
-
-    # window client component
-    __appearance_manager: PyDuiAppearanceManager = None
-    __task_queue: PyNotiTaskQueue = None
-    __loader: PyDuiResourceLoader = None
-    __rootview: PyDuiLayout = None
-    __event_dispatcher: PyDuiWindowEventDispatcher = None
-
-    # window backend
-    __window: ReferenceType[PyDuiWindowInterface] = None
 
     def __init__(
         self,
@@ -39,10 +28,10 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         config: PyDuiWindowConfig,
         loader: PyDuiResourceLoader,
         rootview: PyDuiLayout,
-        handler: Type[PyDuiWindowHandler],
+        handler: Optional[Type[PyDuiWindowHandler]],
     ):
         # init component
-        self.__window = weakref.ref(window)  # weakref
+        self.__window: ReferenceType[PyDuiWindowInterface] = weakref.ref(window)  # weakref
         self.__appearance_manager = PyDuiAppearanceManager()
         self.__loader = loader
         self.__task_queue = PyNotiCenter.default().create_task_queue(
@@ -75,8 +64,8 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     def get_window_size(self) -> Tuple[float, float]:
         return self.get_window_provider().get_window_size()
 
-    def set_window_size(self, w: float, h: float):
-        self.get_window_provider().set_window_size(w, h)
+    def set_window_size(self, width: float, height: float):
+        self.get_window_provider().set_window_size(width, height)
 
     def get_customize_titlebar(self) -> bool:
         return self.__appearance_manager.customize_titlebar
@@ -92,19 +81,19 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     def get_render_context(self) -> cairo.Context:
         return self.get_window_provider().get_render_context()
 
-    def add_event_observer(self, key: str, fn: Callable):
+    def add_event_observer(self, key: str, fn: Callable[..., Any]) -> None:
         self.__event_dispatcher.add_event_observer(key, fn)
 
-    def remove_event_observer(self, key: str, fn: Callable):
+    def remove_event_observer(self, key: str, fn: Callable[..., Any]) -> None:
         self.__event_dispatcher.remove_event_observer(key, fn)
 
-    def cancel_task(self, task_id: str):
+    def cancel_task(self, task_id: str) -> None:
         self.__task_queue.cancel_task(task_id)
 
-    def post_task(self, fn: Callable, *args: Any, **kwargs: Any) -> str:
+    def post_task(self, fn: Callable[..., Any], *args: Any, **kwargs: Any) -> str:
         return self.post_task_with_delay(0.0, fn, *args, **kwargs)
 
-    def post_task_with_delay(self, delay: float, fn: Callable, *args: Any, **kwargs: Any) -> str:
+    def post_task_with_delay(self, delay: float, fn: Callable[..., Any], *args: Any, **kwargs: Any) -> str:
         if self.__task_queue.is_terminated:
             return ""
         if fn is None:
@@ -117,22 +106,22 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
     def get_window_provider(self) -> PyDuiWindowProvider:
         window = self.__window()
         if window is None:
-            return None
+            raise ValueError("window provider is None")
         return window.get_window_provider()
 
-    def create_embedded_widget(self, widget_typename: str) -> PyDuiEmbeddedWidgetHost:
+    def create_embedded_widget(self, widget_typename: str) -> PyDuiEmbeddedWidgetHost[Any]:
         return self.get_window_provider().get_embedded_widget_provider().create_embedded_widget(widget_typename)
 
-    def add_embedded_widget(self, widget: PyDuiEmbeddedWidgetHost):
+    def add_embedded_widget(self, widget: PyDuiEmbeddedWidgetHost[Any]):
         self.get_window_provider().get_embedded_widget_provider().add_embedded_widget(widget)
 
-    def remove_embedded_widget(self, widget: PyDuiEmbeddedWidgetHost):
+    def remove_embedded_widget(self, widget: PyDuiEmbeddedWidgetHost[Any]):
         self.get_window_provider().get_embedded_widget_provider().remove_embedded_widget(widget)
 
-    def update_embedded_widget_position(self, widget: PyDuiEmbeddedWidgetHost, x: float, y: float):
+    def update_embedded_widget_position(self, widget: PyDuiEmbeddedWidgetHost[Any], x: float, y: float):
         self.get_window_provider().get_embedded_widget_provider().update_embedded_widget_position(widget, x, y)
 
-    def update_embedded_widget_viewport(self, widget: PyDuiEmbeddedWidgetHost, rect: PyDuiRect):
+    def update_embedded_widget_viewport(self, widget: PyDuiEmbeddedWidgetHost[Any], rect: PyDuiRect):
         self.get_window_provider().get_embedded_widget_provider().update_embedded_widget_viewport(widget, rect)
 
     def get_appearance(self) -> PyDuiAppearanceManager:
@@ -146,7 +135,7 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         """
         return self.__rootview
 
-    def get_widget(self, widget_id: str) -> PyDuiWidget:
+    def get_widget(self, widget_id: str) -> Optional[PyDuiWidget]:
         """Get widget by widget id
 
         Args:
@@ -160,7 +149,7 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         y: float,
         *,
         filter: Callable[[PyDuiWidget], bool] = PyDuiWidget.find_widget_default_filter,
-    ) -> PyDuiWidget:
+    ) -> Optional[PyDuiWidget]:
         if self.__rootview is None:
             return None
 
@@ -184,7 +173,11 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
 
     def __on_window_init__(self):
         self.__rootview.__do_post_init__(self)
-        self.__event_dispatcher.handler.on_window_init(self.__window())
+        window = self.__window()
+        if window is None:
+            raise ValueError("window is None")
+
+        self.__event_dispatcher.handler.on_window_init(window)
 
     def __on_draw__(self, ctx: cairo.Context, width: float, height: float):
         if self.__rootview is None:
@@ -196,7 +189,7 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         clip_rect = dirty_rect.copy()
         self.__rootview.draw(ctx, dirty_rect, clip_rect)
 
-    def __post_task_to_gtk_thread__(self, fn: Callable, task_id: str, *args: Any, **kwargs: Any) -> bool:
+    def __post_task_to_gtk_thread__(self, fn: Callable[..., None], task_id: str, *args: Any, **kwargs: Any) -> bool:
         if self.__task_queue.is_terminated:
             return True
         GLib.idle_add(fn, task_id, *args, **kwargs)

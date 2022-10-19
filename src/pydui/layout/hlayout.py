@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
-import math
-import random
 from typing import Tuple
 
-from pydui import utils
 from pydui.common.import_gtk import *
 from pydui.core.layout import *
 from pydui.core.widget import *
@@ -46,9 +43,13 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
         layout_max_h = max(0, layout_max_h - self.padding.height)
 
         # step 1, preprocess all the fixed widget
-        layout_fixed_width_usage_dict = dict[int, int]()
+        layout_fixed_width_usage_dict: Dict[int, float] = {}
         for i in range(self.child_count - 1, -1, -1):
             child = self.get_child_at(i)
+            if child is None:
+                continue
+            if child.is_float:
+                continue
             usage = child.fixed_width + child.margin.width
             if child.autofit or child.fixed_width == 0:
                 usage = 0
@@ -56,7 +57,7 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
             if i < self.child_count - 1:
                 layout_fixed_width_usage_dict[i] += layout_fixed_width_usage_dict[i + 1]
 
-        def get_ends_width(index: int) -> int:
+        def get_ends_width(index: int) -> float:
             if index + 1 in layout_fixed_width_usage_dict:
                 return layout_fixed_width_usage_dict[index + 1]
             return 0
@@ -68,6 +69,10 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
         pre_fixed_widget_total_width = 0
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
+            if child.is_float:
+                continue
             margin_w = child.margin.width
             margin_h = child.margin.height
             child_w, child_h = child.fixed_width, child.fixed_height
@@ -104,9 +109,13 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
         layout_max_h = max(0, height - self.padding.height)
 
         # step 1, preprocess all the fixed widget
-        layout_fixed_width_usage_dict = dict[int, int]()
+        layout_fixed_width_usage_dict: Dict[int, float] = {}
         for i in range(self.child_count - 1, -1, -1):
             child = self.get_child_at(i)
+            if child is None:
+                continue
+            if child.is_float:
+                continue
             usage = child.fixed_width + child.margin.width
             if child.autofit or child.fixed_width == 0:
                 usage = 0
@@ -114,7 +123,7 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
             if i < self.child_count - 1:
                 layout_fixed_width_usage_dict[i] += layout_fixed_width_usage_dict[i + 1]
 
-        def get_ends_width(index: int) -> int:
+        def get_ends_width(index: int) -> float:
             if index + 1 in layout_fixed_width_usage_dict:
                 return layout_fixed_width_usage_dict[index + 1]
             return 0
@@ -127,6 +136,10 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
 
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
+            if child.is_float:
+                continue
             margin_w = child.margin.width
             margin_h = child.margin.height
             child_w, child_h = child.fixed_width, child.fixed_height
@@ -189,6 +202,20 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
         layout_x, layout_y = self.padding.left, self.padding.top
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
+
+            if child.is_float:
+                child_size = child.estimate_size(width, height, constraint=constraint)
+                child_max_width = width - self.padding.width
+                child_max_height = height - self.padding.height
+                if child_size[0] == 0:
+                    child_size = (child_max_width, child_size[1])
+                if child_size[1] == 0:
+                    child_size = (child_size[0], child_max_height)
+                child.layout(child.fixed_x, child.fixed_y, child_max_width, child_max_height, constraint=constraint)
+                continue
+
             margin_w = child.margin.width
             margin_h = child.margin.height
             child_x = layout_x + child.margin.left

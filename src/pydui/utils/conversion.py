@@ -10,6 +10,11 @@ def Str2Bool(text: str) -> bool:
     return text.lower() == "true"
 
 
+def Str2SizeInt(text: str) -> Tuple[int, int]:
+    size = Str2Size(text)
+    return tuple(round(n) for n in size)
+
+
 def Str2Size(text: str) -> Tuple[float, float]:
     """Convert text to Tuple[float, float]
 

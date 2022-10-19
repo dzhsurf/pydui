@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """PyDui window provider implement with GTK-3"""
-from distutils.util import convert_path
 from time import time
-from typing import Any, Callable, Dict, List, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetProvider
@@ -32,8 +31,12 @@ def __to_event_type__(type: Gdk.EventType) -> ButtonEventType:
 
 
 def __to_button_event__(event: Gdk.EventButton) -> ButtonEvent:
-    screen_x, screen_y = event.window.get_root_coords(event.x, event.y)
-    base_x, base_y = event.window.get_root_coords(0, 0)
+    screen_x: float = 0
+    screen_y: float = 0
+    base_x: float = 0
+    base_y: float = 0
+    screen_x, screen_y = event.window.get_root_coords(event.x, event.y)  # type: ignore
+    base_x, base_y = event.window.get_root_coords(0, 0)  # type: ignore
     return ButtonEvent(
         x=int(screen_x - base_x),
         y=int(screen_y - base_y),
@@ -54,19 +57,23 @@ def __to_scroll_direction__(direction: Gdk.ScrollDirection) -> ScrollDirection:
         return ScrollDirection.RIGHT
     if direction == Gdk.ScrollDirection.SMOOTH:
         return ScrollDirection.SMOOTH
-    return None
+    raise ValueError(f"direction not define. {direction}")
 
 
 def __to_scroll_event__(event: Gdk.EventScroll) -> ScrollEvent:
-    screen_x, screen_y = event.window.get_root_coords(event.x, event.y)
-    base_x, base_y = event.window.get_root_coords(0, 0)
+    screen_x: float = 0
+    screen_y: float = 0
+    base_x: float = 0
+    base_y: float = 0
+    screen_x, screen_y = event.window.get_root_coords(event.x, event.y)  # type: ignore
+    base_x, base_y = event.window.get_root_coords(0, 0)  # type: ignore
     return ScrollEvent(
         x=int(screen_x - base_x),
         y=int(screen_y - base_y),
-        delta_x=event.delta_x,
-        delta_y=event.delta_y,
-        direction=__to_scroll_direction__(event.direction),
-        time=event.time,
+        delta_x=event.delta_x,  # type: ignore
+        delta_y=event.delta_y,  # type: ignore
+        direction=__to_scroll_direction__(event.direction),  # type: ignore
+        time=event.time,  # type: ignore
     )
     return None
 
@@ -74,19 +81,16 @@ def __to_scroll_event__(event: Gdk.EventScroll) -> ScrollEvent:
 class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
     """PyDuiWindowProviderGTK3"""
 
-    __gtk_window: Gtk.Window = None
-    __layer: Gtk.Fixed = None
-    __ctx: cairo.Context = None
-    __embedded_widget_provider: PyDuiEmbeddedWidgetProvider = None
-    __signals_fn_dict: Dict[str, List[Callable]] = None
-
     def __init__(self) -> None:
         super().__init__()
-        self.__signals_fn_dict = dict()
+        self.__ctx: Optional[cairo.Context] = None
+        self.__signals_fn_dict: Dict[str, List[Callable[..., Any]]] = {}
+        self.__embedded_widget_provider: Optional[PyDuiEmbeddedWidgetProvider] = None
 
         # Init Gtk Window
-        self.__gtk_window = Gtk.Window()
+        self.__gtk_window: Gtk.Window = Gtk.Window()
         self.__gtk_window.set_border_width(0)
+        self.__layer: Gtk.Fixed = Gtk.Fixed()
 
     def init_window(self, config: PyDuiWindowConfig, ondraw: Callable[[Any, float, float], None]):
         super().init_window(config, ondraw)
@@ -95,8 +99,7 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
         overlay = Gtk.Overlay()
         overlay.add(self.__canvas)
 
-        self.__layer = Gtk.Fixed()
-        self.__layer.set_has_window(True)
+        self.__layer.set_has_window(True)  # type: ignore
         overlay.add_overlay(self.__layer)
 
         gtk_window = self.__gtk_window
@@ -142,7 +145,7 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
 
     def notify_redraw(self):
         self.__canvas.redraw()
-        self.__canvas.queue_draw_area(0, 0, self.__canvas.get_width(), self.__canvas.get_height())
+        self.__canvas.queue_draw_area(0, 0, round(self.__canvas.get_width()), round(self.__canvas.get_height()))
 
     def show(self):
         self.__gtk_window.show_all()
@@ -161,13 +164,13 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
             self.__embedded_widget_provider = PyDuiEmbeddedWidgetProviderGTK3(self.__layer)
         return self.__embedded_widget_provider
 
-    def connect(self, signal: str, fn: Callable):
+    def connect(self, signal: str, fn: Callable[..., Any]):
         if signal in self.__signals_fn_dict:
             self.__signals_fn_dict[signal].append(fn)
         else:
             self.__signals_fn_dict[signal] = [fn]
 
-    def disconnect(self, signal: str, fn: Callable):
+    def disconnect(self, signal: str, fn: Callable[..., Any]):
         if signal not in self.__signals_fn_dict:
             return
         self.__signals_fn_dict[signal] = list(filter(lambda x: x != fn, self.__signals_fn_dict[signal]))
@@ -181,12 +184,12 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
 
     # private
     def on_configure_event(self, object: Gtk.Widget, event: Gdk.EventConfigure) -> bool:
-        if event.type == Gdk.EventType.NOTHING:
+        if event.type == Gdk.EventType.NOTHING:  # type: ignore
             self.notify_redraw()
             return True
 
-        x, y = event.x, event.y
-        w, h = event.width, event.height
+        x, y = event.x, event.y  # type: ignore
+        w, h = event.width, event.height  # type: ignore
         self.__notify_signals__("configure-event", x, y, w, h)
 
         return False
@@ -205,8 +208,8 @@ class PyDuiWindowProviderGTK3(PyDuiWindowProvider):
 
     def on_motion_notify(self, object: Gtk.Widget, event: Gdk.EventMotion) -> bool:
         x, y = int(event.x), int(event.y)
-        root_base_x, root_base_y = self.__gtk_window.get_window().get_root_coords(0, 0)
-        x_root, y_root = int(event.x_root - root_base_x), int(event.y_root - root_base_y)
+        root_base_x, root_base_y = self.__gtk_window.get_window().get_root_coords(0, 0)  # type: ignore
+        x_root, y_root = int(event.x_root - root_base_x), int(event.y_root - root_base_y)  # type: ignore
         return self.__notify_signals__("motion-notify-event", x, y, x_root, y_root)
 
     def on_drag_begin(self, object: Gtk.Widget, context: Gdk.DragContext):

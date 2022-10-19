@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from typing import Iterable, Tuple
+from typing import List, Tuple
 
-from poga import *
+from poga import *  # type: ignore
 
-from pydui import utils
 from pydui.common.base import PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.core.widget import PyDuiWidget
@@ -74,9 +73,9 @@ class PyDuiPGView(PyDuiWidget, PogaView):
     def subviews_count(self) -> int:
         return 0
 
-    def subviews(self) -> Iterable[PogaView]:
+    def subviews(self) -> List[PogaView]:
         # PGView is leaf, without any subview
-        return list()
+        return []
 
     def is_container(self) -> bool:
         return False

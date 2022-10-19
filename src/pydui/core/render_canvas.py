@@ -1,31 +1,28 @@
 # -*- coding: utf-8 -*-
 import logging
-from typing import Callable, Type
+from typing import Callable
 
-from pydui import utils
 from pydui.common.import_gtk import *
 from pydui.core.screen import PyDuiScreen
 
 
 class PyDuiRenderCanvas(Gtk.Frame):
-
     """Render canvas"""
 
-    __area: Gtk.DrawingArea = None
-    __width: float = 0
-    __height: float = 0
-    __ondraw: Callable[[cairo.Context, float, float], None] = None
-
-    def __init__(self, ondraw: Callable[[cairo.Context, float, float], None], css=None, border_width=0):
+    def __init__(self, ondraw: Callable[[cairo.Context, float, float], None]):
         super().__init__()
-        self.set_shadow_type(Gtk.ShadowType.NONE)
+
+        self.__width: float = 0
+        self.__height: float = 0
+
+        self.set_shadow_type(Gtk.ShadowType.NONE)  # type: ignore
         self.set_border_width(0)
         self.vexpand = True
         self.hexpand = True
         self.surface = None
-        self.__ondraw = ondraw
+        self.__ondraw: Callable[[cairo.Context, float, float], None] = ondraw
 
-        self.__area = Gtk.DrawingArea()
+        self.__area: Gtk.DrawingArea = Gtk.DrawingArea()
         self.add(self.__area)
 
         self.__area.connect("draw", self.__on_draw__)
@@ -50,9 +47,9 @@ class PyDuiRenderCanvas(Gtk.Frame):
         self.__init_surface__(self.__area)
 
         # draw to surface
-        context = cairo.Context(self.surface)
+        context = cairo.Context(self.surface)  # type: ignore
         self.__do_drawing__(context)
-        self.surface.flush()
+        self.surface.flush()  # type: ignore
 
     def __on_draw__(self, area: Gtk.DrawingArea, context: cairo.Context):
         if self.surface is not None:
@@ -62,8 +59,11 @@ class PyDuiRenderCanvas(Gtk.Frame):
             logging.error("Invalid surface")
         return True
 
-    def __on_configure__(self, gtk_object, gtk_event):
-        width, height = gtk_event.width, gtk_event.height
+    def __on_configure__(self, gtk_object: Gtk.Widget, gdk_event: Gdk.Event):
+        width: float = 0
+        height: float = 0
+        width, height = gdk_event.width, gdk_event.height  # type: ignore
+        need_redraw: bool = False
         if width != self.__width or height != self.__height:
             self.__width, self.__height = width, height
             need_redraw = True

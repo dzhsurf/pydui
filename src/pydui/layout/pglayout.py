@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
-from typing import Iterable, Tuple
+from typing import List, Tuple
 
-from poga import *
+from poga import *  # type: ignore
 
-from pydui import utils
 from pydui.common.base import PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.core.layout import PyDuiLayout
 from pydui.core.screen import PyDuiScreen
-from pydui.core.widget import PyDuiWidget
 from pydui.utils.poga_utils import *
 
 
@@ -71,8 +69,8 @@ class PyDuiLayoutWithPogaSupport(PyDuiLayout, PogaView):
     def subviews_count(self) -> int:
         return len(self.subviews())
 
-    def subviews(self) -> Iterable[PogaView]:
-        return list()
+    def subviews(self) -> List[PogaView]:
+        return []
 
     def is_container(self) -> bool:
         return False
@@ -91,8 +89,6 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
     global __global_init
     __global_init = False
 
-    __layout: PogaLayout = None
-
     # PyDuiWidget interface
     @staticmethod
     def build_name() -> str:
@@ -102,7 +98,7 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
     def __init__(self):
         super().__init__()
         self.__global_init_poga_layout__()
-        self.__layout = PogaLayout(self)
+        self.__layout: PogaLayout = PogaLayout(self)
 
     def __global_init_poga_layout__(self):
         global __global_init
@@ -152,7 +148,7 @@ class PyDuiPGLayout(PyDuiLayout, PogaView):
     def subviews_count(self) -> int:
         return len(self.subviews())
 
-    def subviews(self) -> Iterable[PogaView]:
+    def subviews(self) -> List[PogaView]:
         # TODO: performance issue
         subviews = list[PogaView]()
         for i in range(self.child_count):

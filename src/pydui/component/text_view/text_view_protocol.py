@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """PyDuiTextViewProtocol"""
 from abc import abstractmethod
-from typing import Protocol
+
+from pydui.component.embedded_widget import PyDuiEmbeddedWidgetProtocol
 
 
-class PyDuiTextViewProtocol(Protocol):
+class PyDuiTextViewProtocol(PyDuiEmbeddedWidgetProtocol):
     @abstractmethod
     def set_text(self, text: str):
         pass

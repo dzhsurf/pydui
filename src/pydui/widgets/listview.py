@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import weakref
 from abc import abstractmethod
-from typing import Protocol
+from typing import Optional, Protocol
 from weakref import ReferenceType
 
 from pydui.core.widget import PyDuiWidget
@@ -36,17 +36,15 @@ class PyDuiListViewDelegate(Protocol):
 class PyDuiListView(PyDuiLayoutWithPogaSupport):
     """PyDuiListView"""
 
-    __body: PyDuiScrolledLayout = None
-    __datasource: ReferenceType[PyDuiListViewDataSource] = None
-
     @staticmethod
     def build_name() -> str:
         return "ListView"
 
     def __init__(self):
         super().__init__()
-        self.__body = PyDuiScrolledLayout()
-        self.__body.enable_vscroll = True
+        self.__datasource: Optional[ReferenceType[PyDuiListViewDataSource]] = None
+        self.__body: PyDuiScrolledLayout = PyDuiScrolledLayout()
+        self.__body.enable_vscroll(True)
         super().add_child(self.__body)
 
     def set_datasource(self, datasource: PyDuiListViewDataSource):

@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
+import logging
 import os
 import pathlib
 import platform
-import threading
+import sys
 
 from poga.libpoga_capi import poga_version
-from pynoticenter import PyNotiCenter
-
-from pydui.core.event import NCAreaType
+from pynoticenter import PyNotiCenter  # type: ignore
 
 if platform.system() == "Windows":
     try:
-        from pygobject_prebuilt_deps import import_pygobject_dll_module
+        from pygobject_prebuilt_deps import import_pygobject_dll_module  # type: ignore
 
         import_pygobject_dll_module()
     except ImportError:

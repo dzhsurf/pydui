@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import logging
-from typing import Tuple
+from typing import Optional, Tuple
 
-from poga import *
+from poga import *  # type: ignore
 
 from pydui import utils
 from pydui.common.base import PyDuiLayoutConstraint, PyDuiRect
@@ -34,6 +34,8 @@ class PyDuiFitLayout(PyDuiLayoutWithPogaSupport):
         result = (0, 0)
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
             size = child.estimate_size(parent_width, parent_height, constraint=PyDuiLayoutConstraint())
             if size[0] == 0:
                 size = (parent_width, size[1])
@@ -47,18 +49,13 @@ class PyDuiFitLayout(PyDuiLayoutWithPogaSupport):
         super(PyDuiLayout, self).layout(x, y, width, height, constraint)
         for i in range(self.child_count):
             child = self.get_child_at(i)
+            if child is None:
+                continue
             child.layout(0, 0, width, height, constraint)
 
 
 class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
     """PyDuiScrolledLayout"""
-
-    __body: PyDuiFitLayout = None
-    __enable_vscroll: bool = False
-    __enable_hscroll: bool = False
-    __vscrollbar: PyDuiScrollbar = None
-    __hscrollbar: PyDuiScrollbar = None
-    __mouse_enter: bool = False
 
     @staticmethod
     def build_name() -> str:
@@ -66,8 +63,15 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
 
     def __init__(self):
         super().__init__()
+
+        self.__enable_vscroll: bool = False
+        self.__enable_hscroll: bool = False
+        self.__vscrollbar: Optional[PyDuiScrollbar] = None
+        self.__hscrollbar: Optional[PyDuiScrollbar] = None
+        self.__mouse_enter: bool = False
+
         self.enable_mouse_wheel_event = True
-        self.__body = PyDuiFitLayout()
+        self.__body: PyDuiFitLayout = PyDuiFitLayout()
         super().add_child(self.__body)
 
     def parse_attrib(self, k: str, v: str):
@@ -125,10 +129,10 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
             self.__vscrollbar.__scroll_to__(0, round(dy * 15))
 
     # event
-    def on_mouse_enter(self):
+    def on_mouse_enter(self) -> None:
         return super().on_mouse_enter()
 
-    def on_mouse_leave(self, next_widget: PyDuiWidget):
+    def on_mouse_leave(self, next_widget: Optional[PyDuiWidget]) -> None:
         return super().on_mouse_leave(next_widget)
 
     def on_scroll_event(self, event: ScrollEvent) -> bool:
@@ -199,8 +203,9 @@ class PyDuiScrolledLayout(PyDuiLayoutWithPogaSupport):
                 constraint=PyDuiLayoutConstraint(),
             )
 
-    def __on_vscroll_changed__(self, pos: float):
+    def __on_vscroll_changed__(self, pos: float) -> bool:
         if self.__body is None:
-            return
+            return False
         factor = self.__body.height / self.height
         self.__body.fixed_y = -round(pos * factor)
+        return False

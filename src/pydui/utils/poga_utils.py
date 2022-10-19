@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-import math
-
-from poga import *
-from poga.libpoga_capi import *
+from poga import *  # type: ignore
+from poga.libpoga_capi import *  # type: ignore
 
 
 def Str2YGPostionType(text: str) -> YGPositionType:
@@ -153,15 +151,15 @@ def apply_poga_attributes(layout: PogaLayout, k: str, v: str) -> bool:
     elif k == "border":
         border_arr = v.split(",")
         if len(border_arr) < 2:
-            layout.border_width = YGValue(float(border_arr[0]), YGUnit.Point)
+            layout.border_width = float(border_arr[0])
         elif len(border_arr) < 4:
-            layout.border_start_width = YGValue(float(border_arr[0]), YGUnit.Point)
-            layout.border_end_width = YGValue(float(border_arr[1]), YGUnit.Point)
+            layout.border_start_width = float(border_arr[0])
+            layout.border_end_width = float(border_arr[1])
         else:
-            layout.border_left_width = YGValue(float(border_arr[0]), YGUnit.Point)
-            layout.border_top_width = YGValue(float(border_arr[1]), YGUnit.Point)
-            layout.border_right_width = YGValue(float(border_arr[2]), YGUnit.Point)
-            layout.border_bottom_width = YGValue(float(border_arr[3]), YGUnit.Point)
+            layout.border_left_width = float(border_arr[0])
+            layout.border_top_width = float(border_arr[1])
+            layout.border_right_width = float(border_arr[2])
+            layout.border_bottom_width = float(border_arr[3])
     elif k == "min_width":
         layout.min_width = YGValue(float(v), YGUnit.Point)
     elif k == "min_height":

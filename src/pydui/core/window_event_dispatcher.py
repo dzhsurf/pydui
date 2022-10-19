@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import logging
 import weakref
-from typing import Any, Callable, Dict, List, Tuple, Type
+from typing import Any, Callable, Dict, List, Optional, Tuple, Type
 from weakref import ReferenceType
 
-from pydui import utils
-from pydui.common.base import PyDuiClickType, PyDuiEdge, PyDuiRect
+from pydui.common.base import PyDuiClickType, PyDuiRect
 from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType, ScrollEvent
 from pydui.core.widget import PyDuiWidget
 from pydui.core.window_client import PyDuiWindowClientInterface
@@ -16,47 +15,34 @@ from pydui.core.window_interface import PyDuiWindowInterface
 class PyDuiWindowEventDispatcher:
     """Window Event Dispatcher"""
 
-    __window: ReferenceType[PyDuiWindowInterface] = None
-    __client: ReferenceType[PyDuiWindowClientInterface] = None
-    __handler: PyDuiWindowHandler = None
-    __on_init: Callable[[None], None] = None
-
-    # window position
-    __xy: Tuple[float, float] = (0, 0)
-    __wh: Tuple[float, float] = (0, 0)
-
-    # focus widget
-    __focused_widget: PyDuiWidget = None
-
-    # mouse state
-    __mouse_x: int = 0
-    __mouse_y: int = 0
-    __last_hover_widget: PyDuiWidget = None
-    __last_click_task: str = ""
-    __last_press_widget: PyDuiWidget = None
-    __last_press_button: ButtonType = ButtonType.UNDEFINED
-    __last_press_time: int = 0
-    __last_click_type: PyDuiClickType = PyDuiClickType.NONE
-
-    # event observer
-    __event_observers: Dict[str, List[Callable]] = None
-
     def __init__(
         self,
         window: PyDuiWindowInterface,
         client: PyDuiWindowClientInterface,
-        handler: PyDuiWindowHandler,
-        on_init: Callable[[None], None],
-    ):
-        self.__window = weakref.ref(window)
-        self.__client = weakref.ref(client)
-        self.__handler = PyDuiWindowHandler()
-        self.__on_init = on_init
-        self.__event_observers = {"mouse-move": []}
+        handler: Optional[Type[PyDuiWindowHandler]],
+        on_init: Callable[[], None],
+    ) -> None:
+        self.__xy: Tuple[float, float] = (0, 0)
+        self.__wh: Tuple[float, float] = (0, 0)
+        self.__focused_widget: Optional[PyDuiWidget] = None
+        self.__mouse_x: int = 0
+        self.__mouse_y: int = 0
+        self.__last_hover_widget: Optional[PyDuiWidget] = None
+        self.__last_click_task: str = ""
+        self.__last_press_widget: Optional[PyDuiWidget] = None
+        self.__last_press_button: ButtonType = ButtonType.UNDEFINED
+        self.__last_press_time: int = 0
+        self.__last_click_type: PyDuiClickType = PyDuiClickType.NONE
+
+        self.__window: ReferenceType[PyDuiWindowInterface] = weakref.ref(window)
+        self.__client: ReferenceType[PyDuiWindowClientInterface] = weakref.ref(client)
+        self.__handler: PyDuiWindowHandler = PyDuiWindowHandler()
+        self.__on_init: Callable[[], None] = on_init
+        self.__event_observers: Dict[str, List[Callable[..., Any]]] = {"mouse-move": []}
         if handler is not None:
             self.__handler = handler()
 
-    def init_events(self):
+    def init_events(self) -> None:
         window = self.__window()
         if window is None:
             return
@@ -76,12 +62,12 @@ class PyDuiWindowEventDispatcher:
         if self.__on_init is not None:
             self.__on_init()
 
-    def add_event_observer(self, key: str, fn: Callable):
+    def add_event_observer(self, key: str, fn: Callable[..., Any]) -> None:
         if key not in self.__event_observers:
             return
         self.__event_observers[key].append(fn)
 
-    def remove_event_observer(self, key: str, fn: Callable):
+    def remove_event_observer(self, key: str, fn: Callable[..., Any]) -> None:
         if key not in self.__event_observers:
             return
         fn_list = list(filter(lambda x: x != fn, self.__event_observers[key]))
@@ -91,16 +77,18 @@ class PyDuiWindowEventDispatcher:
     def handler(self) -> PyDuiWindowHandler:
         return self.__handler
 
-    def on_window_destroy(self):
+    def on_window_destroy(self) -> None:
         logging.debug("on_window_destroy")
         self.__handler.on_window_destroy()
-        self.__client().release()
+        client = self.__client()
+        if client:
+            client.release()
 
-    def on_window_show(self):
+    def on_window_show(self) -> None:
         logging.debug("on_window_show")
         self.__handler.on_window_visible_changed(True)
 
-    def on_window_hide(self):
+    def on_window_hide(self) -> None:
         logging.debug("on_window_hide")
         self.__handler.on_window_visible_changed(False)
 
@@ -110,7 +98,10 @@ class PyDuiWindowEventDispatcher:
             self.__xy = (x, y)
             self.__handler.on_window_position_changed(x, y)
         if w != self.__wh[0] or y != self.__wh[1]:
-            self.__client().set_window_size(w, h)
+            client = self.__client()
+            if client is None:
+                return False
+            client.set_window_size(w, h)
             self.__wh = (w, h)
             self.__handler.on_window_size_changed(w, h)
 
@@ -136,7 +127,11 @@ class PyDuiWindowEventDispatcher:
                 self.__handle_ncpress__(area_type, x, y)
                 return False
 
-        widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+        client = self.__client()
+        if client is None:
+            return False
+
+        widget = client.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
             return False
         if not widget.enabled:
@@ -161,7 +156,11 @@ class PyDuiWindowEventDispatcher:
             self.__dispatch_button_release__(self.__last_press_widget, event)
             return True
 
-        widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+        client = self.__client()
+        if client is None:
+            return False
+
+        widget = client.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         if widget is None:
             return False
 
@@ -171,7 +170,11 @@ class PyDuiWindowEventDispatcher:
     def on_scroll_event(self, event: ScrollEvent) -> bool:
         x, y = event.x, event.y
 
-        widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_wheel_event_filter)
+        client = self.__client()
+        if client is None:
+            return False
+
+        widget = client.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_wheel_event_filter)
         if widget is None:
             return False
 
@@ -188,7 +191,11 @@ class PyDuiWindowEventDispatcher:
             self.__last_press_widget.on_mouse_move(x, y)
             return
 
-        widget = self.__client().get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
+        client = self.__client()
+        if client is None:
+            return
+
+        widget = client.get_widget_by_pos(x, y, filter=PyDuiWidget.find_widget_mouse_event_filter)
         hover_change = widget != self.__last_hover_widget
         old_widget = self.__last_hover_widget
         self.__last_hover_widget = widget
@@ -215,47 +222,50 @@ class PyDuiWindowEventDispatcher:
         self.__last_press_button = button
         self.__last_press_time = time
 
-    def __dispatch_button_release__(self, widget: PyDuiWidget, event: ButtonEvent):
+    def __dispatch_button_release__(self, widget: Optional[PyDuiWidget], event: ButtonEvent) -> None:
         if widget is None:
-            return False
+            return
+        client = self.__client()
+        if client is None:
+            return
 
         if widget.enabled:
             if widget.on_lbutton_release(event.x, event.y):
-                return True
+                return
         else:
             widget = None
 
         click = True
         if widget != self.__last_press_widget or event.button != self.__last_press_button:
             click = False
-        if not widget.contain_pos(event.x, event.y):
+        if widget and not widget.contain_pos(event.x, event.y):
             click = False
 
         if click:
             if self.__last_click_type == PyDuiClickType.CLICK:
                 self.__last_click_type = PyDuiClickType.DBCLICK
-                self.__client().cancel_task(self.__last_click_task)
-                self.__last_click_task = self.__client().post_task(self.__dispatch_button_dbclick__, widget, event)
+                client.cancel_task(self.__last_click_task)
+                self.__last_click_task = client.post_task(self.__dispatch_button_dbclick__, widget, event)
             else:
                 interval = 0.2  # TODO, get dbclick interval from setting
                 self.__last_click_type = PyDuiClickType.CLICK
-                self.__last_click_task = self.__client().post_task_with_delay(
+                self.__last_click_task = client.post_task_with_delay(
                     interval, self.__dispatch_button_click__, widget, event
                 )
         else:
             if self.__last_click_task != "":
-                self.__client().cancel_task(self.__last_click_task)
+                client.cancel_task(self.__last_click_task)
             self.__reset_button_click_state__()
             self.__dispatch_mouse_move__(event.x, event.y)
 
-    def __reset_button_click_state__(self):
+    def __reset_button_click_state__(self) -> None:
         self.__last_click_type = PyDuiClickType.NONE
         self.__last_click_task = ""
         self.__last_press_widget = None
         self.__last_press_button = ButtonType.UNDEFINED
         self.__last_press_time = 0
 
-    def __dispatch_button_click__(self, task_id: str, widget: PyDuiWidget, event: ButtonEvent):
+    def __dispatch_button_click__(self, task_id: str, widget: PyDuiWidget, event: ButtonEvent) -> None:
         if task_id != self.__last_click_task:
             return
 
@@ -278,7 +288,7 @@ class PyDuiWindowEventDispatcher:
         else:
             widget.on_lbutton_click(event.x, event.y)
 
-    def __dispatch_button_dbclick__(self, task_id: str, widget: PyDuiWidget, event: ButtonEvent):
+    def __dispatch_button_dbclick__(self, task_id: str, widget: PyDuiWidget, event: ButtonEvent) -> None:
         if task_id != self.__last_click_task:
             return
 
@@ -301,16 +311,19 @@ class PyDuiWindowEventDispatcher:
         else:
             widget.on_lbutton_dbclick(event.x, event.y)
 
-    def __dispatch_2button_press__(self, widget: PyDuiWidget, event: ButtonEvent):
+    def __dispatch_2button_press__(self, widget: PyDuiWidget, event: ButtonEvent) -> None:
         # This event is difficult to manage and should be avoided. Use press to simulate.
         pass
 
-    def __dispatch_3button_press__(self, widget: PyDuiWidget, event: ButtonEvent):
+    def __dispatch_3button_press__(self, widget: PyDuiWidget, event: ButtonEvent) -> None:
         # This event is difficult to manage and should be avoided. Use press to simulate.
         pass
 
     def __default_on_nchittest__(self, x: float, y: float) -> NCAreaType:
         client = self.__client()
+        if client is None:
+            return NCAreaType.UNDEFINED
+
         if client.get_customize_titlebar():
 
             w, h = client.get_window_size()
@@ -343,14 +356,20 @@ class PyDuiWindowEventDispatcher:
 
         return NCAreaType.UNDEFINED
 
-    def __handle_ncpress__(self, area_type: NCAreaType, x: float, y: float):
+    def __handle_ncpress__(self, area_type: NCAreaType, x: float, y: float) -> None:
         if area_type == NCAreaType.CAPTION:
             self.__process_begin_move_drag__(x, y)
         else:
             self.__process_begin_resize_drag__(area_type, x, y)
 
-    def __process_begin_move_drag__(self, x: float, y: float):
-        self.__client().get_window_provider().begin_move_drag(x, y)
+    def __process_begin_move_drag__(self, x: float, y: float) -> None:
+        client = self.__client()
+        if client is None:
+            return
+        client.get_window_provider().begin_move_drag(x, y)
 
-    def __process_begin_resize_drag__(self, area_type: NCAreaType, x: float, y: float):
-        self.__client().get_window_provider().begin_resize_drag(area_type, x, y)
+    def __process_begin_resize_drag__(self, area_type: NCAreaType, x: float, y: float) -> None:
+        client = self.__client()
+        if client is None:
+            return
+        client.get_window_provider().begin_resize_drag(area_type, x, y)

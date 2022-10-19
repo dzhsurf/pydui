@@ -1,22 +1,18 @@
 # -*- coding: utf-8 -*-
-from typing import Tuple
-
 from pydui.common.base import PyDuiEdge
 from pydui.common.import_gtk import *
 
 
 class PyDuiAppearanceManager:
-    """"""
-
-    __default_fontfamily: str = "Arial"
-    __default_fontsize: int = 16
-    __default_fontcolor: Gdk.RGBA = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
-    __customize_titlebar: bool = False
-    __box_size: PyDuiEdge = None
-    __caption_height: int = 0
+    """PyDuiAppearanceManager"""
 
     def __init__(self) -> None:
         self.__box_size = PyDuiEdge()
+        self.__default_fontfamily: str = "Arial"
+        self.__default_fontsize: int = 16
+        self.__default_fontcolor: Gdk.RGBA = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
+        self.__customize_titlebar: bool = False
+        self.__caption_height: int = 0
 
     @property
     def default_fontcolor(self) -> Gdk.RGBA:

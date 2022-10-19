@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-from ctypes import sizeof
 from enum import Enum
 from typing import List
 
-from pydui import utils
 from pydui.common.base import PyDuiEdge, PyDuiLayoutConstraint, PyDuiRect
 from pydui.common.import_gtk import *
 from pydui.core.layout import PyDuiLayout
@@ -19,23 +17,22 @@ class PyDuiScrollbarType(Enum):
 class PyDuiScrollbar(PyDuiLayout):
     """PyDuiScrollbar"""
 
-    __scroller: PyDuiButton = None
-    __press_x: float = 0
-    __press_y: float = 0
-    __scroller_x: float = 0
-    __scroller_y: float = 0
-    __type: PyDuiScrollbarType = PyDuiScrollbarType.VScrollbar
-
     @staticmethod
     def build_name() -> str:
         return "Scrollbar"
 
     def __init__(self):
         super().__init__()
-        self.__scroller = PyDuiButton()
+        self.__scroller: PyDuiButton = PyDuiButton()
         self.add_child(self.__scroller)
         self.__scroller.bind_event("lbutton-press", self.__on_lbutton_press__)
         self.__scroller.bind_event("lbutton-release", self.__on_lbutton_release__)
+
+        self.__press_x: float = 0
+        self.__press_y: float = 0
+        self.__scroller_x: float = 0
+        self.__scroller_y: float = 0
+        self.__type: PyDuiScrollbarType = PyDuiScrollbarType.VScrollbar
 
     def set_scrollbar_type(self, type: PyDuiScrollbarType):
         self.__type = type
@@ -76,7 +73,7 @@ class PyDuiScrollbar(PyDuiLayout):
     # events
     def get_signals(self) -> List[str]:
         signals = super().get_signals()
-        signals.extend["vscroll-changed", "hscroll-changed"]
+        signals.extend(["vscroll-changed", "hscroll-changed"])
         return signals
 
     # private

@@ -5,10 +5,10 @@ from typing import TypeVar
 from pydui.common.import_gtk import *
 from pydui.component.embedded_widget import PyDuiEmbeddedWidgetHost
 
-T = TypeVar("T")
+P = TypeVar("P", covariant=True)
 
 
-class PyDuiEmbeddedWidgetHostGTK3(PyDuiEmbeddedWidgetHost[T]):
+class PyDuiEmbeddedWidgetHostGTK3(PyDuiEmbeddedWidgetHost[P]):
     """PyDuiEmbeddedWidgetHostGTK3"""
 
     def __init__(self) -> None:

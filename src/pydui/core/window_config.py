@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from dataclasses import dataclass
-from distutils.sysconfig import customize_compiler
 from typing import Tuple
 
 from pydui.common.base import PyDuiEdge
@@ -22,4 +21,4 @@ class PyDuiWindowConfig:
     default_fontbold: bool = False
     customize_titlebar: bool = False
     caption_height: int = 0
-    box_size: PyDuiEdge = None
+    box_size: PyDuiEdge = PyDuiEdge()

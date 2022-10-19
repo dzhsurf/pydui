@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-from dataclasses import dataclass
 from enum import Enum
-from typing import Type
 
 from pydui.common.import_gtk import *
 from pydui.core.layout import *
@@ -111,42 +109,42 @@ class PyDuiButton(PyDuiLabel):
         )
         return signals
 
-    def on_mouse_enter(self):
+    def on_mouse_enter(self) -> None:
         super().on_mouse_enter()
         self.__button_state = PyDuiButtonState.HOVER
         self.get_window_client().notify_redraw()
 
-    def on_mouse_leave(self, next_widget: PyDuiWidget):
+    def on_mouse_leave(self, next_widget: Optional[PyDuiWidget]) -> None:
         super().on_mouse_leave(next_widget)
         self.__button_state = PyDuiButtonState.NORMAL
         self.get_window_client().notify_redraw()
 
-    def on_lbutton_press(self, x: float, y: float):
+    def on_lbutton_press(self, x: float, y: float) -> bool:
         if self.do_bind_event("lbutton-press", self, x, y):
             return True
         return super().on_lbutton_press(x, y)
 
-    def on_lbutton_release(self, x: float, y: float):
+    def on_lbutton_release(self, x: float, y: float) -> bool:
         if self.do_bind_event("lbutton-release", self, x, y):
             return True
         return super().on_lbutton_release(x, y)
 
-    def on_lbutton_click(self, x: float, y: float):
+    def on_lbutton_click(self, x: float, y: float) -> None:
         self.emit("lbutton-click", self, x, y)
 
-    def on_rbutton_click(self, x: float, y: float):
+    def on_rbutton_click(self, x: float, y: float) -> None:
         self.emit("rbutton-click", self, x, y)
 
-    def on_lbutton_dbclick(self, x: float, y: float):
+    def on_lbutton_dbclick(self, x: float, y: float) -> None:
         self.emit("lbutton-dblick", self, x, y)
 
-    def on_rbutton_dbclick(self, x: float, y: float):
+    def on_rbutton_dbclick(self, x: float, y: float) -> None:
         self.emit("rbutton-dbclick", self, x, y)
 
-    def on_lbutton_tripleclick(self, x: float, y: float):
+    def on_lbutton_tripleclick(self, x: float, y: float) -> None:
         self.emit("lbutton-tripleclick", self, x, y)
 
-    def on_rbutton_tripleclick(self, x: float, y: float):
+    def on_rbutton_tripleclick(self, x: float, y: float) -> None:
         self.emit("rbutton-tripleclick", self, x, y)
 
     def __get_drawimage_by_state(self):

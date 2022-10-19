@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from dataclasses import dataclass
 from enum import Enum
-from tkinter import UNDERLINE
 
 
 class NCAreaType(Enum):

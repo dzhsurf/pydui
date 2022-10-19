@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from pydui.core.widget import PyDuiWidget
 from pydui.widgets.label import PyDuiLabel
 
 
