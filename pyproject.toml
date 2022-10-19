@@ -18,7 +18,7 @@ python = "^3.9"
 pycairo = "^1.21.0"
 pygobject = "^3.42.2"
 asyncio = "^3.4.3"
-pynoticenter = "^0.1.10"
+pynoticenter = "^0.1.11"
 poga = "^0.1.14a3"
 
 [tool.poetry.dev-dependencies]
