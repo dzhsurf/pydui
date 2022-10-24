@@ -3,11 +3,7 @@ PyDui Documentation
 
 [![Docs](https://img.shields.io/badge/docs-latest-informational)](https://dzhsurf.github.io/pydui/)
 
-
-
 ![PyDui-GTK](https://github.com/dzhsurf/pydui/raw/main/docs/source/_static/apple-touch-icon-180x180.png)
-
-
 
 Introduction
 ------------
@@ -16,28 +12,17 @@ Introduction
 
 PyDui is based on PyGObject/GTK-3, but totally runs on self-drawing canvas. Because GTK-3 widgets are not easy to understand how it works. We are tent to provide an easy API to help developers to build UI applications more quickly and efficiently, putting more focus on the product either than the details of the framework.
 
-
-
 Why choose GTK, not QT or any other framework as the low-level module?
 As GTK is a powerful cross-platform framework, it can run on Windows, MacOSX, and Linux well, and it's light enough, fewer dependencies mean it can be easy to pack and deploy.
-
-
 
 And why use self-drawing instead of GTK's widget pattern?
 Even though there is GTK/Glade can quickly build a powerful UI Application. But the Glade is not easy enough to learn. Especially the layout design pattern on GTK is terrible hell for developers and designers.
 
-
-
 Sometimes, we need another solution for rapidly building a simple app. I think, on the windows platform, DuiLib is an option because it's easy to learn. That is the reason we use self-drawing to reimplement all the virtual widgets.
 
-
-
-
-**Why not just wrap the DuiLib API ?** 
+**Why not just wrap the DuiLib API ?**
 
 This is a good question because DuiLib only works on windows. And the author work on mac. So, this is not for cross-platform purposes, just personal reasons.
-
-
 
 Install
 -------
@@ -52,18 +37,16 @@ pip install pydui-gtk
 
 **Windows:** see the prerequisites below, you must setup the gtk environment first.
 
-
-
 Building
 --------
 
 **Prerequisites**
 
-miniconda: https://conda.io/projects/conda/en/latest/user-guide/install/index.html
+miniconda: <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>
 
 > If you are already in python3.9 environment, conda is not needed. but we highly recommend using it to manage the dev env.
 
-**Windows:** 
+**Windows:**
 
 * You can use prebuilt libraries.
 
@@ -73,8 +56,8 @@ miniconda: https://conda.io/projects/conda/en/latest/user-guide/install/index.ht
 
   Or, you can build your own GTK libraries by following the guide below.
 
-* https://github.com/dzhsurf/gtk3-precompiled-libs-win-vs2019 
-  * Build Tools: For Windows platform, Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+* <https://github.com/dzhsurf/gtk3-precompiled-libs-win-vs2019>
+  * Build Tools: For Windows platform, Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": <https://visualstudio.microsoft.com/visual-cpp-build-tools/>
 
   * Download the prebuilt GTK libraries, then set add bin to the `PATH` environment, and set the `GI_TYPELIB_PATH` to the `gi_typelib` directory. Or you can build the GTK libraries your self.
 
@@ -85,40 +68,32 @@ miniconda: https://conda.io/projects/conda/en/latest/user-guide/install/index.ht
     pip install --no-binary --force-reinstall :all: pycairo
     ```
 
+**MacOSX:**
 
-
-**MacOSX:** 
-
-> No extra dependencies needed. 
-
-
+> No extra dependencies needed.
 
 **Linux:** ...
 
 > No extra dependencies needed. GCC has basically been installed in desktop linux.
-
-
 
 **Setup and build**
 
 ```shell
 # first, checkout the code
 # git clone ...
-# second, use conda setup environment 
+# second, use conda setup environment
 conda env create -f conda_env.yaml
 conda activate pydui
-# local install 
+# local install
 pip install -e .
 # then you can run the demo
 python src/example/demo.py
 ```
 
-
-
 Code Example
 ------------
 
-![](images/demo-mac.png) ![](images/demo-win.jpeg)
+![mac](images/demo-mac.png) ![win](images/demo-win.jpeg)
 
 ```python
 import pydui
@@ -136,7 +111,7 @@ class DemoHandler(PyDuiWindowHandler):
     def on_window_init(self, window: PyDuiWindow):
         print(f"on_window_init")
         #def handle_click(object):
-        #    print("You clicked!", object)   
+        #    print("You clicked!", object)
         # bind widget event here
         #widget = window.get_widget(widget_id="button")
         #widget.connect("clicked", handle_click)
@@ -213,16 +188,14 @@ XML File
 </Window>
 ```
 
-
-
 Support YogaLayout
 ------------------
 
 Congratulations! Now you can use YogaLayout in PyDui-GTK!!!
 
-More details about YogaLayout: https://yogalayout.com/docs/
+More details about YogaLayout: <https://yogalayout.com/docs/>
 
-Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/poga
+Base on YogaLayout Python binding library - Poga. <https://github.com/dzhsurf/poga>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -307,24 +280,18 @@ Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/pog
 </Window>
 ```
 
-![](./images/demo-yogalayout.png)
-
-
+![yoga](./images/demo-yogalayout.png)
 
 Internal Layout Engine
 ----------------------
 
->  TODO: 
+> TODO:
 > ...
-
-
 
 Architecture
 ------------
 
-![](./images/architecture.png)
-
-
+![architecture](./images/architecture.png)
 
 Development
 -----------
@@ -348,14 +315,10 @@ In the early stage, performance optimization, resource leakage issue, text rende
   * RichText
   * Window Shadow
 
-
-
 Planning: Web Platform Support
 ------------------------------
 
-In the future, I want to add Web platform support on pydui. It is technically possible. Use js-worker to run python code in the browser background thread to handle the framework logic. Such as use  pyodide(https://pyodide.org/en/stable/usage/quickstart.html) . Implement the text measure functions RenderAPIs on the web platform instead of cairo on the desktop. Implement yoga-js builder for building the UI from the layout code.
-
-
+In the future, I want to add Web platform support on pydui. It is technically possible. Use js-worker to run python code in the browser background thread to handle the framework logic. Such as use  pyodide(<https://pyodide.org/en/stable/usage/quickstart.html>) . Implement the text measure functions RenderAPIs on the web platform instead of cairo on the desktop. Implement yoga-js builder for building the UI from the layout code.
 
 Development progress
 --------------------
@@ -389,7 +352,7 @@ Layout:
 * VLayout - finish
 * PGLayout - finish
 * ScrolledLayout - finish
-* Fixed widget - 0%, processing
+* Fixed widget - finish
 
 Widget:
 
@@ -407,16 +370,12 @@ Widget:
 * FlowListView - 0%, not started
 * Menu - 0%, not started
 
-
-
 Benchmarks
 ----------
 
 > TODO
 >
 > ...
-
-
 
 Testing
 -------
@@ -425,42 +384,39 @@ Testing
 >
 > ...
 
-
-
 Reference
 ---------
 
-YogaLayout: https://yogalayout.com/docs
+YogaLayout: <https://yogalayout.com/docs>
 
-Python Gtk-3 Tutorial: https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html
+Python Gtk-3 Tutorial: <https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html>
 
-Python Gtk-3: https://lazka.github.io/pgi-docs/Gtk-3.0/index.html
+Python Gtk-3: <https://lazka.github.io/pgi-docs/Gtk-3.0/index.html>
 
-Python Gdk-3: https://lazka.github.io/pgi-docs/Gdk-3.0/index.html
+Python Gdk-3: <https://lazka.github.io/pgi-docs/Gdk-3.0/index.html>
 
-Python GdkPixbuf: https://lazka.github.io/pgi-docs/GdkPixbuf-2.0/index.html
+Python GdkPixbuf: <https://lazka.github.io/pgi-docs/GdkPixbuf-2.0/index.html>
 
-Python Pango: https://lazka.github.io/pgi-docs/Pango-1.0/index.html
+Python Pango: <https://lazka.github.io/pgi-docs/Pango-1.0/index.html>
 
-Pycairo: https://pycairo.readthedocs.io/en/latest/index.html
+Pycairo: <https://pycairo.readthedocs.io/en/latest/index.html>
 
-PyGObject: https://pygobject.readthedocs.io/en/latest/index.html
+PyGObject: <https://pygobject.readthedocs.io/en/latest/index.html>
 
-Python PangoCairo: https://lazka.github.io/pgi-docs/PangoCairo-1.0/index.html
-
----
-
-Gtk-3: https://docs.gtk.org/gtk3/index.html
-
-Pango: https://docs.gtk.org/Pango/index.html
-
-GdkPixbuf: https://docs.gtk.org/gdk-pixbuf/index.html
-
-PangoCairo: https://docs.gtk.org/PangoCairo/
+Python PangoCairo: <https://lazka.github.io/pgi-docs/PangoCairo-1.0/index.html>
 
 ---
 
-Gtk pgi Symbol Mapping: https://lazka.github.io/pgi-docs/Gtk-3.0/mapping.html
+Gtk-3: <https://docs.gtk.org/gtk3/index.html>
 
-Gdk pgi Symbol Mapping: https://lazka.github.io/pgi-docs/Gdk-3.0/mapping.html
+Pango: <https://docs.gtk.org/Pango/index.html>
 
+GdkPixbuf: <https://docs.gtk.org/gdk-pixbuf/index.html>
+
+PangoCairo: <https://docs.gtk.org/PangoCairo/>
+
+---
+
+Gtk pgi Symbol Mapping: <https://lazka.github.io/pgi-docs/Gtk-3.0/mapping.html>
+
+Gdk pgi Symbol Mapping: <https://lazka.github.io/pgi-docs/Gdk-3.0/mapping.html>
