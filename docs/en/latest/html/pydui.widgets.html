@@ -594,6 +594,135 @@
 </dd></dl>
 
 </section>
+<section id="module-pydui.widgets.listview">
+<span id="pydui-widgets-listview-module"></span><h2>pydui.widgets.listview module<a class="headerlink" href="#module-pydui.widgets.listview" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.listview.</span></span><span class="sig-name descname"><span class="pre">PyDuiListNode</span></span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.listview.</span></span><span class="sig-name descname"><span class="pre">PyDuiListView</span></span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pydui.layout.html#pydui.layout.pglayout.PyDuiLayoutWithPogaSupport" title="pydui.layout.pglayout.PyDuiLayoutWithPogaSupport"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayoutWithPogaSupport</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add child widget.</p>
+<p>if child has been added, ignore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – child widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView.add_child_at">
+<span class="sig-name descname"><span class="pre">add_child_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView.add_child_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add child widget at index</p>
+<p>if the index overbound, it will add widget to last position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>child</strong> (<a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – child widget</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – target index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return widget object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget">PyDuiWidget</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView.build_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView.build_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView.reload">
+<span class="sig-name descname"><span class="pre">reload</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView.reload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView.remove_child">
+<span class="sig-name descname"><span class="pre">remove_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget</strong> (<a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><em>PyDuiWidget</em></a>) – widget object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView.remove_child_at">
+<span class="sig-name descname"><span class="pre">remove_child_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView.remove_child_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child widget at index</p>
+<p>if the index overbound, do nothing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – widget index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView.remove_child_by_id">
+<span class="sig-name descname"><span class="pre">remove_child_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView.remove_child_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child widget by widget_id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget_id</strong> (<em>str</em>) – widget id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListView.set_datasource">
+<span class="sig-name descname"><span class="pre">set_datasource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasource</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.widgets.listview.PyDuiListViewDataSource" title="pydui.widgets.listview.PyDuiListViewDataSource"><span class="pre">PyDuiListViewDataSource</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListView.set_datasource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListViewDataSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.listview.</span></span><span class="sig-name descname"><span class="pre">PyDuiListViewDataSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListViewDataSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListViewDataSource.item_count">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">item_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListViewDataSource.item_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListViewDataSource.item_node">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">item_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pydui.widgets.listview.PyDuiListNode" title="pydui.widgets.listview.PyDuiListNode"><span class="pre">PyDuiListNode</span></a></span></span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListViewDataSource.item_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListViewDelegate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.listview.</span></span><span class="sig-name descname"><span class="pre">PyDuiListViewDelegate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListViewDelegate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListViewDelegate.create_item_by_node">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_item_by_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.widgets.listview.PyDuiListNode" title="pydui.widgets.listview.PyDuiListNode"><span class="pre">PyDuiListNode</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pydui.core.html#pydui.core.widget.PyDuiWidget" title="pydui.core.widget.PyDuiWidget"><span class="pre">PyDuiWidget</span></a></span></span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListViewDelegate.create_item_by_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.listview.PyDuiListViewDelegate.item_height">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">item_height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pydui.widgets.listview.PyDuiListViewDelegate.item_height" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-pydui.widgets.pgview">
 <span id="pydui-widgets-pgview-module"></span><h2>pydui.widgets.pgview module<a class="headerlink" href="#module-pydui.widgets.pgview" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
@@ -769,6 +898,104 @@
 </dd></dl>
 
 </section>
+<section id="module-pydui.widgets.scrollbar">
+<span id="pydui-widgets-scrollbar-module"></span><h2>pydui.widgets.scrollbar module<a class="headerlink" href="#module-pydui.widgets.scrollbar" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.scrollbar.</span></span><span class="sig-name descname"><span class="pre">PyDuiScrollbar</span></span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pydui.core.html#pydui.core.layout.PyDuiLayout" title="pydui.core.layout.PyDuiLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyDuiLayout</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.build_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.build_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><span class="pre">PyDuiRect</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw layout and children widgets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctx</strong> (<em>cairo.Context</em>) – draw context, replace cairo.Context to DrawContext later.</p></li>
+<li><p><strong>dirty_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – dirty rect, relative to root</p></li>
+<li><p><strong>clip_rect</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiRect" title="pydui.common.base.PyDuiRect"><em>PyDuiRect</em></a>) – clip rect, relative to root</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.get_signals">
+<span class="sig-name descname"><span class="pre">get_signals</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.get_signals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.layout">
+<span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><span class="pre">PyDuiLayoutConstraint</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.layout" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – x offset relative to parent</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y offset relative to parent</p></li>
+<li><p><strong>width</strong> (<em>float</em>) – widget width</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – widget height</p></li>
+<li><p><strong>constraint</strong> (<a class="reference internal" href="pydui.common.html#pydui.common.base.PyDuiLayoutConstraint" title="pydui.common.base.PyDuiLayoutConstraint"><em>PyDuiLayoutConstraint</em></a>) – layout constraint</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.on_post_init">
+<span class="sig-name descname"><span class="pre">on_post_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.on_post_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.parse_attrib">
+<span class="sig-name descname"><span class="pre">parse_attrib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.parse_attrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse single attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attrib</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – attributes dict key=value …</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.scroll_position">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scroll_position</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.scroll_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.set_scrollbar_type">
+<span class="sig-name descname"><span class="pre">set_scrollbar_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbarType" title="pydui.widgets.scrollbar.PyDuiScrollbarType"><span class="pre">PyDuiScrollbarType</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.set_scrollbar_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbar.update_scroller">
+<span class="sig-name descname"><span class="pre">update_scroller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbar.update_scroller" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbarType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pydui.widgets.scrollbar.</span></span><span class="sig-name descname"><span class="pre">PyDuiScrollbarType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbarType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbarType.HScrollbar">
+<span class="sig-name descname"><span class="pre">HScrollbar</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbarType.HScrollbar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pydui.widgets.scrollbar.PyDuiScrollbarType.VScrollbar">
+<span class="sig-name descname"><span class="pre">VScrollbar</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pydui.widgets.scrollbar.PyDuiScrollbarType.VScrollbar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-pydui.widgets">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pydui.widgets" title="Permalink to this heading">¶</a></h2>
 <p>Widget Module</p>
@@ -872,6 +1099,31 @@
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-pydui.widgets.listview">pydui.widgets.listview module</a><ul>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListNode"><code class="docutils literal notranslate"><span class="pre">PyDuiListNode</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView"><code class="docutils literal notranslate"><span class="pre">PyDuiListView</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView.add_child"><code class="docutils literal notranslate"><span class="pre">PyDuiListView.add_child()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView.add_child_at"><code class="docutils literal notranslate"><span class="pre">PyDuiListView.add_child_at()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiListView.build_name()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView.reload"><code class="docutils literal notranslate"><span class="pre">PyDuiListView.reload()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView.remove_child"><code class="docutils literal notranslate"><span class="pre">PyDuiListView.remove_child()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView.remove_child_at"><code class="docutils literal notranslate"><span class="pre">PyDuiListView.remove_child_at()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView.remove_child_by_id"><code class="docutils literal notranslate"><span class="pre">PyDuiListView.remove_child_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListView.set_datasource"><code class="docutils literal notranslate"><span class="pre">PyDuiListView.set_datasource()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListViewDataSource"><code class="docutils literal notranslate"><span class="pre">PyDuiListViewDataSource</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListViewDataSource.item_count"><code class="docutils literal notranslate"><span class="pre">PyDuiListViewDataSource.item_count()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListViewDataSource.item_node"><code class="docutils literal notranslate"><span class="pre">PyDuiListViewDataSource.item_node()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListViewDelegate"><code class="docutils literal notranslate"><span class="pre">PyDuiListViewDelegate</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListViewDelegate.create_item_by_node"><code class="docutils literal notranslate"><span class="pre">PyDuiListViewDelegate.create_item_by_node()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.listview.PyDuiListViewDelegate.item_height"><code class="docutils literal notranslate"><span class="pre">PyDuiListViewDelegate.item_height()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pydui.widgets.pgview">pydui.widgets.pgview module</a><ul>
 <li><a class="reference internal" href="#pydui.widgets.pgview.PyDuiPGView"><code class="docutils literal notranslate"><span class="pre">PyDuiPGView</span></code></a><ul>
 <li><a class="reference internal" href="#pydui.widgets.pgview.PyDuiPGView.bounds_size"><code class="docutils literal notranslate"><span class="pre">PyDuiPGView.bounds_size()</span></code></a></li>
@@ -893,6 +1145,26 @@
 <li><a class="reference internal" href="#pydui.widgets.picture.PyDuiPicture"><code class="docutils literal notranslate"><span class="pre">PyDuiPicture</span></code></a><ul>
 <li><a class="reference internal" href="#pydui.widgets.picture.PyDuiPicture.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiPicture.build_name()</span></code></a></li>
 <li><a class="reference internal" href="#pydui.widgets.picture.PyDuiPicture.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiPicture.parse_attrib()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pydui.widgets.scrollbar">pydui.widgets.scrollbar module</a><ul>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.build_name"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.build_name()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.draw"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.draw()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.get_signals"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.get_signals()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.layout"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.layout()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.on_post_init"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.on_post_init()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.parse_attrib"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.parse_attrib()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.scroll_position"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.scroll_position</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.set_scrollbar_type"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.set_scrollbar_type()</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbar.update_scroller"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbar.update_scroller()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbarType"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbarType</span></code></a><ul>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbarType.HScrollbar"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbarType.HScrollbar</span></code></a></li>
+<li><a class="reference internal" href="#pydui.widgets.scrollbar.PyDuiScrollbarType.VScrollbar"><code class="docutils literal notranslate"><span class="pre">PyDuiScrollbarType.VScrollbar</span></code></a></li>
 </ul>
 </li>
 </ul>

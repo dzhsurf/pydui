@@ -36,6 +36,14 @@ pydui.widgets.label module
    :undoc-members:
    :show-inheritance:
 
+pydui.widgets.listview module
+-----------------------------
+
+.. automodule:: pydui.widgets.listview
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pydui.widgets.pgview module
 ---------------------------
 
@@ -48,6 +56,14 @@ pydui.widgets.picture module
 ----------------------------
 
 .. automodule:: pydui.widgets.picture
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pydui.widgets.scrollbar module
+------------------------------
+
+.. automodule:: pydui.widgets.scrollbar
    :members:
    :undoc-members:
    :show-inheritance:

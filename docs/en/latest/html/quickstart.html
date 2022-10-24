@@ -202,7 +202,7 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 <section id="building">
 <h3>Building<a class="headerlink" href="#building" title="Permalink to this heading">¶</a></h3>
 <p><strong>Prerequisites</strong></p>
-<p>miniconda: https://conda.io/projects/conda/en/latest/user-guide/install/index.html</p>
+<p>miniconda: <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">https://conda.io/projects/conda/en/latest/user-guide/install/index.html</a></p>
 <blockquote>
 <div><p>If you are already in python3.9 environment, conda is not needed. but we highly recommend using it to manage the dev env.</p>
 </div></blockquote>
@@ -214,9 +214,9 @@ Even though there is GTK/Glade can quickly build a powerful UI Application. But 
 </div>
 <p>Or, you can build your own GTK libraries by following the guide below.</p>
 </li>
-<li><p>https://github.com/dzhsurf/gtk3-precompiled-libs-win-vs2019</p>
+<li><p><a class="reference external" href="https://github.com/dzhsurf/gtk3-precompiled-libs-win-vs2019">https://github.com/dzhsurf/gtk3-precompiled-libs-win-vs2019</a></p>
 <ul>
-<li><p>Build Tools: For Windows platform, Microsoft Visual C++ 14.0 or greater is required. Get it with “Microsoft C++ Build Tools”: https://visualstudio.microsoft.com/visual-cpp-build-tools/</p></li>
+<li><p>Build Tools: For Windows platform, Microsoft Visual C++ 14.0 or greater is required. Get it with “Microsoft C++ Build Tools”: <a class="reference external" href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">https://visualstudio.microsoft.com/visual-cpp-build-tools/</a></p></li>
 <li><p>Download the prebuilt GTK libraries, then set add bin to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment, and set the <code class="docutils literal notranslate"><span class="pre">GI_TYPELIB_PATH</span></code> to the <code class="docutils literal notranslate"><span class="pre">gi_typelib</span></code> directory. Or you can build the GTK libraries your self.</p></li>
 <li><p>Run pip install <code class="docutils literal notranslate"><span class="pre">pygobject</span></code> and <code class="docutils literal notranslate"><span class="pre">pycairo</span></code></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install --no-binary --force-reinstall :all: pygobject
@@ -250,7 +250,7 @@ python src/example/demo.py
 </section>
 <section id="code-example">
 <h3>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">¶</a></h3>
-<p><img alt="" src="_images/demo-mac.png" /> <img alt="" src="_images/demo-win.jpeg" /></p>
+<p><img alt="mac" src="_images/demo-mac.png" /> <img alt="win" src="_images/demo-win.jpeg" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pydui</span>
 <span class="kn">from</span> <span class="nn">pydui</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pydui.core.resource_loader</span> <span class="kn">import</span> <span class="n">create_default_resource_loader</span>
@@ -345,8 +345,8 @@ python src/example/demo.py
 <section id="support-yogalayout">
 <h3>Support YogaLayout<a class="headerlink" href="#support-yogalayout" title="Permalink to this heading">¶</a></h3>
 <p>Congratulations! Now you can use YogaLayout in PyDui-GTK!!!</p>
-<p>More details about YogaLayout: https://yogalayout.com/docs/</p>
-<p>Base on YogaLayout Python binding library - Poga. https://github.com/dzhsurf/poga</p>
+<p>More details about YogaLayout: <a class="reference external" href="https://yogalayout.com/docs/">https://yogalayout.com/docs/</a></p>
+<p>Base on YogaLayout Python binding library - Poga. <a class="reference external" href="https://github.com/dzhsurf/poga">https://github.com/dzhsurf/poga</a></p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;Window</span> <span class="na">size=</span><span class="s">&quot;800,600&quot;</span> <span class="na">title=</span><span class="s">&#39;Quickstart Demo&#39;</span> <span class="na">min_size=</span><span class="s">&quot;600,400&quot;</span>
     <span class="na">default_font=</span><span class="s">&quot;Helvetica&quot;</span> <span class="na">default_fontsize=</span><span class="s">&quot;16&quot;</span><span class="nt">&gt;</span>
@@ -429,7 +429,7 @@ python src/example/demo.py
 <span class="nt">&lt;/Window&gt;</span>
 </pre></div>
 </div>
-<p><img alt="" src="_images/demo-yogalayout.png" /></p>
+<p><img alt="yoga" src="_images/demo-yogalayout.png" /></p>
 </section>
 <section id="internal-layout-engine">
 <h3>Internal Layout Engine<a class="headerlink" href="#internal-layout-engine" title="Permalink to this heading">¶</a></h3>
@@ -440,7 +440,7 @@ python src/example/demo.py
 </section>
 <section id="architecture">
 <h3>Architecture<a class="headerlink" href="#architecture" title="Permalink to this heading">¶</a></h3>
-<p><img alt="" src="_images/architecture.png" /></p>
+<p><img alt="architecture" src="_images/architecture.png" /></p>
 </section>
 <section id="development">
 <h3>Development<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h3>
@@ -481,7 +481,7 @@ python src/example/demo.py
 </section>
 <section id="planning-web-platform-support">
 <h3>Planning: Web Platform Support<a class="headerlink" href="#planning-web-platform-support" title="Permalink to this heading">¶</a></h3>
-<p>In the future, I want to add Web platform support on pydui. It is technically possible. Use js-worker to run python code in the browser background thread to handle the framework logic. Such as use  pyodide(https://pyodide.org/en/stable/usage/quickstart.html) . Implement the text measure functions RenderAPIs on the web platform instead of cairo on the desktop. Implement yoga-js builder for building the UI from the layout code.</p>
+<p>In the future, I want to add Web platform support on pydui. It is technically possible. Use js-worker to run python code in the browser background thread to handle the framework logic. Such as use  pyodide(<a class="reference external" href="https://pyodide.org/en/stable/usage/quickstart.html">https://pyodide.org/en/stable/usage/quickstart.html</a>) . Implement the text measure functions RenderAPIs on the web platform instead of cairo on the desktop. Implement yoga-js builder for building the UI from the layout code.</p>
 </section>
 <section id="development-progress">
 <h3>Development progress<a class="headerlink" href="#development-progress" title="Permalink to this heading">¶</a></h3>
@@ -516,7 +516,7 @@ python src/example/demo.py
 <li><p>VLayout - finish</p></li>
 <li><p>PGLayout - finish</p></li>
 <li><p>ScrolledLayout - finish</p></li>
-<li><p>Fixed widget - 0%, processing</p></li>
+<li><p>Fixed widget - finish</p></li>
 </ul>
 <p>Widget:</p>
 <ul class="simple">
@@ -554,23 +554,23 @@ python src/example/demo.py
 </section>
 <section id="reference">
 <h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">¶</a></h3>
-<p>YogaLayout: https://yogalayout.com/docs</p>
-<p>Python Gtk-3 Tutorial: https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html</p>
-<p>Python Gtk-3: https://lazka.github.io/pgi-docs/Gtk-3.0/index.html</p>
-<p>Python Gdk-3: https://lazka.github.io/pgi-docs/Gdk-3.0/index.html</p>
-<p>Python GdkPixbuf: https://lazka.github.io/pgi-docs/GdkPixbuf-2.0/index.html</p>
-<p>Python Pango: https://lazka.github.io/pgi-docs/Pango-1.0/index.html</p>
-<p>Pycairo: https://pycairo.readthedocs.io/en/latest/index.html</p>
-<p>PyGObject: https://pygobject.readthedocs.io/en/latest/index.html</p>
-<p>Python PangoCairo: https://lazka.github.io/pgi-docs/PangoCairo-1.0/index.html</p>
+<p>YogaLayout: <a class="reference external" href="https://yogalayout.com/docs">https://yogalayout.com/docs</a></p>
+<p>Python Gtk-3 Tutorial: <a class="reference external" href="https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html">https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html</a></p>
+<p>Python Gtk-3: <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/index.html">https://lazka.github.io/pgi-docs/Gtk-3.0/index.html</a></p>
+<p>Python Gdk-3: <a class="reference external" href="https://lazka.github.io/pgi-docs/Gdk-3.0/index.html">https://lazka.github.io/pgi-docs/Gdk-3.0/index.html</a></p>
+<p>Python GdkPixbuf: <a class="reference external" href="https://lazka.github.io/pgi-docs/GdkPixbuf-2.0/index.html">https://lazka.github.io/pgi-docs/GdkPixbuf-2.0/index.html</a></p>
+<p>Python Pango: <a class="reference external" href="https://lazka.github.io/pgi-docs/Pango-1.0/index.html">https://lazka.github.io/pgi-docs/Pango-1.0/index.html</a></p>
+<p>Pycairo: <a class="reference external" href="https://pycairo.readthedocs.io/en/latest/index.html">https://pycairo.readthedocs.io/en/latest/index.html</a></p>
+<p>PyGObject: <a class="reference external" href="https://pygobject.readthedocs.io/en/latest/index.html">https://pygobject.readthedocs.io/en/latest/index.html</a></p>
+<p>Python PangoCairo: <a class="reference external" href="https://lazka.github.io/pgi-docs/PangoCairo-1.0/index.html">https://lazka.github.io/pgi-docs/PangoCairo-1.0/index.html</a></p>
 <hr class="docutils" />
-<p>Gtk-3: https://docs.gtk.org/gtk3/index.html</p>
-<p>Pango: https://docs.gtk.org/Pango/index.html</p>
-<p>GdkPixbuf: https://docs.gtk.org/gdk-pixbuf/index.html</p>
-<p>PangoCairo: https://docs.gtk.org/PangoCairo/</p>
+<p>Gtk-3: <a class="reference external" href="https://docs.gtk.org/gtk3/index.html">https://docs.gtk.org/gtk3/index.html</a></p>
+<p>Pango: <a class="reference external" href="https://docs.gtk.org/Pango/index.html">https://docs.gtk.org/Pango/index.html</a></p>
+<p>GdkPixbuf: <a class="reference external" href="https://docs.gtk.org/gdk-pixbuf/index.html">https://docs.gtk.org/gdk-pixbuf/index.html</a></p>
+<p>PangoCairo: <a class="reference external" href="https://docs.gtk.org/PangoCairo/">https://docs.gtk.org/PangoCairo/</a></p>
 <hr class="docutils" />
-<p>Gtk pgi Symbol Mapping: https://lazka.github.io/pgi-docs/Gtk-3.0/mapping.html</p>
-<p>Gdk pgi Symbol Mapping: https://lazka.github.io/pgi-docs/Gdk-3.0/mapping.html</p>
+<p>Gtk pgi Symbol Mapping: <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/mapping.html">https://lazka.github.io/pgi-docs/Gtk-3.0/mapping.html</a></p>
+<p>Gdk pgi Symbol Mapping: <a class="reference external" href="https://lazka.github.io/pgi-docs/Gdk-3.0/mapping.html">https://lazka.github.io/pgi-docs/Gdk-3.0/mapping.html</a></p>
 </section>
 </section>
 </section>

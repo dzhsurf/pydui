@@ -20,18 +20,18 @@ pydui.layout.pglayout module
    :undoc-members:
    :show-inheritance:
 
-pydui.layout.vlayout module
----------------------------
+pydui.layout.scrolled\_layout module
+------------------------------------
 
-.. automodule:: pydui.layout.vlayout
+.. automodule:: pydui.layout.scrolled_layout
    :members:
    :undoc-members:
    :show-inheritance:
 
-pydui.layout.scrolled_layout module
------------------------------------
+pydui.layout.vlayout module
+---------------------------
 
-.. automodule:: pydui.layout.scrolled_layout
+.. automodule:: pydui.layout.vlayout
    :members:
    :undoc-members:
    :show-inheritance:
