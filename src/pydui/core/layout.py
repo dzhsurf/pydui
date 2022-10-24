@@ -43,14 +43,12 @@ class PyDuiLayout(PyDuiWidget):
         # then you can use this draw region to draw the dirty region only.
         if clip_rect.width == 0 or clip_rect.height == 0:
             return
+
         super().draw(ctx, dirty_rect, clip_rect)
         rc1 = PyDuiRect.from_size((0, 0), (self.width, self.height))
-        for i in range(self.child_count):
-            child = self.get_child_at(i)
-            if child is None:
-                continue
-            ctx.save()
 
+        def internal_draw_child(child: PyDuiWidget):
+            ctx.save()
             # clip region
             rc2 = PyDuiRect.from_size((child.x, child.y), (child.width, child.height))
             draw_rc = utils.intersect_rect(rc1, rc2)
@@ -58,12 +56,28 @@ class PyDuiLayout(PyDuiWidget):
             ctx.clip()
             # translate child coordinate
             ctx.translate(child.x, child.y)
-
             child_rc = PyDuiRect.from_size((child.root_x, child.root_y), (child.width, child.height))
             child_clip_rect = utils.intersect_rect(child_rc, clip_rect)
             child.draw(ctx, dirty_rect, child_clip_rect)
-
             ctx.restore()
+
+        float_widgets: Dict[int, List[PyDuiWidget]] = {}
+
+        for i in range(self.child_count):
+            child = self.get_child_at(i)
+            if child is None:
+                continue
+            if child.is_float:
+                if child.zindex in float_widgets:
+                    float_widgets[child.zindex].append(child)
+                else:
+                    float_widgets[child.zindex] = [child]
+                continue
+            internal_draw_child(child)
+
+        for key in sorted(float_widgets.keys()):
+            for child in float_widgets[key]:
+                internal_draw_child(child)
 
     def layout(self, x: float, y: float, width: float, height: float, constraint: PyDuiLayoutConstraint):
         """layout

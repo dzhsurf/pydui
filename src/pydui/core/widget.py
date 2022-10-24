@@ -62,6 +62,7 @@ class PyDuiWidget(PyDuiObject):
         self.__autofit: bool = False
         self.__can_focus: bool = False
         self.__is_float: bool = False
+        self.__zindex: int = 0
         self.__is_visible: bool = True
 
         # attrib
@@ -246,6 +247,8 @@ class PyDuiWidget(PyDuiObject):
             self.__autofit = v == "true"
         elif k == "float":
             self.is_float = v == "true"
+        elif k == "zindex":
+            self.zindex = int(v)
 
     # event
     @property
@@ -471,6 +474,14 @@ class PyDuiWidget(PyDuiObject):
     @property
     def is_float(self) -> bool:
         return self.__is_float
+
+    @property
+    def zindex(self) -> int:
+        return self.__zindex
+
+    @zindex.setter
+    def zindex(self, zindex: int):
+        self.__zindex = zindex
 
     @property
     def fixed_x(self) -> float:
