@@ -13,5 +13,5 @@
     "explorerExclude.backup": {},
     "python.analysis.diagnosticSeverityOverrides": {
     },
-    "python.analysis.diagnosticMode": "workspace",
+    // "python.analysis.diagnosticMode": "workspace",
 }
