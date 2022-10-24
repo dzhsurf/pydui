@@ -112,9 +112,10 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
         layout_fixed_width_usage_dict: Dict[int, float] = {}
         for i in range(self.child_count - 1, -1, -1):
             child = self.get_child_at(i)
-            if child is None:
-                continue
-            if child.is_float:
+            if child is None or child.is_float:
+                layout_fixed_width_usage_dict[i] = 0
+                if i < self.child_count - 1:
+                    layout_fixed_width_usage_dict[i] = layout_fixed_width_usage_dict[i + 1]
                 continue
             usage = child.fixed_width + child.margin.width
             if child.autofit or child.fixed_width == 0:
@@ -213,7 +214,7 @@ class PyDuiHLayout(PyDuiLayoutWithPogaSupport):
                     child_size = (child_max_width, child_size[1])
                 if child_size[1] == 0:
                     child_size = (child_size[0], child_max_height)
-                child.layout(child.fixed_x, child.fixed_y, child_max_width, child_max_height, constraint=constraint)
+                child.layout(child.fixed_x, child.fixed_y, child_size[0], child_size[1], constraint=constraint)
                 continue
 
             margin_w = child.margin.width

@@ -244,6 +244,8 @@ class PyDuiWidget(PyDuiObject):
             self.enabled = v == "true"
         elif k == "autofit":
             self.__autofit = v == "true"
+        elif k == "float":
+            self.is_float = v == "true"
 
     # event
     @property
