@@ -50,8 +50,8 @@ class PyDuiWidget(PyDuiObject):
         self.__parent: Optional["PyDuiWidget"] = None
         self.__x: float = 0
         self.__y: float = 0
-        self.__root_x: float = 0
-        self.__root_y: float = 0
+        # self.__root_x: float = 0
+        # self.__root_y: float = 0
         self.__width: float = 0
         self.__height: float = 0
         self.__fixed_x: float = 0
@@ -64,6 +64,7 @@ class PyDuiWidget(PyDuiObject):
         self.__is_float: bool = False
         self.__zindex: int = 0
         self.__is_visible: bool = True
+        self.__need_update: bool = True
 
         # attrib
         self.__bkcolor: Optional[Gdk.RGBA] = None
@@ -180,11 +181,12 @@ class PyDuiWidget(PyDuiObject):
         self.__last_render_clip_rect = None
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
-        self.__root_x = self.__x
-        self.__root_y = self.__y
-        if self.parent is not None:
-            self.__root_x = self.parent.root_x + x
-            self.__root_y = self.parent.root_y + y
+        self.__need_update = False
+        # self.__root_x = self.__x
+        # self.__root_y = self.__y
+        # if self.parent is not None:
+        #     self.__root_x = self.parent.root_x + x
+        #     self.__root_y = self.parent.root_y + y
         logging.debug(
             "Layout: %s%s => (%.2f, %.2f, %.2f, %.2f)",
             # lazyjoin(' ', (str(i) for i in range(20))),
@@ -407,6 +409,9 @@ class PyDuiWidget(PyDuiObject):
             return True
         return False
 
+    def set_need_update(self):
+        self.__need_update = True
+
     # properties
     # position & size
 
@@ -465,11 +470,15 @@ class PyDuiWidget(PyDuiObject):
 
     @property
     def root_x(self) -> float:
-        return self.__root_x
+        if self.parent is None:
+            return self.x
+        return self.parent.root_x + self.x
 
     @property
     def root_y(self) -> float:
-        return self.__root_y
+        if self.parent is None:
+            return self.y
+        return self.parent.root_y + self.y
 
     @property
     def is_float(self) -> bool:
@@ -537,6 +546,10 @@ class PyDuiWidget(PyDuiObject):
     @visible.setter
     def visible(self, visible: bool):
         self.__is_visible = visible
+
+    @property
+    def is_need_update(self) -> bool:
+        return self.__need_update
 
     @property
     def enabled(self) -> bool:
