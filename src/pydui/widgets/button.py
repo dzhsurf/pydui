@@ -112,12 +112,12 @@ class PyDuiButton(PyDuiLabel):
     def on_mouse_enter(self) -> None:
         super().on_mouse_enter()
         self.__button_state = PyDuiButtonState.HOVER
-        self.get_window_client().notify_redraw()
+        self.get_window_client().get_window_provider().notify_redraw()
 
     def on_mouse_leave(self, next_widget: Optional[PyDuiWidget]) -> None:
         super().on_mouse_leave(next_widget)
         self.__button_state = PyDuiButtonState.NORMAL
-        self.get_window_client().notify_redraw()
+        self.get_window_client().get_window_provider().notify_redraw()
 
     def on_lbutton_press(self, x: float, y: float) -> bool:
         if self.do_bind_event("lbutton-press", self, x, y):

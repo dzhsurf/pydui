@@ -39,7 +39,6 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
         )
         self.__task_queue.set_preprocessor(self.__post_task_to_gtk_thread__)
         self.__rootview = rootview
-        # self.__rootview.set_window_client(self)  # weakref
         self.__event_dispatcher = PyDuiWindowEventDispatcher(
             window=window,  # weakref
             client=self,  # weakref
@@ -53,10 +52,6 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
 
     def release(self):
         self.__task_queue.terminate(False)
-
-    def notify_redraw(self):
-        # TODO: redraw dirty area
-        self.get_window_provider().notify_redraw()
 
     def init_window(self, config: PyDuiWindowConfig, ondraw: Callable[[Any, float, float], None]):
         self.get_window_provider().init_window(config, ondraw)
@@ -102,6 +97,12 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
 
     def get_resource_loader(self):
         return self.__loader
+
+    def get_window_interface(self) -> PyDuiWindowInterface:
+        window = self.__window()
+        if window is None:
+            raise ValueError("window interface is None")
+        return window
 
     def get_window_provider(self) -> PyDuiWindowProvider:
         window = self.__window()
@@ -154,6 +155,29 @@ class PyDuiWindowClient(PyDuiWindowClientInterface):
             return None
 
         return self.__rootview.find_widget_by_pos(x, y, filter=filter)
+
+    def mark_dirty(self, widget: PyDuiWidget):
+        p = widget.parent
+        if p is None or p.is_need_update:
+            # no parent or is setted, return directly.
+            return
+
+        # mark parent need update
+        p.set_need_update()
+        if not isinstance(p, PyDuiLayout):
+            return
+        if not p.autofit:
+            return
+        # mark sibling dirty
+        find: bool = False
+        for i in range(p.child_count):
+            child = p.get_child_at(i)
+            if child is None or not child.visible:
+                continue
+            if find:
+                child.set_need_update()
+            elif child is widget:
+                find = True
 
     # private
 

@@ -122,4 +122,4 @@ class PyDuiScrollbar(PyDuiLayout):
         self.do_bind_event("vscroll-changed", self.scroll_position)
         # self.emit("vscroll-changed", self.scroll_position)
         # TODO, set needupdate, invalidrect
-        self.get_window_client().notify_redraw()
+        self.get_window_client().get_window_provider().notify_redraw()

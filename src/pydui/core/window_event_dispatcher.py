@@ -7,7 +7,7 @@ from weakref import ReferenceType
 from pydui.common.base import PyDuiClickType, PyDuiRect
 from pydui.core.event import ButtonEvent, ButtonEventType, ButtonType, NCAreaType, ScrollEvent
 from pydui.core.widget import PyDuiWidget
-from pydui.core.window_client import PyDuiWindowClientInterface
+from pydui.core.window_client_interface import PyDuiWindowClientInterface
 from pydui.core.window_handler import PyDuiWindowHandler
 from pydui.core.window_interface import PyDuiWindowInterface
 

@@ -38,7 +38,12 @@ class PyDuiWindow(PyDuiWindowInterface):
 
     # PyDuiWindowInterface implement
     def get_widget(self, widget_id: str) -> Optional[PyDuiWidget]:
-        return self.__client.get_widget(widget_id)
+        rootview = self.__client.get_rootview()
+        return rootview.get_child(widget_id)
+
+    def get_widget_by_pos(self, x: float, y: float, *, filter: Callable[[Any], bool]) -> Optional[PyDuiWidget]:
+        rootview = self.__client.get_rootview()
+        return rootview.find_widget_by_pos(x, y, filter=filter)
 
     def create_embedded_widget(self, widget_typename: str) -> PyDuiEmbeddedWidgetHost[Any]:
         provider = self.__client.get_window_provider().get_embedded_widget_provider()

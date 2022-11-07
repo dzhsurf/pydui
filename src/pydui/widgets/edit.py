@@ -112,7 +112,7 @@ class PyDuiEdit(PyDuiPGView):
         if self.__text_view is None:
             return
         self.poga_layout().mark_dirty()
-        self.get_window_client().notify_redraw()
+        self.get_window_client().get_window_provider().notify_redraw()
 
     def get_textpadding(self) -> PyDuiEdge:
         return self.__text_padding

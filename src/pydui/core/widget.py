@@ -35,11 +35,7 @@ class PyDuiConstraint:
     max_height: float = sys.maxsize
 
 
-class PyDuiObject:
-    pass
-
-
-class PyDuiWidget(PyDuiObject):
+class PyDuiWidget:
     """Widget base class"""
 
     def __init__(self) -> None:
@@ -50,8 +46,8 @@ class PyDuiWidget(PyDuiObject):
         self.__parent: Optional["PyDuiWidget"] = None
         self.__x: float = 0
         self.__y: float = 0
-        # self.__root_x: float = 0
-        # self.__root_y: float = 0
+        self.__cache_root_x: Optional[float] = None
+        self.__cache_root_y: Optional[float] = None
         self.__width: float = 0
         self.__height: float = 0
         self.__fixed_x: float = 0
@@ -182,11 +178,11 @@ class PyDuiWidget(PyDuiObject):
         self.__x, self.__y = x, y
         self.__width, self.__height = width, height
         self.__need_update = False
-        # self.__root_x = self.__x
-        # self.__root_y = self.__y
-        # if self.parent is not None:
-        #     self.__root_x = self.parent.root_x + x
-        #     self.__root_y = self.parent.root_y + y
+        self.__cache_root_x = self.__x
+        self.__cache_root_y = self.__y
+        if self.parent is not None:
+            self.__cache_root_x = self.parent.root_x + x
+            self.__cache_root_y = self.parent.root_y + y
         logging.debug(
             "Layout: %s%s => (%.2f, %.2f, %.2f, %.2f)",
             # lazyjoin(' ', (str(i) for i in range(20))),
@@ -411,6 +407,9 @@ class PyDuiWidget(PyDuiObject):
 
     def set_need_update(self):
         self.__need_update = True
+        self.__cache_root_x = None
+        self.__cache_root_y = None
+        self.get_window_client().mark_dirty(self)
 
     # properties
     # position & size
@@ -470,12 +469,16 @@ class PyDuiWidget(PyDuiObject):
 
     @property
     def root_x(self) -> float:
+        if self.__cache_root_x is not None:
+            return self.__cache_root_x
         if self.parent is None:
             return self.x
         return self.parent.root_x + self.x
 
     @property
     def root_y(self) -> float:
+        if self.__cache_root_y is not None:
+            return self.__cache_root_y
         if self.parent is None:
             return self.y
         return self.parent.root_y + self.y

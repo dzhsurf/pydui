@@ -92,7 +92,7 @@ class PyDuiLayout(PyDuiWidget):
         super().layout(x, y, width, height, constraint)
 
     def get_children_range_fixed_width(self, start: int, stop: int) -> float:
-        w = 0
+        w: float = 0
         for i in range(start, stop):
             child = self.get_child_at(i)
             if child is None:
@@ -102,7 +102,7 @@ class PyDuiLayout(PyDuiWidget):
         return w
 
     def get_children_range_fixed_height(self, start: int, stop: int) -> float:
-        h = 0
+        h: float = 0
         for i in range(start, stop):
             child = self.get_child_at(i)
             if child is None:
@@ -240,6 +240,9 @@ class PyDuiLayout(PyDuiWidget):
         if child is None:
             return
         self.remove_child(child)
+
+    def set_need_update(self):
+        super().set_need_update()
 
     @property
     def child_count(self) -> int:

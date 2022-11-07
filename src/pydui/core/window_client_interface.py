@@ -72,6 +72,12 @@ class PyDuiWindowClientInterface(ABC):
     def get_box_size(self) -> PyDuiEdge:
         pass
 
+    # render
+
+    @abstractmethod
+    def get_render_context(self) -> cairo.Context:
+        pass
+
     @abstractmethod
     def get_widget(self, widget_id: str) -> Optional[Any]:
         pass
@@ -87,12 +93,10 @@ class PyDuiWindowClientInterface(ABC):
         pass
 
     @abstractmethod
-    def notify_redraw(self) -> None:
+    def mark_dirty(self, widget: Any):
         pass
 
-    @abstractmethod
-    def get_render_context(self) -> cairo.Context:
-        pass
+    # event
 
     @abstractmethod
     def add_event_observer(self, key: str, fn: Callable[..., Any]) -> None:
