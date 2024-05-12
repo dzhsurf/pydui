@@ -200,7 +200,7 @@ Support YogaLayout
 
 Congratulations! Now you can use YogaLayout in PyDui-GTK!!!
 
-More details about YogaLayout: <https://yogalayout.com/docs/>
+More details about YogaLayout: <https://www.yogalayout.dev/>
 
 Base on YogaLayout Python binding library - Poga. <https://github.com/dzhsurf/poga>
 
@@ -394,7 +394,7 @@ Testing
 Reference
 ---------
 
-YogaLayout: <https://yogalayout.com/docs>
+YogaLayout: <https://www.yogalayout.dev/>
 
 Python Gtk-3 Tutorial: <https://python-gtk-3-tutorial.readthedocs.io/en/latest/index.html>
 
