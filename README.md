@@ -5,6 +5,13 @@ PyDui Documentation
 
 ![PyDui-GTK](https://github.com/dzhsurf/pydui/raw/main/docs/source/_static/apple-touch-icon-180x180.png)
 
+
+Latest developments
+---------------
+
+Given the unfriendly configuration of the GTK3 development environment, after repeated considerations, it was decided to abandon this approach and work on the underlying interface of the GUI framework. There are two paths to consider. One is to completely reimplement the cross-platform UI interface, but this kind of work is too extensive and complex, and beyond the realisation capacity of an individual developer. The chosen direction at present is to use Vala to build the capabilities of the GTK4 UI lower level interface, then provide a unified binding to Python. This can significantly lower the difficulty of configuring the development environment and more conveniently provide cross-platform development capabilities.
+
+
 Introduction
 ------------
 
